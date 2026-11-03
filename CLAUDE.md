@@ -54,5 +54,8 @@ The scripts still contain absolute paths from the session that made them, so upd
 - `2026-11_tiktok_calendar.jpg`: visual calendar of the month.
 - `used_source_files.txt`: shoot photos and raw clips already used, so later months stay fresh.
 
+## Website (web/)
+- `web/service-pages/` holds the DEV service-page layer and its videos, served to the site through jsDelivr. See its README. Never clear `web/` with the monthly media clean-up.
+
 ## Next due
 The November batch ends **Mon 30 Nov 2026 18:00**. Plan and schedule the December batch before then, with big Drive videos handled in a laptop-on session.
