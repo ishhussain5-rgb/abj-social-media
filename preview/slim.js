@@ -35,9 +35,9 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 '.abjsl-intro{max-width:46em;margin:0 auto 26px;text-align:center;color:#55605E;font-size:16px;line-height:1.6}'+
 '.abjsl-row{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;padding:4px 2px 8px;-webkit-overflow-scrolling:touch}'+
 '.abjsl-row::-webkit-scrollbar{display:none}'+
-'.abjsl-row .p-card{flex:0 0 calc((100% - 60px)/4);scroll-snap-align:start;margin:0!important;max-width:none!important}'+
-'.abjsl-row .p-card-img{aspect-ratio:4/5;overflow:hidden}.abjsl-row .p-card-img img{width:100%;height:100%;object-fit:cover}'+
-'.abjsl-row .p-card-sub{font-size:14.5px;line-height:1.55}'+
+'.abjsl-row{--n:4}.abjsl-row .p-card{flex:0 0 calc((100% - 20px*(var(--n) - 1))/var(--n));scroll-snap-align:start;margin:0!important;max-width:none!important}'+
+'.abjsl-row .p-card-img{aspect-ratio:4/3;height:auto!important;overflow:hidden}.abjsl-row .p-card-img img{width:100%;height:100%;object-fit:cover}'+
+'.abjsl-row .p-card-sub{font-size:14.5px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}'+'.abjsl-few{display:none!important}'+
 '.abjsl-row .abjs-mini{display:none}'+
 '.abjsl-nav{display:flex;justify-content:flex-end;gap:10px;margin-top:18px}'+
 '.abjsl-nav button{width:46px;height:46px;border-radius:50%;border:1px solid rgba(14,27,26,.25);background:#fff;color:#0E1B1A;font-size:18px;cursor:pointer}'+
@@ -86,7 +86,7 @@ function options(secs){ // remaining image-card sections -> one tabbed, swipeabl
   var it=D.createElement('p');it.className='abjsl-intro';it.innerHTML=(h2?'<strong>'+h2.innerHTML+'.</strong> ':'')+(intro?firstSentence(txt(intro)):'');p.appendChild(it);
   var row=D.createElement('div');row.className='abjsl-row';
   [].slice.call(s.querySelectorAll('.p-card')).forEach(function(c){c.classList.remove('reveal');c.classList.add('visible');row.appendChild(c)});
-  p.appendChild(row);
+  row.style.setProperty('--n',Math.min(Math.max(row.children.length,1),4));p.appendChild(row);
   var nav=D.createElement('div');nav.className='abjsl-nav';nav.innerHTML='<button type="button" aria-label="Previous">&#8592;</button><button type="button" aria-label="Next">&#8594;</button>';
   var bs=nav.querySelectorAll('button');var upd=function(){bs[0].disabled=row.scrollLeft<8;bs[1].disabled=row.scrollLeft+row.clientWidth>row.scrollWidth-8};
   bs[0].onclick=function(){row.scrollBy({left:-row.clientWidth*0.9,behavior:'smooth'})};bs[1].onclick=function(){row.scrollBy({left:row.clientWidth*0.9,behavior:'smooth'})};
