@@ -5,7 +5,7 @@ R = os.path.dirname(os.path.abspath(__file__))
 # served from the exact commit of each branch (immutable URLs)
 import json
 MAP = {}
-for g in ('a', 'b'):
+for g in ('a', 'b', 'c', 'd', 'e'):
     ref = f'origin/web-media-{g}'
     sha = subprocess.run(['git', 'rev-parse', ref], cwd=R, capture_output=True, text=True).stdout.strip()
     files = subprocess.run(['git', 'ls-tree', '--name-only', ref, 'media/'], cwd=os.path.join(R, '..', '..'), capture_output=True, text=True).stdout.split()
