@@ -60,6 +60,7 @@ function txt(e){return (e&&e.textContent||'').replace(/\s+/g,' ').trim()}
 function firstSentence(s){var m=s.match(/^(.{40,220}?[.!?])(\s|$)/);return m?m[1]:s}
 function top(){return [].slice.call(D.querySelectorAll('section')).filter(function(s){return !s.parentElement.closest('section')})}
 
+function hideExcept(root,keep){[].slice.call(root.children).forEach(function(ch){if(keep.indexOf(ch)>=0)return;if(keep.some(function(k){return ch.contains(k)})){hideExcept(ch,keep);return}ch.classList.add('abjsl-gone')})}
 function keys(sec){ // first image-card section -> three numbered key points, no photos
  var cards=[].slice.call(sec.querySelectorAll('.p-card')).slice(0,3);if(cards.length<2)return false;
  var g=D.createElement('div');g.className='abjsl-kg';
@@ -67,8 +68,7 @@ function keys(sec){ // first image-card section -> three numbered key points, no
   k.innerHTML='<b>0'+(i+1)+'</b><h3></h3><p></p>';k.querySelector('h3').textContent=txt(c.querySelector('.p-card-title'));
   k.querySelector('p').textContent=firstSentence(txt(c.querySelector('.p-card-sub')));g.appendChild(k)});
  var hd=sec.querySelector('.section-header'),ct=sec.querySelector('.container')||sec;
- [].slice.call(ct.children).forEach(function(ch){if(ch!==hd)ch.classList.add('abjsl-gone')});
- ct.appendChild(g);sec.classList.add('abjsl-keys');
+ ct.appendChild(g);hideExcept(sec,[hd,g].filter(Boolean));sec.classList.add('abjsl-keys');
  var extra=[].slice.call(sec.querySelectorAll('.p-card')).slice(3);return extra}
 
 function options(secs){ // remaining image-card sections -> one tabbed, swipeable row
@@ -98,8 +98,7 @@ function options(secs){ // remaining image-card sections -> one tabbed, swipeabl
  });
  var hd=host.querySelector('.section-header');
  if(hd){hd.querySelector('.body-lg')&&hd.querySelector('.body-lg').classList.add('abjsl-gone');var h2=hd.querySelector('h2');if(h2&&secs.length>1){h2.textContent=WIDE?'Explore the options':'Explore the options';var eb=hd.querySelector('.eyebrow');if(eb)eb.textContent='Styles, layouts & projects'}}
- [].slice.call(ct.children).forEach(function(ch){if(ch!==hd)ch.classList.add('abjsl-gone')});
- if(secs.length>1)wrap.appendChild(tabs);panels.forEach(function(p){wrap.appendChild(p)});ct.appendChild(wrap);host.classList.add('abjsl-opts');
+ if(secs.length>1)wrap.appendChild(tabs);panels.forEach(function(p){wrap.appendChild(p)});ct.appendChild(wrap);hideExcept(host,[hd,wrap].filter(Boolean));host.classList.add('abjsl-opts');
  // in-page links (e.g. hero "Explore styles") open the right tab
  D.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);
   panels.forEach(function(p,k){if(p.id===id||p.getAttribute('data-anchor')===id){e.preventDefault();tabs.children[k]&&tabs.children[k].click();window.scrollTo({top:host.getBoundingClientRect().top+pageYOffset-70,behavior:'smooth'})}})},true);
