@@ -43,7 +43,7 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 '.abjsl-row .p-card-img{position:relative!important;aspect-ratio:4/5!important;height:auto!important;padding:0!important;overflow:hidden;border-radius:0!important;background:#e7e1d6}'+
 '.abjsl-row .p-card-img img{position:absolute!important;inset:0!important;width:100%!important;height:100%!important;max-height:none!important;aspect-ratio:auto!important;object-fit:cover!important;transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}'+
 '.abjsl-row .p-card:hover .p-card-img img{transform:scale(1.035)}'+
-'.abjsl-lab{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);padding:12px 20px;font:500 11.5px/1.25 "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap;max-width:84%;overflow:hidden;text-overflow:ellipsis;pointer-events:none}'+
+'.abjsl-lab{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);padding:12px 20px;font:500 11.5px/1.25 "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;white-space:normal;text-align:center;max-width:82%;width:max-content;pointer-events:none}'+
 '.abjsl-row .p-card-body{padding:16px 8px 0!important;text-align:center;background:none!important}'+
 '.abjsl-row .abjs-tag,.abjsl-row .p-card-title,.abjsl-row .abjs-mini,.abjsl-row .p-card-link{display:none!important}'+
 '.abjsl-row .p-card-sub{font-size:13.5px;line-height:1.65;color:var(--mut);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0}'+
@@ -93,6 +93,7 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 ' .abjsl-row{gap:14px;margin:0 -20px;padding:0 20px 6px;scroll-padding:0 20px}.abjsl-row .p-card{flex-basis:80%}.abjsl-nav{display:none}'+
 ' .abjsl-tabs{overflow-x:auto;justify-content:flex-start;gap:24px;margin:0 -20px 22px;padding:0 20px;scrollbar-width:none}.abjsl-tabs::-webkit-scrollbar{display:none}.abjsl-tab{flex:0 0 auto}'+
 ' '+X+'.abjsl-pg{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;margin:8px -20px 0;padding:0 20px 6px;scrollbar-width:none}.abjsl-pg::-webkit-scrollbar{display:none}'+X+'.abjsl-pg>*{flex:0 0 78%;scroll-snap-align:start}.abjsl-tbar .abjsl-tabs{justify-content:flex-start}'+
+' .abjsl-lab{letter-spacing:.14em;padding:10px 14px;font-size:11px}'+
 ' .abjsl-fg{grid-template-columns:1fr;gap:30px}.abjsl-fv{justify-self:stretch;max-width:none;max-height:none;margin:0 -20px;width:auto}.abjsl-ft{max-width:none;text-align:center}'+
 ' .abjsl .hero .hero-body{font-size:16px}}').replace(/(^|\})\.abjsl (?=\.(journey|review|faq))/g,'$1'+X).replace(/(^|\})(\.abjsl-row \.p-card|\.abjsl-pg|\.abjsl-ph2)/g,'$1'+X+'$2');
 D.head.appendChild(st)}
