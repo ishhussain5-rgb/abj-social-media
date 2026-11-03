@@ -55,7 +55,7 @@ The scripts still contain absolute paths from the session that made them, so upd
 - `used_source_files.txt`: shoot photos and raw clips already used, so later months stay fresh.
 
 ## Website (web/)
-- `web/service-pages/` holds the DEV service-page layer, served to the site through jsDelivr; its videos live on the `web-media-a`/`web-media-b` branches. See its README. Never clear `web/` or those branches with the monthly media clean-up. Keep `main` under 50 MB (jsDelivr limit).
+- `web/service-pages/` holds the DEV service-page layer, served to the site through jsDelivr; its videos live on the `web-media-a` to `web-media-e` branches. See its README. Never clear `web/` or those branches with the monthly media clean-up. Keep `main` under 50 MB (jsDelivr limit).
 
 ## Next due
 The November batch ends **Mon 30 Nov 2026 18:00**. Plan and schedule the December batch before then, with big Drive videos handled in a laptop-on session.
