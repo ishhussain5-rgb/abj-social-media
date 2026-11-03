@@ -60,7 +60,8 @@ function txt(e){return (e&&e.textContent||'').replace(/\s+/g,' ').trim()}
 function firstSentence(s){var m=s.match(/^(.{40,220}?[.!?])(\s|$)/);return m?m[1]:s}
 function top(){return [].slice.call(D.querySelectorAll('section')).filter(function(s){return !s.parentElement.closest('section')})}
 
-function hideExcept(root,keep){[].slice.call(root.children).forEach(function(ch){if(keep.indexOf(ch)>=0)return;if(keep.some(function(k){return ch.contains(k)})){hideExcept(ch,keep);return}ch.classList.add('abjsl-gone')})}
+function gone(e){e.classList.add('abjsl-gone');e.style.setProperty('display','none','important')}
+function hideExcept(root,keep){[].slice.call(root.children).forEach(function(ch){if(keep.indexOf(ch)>=0)return;if(keep.some(function(k){return ch.contains(k)})){hideExcept(ch,keep);return}gone(ch)})}
 function keys(sec){ // first image-card section -> three numbered key points, no photos
  var cards=[].slice.call(sec.querySelectorAll('.p-card')).slice(0,3);if(cards.length<2)return false;
  var g=D.createElement('div');g.className='abjsl-kg';
@@ -94,10 +95,10 @@ function options(secs){ // remaining image-card sections -> one tabbed, swipeabl
   var leftover=s.querySelector('.abjs-prose');if(leftover)p.__prose=leftover;
   panels.push(p);
   b.addEventListener('click',function(){[].forEach.call(tabs.children,function(t,k){t.setAttribute('aria-selected',k===i?'true':'false')});panels.forEach(function(q,k){q.hidden=k!==i});setTimeout(function(){var r=p.querySelector('.abjsl-row');r&&r.dispatchEvent(new Event('scroll'))},50)});
-  if(s!==host)s.classList.add('abjsl-gone');
+  if(s!==host)gone(s);
  });
  var hd=host.querySelector('.section-header');
- if(hd){hd.querySelector('.body-lg')&&hd.querySelector('.body-lg').classList.add('abjsl-gone');var h2=hd.querySelector('h2');if(h2&&secs.length>1){h2.textContent=WIDE?'Explore the options':'Explore the options';var eb=hd.querySelector('.eyebrow');if(eb)eb.textContent='Styles, layouts & projects'}}
+ if(hd){hd.querySelector('.body-lg')&&gone(hd.querySelector('.body-lg'));var h2=hd.querySelector('h2');if(h2&&secs.length>1){h2.textContent=WIDE?'Explore the options':'Explore the options';var eb=hd.querySelector('.eyebrow');if(eb)eb.textContent='Styles, layouts & projects'}}
  if(secs.length>1)wrap.appendChild(tabs);panels.forEach(function(p){wrap.appendChild(p)});ct.appendChild(wrap);hideExcept(host,[hd,wrap].filter(Boolean));host.classList.add('abjsl-opts');
  // in-page links (e.g. hero "Explore styles") open the right tab
  D.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="#"]');if(!a)return;var id=a.getAttribute('href').slice(1);
@@ -128,7 +129,7 @@ function run(){
  var S=top();var cardSecs=S.filter(function(s){return s.classList.contains('portfolio')&&s.querySelector('.p-card')});
  var prose=[].slice.call(D.querySelectorAll('.abjs-prose')).filter(function(p){return !p.closest('.faq-section')});
  if(cardSecs.length){keys(cardSecs[0]);options(cardSecs.slice(1))}
- S.forEach(function(s){var c=(s.className||'')+' '+(s.id||'');if(/areas-section|abj-sister|partners|trade-section-lower/.test(c))s.classList.add('abjsl-gone')});
+ S.forEach(function(s){var c=(s.className||'')+' '+(s.id||'');if(/areas-section|abj-sister|partners|trade-section-lower/.test(c))gone(s)});
  var h1=txt(D.querySelector('#home h1'));fold(prose,h1.split(/[,.]/)[0]);
  try{hero()}catch(e){}
 }
