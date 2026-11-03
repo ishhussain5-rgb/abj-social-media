@@ -104,7 +104,7 @@ function tile(c){ // card -> Nordiska-style tile: tall photo, white label box, o
  c.classList.remove('reveal');c.classList.add('visible');
  var im=c.querySelector('.p-card-img'),t=txt(c.querySelector('.p-card-title'));
  var ov=(MEDIA&&MEDIA.img||{})[t];if(ov&&im&&im.querySelector('img')){var i=im.querySelector('img');i.src=ov;i.removeAttribute('srcset')}
- if(im&&t&&!im.querySelector('.abjsl-lab'))im.appendChild(lab(t));
+ if(im&&t&&!im.querySelector('.abjsl-lab'))im.appendChild(lab(t.split(/\s*[:–—]\s*|\s+with\s+/)[0]));
  var sub=c.querySelector('.p-card-sub');if(sub){sub.textContent=txt(sub).replace(/\s*(Explore|View|See)\s[^.]*$/,'')}
  return c}
 
@@ -122,7 +122,7 @@ function options(secs){ // remaining image-card sections -> one tabbed, swipeabl
   var it=D.createElement('p');it.className='abjsl-intro';it.innerHTML=(h2?'<strong>'+h2.innerHTML+'.</strong> ':'')+(intro?firstSentence(txt(intro)):'');p.appendChild(it);
   var row=D.createElement('div');row.className='abjsl-row';
   [].slice.call(s.querySelectorAll('.p-card')).forEach(function(c){row.appendChild(tile(c))});
-  row.style.setProperty('--n',Math.min(Math.max(row.children.length,1),3));p.appendChild(row);
+  if(row.children.length<3)row.style.justifyContent='center';p.appendChild(row);
   var nav=D.createElement('div');nav.className='abjsl-nav';nav.innerHTML='<button type="button" aria-label="Previous">&#8592;</button><button type="button" aria-label="Next">&#8594;</button>';
   var bs=nav.querySelectorAll('button');var upd=function(){bs[0].disabled=row.scrollLeft<8;bs[1].disabled=row.scrollLeft+row.clientWidth>row.scrollWidth-8};
   bs[0].onclick=function(){row.scrollBy({left:-row.clientWidth*0.9,behavior:'smooth'})};bs[1].onclick=function(){row.scrollBy({left:row.clientWidth*0.9,behavior:'smooth'})};
