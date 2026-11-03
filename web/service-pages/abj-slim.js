@@ -1,4 +1,4 @@
-(function(){var s=document.currentScript,b=s&&s.src?s.src.replace(/[^/]*$/,'')+'media/':'';window.__ABJ_MEDIA_BASE=b})();
+window.__ABJ_MEDIA_BASE='https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@153776b6a77ab73047bb34cce69cad5b4baa6054/web/service-pages/media/';
 /* ABJ service pages: per-page media (hero reel, film reel, tile photos) and film copy. Paths are relative to media/. */
 (function(){
 function H(k,cap){return {wide:[{v:'abj-'+k+'-hero-wide.mp4',p:'abj-'+k+'-hero-wide-poster.webp'}],tall:[{v:'abj-'+k+'-hero-v.mp4',p:'abj-'+k+'-hero-v-poster.webp'}],caps:[cap]}}
