@@ -18,7 +18,8 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 '.abjsl-gone{display:none!important}'+
 '.abjsl .hero .abjs-hero-points{display:none}.abjsl .hero .hero-body{max-width:34em}'+
 /* one calm canvas, hairline rules between blocks */
-'.abjsl .abjsl-lin{background:var(--lin)!important;background-image:none!important;position:relative}'+
+'html.abjsl body .abjsl-lin.abjsl-lin.abjsl-lin{background:var(--lin)!important;background-image:none!important;position:relative}'+
+'html.abjsl body .abjsl-lin.abjsl-lin:after{display:none!important}'+
 '.abjsl .abjsl-rule:before{content:"";position:absolute;top:0;left:50%;width:min(720px,84%);transform:translateX(-50%);border-top:1px solid var(--hair)}'+
 '.abjsl .abjsl-lin .section-header{margin-left:auto;margin-right:auto;max-width:760px}'+
 '.abjsl .abjsl-lin .section-header .body-lg,.abjsl-intro{font-size:15px;line-height:1.75;color:var(--mut);letter-spacing:.01em}'+
@@ -160,17 +161,19 @@ function fold(prose,h1){ // all long copy kept, folded behind one line
  prose.forEach(function(p){d.appendChild(p)});box.appendChild(d);before.parentNode.insertBefore(box,before);return box}
 
 function hero(){ // two crossfading clips, same behaviour as the homepage hero
- if(!MEDIA)return;var h=D.getElementById('home'),vis=h&&h.querySelector('.hero-visual');if(!vis||vis.querySelector('.abjp-hv'))return;
+ if(!MEDIA)return;var h=D.getElementById('home'),vis=h&&h.querySelector('.hero-visual');if(!vis||vis.querySelector('video.abjp-hv'))return;
  var C=(WIDE?MEDIA.wide:MEDIA.tall)||[];if(!C.length)return;
  var cur=0,sw=false;var mk=function(c,k){var v=D.createElement('video');v.className='abjp-hv'+(k?'':' on');v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');v.setAttribute('disablepictureinpicture','');v.setAttribute('preload',k?'none':'auto');v.setAttribute('loop','');if(c.p)v.setAttribute('poster',c.p);v.setAttribute('aria-hidden','true');if(!k&&!RM){v.setAttribute('autoplay','');v.autoplay=true}var s=D.createElement('source');s.src=c.v;s.type='video/mp4';v.appendChild(s);return v};
- var V=C.map(mk);var shade=D.createElement('div');shade.className='abjp-hv-shade';var cap=D.createElement('div');cap.className='abjp-hv-cap';cap.textContent=(MEDIA.caps||[])[0]||'';
+ var V=C.map(mk);var shade=vis.querySelector('.abjp-hv-shade'),cap=vis.querySelector('.abjp-hv-cap'),own=!shade;
+ if(!shade){shade=D.createElement('div');shade.className='abjp-hv-shade'}if(!cap){cap=D.createElement('div');cap.className='abjp-hv-cap'}cap.textContent=(MEDIA.caps||[])[0]||'';
+ [].slice.call(vis.querySelectorAll('img.abjp-hv')).forEach(function(i){i.classList.remove('on');i.style.opacity='0'});
  if(V.length>1){V.forEach(function(v){v.removeAttribute('loop')});var go=function(){if(sw)return;var nx=(cur+1)%V.length,a=V[cur],n=V[nx];if(n.readyState<3){if(n.preload!=='auto'){n.preload='auto';n.load()}a.currentTime=0;a.play&&a.play();return}sw=true;n.currentTime=0;var pr;try{pr=n.play()}catch(e){}var swap=function(){n.classList.add('on');cap.classList.add('fade');setTimeout(function(){cap.textContent=(MEDIA.caps||[])[nx]||'';cap.classList.remove('fade')},450);setTimeout(function(){a.classList.remove('on');a.pause();a.currentTime=0;cur=nx;sw=false},900)};if(pr&&pr.then)pr.then(swap,function(){sw=false;a.currentTime=0;a.play()});else swap()};
   V.forEach(function(v,k){v.addEventListener('timeupdate',function(){if(k===cur&&v.duration&&v.currentTime>v.duration-0.75)go()});v.addEventListener('ended',function(){if(k===cur)go()})});
   V[0].addEventListener('playing',function(){setTimeout(function(){if(V[1].preload!=='auto'){V[1].preload='auto';V[1].load()}},2000)},{once:true})}
  var kick=function(){var v=V[cur];if(v&&v.paused&&!RM){var p=v.play();p&&p.catch&&p.catch(function(){})}};
  ['touchstart','scroll','pointerdown'].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});
  [].slice.call(vis.querySelectorAll('img')).forEach(function(i){i.classList.add('abjsl-under')});
- V.forEach(function(v){vis.appendChild(v)});vis.appendChild(shade);vis.appendChild(cap);h.classList.add('abjp-vid');if(!RM)kick()}
+ V.forEach(function(v){shade.parentNode===vis?vis.insertBefore(v,shade):vis.appendChild(v)});if(own){vis.appendChild(shade);vis.appendChild(cap)}h.classList.add('abjp-vid');if(!RM)kick()}
 
 function run(){
  if(D.documentElement.classList.contains('abjsl'))return;D.documentElement.classList.add('abjsl');css();
