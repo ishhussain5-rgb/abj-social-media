@@ -13,14 +13,15 @@ var WIDE=window.matchMedia&&matchMedia('(min-width:1024px)').matches;
 var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
 var MEDIA=(window.ABJ_SLIM_MEDIA||{})[key]||null;
 
-function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElement('style');st.id='abjs-slim-css';st.textContent=
+function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElement('style');st.id='abjs-slim-css';var X='html.abjsl:not(#x1):not(#x2):not(#x3) ';st.textContent=(
 '.abjsl{--lin:#F4F0E9;--ink:#0E1B1A;--mut:#5E6765;--hair:rgba(14,27,26,.14);--gold:#B08D57}'+
 '.abjsl-gone{display:none!important}'+
 '.abjsl .hero .abjs-hero-points{display:none}.abjsl .hero .hero-body{max-width:34em}'+
 /* one calm canvas, hairline rules between blocks */
-'html.abjsl body .abjsl-lin.abjsl-lin.abjsl-lin{background:var(--lin)!important;background-image:none!important;position:relative}'+
-'html.abjsl body .abjsl-lin.abjsl-lin:after{display:none!important}'+
-'.abjsl .abjsl-rule:before{content:"";position:absolute;top:0;left:50%;width:min(720px,84%);transform:translateX(-50%);border-top:1px solid var(--hair)}'+
+'html.abjsl:not(#x1):not(#x2):not(#x3) body .abjsl-lin{background:var(--lin)!important;background-image:none!important;position:relative}'+
+'html.abjsl:not(#x1):not(#x2):not(#x3) body .abjsl-lin:after{display:none!important}'+
+'html.abjsl:not(#x1):not(#x2):not(#x3) body .abjsl-lin:before{content:none;background:none!important;opacity:1!important}'+
+'html.abjsl:not(#x1):not(#x2):not(#x3) body .abjsl-rule:before{content:"";position:absolute;inset:auto;top:0;left:50%;width:min(720px,84%);height:0;transform:translateX(-50%);border-top:1px solid var(--hair);z-index:1}'+
 '.abjsl .abjsl-lin .section-header{margin-left:auto;margin-right:auto;max-width:760px}'+
 '.abjsl .abjsl-lin .section-header .body-lg,.abjsl-intro{font-size:15px;line-height:1.75;color:var(--mut);letter-spacing:.01em}'+
 /* key points */
@@ -80,7 +81,7 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 ' .abjsl-row{gap:14px;margin:0 -20px;padding:0 20px 6px;scroll-padding:0 20px}.abjsl-row .p-card{flex-basis:80%}.abjsl-nav{display:none}'+
 ' .abjsl-tabs{overflow-x:auto;justify-content:flex-start;gap:24px;margin:0 -20px 22px;padding:0 20px;scrollbar-width:none}.abjsl-tabs::-webkit-scrollbar{display:none}.abjsl-tab{flex:0 0 auto}'+
 ' .abjsl-fg{grid-template-columns:1fr;gap:30px}.abjsl-fv{justify-self:stretch;max-width:none;max-height:none;margin:0 -20px;width:auto}.abjsl-ft{max-width:none;text-align:center}'+
-' .abjsl .hero .hero-body{font-size:16px}}';
+' .abjsl .hero .hero-body{font-size:16px}}').replace(/(^|\})\.abjsl (?=\.(journey|review|faq))/g,'$1'+X).replace(/(^|\})(\.abjsl-row \.p-card)/g,'$1'+X+'$2');
 D.head.appendChild(st)}
 
 function txt(e){return (e&&e.textContent||'').replace(/\s+/g,' ').trim()}
