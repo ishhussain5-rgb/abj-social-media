@@ -246,6 +246,9 @@ function run(){
   var light=/abjsl-keys|abjsl-opts|abjsl-points|abjsl-film|abjsl-more|abjsl-tbar|bc-explorer|bc-estimator|journey|testimonials|faq-section/.test(s.className);
   if(light){s.classList.add('abjsl-lin');if(prev)s.classList.add('abjsl-rule')}prev=light});
  try{hero()}catch(e){}
+ try{quick()}catch(e){}
 }
+/* tile pop-up: the page's own quick view reads data-img/title/description from the card; fill them from the card itself (just before it opens) */
+function quick(){[].forEach.call(D.querySelectorAll('.p-card'),function(c){var fill=function(){var i=c.querySelector('.p-card-img img')||c.querySelector('img');var u=i?(i.currentSrc||i.getAttribute('src')||i.getAttribute('data-original')||''):'';if(u&&!/^data:/.test(u))c.dataset.img=u;if(!c.dataset.title){var t=c.querySelector('.p-card-title,h3,h4');if(t)c.dataset.title=txt(t)}if(!c.dataset.description){var d=c.querySelector('.p-card-sub,p');if(d)c.dataset.description=d.innerHTML}};c.addEventListener('click',fill,true);c.addEventListener('keydown',fill,true)})}
 if(D.readyState==='loading')D.addEventListener('DOMContentLoaded',run);else run();
 })();
