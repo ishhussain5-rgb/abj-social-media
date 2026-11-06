@@ -6,6 +6,8 @@ function H(k,a,b){return {wide:[C(k,'A','wide'),C(k,'B','wide')],tall:[C(k,'A','
 function F(k,o){o.v='abj-'+k+'-film-v.mp4';o.p='abj-'+k+'-film-v-poster.webp';return o}
 var M={};
 M.kitchens=H('kitchens','Navy handleless kitchen','Marble-effect worktops & wine cooler');
+/* desktop: one unbroken take that dissolves back to its start (no jump within the same shot); phone keeps A/B */
+M.kitchens.wide=[C('kitchens','L','wide'),C('kitchens','L','wide')];M.kitchens.caps=['Navy handleless kitchen','Navy handleless kitchen'];
 M.kitchens.img={'Shaker Kitchens':'abj-kitchens-tile-shaker.webp','Traditional & In-Frame':'abj-kitchens-tile-traditional.webp'};
 M.kitchens.film={v:'abj-kitchens-feature-v.mp4',p:'abj-kitchens-feature-v-poster.webp',label:'Sage Shaker kitchen',kicker:'Made in Peterborough',title:'Built in our own workshop, fitted by our own team',
  text:'Every cabinet is measured, designed and made here in Peterborough, then installed by the same team that drew it. One point of contact from first sketch to final handover.'};

@@ -14,6 +14,7 @@ var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches
 var MEDIA=(window.ABJ_SLIM_MEDIA||{})[key]||null;
 
 function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElement('style');st.id='abjs-slim-css';var X='html.abjsl:not(#x1):not(#x2):not(#x3) ';st.textContent=(
+'.abjsl video::-webkit-media-controls-start-playback-button,.abjsl video::-webkit-media-controls-overlay-play-button,.abjsl video::-webkit-media-controls{display:none!important;-webkit-appearance:none!important;opacity:0!important}'+
 '.abjsl{--lin:#F4F0E9;--ink:#0E1B1A;--mut:#5E6765;--hair:rgba(14,27,26,.14);--gold:#B08D57}'+
 '.abjsl-gone{display:none!important}'+
 '.abjsl .hero .abjs-hero-points{display:none}.abjsl .hero .hero-body{max-width:34em}'+
@@ -197,12 +198,14 @@ function film(after){ // a second reel with a short story, Nordiska-style split
  var s=D.createElement('section');s.className='abjsl-film abjsl-lin';s.id='abj-film';
  s.innerHTML='<div class="container"><div class="abjsl-fg"><figure class="abjsl-fv"></figure><div class="abjsl-ft"><span class="eyebrow"></span><h2></h2><p></p><a class="abjsl-btn" href="/bookingform">Book your free design visit <span aria-hidden="true">&#8594;</span></a></div></div></div>';
  var fig=s.querySelector('.abjsl-fv');var v=D.createElement('video');v.muted=true;v.defaultMuted=true;['muted','playsinline','webkit-playsinline','loop','disablepictureinpicture'].forEach(function(a){v.setAttribute(a,'')});
- v.setAttribute('preload','none');if(F.p)v.setAttribute('poster',F.p);v.setAttribute('aria-label',F.alt||F.title||'ABJ project film');
+ v.setAttribute('preload','none');if(!RM){v.setAttribute('autoplay','');v.autoplay=true}if(F.p)v.setAttribute('poster',F.p);v.setAttribute('aria-label',F.alt||F.title||'ABJ project film');
  var so=D.createElement('source');so.src=F.v;so.type='video/mp4';v.appendChild(so);fig.appendChild(v);if(F.label)fig.appendChild(lab(F.label));
  s.querySelector('.eyebrow').textContent=F.kicker||'Made in Peterborough';s.querySelector('h2').textContent=F.title||'';s.querySelector('p').textContent=F.text||'';
  var cta=s.querySelector('.abjsl-btn'),hb=book();if(hb){cta.addEventListener('click',function(e){var h=hb.getAttribute('href');if(!h||h.charAt(0)==='#'||/^javascript/.test(h)){e.preventDefault();hb.click()}else{cta.href=h}})}
  after.parentNode.insertBefore(s,after.nextSibling);
  if(!RM&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){v.preload='auto';var p=v.play();p&&p.catch&&p.catch(function(){})}else{v.pause()}})},{rootMargin:'120px 0px'}).observe(fig)}
+ /* phones that hold back autoplay (e.g. iPhone Low Power Mode): start on the first touch anywhere, no play button */
+ if(!RM){var inV=function(){var r=fig.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight};var tap=function(){if(v.paused&&inV()){v.preload='auto';var p=v.play();p&&p.catch&&p.catch(function(){})}};['touchstart','touchend','pointerdown','click'].forEach(function(e){D.addEventListener(e,tap,{passive:true})});v.addEventListener('playing',function(){['touchstart','touchend','pointerdown','click'].forEach(function(e){D.removeEventListener(e,tap)})})}
  return s}
 
 function fold(prose,h1){ // all long copy kept, folded behind one line
@@ -222,7 +225,7 @@ function hero(){ // two crossfading clips, same behaviour as the homepage hero
   V.forEach(function(v,k){v.addEventListener('timeupdate',function(){if(k===cur&&v.duration&&v.currentTime>v.duration-0.75)go()});v.addEventListener('ended',function(){if(k===cur)go()})});
   V[0].addEventListener('playing',function(){setTimeout(function(){if(V[1].preload!=='auto'){V[1].preload='auto';V[1].load()}},2000)},{once:true})}
  var kick=function(){var v=V[cur];if(v&&v.paused&&!RM){var p=v.play();p&&p.catch&&p.catch(function(){})}};
- ['touchstart','scroll','pointerdown'].forEach(function(e){window.addEventListener(e,kick,{passive:true,once:true})});
+ ['touchstart','touchend','scroll','pointerdown','click'].forEach(function(e){window.addEventListener(e,kick,{passive:true})});
  [].slice.call(vis.querySelectorAll('img')).forEach(function(i){i.classList.add('abjsl-under')});
  V.forEach(function(v){shade.parentNode===vis?vis.insertBefore(v,shade):vis.appendChild(v)});if(own){vis.appendChild(shade);vis.appendChild(cap)}h.classList.add('abjp-vid');if(!RM)kick()}
 
