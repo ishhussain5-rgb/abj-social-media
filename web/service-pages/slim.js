@@ -10,11 +10,12 @@ var MAP={
  'bespoke-hallways-dev-h4j8':'hallways','bathroom-cabinetry-dev-c6v2':'bathroom','hmo-makeover-dev-m2x5':'hmo'};
 var key=MAP[P.replace(/^\/|\/$/g,'')];if(!key)return;
 var WIDE=window.matchMedia&&matchMedia('(min-width:1024px)').matches;
-var RM=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+/* Videos are silent, slow ambient footage, so they start by themselves even when the phone has Reduce Motion switched on (iOS otherwise shows a play button). */
+var RM=false;
 var MEDIA=(window.ABJ_SLIM_MEDIA||{})[key]||null;
 
 function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElement('style');st.id='abjs-slim-css';var X='html.abjsl:not(#x1):not(#x2):not(#x3) ';st.textContent=(
-'.abjsl video::-webkit-media-controls-start-playback-button,.abjsl video::-webkit-media-controls-overlay-play-button,.abjsl video::-webkit-media-controls{display:none!important;-webkit-appearance:none!important;opacity:0!important}'+
+'.abjsl video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none!important;opacity:0!important}'+'.abjsl video::-webkit-media-controls{display:none!important;opacity:0!important}'+'.abjsl video::-webkit-media-controls-overlay-play-button{display:none!important;opacity:0!important}'+'.abjsl video::-webkit-media-controls-panel{display:none!important}'+
 '.abjsl{--lin:#F4F0E9;--ink:#0E1B1A;--mut:#5E6765;--hair:rgba(14,27,26,.14);--gold:#B08D57}'+
 '.abjsl-gone{display:none!important}'+
 '.abjsl .hero .abjs-hero-points{display:none}.abjsl .hero .hero-body{max-width:34em}'+
@@ -227,7 +228,7 @@ function hero(){ // two crossfading clips, same behaviour as the homepage hero
  var kick=function(){var v=V[cur];if(v&&v.paused&&!RM){var p=v.play();p&&p.catch&&p.catch(function(){})}};
  ['touchstart','touchend','scroll','pointerdown','click'].forEach(function(e){window.addEventListener(e,kick,{passive:true})});
  [].slice.call(vis.querySelectorAll('img')).forEach(function(i){i.classList.add('abjsl-under')});
- V.forEach(function(v){shade.parentNode===vis?vis.insertBefore(v,shade):vis.appendChild(v)});if(own){vis.appendChild(shade);vis.appendChild(cap)}h.classList.add('abjp-vid');if(!RM)kick()}
+ V.forEach(function(v){shade.parentNode===vis?vis.insertBefore(v,shade):vis.appendChild(v)});if(own){vis.appendChild(shade);vis.appendChild(cap)}h.classList.add('abjp-vid');if(!RM){kick();['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(e){V[0].addEventListener(e,kick)});D.addEventListener('visibilitychange',function(){if(!D.hidden)kick()});window.addEventListener('pageshow',kick);var tries=0,iv=setInterval(function(){kick();if(++tries>16||!V[cur].paused)clearInterval(iv)},400);if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)kick()})}).observe(vis)}}
 
 function run(){
  if(D.documentElement.classList.contains('abjsl'))return;D.documentElement.classList.add('abjsl');css();
