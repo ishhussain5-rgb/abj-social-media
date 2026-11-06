@@ -255,12 +255,12 @@ function film(after){ // a second reel with a short story, Nordiska-style split
  var s=D.createElement('section');s.className='abjsl-film abjsl-lin';s.id='abj-film';
  s.innerHTML='<div class="container"><div class="abjsl-fg"><figure class="abjsl-fv"></figure><div class="abjsl-ft"><span class="eyebrow"></span><h2></h2><p></p><a class="abjsl-btn" href="/bookingform">Book your free design visit <span aria-hidden="true">&#8594;</span></a></div></div></div>';
  var fig=s.querySelector('.abjsl-fv');var v=D.createElement('video');v.muted=true;v.defaultMuted=true;['muted','playsinline','webkit-playsinline','loop','disablepictureinpicture'].forEach(function(a){v.setAttribute(a,'')});
- v.setAttribute('preload','none');if(!RM){v.setAttribute('autoplay','');v.autoplay=true}if(F.p)v.setAttribute('poster',F.p);v.setAttribute('aria-label',F.alt||F.title||'ABJ project film');
+ v.setAttribute('preload','none');if(F.p)v.setAttribute('poster',F.p);v.setAttribute('aria-label',F.alt||F.title||'ABJ project film');
  var so=D.createElement('source');so.src=F.v;so.type='video/mp4';v.appendChild(so);fig.appendChild(v);if(F.label)fig.appendChild(lab(F.label));
  s.querySelector('.eyebrow').textContent=F.kicker||'Made in Peterborough';s.querySelector('h2').textContent=F.title||'';s.querySelector('p').textContent=F.text||'';
  var cta=s.querySelector('.abjsl-btn'),hb=book();if(hb){cta.addEventListener('click',function(e){var h=hb.getAttribute('href');if(!h||h.charAt(0)==='#'||/^javascript/.test(h)){e.preventDefault();hb.click()}else{cta.href=h}})}
  after.parentNode.insertBefore(s,after.nextSibling);
- if(!RM&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){v.preload='auto';var p=v.play();p&&p.catch&&p.catch(function(){})}else{v.pause()}})},{rootMargin:'120px 0px'}).observe(fig)}
+ if(!RM&&'IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){v.preload='auto';v.autoplay=true;v.setAttribute('autoplay','');var p=v.play();p&&p.catch&&p.catch(function(){})}else{v.pause()}})},{rootMargin:'120px 0px'}).observe(fig)}
  /* phones that hold back autoplay (e.g. iPhone Low Power Mode): start on the first touch anywhere, no play button */
  if(!RM){var inV=function(){var r=fig.getBoundingClientRect();return r.bottom>0&&r.top<innerHeight};var tap=function(){if(v.paused&&inV()){v.preload='auto';var p=v.play();p&&p.catch&&p.catch(function(){})}};['touchstart','touchend','pointerdown','click'].forEach(function(e){D.addEventListener(e,tap,{passive:true})});v.addEventListener('playing',function(){['touchstart','touchend','pointerdown','click'].forEach(function(e){D.removeEventListener(e,tap)})})}
  return s}
