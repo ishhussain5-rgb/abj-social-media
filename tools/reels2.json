@@ -1,0 +1,19 @@
+[
+ {"id":"r01_abj_bedroom","l1":"Lift the bed.","l2":"Find the storage.","end":true},
+ {"id":"r06_kitchen_4","l1":"Every corner","l2":"earns its keep.","end":true},
+ {"id":"r11_abj_reel","l1":"Bedroom by night,","l2":"office by day.","end":true},
+ {"id":"r16_kings_road","l1":"Handleless, bright","l2":"& full of secrets.","end":true},
+ {"id":"r19_0908_reel","l1":"Wait for the","l2":"hidden coffee station…","end":true},
+ {"id":"g1_navy15","l1":"Our navy kitchen","l2":"in 15 seconds.","end":true},
+ {"id":"g2_led","l1":"One click and","l2":"the whole room glows.","end":true},
+ {"id":"g3_bath","l1":"The bathroom","l2":"you'd never leave.","end":true},
+ {"id":"g4_drawers","l1":"Oddly satisfying","l2":"soft-close drawers.","end":true},
+ {"id":"g5_wardrobes","l1":"Wardrobes that go","l2":"all the way up.","end":true},
+ {"id":"g6_house","l1":"One house.","l2":"Every room, ABJ.","end":true},
+ {"id":"p1_dark_kitchen","l1":"Dark timber","l2":"under a roof lantern.","end":true},
+ {"id":"p2_oak_wall","l1":"Backlit oak,","l2":"film night sorted.","end":true},
+ {"id":"p3_loft","l1":"A loft where","l2":"every inch works.","end":true},
+ {"id":"p4_open_plan","l1":"Open-plan living,","l2":"done properly.","end":true},
+ {"id":"p5_office","l1":"The home office","l2":"hiding in a bedroom.","end":true},
+ {"id":"p6_dining","l1":"Built-in seating","l2":"for Sunday dinners.","end":true}
+]
