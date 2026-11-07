@@ -83,12 +83,12 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 '.abjsl .journey-step .step-desc{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;font-size:14px;line-height:1.7;color:var(--mut)}'+
 '.abjsl .review-card{background:transparent!important;box-shadow:none!important;border:0!important;border-top:1px solid var(--hair)!important;border-radius:0!important}'+
 '.abjsl .faq-item{background:transparent!important;box-shadow:none!important;border:0!important;border-bottom:1px solid var(--hair)!important;border-radius:0!important;margin:0!important}'+
-'.abjsl .faq-item:first-child{border-top:1px solid var(--hair)!important}'+
+'.abjsl .faq-item:first-child{border-top:1px solid var(--hair)!important}'+'.abjsl .faq-item{max-width:860px!important;margin:0 auto!important}'+'.abjsl .faq-btn{font-family:"Cormorant Garamond",Georgia,serif!important;font-size:clamp(19px,1.7vw,23px)!important;font-weight:500!important;color:var(--ink)!important;letter-spacing:0!important;padding:24px 2px!important;background:none!important;display:flex!important;justify-content:space-between!important;align-items:center!important;gap:24px!important;text-align:left!important;line-height:1.3!important}'+'.abjsl .faq-btn .faq-icon{display:none!important}.abjsl .faq-btn:after{content:"+";flex:none;font:300 26px/1 "DM Sans",sans-serif;color:var(--gold);transition:transform .3s}'+'.abjsl .faq-btn[aria-expanded=true]:after{content:"\\2013"}.abjsl .faq-btn:hover{color:var(--gold)!important}'+'.abjsl .faq-body-text{font-size:16px!important;line-height:1.75!important;color:var(--mut)!important;max-width:720px;padding:0 2px 26px!important;margin:0!important}'+
 /* folded long copy */
 '.abjsl-more{padding:clamp(40px,5vw,72px) 20px}.abjsl-more>details{max-width:820px;margin:0 auto;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}'+
 '.abjsl-more summary{cursor:pointer;list-style:none;padding:22px 0;font-family:"Cormorant Garamond",Georgia,serif;font-size:24px;color:var(--ink);display:flex;justify-content:space-between;align-items:center}'+
 '.abjsl-more summary::-webkit-details-marker{display:none}.abjsl-more summary:after{content:"+";font:300 26px/1 "DM Sans",sans-serif;color:var(--gold)}'+
-'.abjsl-more details[open] summary:after{content:"\\2013"}'+
+'.abjsl-more details[open] summary:after{content:"\\2013"}'+'.abjsl-more summary{pointer-events:none;cursor:default;font-size:clamp(28px,3vw,38px);padding:30px 0 18px}.abjsl-more summary:after{content:none!important}.abjsl-more>details{border-bottom:0}'+
 '.abjsl-more .abjs-prose{padding:0 0 26px}.abjsl-more .abjs-figure{display:none}'+
 '@media (max-width:1023px){.abjsl-row .p-card{flex-basis:calc((100% - 22px)/2.15)}.abjsl-fg{grid-template-columns:1fr 1fr;gap:36px}}'+
 '@media (max-width:767px){.abjsl-kg{grid-template-columns:1fr;gap:0;text-align:left}.abjsl-k{display:grid;grid-template-columns:40px 1fr;column-gap:6px;padding:18px 0;border-top:1px solid var(--hair)}.abjsl-k:last-child{border-bottom:1px solid var(--hair)}.abjsl-k b{grid-row:span 2;margin:6px 0 0}.abjsl-k h3{font-size:22px;margin-bottom:6px}.abjsl-k p{font-size:14px;line-height:1.6;max-width:none;margin:0}.abjsl-keys{padding:56px 0 48px!important}'+
@@ -211,7 +211,7 @@ function film(after){ // a second reel with a short story, Nordiska-style split
 
 function fold(prose,h1){ // all long copy kept, folded behind one line
  if(!prose.length)return null;prose.forEach(function(p){p.classList.remove('abjsl-gone');p.style.removeProperty('display')});var faq=D.querySelector('.faq-section'),before=faq||D.querySelector('.abj-embed-form-section');if(!before)return null;
- var box=D.createElement('section');box.className='abjsl-more abjsl-lin';var d=D.createElement('details');var su=D.createElement('summary');
+ var box=D.createElement('section');box.className='abjsl-more abjsl-lin';var d=D.createElement('details');d.open=true;d.addEventListener('toggle',function(){if(!d.open)d.open=true});var su=D.createElement('summary');su.setAttribute('tabindex','-1');
  su.textContent='More about '+(h1||'this service').replace(/\s+in Peterborough.*$/i,'').replace(/^Bespoke\s+/i,'bespoke ').toLowerCase();d.appendChild(su);
  prose.forEach(function(p){d.appendChild(p)});box.appendChild(d);before.parentNode.insertBefore(box,before);return box}
 
