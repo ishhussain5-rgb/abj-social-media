@@ -48,7 +48,7 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 '.abjsl-lab{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:#fff;color:var(--ink);padding:12px 20px;font:500 11.5px/1.25 "DM Sans",sans-serif;letter-spacing:.2em;text-transform:uppercase;white-space:normal;text-align:center;max-width:82%;width:max-content;pointer-events:none}'+
 '.abjsl-row .p-card-body{padding:16px 8px 0!important;text-align:center;background:none!important}'+
 '.abjsl-row .abjs-tag,.abjsl-row .p-card-title,.abjsl-row .abjs-mini,.abjsl-row .p-card-link{display:none!important}'+
-'.abjsl-row .p-card-sub{font-size:13.5px;line-height:1.65;color:var(--mut);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin:0}'+
+'.abjsl-row .p-card-sub{font-size:13.5px;line-height:1.65;color:var(--mut);display:block;overflow:visible;margin:0}'+
 '.abjsl-few{display:none!important}'+
 '.abjsl-nav{display:flex;justify-content:center;gap:10px;margin-top:26px}'+
 '.abjsl-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--hair);background:transparent;color:var(--ink);font-size:16px;cursor:pointer}'+
