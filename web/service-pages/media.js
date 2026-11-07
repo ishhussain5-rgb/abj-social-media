@@ -23,8 +23,8 @@ M.bedrooms.img={'Contemporary Bedrooms':'abj-bedrooms-tile-contemporary.webp','C
 M.bedrooms.film=F('bedrooms',{label:'Arched LED dressing area',kicker:'Made in Peterborough',title:'One room, designed as a whole',
  text:'Wardrobes, dressing tables, bedside units and lighting are drawn together so the room feels calm and complete. We make it all in our own workshop and fit it ourselves.'});
 
-M.mediawalls=H('mediawalls','Marble & oak-slat media wall','Media wall with electric fire');
-M.mediawalls.film=F('mediawalls',{label:'Oak media wall with fire',kicker:'Made in Peterborough',title:'A media wall that hides everything but the view',
+M.mediawalls=H('mediawalls','LED-framed media wall with shelving','Oak-slat wall with floating unit');
+M.mediawalls.film=F('mediawalls',{label:'Electric fire integrations',kicker:'Made in Peterborough',title:'A media wall that hides everything but the view',
  text:'Cables, consoles and soundbars are planned in from the start, with the fire, lighting and storage built around your screen. Made in our workshop and fitted by our own team.'});
 
 M.storage=H('storage','Hidden drinks cabinet','Made-to-measure drawers');
