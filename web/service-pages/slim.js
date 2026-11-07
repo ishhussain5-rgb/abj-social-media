@@ -221,7 +221,7 @@ function keys(sec){ // first image-card section -> three numbered key points, no
 function tile(c){ // card -> Nordiska-style tile: tall photo, white label box, one-line caption
  c.classList.remove('reveal');c.classList.add('visible');
  var im=c.querySelector('.p-card-img'),t=txt(c.querySelector('.p-card-title'));
- var ov=(MEDIA&&MEDIA.img||{})[t];if(ov&&im&&im.querySelector('img')){var i=im.querySelector('img');i.src=ov;i.removeAttribute('srcset')}
+ var IM=(MEDIA&&MEDIA.img)||{},ov=IM[t]||IM[t.split(/\s*[:–—]\s*|\s+with\s+/)[0]];if(ov&&im&&im.querySelector('img')){var i=im.querySelector('img');i.src=ov;i.removeAttribute('srcset')}
  if(t){var bd=c.querySelector('.p-card-body');if(!bd){bd=D.createElement('div');bd.className='p-card-body';c.appendChild(bd)}if(!bd.querySelector('.abjsl-cap')){var cp=D.createElement('div');cp.className='abjsl-cap';cp.innerHTML='<i></i><span></span>';cp.lastChild.textContent=t.split(/\s*[:–—]\s*|\s+with\s+/)[0];bd.insertBefore(cp,bd.firstChild)}}
  var sub=c.querySelector('.p-card-sub');if(sub){sub.textContent=txt(sub).replace(/\s*[\u2192\u279D>]+\s*$/,'').replace(/\s*(Explore|View|See)\s[^.]*$/,'')}
  return c}

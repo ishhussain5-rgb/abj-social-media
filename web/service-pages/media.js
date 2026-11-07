@@ -51,5 +51,13 @@ M.decors.film=F('decors',{label:'Slatted feature wall',kicker:'Made in Peterboro
 M.upholstery=H('upholstery','Upholstered wall panels','Upholstered headboard');
 M.hallways=H('hallways','Slatted hallway storage','Hallway storage & coat hooks');
 M.hmo=H('hmo','Practical, hard-wearing fit-outs','Shared kitchen');
+Object.assign(M.kitchens.img=M.kitchens.img||{},{'Handleless Kitchens':'abj-kitchens-t-handleless.webp','Shaker Kitchens':'abj-kitchens-t-shaker.webp','Traditional & In-Frame':'abj-kitchens-t-inframe.webp','Kings Road':'abj-kitchens-t-kingsroad.webp'});
+Object.assign(M.wardrobes.img=M.wardrobes.img||{},{'Fitted Wardrobes':'abj-wardrobes-t-fitted.webp','Door styles & finishes':'abj-wardrobes-t-doors.webp','Purposeful interiors':'abj-wardrobes-t-interiors.webp','Mirrors & integrated lighting':'abj-wardrobes-t-mirror.webp'});
+Object.assign(M.bedrooms.img=M.bedrooms.img||{},{'Fitted wardrobes':'abj-bedrooms-t-fitted.webp','Children’s & teen rooms':'abj-bedrooms-t-teen.webp','Children\'s & teen rooms':'abj-bedrooms-t-teen.webp','Awkward spaces & slopes':'abj-bedrooms-t-slopes.webp'});
+Object.assign(M.mediawalls.img=M.mediawalls.img||{},{'Modern Minimalist':'abj-mediawalls-t-minimal.webp','Fireplace Integrations':'abj-mediawalls-t-fire.webp','Luxury Timber Finishes':'abj-mediawalls-t-timber.webp','Storage-Led Designs':'abj-mediawalls-t-storage.webp','Alcove TV Units':'abj-mediawalls-t-alcove.webp','Display & Lighting':'abj-mediawalls-t-display.webp'});
+Object.assign(M.worktops.img=M.worktops.img||{},{'Quartz Worktops':'abj-worktops-t-quartz.webp','Solid Wood Worktops':'abj-worktops-t-wood.webp','Compact Laminate':'abj-worktops-t-laminate.webp'});
+Object.assign(M.storage.img=M.storage.img||{},{'Pantry & Larder Storage':'abj-storage-t-pantry.webp'});
+Object.assign(M.office.img=M.office.img||{},{'Fitted Home Offices':'abj-office-t-home.webp','Open-Plan Office Storage':'abj-office-t-openplan.webp'});
+Object.assign(M.decors.img=M.decors.img||{},{'Slatted Feature Walls':'abj-decors-t-slatted.webp','Media Wall Details':'abj-decors-t-mediadetail.webp'});
 window.ABJ_SLIM_MEDIA=M;
 })();
