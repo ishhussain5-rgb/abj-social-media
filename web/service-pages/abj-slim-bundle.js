@@ -159,7 +159,7 @@ D.head.appendChild(st)}
 
 /* Premium layer (Nov 2026): Poliform / Molteni / Sola cues. Space instead of lines, quiet small type,
    captions under photos, numbered editorial items, thin outline buttons. Presentation only; every word stays. */
-function lux(){if(D.getElementById('abjs-lux-css'))return;var X='html.abjsl:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5) body ';
+function lux(){if(D.getElementById('abjs-lux-css'))return;var X='html.abjsl:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5):not(#x6) body ';
 var pre=function(sel){return sel.split(',').map(function(q){return X+q.trim()}).join(',')};
 var CG='"Cormorant Garamond",Georgia,serif',DM='"DM Sans",sans-serif';
 var R=[
