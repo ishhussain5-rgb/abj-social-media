@@ -269,7 +269,7 @@ function fold(prose,h1){ // all long copy kept, folded behind one line
  if(!prose.length)return null;prose.forEach(function(p){p.classList.remove('abjsl-gone');p.style.removeProperty('display')});var faq=D.querySelector('.faq-section'),before=faq||D.querySelector('.abj-embed-form-section');if(!before)return null;
  var box=D.createElement('section');box.className='abjsl-more abjsl-lin';var d=D.createElement('details');d.open=true;d.addEventListener('toggle',function(){if(!d.open)d.open=true});var su=D.createElement('summary');su.setAttribute('tabindex','-1');
  su.textContent='More about '+(h1||'this service').replace(/\s+in Peterborough.*$/i,'').replace(/^Bespoke\s+/i,'bespoke ').toLowerCase();d.appendChild(su);
- prose.forEach(function(p){d.appendChild(p)});box.appendChild(d);before.parentNode.insertBefore(box,before);return box}
+ prose.forEach(function(p){d.appendChild(p)});try{[].forEach.call(d.querySelectorAll('.abjs-prose'),function(p){[].slice.call(p.children).forEach(function(c){if(/^(load map|view map|read all .*reviews?|read our .*reviews?)$/i.test(c.textContent.trim()))c.remove()});var k=[].slice.call(p.children);k.forEach(function(c,i){if(/^H[2-4]$/.test(c.tagName)){var n=c.nextElementSibling;if(!n||/^H[2-4]$/.test(n.tagName))c.remove()}});if(p.textContent.replace(/\s+/g,' ').trim().length<25)p.remove()})}catch(e){}box.appendChild(d);before.parentNode.insertBefore(box,before);return box}
 
 function hero(){ // two crossfading clips, same behaviour as the homepage hero
  if(!MEDIA)return;var h=D.getElementById('home'),vis=h&&h.querySelector('.hero-visual');if(!vis||vis.querySelector('video.abjp-hv'))return;
