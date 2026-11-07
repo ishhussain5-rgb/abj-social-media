@@ -234,6 +234,7 @@ function run(){
  if(D.documentElement.classList.contains('abjsl'))return;D.documentElement.classList.add('abjsl');css();
  try{[].forEach.call(D.querySelectorAll('#home .reveal'),function(e){e.classList.add('visible')});var rv=function(){[].forEach.call(D.querySelectorAll('.reveal:not(.visible)'),function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)e.classList.add('visible')})};setTimeout(rv,700);setTimeout(rv,1600);addEventListener('scroll',rv,{passive:true})}catch(e){}
  try{[].forEach.call(D.querySelectorAll('.abjs-form-points li'),function(li){if(/^\s*(\d{1,2}|\u2713|✓)?\s*$/.test(li.textContent))li.remove()})}catch(e){}
+ setTimeout(function(){try{[].forEach.call(D.querySelectorAll('.abjp-svc h3,.abjsl-pg h3'),function(h){if(/^\s*[\u2713\u2714✓✔]?\s*$/.test(h.textContent))h.remove()})}catch(e){}},0);
  var S=top();
  var textSecs=S.filter(function(s){return s.classList.contains('abjs-text')});
  var prose=[].slice.call(D.querySelectorAll('.abjs-prose')).filter(function(p){return !p.closest('.faq-section')&&!p.closest('.abjs-text')});
