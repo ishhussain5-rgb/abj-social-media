@@ -171,7 +171,7 @@ function lux(){if(D.getElementById('abjs-lux-css'))return;var X='html.abjsl:not(
 var pre=function(sel){return sel.split(',').map(function(q){return X+q.trim()}).join(',')};
 var CG='"Cormorant Garamond",Georgia,serif',DM='"DM Sans",sans-serif';
 var R=[
-['.abjsl-lin','padding-top:clamp(40px,4.2vw,72px)!important;padding-bottom:clamp(40px,4.2vw,72px)!important'],
+['.abjsl-lin','padding-top:clamp(30px,3vw,52px)!important;padding-bottom:clamp(30px,3vw,52px)!important'],
 ['.abjsl-rule:before','content:none!important;display:none!important'],
 ['.abjsl-lin .eyebrow,.abjsl-lin .abjp-eb','font:500 11px/1.4 '+DM+'!important;letter-spacing:.3em!important;text-transform:uppercase!important;color:var(--mut)!important;background:none!important;padding:0!important;gap:0!important'],
 ['.abjsl-lin .eyebrow:before,.abjsl-lin .eyebrow:after,.abjsl-lin .abjp-eb:before,.abjsl-lin .abjp-eb:after','content:none!important;display:none!important'],
