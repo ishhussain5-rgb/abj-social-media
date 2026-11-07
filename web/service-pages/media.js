@@ -11,7 +11,7 @@ M.kitchens.img={'Shaker Kitchens':'abj-kitchens-tile-shaker.webp','Traditional &
 M.kitchens.film={v:'abj-kitchens-feature-v.mp4',p:'abj-kitchens-feature-v-poster.webp',label:'Sage Shaker kitchen',kicker:'Made in Peterborough',title:'Built in our own workshop, fitted by our own team',
  text:'Every cabinet is measured, designed and made here in Peterborough, then installed by the same team that drew it. One point of contact from first sketch to final handover.'};
 
-M.wardrobes=H('wardrobes','Fitted Shaker wardrobes','Sliding mirror wardrobes & interiors');
+M.wardrobes=H('wardrobes','Sliding mirror wardrobes','Interiors & fitted Shaker wardrobes');
 M.wardrobes.img={'Fitted Wardrobes':'abj-wardrobes-tile-fitted.webp','Sliding Wardrobes':'abj-wardrobes-tile-sliding.webp','Walk-In Dressing Rooms':'abj-wardrobes-tile-walkin.webp',
  'Door styles & finishes':'abj-wardrobes-tile-fitted.webp','Purposeful interiors':'abj-wardrobes-tile-walkin.webp','Mirrors & integrated lighting':'abj-wardrobes-tile-sliding.webp'};
 M.wardrobes.film=F('wardrobes',{label:'Wardrobe interiors',kicker:'Inside the doors',title:'Planned around what you actually own',
