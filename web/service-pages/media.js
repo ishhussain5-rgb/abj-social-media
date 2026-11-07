@@ -20,7 +20,7 @@ M.wardrobes.film=F('wardrobes',{label:'Wardrobe interiors',kicker:'Inside the do
 M.bedrooms=H('bedrooms','Oak headboard wall & fitted loft storage','Fitted loft bedroom');
 M.bedrooms.img={'Contemporary Bedrooms':'abj-bedrooms-tile-contemporary.webp','Classic Bedrooms':'abj-bedrooms-tile-classic.webp','Luxury Master Suites':'abj-bedrooms-tile-luxury.webp',
  'Feature headboard walls':'abj-bedrooms-tile-classic.webp','Integrated lighting':'abj-bedrooms-tile-luxury.webp'};
-M.bedrooms.film=F('bedrooms',{label:'Fitted desk & shelving',kicker:'Made in Peterborough',title:'One room, designed as a whole',
+M.bedrooms.film=F('bedrooms',{label:'Fitted bedroom & storage bed',kicker:'Made in Peterborough',title:'One room, designed as a whole',
  text:'Wardrobes, dressing tables, bedside units and lighting are drawn together so the room feels calm and complete. We make it all in our own workshop and fit it ourselves.'});
 
 M.mediawalls=H('mediawalls','LED-framed media wall with shelving','Oak-slat wall with floating unit');
