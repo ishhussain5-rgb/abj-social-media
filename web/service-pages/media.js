@@ -17,7 +17,7 @@ M.wardrobes.img={'Fitted Wardrobes':'abj-wardrobes-tile-fitted.webp','Sliding Wa
 M.wardrobes.film=F('wardrobes',{label:'Wardrobe interiors',kicker:'Inside the doors',title:'Planned around what you actually own',
  text:'Drawers, trays, shoe racks and hanging heights are set out around your clothes before anything is made. Every wardrobe is built to the millimetre in our Peterborough workshop.'});
 
-M.bedrooms=H('bedrooms','Arched dressing area with LED lighting','LED dressing table');
+M.bedrooms=H('bedrooms','Arched LED dressing area','Slatted panelling & study corner');
 M.bedrooms.img={'Contemporary Bedrooms':'abj-bedrooms-tile-contemporary.webp','Classic Bedrooms':'abj-bedrooms-tile-classic.webp','Luxury Master Suites':'abj-bedrooms-tile-luxury.webp',
  'Feature headboard walls':'abj-bedrooms-tile-classic.webp','Integrated lighting':'abj-bedrooms-tile-luxury.webp'};
 M.bedrooms.film=F('bedrooms',{label:'LED dressing table',kicker:'Made in Peterborough',title:'One room, designed as a whole',
