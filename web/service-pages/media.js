@@ -58,6 +58,6 @@ Object.assign(M.mediawalls.img=M.mediawalls.img||{},{'Modern Minimalist':'abj-me
 Object.assign(M.worktops.img=M.worktops.img||{},{'Quartz Worktops':'abj-worktops-t-quartz.webp','Solid Wood Worktops':'abj-worktops-t-wood.webp','Compact Laminate':'abj-worktops-t-laminate.webp'});
 Object.assign(M.storage.img=M.storage.img||{},{'Pantry & Larder Storage':'abj-storage-t-pantry.webp'});
 Object.assign(M.office.img=M.office.img||{},{'Fitted Home Offices':'abj-office-t-home.webp','Open-Plan Office Storage':'abj-office-t-openplan.webp'});
-Object.assign(M.decors.img=M.decors.img||{},{'Slatted Feature Walls':'abj-decors-t-slatted.webp','Media Wall Details':'abj-decors-t-mediadetail.webp'});
+Object.assign(M.decors.img=M.decors.img||{},{'Slatted Feature Walls':'abj-decors-t-slatted.webp','Media Wall Details':'abj-decors-t-mediadetail.webp','Decorative Accents':'abj-decors-t-accents.webp'});
 window.ABJ_SLIM_MEDIA=M;
 })();
