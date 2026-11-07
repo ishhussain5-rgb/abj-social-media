@@ -31,8 +31,8 @@ M.storage=H('storage','Hidden drinks cabinet','Made-to-measure drawers');
 M.storage.film=F('storage',{label:'Hidden drinks cabinet',kicker:'Made to measure',title:'Storage that disappears into the room',
  text:'From under-stair drawers to a drinks cabinet behind tall doors, every unit is measured on site and built around the space, so it looks like it was always meant to be there.'});
 
-M.worktops=H('worktops','Marble-effect waterfall island','Marble-effect worktops');
-M.worktops.film=F('worktops',{label:'Waterfall island',kicker:'Templated and fitted',title:'The surface you touch every day',
+M.worktops=H('worktops','Marble-effect island worktop','Polished worktop edge detail');
+M.worktops.film=F('worktops',{label:'Marble-effect island',kicker:'Templated and fitted',title:'The surface you touch every day',
  text:'We help you choose the material, then template, supply and fit it as part of your project, with the cut-outs, edges and upstands all finished properly.'});
 
 M.bathroom=H('bathroom','Freestanding bath & fitted vanity','Fluted double vanity');
