@@ -176,8 +176,8 @@ var R=[
 ['.abjp-fin-chip','background:none!important;border:0!important;padding:0!important;border-radius:0!important;color:#C9A96E!important;font:500 11px/1.4 '+DM+'!important;letter-spacing:.3em!important;text-transform:uppercase!important'],
 ['.abjp-fin-ico','display:none!important'],
 ['.abjp-fin ol li b','background:none!important;border:0!important;box-shadow:none!important;width:auto!important;min-width:30px!important;height:auto!important;font:italic 400 18px/1 '+CG+'!important;color:#C9A96E!important;justify-content:flex-start!important'],
-['.abjp-fin .btn-primary','background:#F3EEE6!important;background-image:none!important;color:#0E1B1A!important;border:1px solid #F3EEE6!important;border-radius:999px!important;padding:16px 30px!important;font:500 11px/1 '+DM+'!important;letter-spacing:.24em!important;box-shadow:none!important'],
-['.abjp-fin .btn-primary:hover','background:transparent!important;color:#F3EEE6!important'],
+['.abjp-fin .btn-primary,#quick-enquiry .abjp-fin-acts .btn.btn-primary','background:#F3EEE6!important;background-image:none!important;color:#0E1B1A!important;border:1px solid #F3EEE6!important;border-radius:999px!important;padding:16px 30px!important;font:500 11px/1 '+DM+'!important;letter-spacing:.24em!important;box-shadow:none!important'],
+['.abjp-fin .btn-primary:hover,#quick-enquiry .abjp-fin-acts .btn.btn-primary:hover','background:transparent!important;color:#F3EEE6!important'],
 ['.abjp-duo-grid>:last-child','box-shadow:none!important;border-radius:0!important'],
 /* FAQ: heading to the left, questions to the right */
 ['.faq-section .section-header,.faq-section h2.display','text-align:left!important'],
@@ -186,6 +186,7 @@ var R=[
  ['.faq-section>.container>h2','grid-column:1;grid-row:1;margin:0!important;position:sticky;top:120px'],
  ['.faq-section>.container>.body-lg','grid-column:1;grid-row:2;text-align:left!important;margin:22px 0 0!important;max-width:30em!important'],
  ['.faq-section>.container>.faq-list','grid-column:2;grid-row:1 / span 3;max-width:none!important;margin:0!important;width:100%']]],
+['.abjsl-k b,.abjsl-cap i,.journey .step-num,.journey .step-num:before,.journey .step-num:after,.abjsl-more .abjs-prose>h2:before,.abjsl-more .abjs-prose>h3:before,.abjsl-more .abjs-prose>h4:before,.abjp-fin ol li b,.stat-num,.stat-num span','font-feature-settings:"lnum" 1!important;font-variant-numeric:lining-nums!important'],
 ['@media (min-width:1024px)',[['.abjsl-row .p-card:nth-child(3n+2)','margin-top:clamp(40px,5vw,88px)!important']]],
 ['@media (max-width:767px)',[
  ['.abjsl-fg','grid-template-columns:1fr!important;gap:32px!important'],
