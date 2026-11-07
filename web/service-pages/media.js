@@ -17,10 +17,10 @@ M.wardrobes.img={'Fitted Wardrobes':'abj-wardrobes-tile-fitted.webp','Sliding Wa
 M.wardrobes.film=F('wardrobes',{label:'Wardrobe interiors',kicker:'Inside the doors',title:'Planned around what you actually own',
  text:'Drawers, trays, shoe racks and hanging heights are set out around your clothes before anything is made. Every wardrobe is built to the millimetre in our Peterborough workshop.'});
 
-M.bedrooms=H('bedrooms','Arched LED dressing area','Slatted panelling & study corner');
+M.bedrooms=H('bedrooms','Oak headboard wall & fitted loft storage','Fitted loft bedroom');
 M.bedrooms.img={'Contemporary Bedrooms':'abj-bedrooms-tile-contemporary.webp','Classic Bedrooms':'abj-bedrooms-tile-classic.webp','Luxury Master Suites':'abj-bedrooms-tile-luxury.webp',
  'Feature headboard walls':'abj-bedrooms-tile-classic.webp','Integrated lighting':'abj-bedrooms-tile-luxury.webp'};
-M.bedrooms.film=F('bedrooms',{label:'Arched LED dressing area',kicker:'Made in Peterborough',title:'One room, designed as a whole',
+M.bedrooms.film=F('bedrooms',{label:'Fitted desk & shelving',kicker:'Made in Peterborough',title:'One room, designed as a whole',
  text:'Wardrobes, dressing tables, bedside units and lighting are drawn together so the room feels calm and complete. We make it all in our own workshop and fit it ourselves.'});
 
 M.mediawalls=H('mediawalls','LED-framed media wall with shelving','Oak-slat wall with floating unit');
@@ -31,7 +31,7 @@ M.storage=H('storage','Hidden drinks cabinet','Made-to-measure drawers');
 M.storage.film=F('storage',{label:'Hidden drinks cabinet',kicker:'Made to measure',title:'Storage that disappears into the room',
  text:'From under-stair drawers to a drinks cabinet behind tall doors, every unit is measured on site and built around the space, so it looks like it was always meant to be there.'});
 
-M.worktops=H('worktops','Marble-effect island worktop','Polished worktop edge detail');
+M.worktops=H('worktops','Quartz waterfall island','Island worktop & sink run');
 M.worktops.img={'Quartz Worktops':'abj-worktops-tile-quartz.webp','Granite Worktops':'https://static.tildacdn.com/tild6432-3835-4666-b064-656263366263/ABJ_Worktop_3.webp'};
 M.worktops.film=F('worktops',{label:'Quartz & stone worktops',kicker:'Templated and fitted',title:'The surface you touch every day',
  text:'We help you choose the material, then template, supply and fit it as part of your project, with the cut-outs, edges and upstands all finished properly.'});

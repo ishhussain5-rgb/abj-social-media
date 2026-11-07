@@ -100,6 +100,90 @@ function css(){if(D.getElementById('abjs-slim-css'))return;var st=D.createElemen
 ' .abjsl .hero .hero-body{font-size:16px}}').replace(/(^|\})\.abjsl (?=\.(journey|review|faq))/g,'$1'+X).replace(/(^|\})(\.abjsl-row \.p-card|\.abjsl-pg|\.abjsl-ph2)/g,'$1'+X+'$2');
 D.head.appendChild(st)}
 
+/* Premium layer (Nov 2026): Poliform / Molteni / Sola cues. Space instead of lines, quiet small type,
+   captions under photos, numbered editorial items, thin outline buttons. Presentation only; every word stays. */
+function lux(){if(D.getElementById('abjs-lux-css'))return;var X='html.abjsl:not(#x1):not(#x2):not(#x3) body ';
+var pre=function(sel){return sel.split(',').map(function(q){return X+q.trim()}).join(',')};
+var CG='"Cormorant Garamond",Georgia,serif',DM='"DM Sans",sans-serif';
+var R=[
+['.abjsl-lin','padding-top:clamp(72px,7.5vw,128px)!important;padding-bottom:clamp(72px,7.5vw,128px)!important'],
+['.abjsl-rule:before','content:none!important;display:none!important'],
+['.abjsl-lin .eyebrow,.abjsl-lin .abjp-eb','font:500 11px/1.4 '+DM+'!important;letter-spacing:.3em!important;text-transform:uppercase!important;color:var(--mut)!important;background:none!important;padding:0!important;gap:0!important'],
+['.abjsl-lin .eyebrow:before,.abjsl-lin .eyebrow:after,.abjsl-lin .abjp-eb:before,.abjsl-lin .abjp-eb:after','content:none!important;display:none!important'],
+['.abjsl-lin .section-header','margin-bottom:clamp(40px,5vw,72px)!important'],
+['.abjsl-lin .section-header .eyebrow','display:inline-block!important;margin-bottom:22px!important'],
+['.abjsl-lin .section-header h2,.abjsl-lin h2.display,.abjsl-lin .abjsl-ph2,.abjsl-ft h2,.abjsl-more summary','font-family:'+CG+'!important;font-weight:400!important;font-size:clamp(34px,3.5vw,54px)!important;line-height:1.06!important;letter-spacing:-.012em!important;color:var(--ink)!important'],
+['.abjsl-lin .section-header .body-lg','font-size:15px!important;line-height:1.8!important;max-width:34em!important;margin:20px auto 0!important;color:var(--mut)!important'],
+/* three key points: editorial, numbered */
+['.abjsl-kg','max-width:1200px!important;text-align:left!important;gap:clamp(32px,5vw,88px)!important'],
+['.abjsl-k','border-top:1px solid var(--hair);padding-top:28px'],
+['.abjsl-k b','font:italic 400 19px/1 '+CG+'!important;letter-spacing:0!important;color:var(--gold)!important;margin-bottom:24px!important'],
+['.abjsl-k h3','font-weight:400!important;font-size:clamp(24px,2.1vw,30px)!important;margin:0 0 12px!important'],
+['.abjsl-k p','margin:0!important;max-width:26em!important;font-size:14.5px!important;line-height:1.75!important'],
+/* tabs + tiles: caption below the photo, staggered row */
+['.abjsl-tab','font-size:11px!important;letter-spacing:.26em!important;padding:16px 0!important'],
+['.abjsl-intro','font-size:15px!important;line-height:1.8!important;margin-bottom:clamp(36px,4vw,60px)!important'],
+['.abjsl-row','align-items:flex-start!important'],
+['.abjsl-row .p-card-body','text-align:left!important;padding:20px 0 0!important'],
+['.abjsl-cap','display:flex;align-items:baseline;gap:12px;margin:0 0 10px;font:500 11px/1.35 '+DM+';letter-spacing:.24em;text-transform:uppercase;color:var(--ink)'],
+['.abjsl-cap i','font:italic 400 17px/1 '+CG+';letter-spacing:0;text-transform:none;color:var(--gold)'],
+['.abjsl-row .p-card-sub','font-size:14px!important;line-height:1.7!important;max-width:30em'],
+['.abjsl-row .p-card-img img','transition:transform 1.4s cubic-bezier(.2,.7,.2,1)!important'],
+/* film: large picture, caption beneath, text set low to the side */
+['.abjsl-fg','grid-template-columns:minmax(0,7fr) minmax(0,5fr)!important;max-width:1240px!important;gap:clamp(40px,7vw,120px)!important;align-items:end!important'],
+['.abjsl-fv','aspect-ratio:auto!important;overflow:visible!important;background:none!important;max-height:none!important;max-width:620px!important;width:100%!important;justify-self:end!important'],
+['.abjsl-fvi','position:relative;aspect-ratio:4/5;max-height:88vh;overflow:hidden;background:#d9d2c5'],
+['.abjsl-fvi video','position:absolute;inset:0;width:100%;height:100%;object-fit:cover'],
+['.abjsl-fcap','margin-top:18px'],
+['.abjsl-ft','max-width:420px!important;padding-bottom:clamp(0px,5vw,72px)'],
+['.abjsl-ft .eyebrow','margin-bottom:24px!important'],
+['.abjsl-ft h2','margin-bottom:24px!important'],
+['.abjsl-ft p','font-size:15px!important;line-height:1.85!important;margin-bottom:36px!important'],
+/* buttons: thin outline pills */
+['.abjsl-btn,.testimonials .btn,.journey .btn','background:transparent!important;color:var(--ink)!important;border:1px solid var(--ink)!important;border-radius:999px!important;padding:16px 30px!important;font:500 11px/1 '+DM+'!important;letter-spacing:.24em!important;text-transform:uppercase!important;box-shadow:none!important;transition:background .35s,color .35s!important'],
+['.abjsl-btn:hover,.testimonials .btn:hover,.journey .btn:hover','background:var(--ink)!important;color:#F3EEE6!important'],
+['.testimonials .btn svg','display:none!important'],
+/* process */
+['.journey .step-line','display:none!important'],
+['.journey .step-num','font:italic 400 19px/1 '+CG+'!important;color:var(--gold)!important;background:none!important;border:0!important;width:auto!important;height:auto!important;box-shadow:none!important;margin-bottom:22px!important;display:block!important'],
+['.journey .step-num:before','content:"("!important'],
+['.journey .step-num:after','content:")"!important;position:static!important;display:inline!important;width:auto!important;height:auto!important;background:none!important;border:0!important;margin:0!important'],
+['.journey .step-title','font-family:'+CG+'!important;font-weight:400!important;font-size:clamp(22px,1.9vw,27px)!important;line-height:1.2!important;color:var(--ink)!important;margin-bottom:10px!important'],
+/* reviews: words first, no avatars or quote graphics */
+['.review-card:before,.review-card:after','content:none!important;display:none!important'],
+['.review-avatar','display:none!important'],
+['.review-stars','font-size:11px!important;letter-spacing:.32em!important;color:var(--gold)!important;margin-bottom:18px!important'],
+['.review-text','font-family:'+CG+'!important;font-style:italic!important;font-size:clamp(20px,1.7vw,24px)!important;line-height:1.45!important;color:var(--ink)!important'],
+['.review-author','border:0!important;padding-top:4px!important;gap:0!important'],
+/* numbers band: quiet figures on linen */
+['.stats-section','background:var(--lin)!important;background-image:none!important;padding:clamp(56px,6vw,96px) 0!important;border-top:1px solid var(--hair)!important;border-bottom:1px solid var(--hair)!important'],
+['.stats-section:before,.stats-section:after','content:none!important;display:none!important'],
+['.stat-num,.stat-num span','font-family:'+CG+'!important;font-weight:300!important;font-size:clamp(44px,4.4vw,64px)!important;line-height:1!important;color:var(--ink)!important;text-shadow:none!important;background:none!important;-webkit-text-fill-color:currentColor!important'],
+['.stat-num span[aria-hidden]','font-size:.5em!important;vertical-align:.7em;color:var(--gold)!important;margin-left:4px'],
+['.stat-label','font:500 11px/1.4 '+DM+'!important;letter-spacing:.28em!important;text-transform:uppercase!important;color:var(--mut)!important;margin-top:16px!important'],
+/* "More about": heading to the left, numbered notes to the right */
+['.abjsl-more>details','display:grid!important;grid-template-columns:minmax(0,5fr) minmax(0,7fr);column-gap:clamp(40px,7vw,120px);max-width:1200px!important;margin:0 auto!important;align-items:start;counter-reset:abjm'],
+['.abjsl-more summary','display:block!important;text-align:left!important;position:sticky;top:120px;padding:0!important;grid-column:1;grid-row:1 / span 30;font-size:clamp(34px,3.4vw,50px)!important'],
+['.abjsl-more summary:before','content:"In detail";display:block;font:500 11px/1.4 '+DM+';letter-spacing:.3em;text-transform:uppercase;color:var(--mut);margin-bottom:22px'],
+['.abjsl-more .abjs-prose','grid-column:2!important;display:block!important;border:0!important;padding:0!important;margin:0!important'],
+['.abjsl-more .abjs-prose>h2,.abjsl-more .abjs-prose>h3,.abjsl-more .abjs-prose>h4','font-weight:400!important;font-size:clamp(22px,1.9vw,27px)!important;border-top:1px solid var(--hair);padding-top:28px!important;margin:0 0 10px!important'],
+['.abjsl-more .abjs-prose>h2:before,.abjsl-more .abjs-prose>h3:before,.abjsl-more .abjs-prose>h4:before','counter-increment:abjm;content:"(" counter(abjm,decimal-leading-zero) ")";display:block;font:italic 400 17px/1 '+CG+';color:var(--gold);margin-bottom:16px'],
+['.abjsl-more .abjs-prose>:not(h2):not(h3):not(h4)','font-size:15px!important;line-height:1.8!important;margin:0 0 30px!important;max-width:36em'],
+['@media (min-width:1024px)',[['.abjsl-row .p-card:nth-child(3n+2)','margin-top:clamp(40px,5vw,88px)!important']]],
+['@media (max-width:767px)',[
+ ['.abjsl-fg','grid-template-columns:1fr!important;gap:32px!important'],
+ ['.abjsl-fv','max-width:none!important;justify-self:stretch!important;margin:0 -20px!important;width:auto!important'],
+ ['.abjsl-fcap','padding:0 20px'],
+ ['.abjsl-ft','text-align:left!important;padding-bottom:0'],
+ ['.abjsl-k b','margin-bottom:0!important'],
+ ['.abjsl-more>details','grid-template-columns:1fr'],
+ ['.abjsl-more summary','position:static;grid-row:auto;margin-bottom:28px!important'],
+ ['.abjsl-more .abjs-prose','grid-column:1!important'],
+ ['.stat-item + .stat-item','border-left:0!important']]]
+];
+var out='';R.forEach(function(r){if(r[0].charAt(0)==='@'){out+=r[0]+'{'+r[1].map(function(q){return pre(q[0])+'{'+q[1]+'}'}).join('')+'}'}else out+=pre(r[0])+'{'+r[1]+'}'});
+var st=D.createElement('style');st.id='abjs-lux-css';st.textContent=out;D.head.appendChild(st)}
+
 function txt(e){return (e&&e.textContent||'').replace(/\s+/g,' ').trim()}
 function firstSentence(s){var m=s.match(/^(.{40,220}?[.!?])(\s|$)/);return m?m[1]:s}
 function top(){return [].slice.call(D.querySelectorAll('section')).filter(function(s){return !s.parentElement.closest('section')})}
@@ -111,7 +195,7 @@ function keys(sec){ // first image-card section -> three numbered key points, no
  var cards=[].slice.call(sec.querySelectorAll('.p-card')).slice(0,3);if(cards.length<2)return false;
  var g=D.createElement('div');g.className='abjsl-kg';
  cards.forEach(function(c,i){var k=D.createElement('div');k.className='abjsl-k';
-  k.innerHTML='<b>0'+(i+1)+'</b><h3></h3><p></p>';k.querySelector('h3').textContent=txt(c.querySelector('.p-card-title'));
+  k.innerHTML='<b>(0'+(i+1)+')</b><h3></h3><p></p>';k.querySelector('h3').textContent=txt(c.querySelector('.p-card-title'));
   k.querySelector('p').textContent=firstSentence(txt(c.querySelector('.p-card-sub')));g.appendChild(k)});
  var hd=sec.querySelector('.section-header'),ct=sec.querySelector('.container')||sec;
  ct.appendChild(g);hideExcept(sec,[hd,g].filter(Boolean));sec.classList.add('abjsl-keys');return true}
@@ -120,7 +204,7 @@ function tile(c){ // card -> Nordiska-style tile: tall photo, white label box, o
  c.classList.remove('reveal');c.classList.add('visible');
  var im=c.querySelector('.p-card-img'),t=txt(c.querySelector('.p-card-title'));
  var ov=(MEDIA&&MEDIA.img||{})[t];if(ov&&im&&im.querySelector('img')){var i=im.querySelector('img');i.src=ov;i.removeAttribute('srcset')}
- if(im&&t&&!im.querySelector('.abjsl-lab'))im.appendChild(lab(t.split(/\s*[:–—]\s*|\s+with\s+/)[0]));
+ if(t){var bd=c.querySelector('.p-card-body');if(!bd){bd=D.createElement('div');bd.className='p-card-body';c.appendChild(bd)}if(!bd.querySelector('.abjsl-cap')){var cp=D.createElement('div');cp.className='abjsl-cap';cp.innerHTML='<i></i><span></span>';cp.lastChild.textContent=t.split(/\s*[:–—]\s*|\s+with\s+/)[0];bd.insertBefore(cp,bd.firstChild)}}
  var sub=c.querySelector('.p-card-sub');if(sub){sub.textContent=txt(sub).replace(/\s*(Explore|View|See)\s[^.]*$/,'')}
  return c}
 
@@ -138,6 +222,7 @@ function options(secs){ // remaining image-card sections -> one tabbed, swipeabl
   var it=D.createElement('p');it.className='abjsl-intro';it.innerHTML=(h2&&secs.length>1?'<strong>'+h2.innerHTML+'.</strong> ':'')+(intro?firstSentence(txt(intro)):'');if(txt(it))p.appendChild(it);
   var row=D.createElement('div');row.className='abjsl-row';
   [].slice.call(s.querySelectorAll('.p-card')).forEach(function(c){row.appendChild(tile(c))});
+  [].forEach.call(row.querySelectorAll('.abjsl-cap i'),function(e,k){e.textContent='('+(k<9?'0':'')+(k+1)+')'});
   if(row.children.length<3)row.style.justifyContent='center';p.appendChild(row);
   var nav=D.createElement('div');nav.className='abjsl-nav';nav.innerHTML='<button type="button" aria-label="Previous">&#8592;</button><button type="button" aria-label="Next">&#8594;</button>';
   var bs=nav.querySelectorAll('button');var upd=function(){bs[0].disabled=row.scrollLeft<8;bs[1].disabled=row.scrollLeft+row.clientWidth>row.scrollWidth-8};
@@ -200,7 +285,7 @@ function film(after){ // a second reel with a short story, Nordiska-style split
  s.innerHTML='<div class="container"><div class="abjsl-fg"><figure class="abjsl-fv"></figure><div class="abjsl-ft"><span class="eyebrow"></span><h2></h2><p></p><a class="abjsl-btn" href="/bookingform">Book your free design visit <span aria-hidden="true">&#8594;</span></a></div></div></div>';
  var fig=s.querySelector('.abjsl-fv');var v=D.createElement('video');v.muted=true;v.defaultMuted=true;['muted','playsinline','webkit-playsinline','loop','disablepictureinpicture'].forEach(function(a){v.setAttribute(a,'')});
  v.setAttribute('preload','none');if(F.p)v.setAttribute('poster',F.p);v.setAttribute('aria-label',F.alt||F.title||'ABJ project film');
- var so=D.createElement('source');so.src=F.v;so.type='video/mp4';v.appendChild(so);fig.appendChild(v);if(F.label)fig.appendChild(lab(F.label));
+ var so=D.createElement('source');so.src=F.v;so.type='video/mp4';v.appendChild(so);var fi=D.createElement('div');fi.className='abjsl-fvi';fi.appendChild(v);fig.appendChild(fi);if(F.label){var fc=D.createElement('figcaption');fc.className='abjsl-cap abjsl-fcap';fc.textContent=F.label;fig.appendChild(fc)}
  s.querySelector('.eyebrow').textContent=F.kicker||'Made in Peterborough';s.querySelector('h2').textContent=F.title||'';s.querySelector('p').textContent=F.text||'';
  var cta=s.querySelector('.abjsl-btn'),hb=book();if(hb){cta.addEventListener('click',function(e){var h=hb.getAttribute('href');if(!h||h.charAt(0)==='#'||/^javascript/.test(h)){e.preventDefault();hb.click()}else{cta.href=h}})}
  after.parentNode.insertBefore(s,after.nextSibling);
@@ -213,7 +298,7 @@ function fold(prose,h1){ // all long copy kept, folded behind one line
  if(!prose.length)return null;prose.forEach(function(p){p.classList.remove('abjsl-gone');p.style.removeProperty('display')});var faq=D.querySelector('.faq-section'),before=faq||D.querySelector('.abj-embed-form-section');if(!before)return null;
  var box=D.createElement('section');box.className='abjsl-more abjsl-lin';var d=D.createElement('details');d.open=true;d.addEventListener('toggle',function(){if(!d.open)d.open=true});var su=D.createElement('summary');su.setAttribute('tabindex','-1');
  su.textContent='More about '+(h1||'this service').replace(/\s+in Peterborough.*$/i,'').replace(/^Bespoke\s+/i,'bespoke ').toLowerCase();d.appendChild(su);
- prose.forEach(function(p){d.appendChild(p)});try{[].forEach.call(d.querySelectorAll('.abjs-prose'),function(p){[].slice.call(p.children).forEach(function(c){if(/^(load map|view map|read all .*reviews?|read our .*reviews?)$/i.test(c.textContent.trim()))c.remove()});var k=[].slice.call(p.children);k.forEach(function(c,i){if(/^H[2-4]$/.test(c.tagName)){var n=c.nextElementSibling;if(!n||/^H[2-4]$/.test(n.tagName))c.remove()}});if(p.textContent.replace(/\s+/g,' ').trim().length<25)p.remove()})}catch(e){}box.appendChild(d);before.parentNode.insertBefore(box,before);return box}
+ prose.forEach(function(p){d.appendChild(p)});try{[].forEach.call(d.querySelectorAll('.abjs-prose'),function(p){[].slice.call(p.children).forEach(function(c){if(/^(load map|view map|read all .*reviews?|read our .*reviews?)$/i.test(c.textContent.trim()))c.remove()});var k=[].slice.call(p.children);k.forEach(function(c,i){if(/^H[2-4]$/.test(c.tagName)){var n=c.nextElementSibling;if(!n||/^H[2-4]$/.test(n.tagName))c.remove()}});if(p.textContent.replace(/\s+/g,' ').trim().length<25)p.remove()})}catch(e){}if(txt(d).length-txt(su).length<120)return null;box.appendChild(d);before.parentNode.insertBefore(box,before);return box}
 
 function hero(){ // two crossfading clips, same behaviour as the homepage hero
  if(!MEDIA)return;var h=D.getElementById('home'),vis=h&&h.querySelector('.hero-visual');if(!vis||vis.querySelector('video.abjp-hv'))return;
@@ -231,7 +316,7 @@ function hero(){ // two crossfading clips, same behaviour as the homepage hero
  V.forEach(function(v){shade.parentNode===vis?vis.insertBefore(v,shade):vis.appendChild(v)});if(own){vis.appendChild(shade);vis.appendChild(cap)}h.classList.add('abjp-vid');if(!RM){kick();['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(e){V[0].addEventListener(e,kick)});D.addEventListener('visibilitychange',function(){if(!D.hidden)kick()});window.addEventListener('pageshow',kick);var tries=0,iv=setInterval(function(){kick();if(++tries>16||!V[cur].paused)clearInterval(iv)},400);if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)kick()})}).observe(vis)}}
 
 function run(){
- if(D.documentElement.classList.contains('abjsl'))return;D.documentElement.classList.add('abjsl');css();
+ if(D.documentElement.classList.contains('abjsl'))return;D.documentElement.classList.add('abjsl');css();lux();
  try{[].forEach.call(D.querySelectorAll('#home .reveal'),function(e){e.classList.add('visible')});var rv=function(){[].forEach.call(D.querySelectorAll('.reveal:not(.visible)'),function(e){var r=e.getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)e.classList.add('visible')})};setTimeout(rv,700);setTimeout(rv,1600);addEventListener('scroll',rv,{passive:true})}catch(e){}
  try{[].forEach.call(D.querySelectorAll('.abjs-form-points li'),function(li){if(/^\s*(\d{1,2}|\u2713|✓)?\s*$/.test(li.textContent))li.remove()})}catch(e){}
  setTimeout(function(){try{[].forEach.call(D.querySelectorAll('.abjsl-pg>*'),function(c){var h=c.querySelector('h3,h4'),p=c.querySelector('p');if(!h||!p||!/quartz|granite|wood|laminate/i.test(h.textContent))return;var m=p.textContent.trim().match(/^(.*?)\s(Very low|Low|Medium|Higher|High)\s(.+)$/);if(!m)return;p.innerHTML='';[['Best for',m[1]],['Upkeep',m[2]],['Look',m[3]]].forEach(function(r){var l=D.createElement('span');l.className='abjsl-kv';l.innerHTML='<b>'+r[0]+'</b>';l.appendChild(D.createTextNode(r[1].replace(/^./,function(x){return x.toUpperCase()})));p.appendChild(l)})})}catch(e){}},0);
