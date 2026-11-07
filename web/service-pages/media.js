@@ -11,10 +11,10 @@ M.kitchens.img={'Shaker Kitchens':'abj-kitchens-tile-shaker.webp','Traditional &
 M.kitchens.film={v:'abj-kitchens-feature-v.mp4',p:'abj-kitchens-feature-v-poster.webp',label:'Sage Shaker kitchen',kicker:'Made in Peterborough',title:'Built in our own workshop, fitted by our own team',
  text:'Every cabinet is measured, designed and made here in Peterborough, then installed by the same team that drew it. One point of contact from first sketch to final handover.'};
 
-M.wardrobes=H('wardrobes','Sliding mirror wardrobes','Interiors & fitted Shaker wardrobes');
+M.wardrobes=H('wardrobes','Walk-in dressing room','Loft wardrobes & dressing table');
 M.wardrobes.img={'Fitted Wardrobes':'abj-wardrobes-tile-fitted.webp','Sliding Wardrobes':'abj-wardrobes-tile-sliding.webp','Walk-In Dressing Rooms':'abj-wardrobes-tile-walkin.webp',
  'Door styles & finishes':'abj-wardrobes-tile-fitted.webp','Purposeful interiors':'abj-wardrobes-tile-walkin.webp','Mirrors & integrated lighting':'abj-wardrobes-tile-sliding.webp'};
-M.wardrobes.film=F('wardrobes',{label:'Wardrobe interiors',kicker:'Inside the doors',title:'Planned around what you actually own',
+M.wardrobes.film=F('wardrobes',{label:'Drawers & dressing room',kicker:'Inside the doors',title:'Planned around what you actually own',
  text:'Drawers, trays, shoe racks and hanging heights are set out around your clothes before anything is made. Every wardrobe is built to the millimetre in our Peterborough workshop.'});
 
 M.bedrooms=H('bedrooms','Oak headboard wall & fitted loft storage','Fitted loft bedroom');
@@ -40,15 +40,15 @@ M.bathroom=H('bathroom','Freestanding bath & fitted vanity','Fluted double vanit
 M.bathroom.film=F('bathroom',{label:'Fluted double vanity',kicker:'Peterborough workshop',title:'Finished by hand, made for daily use',
  text:'Every vanity unit is measured, cut and finished by hand in our Peterborough workshop, then fitted by the same team, so it sits perfectly around your basin, pipework and walls.'});
 
-M.office=H('office','Built-in home office','Desk & shelving');
+M.office=H('office','Panelled home office','Desk & shelving');
 M.office.film=F('office',{label:'Home office shelving',kicker:'Made to measure',title:'A workspace that fits the room, not the other way round',
  text:'Desks, shelving and storage are planned around how you work, then built in our Peterborough workshop and fitted by our own team.'});
 
-M.decors=H('decors','Panelled living room','Slatted feature walls');
-M.decors.film=F('decors',{label:'Slatted feature wall',kicker:'Made in Peterborough',title:'Walls with texture, light and purpose',
+M.decors=H('decors','Fluted media wall & panelling','Slatted feature wall');
+M.decors.film=F('decors',{label:'Panelling & lit feature walls',kicker:'Made in Peterborough',title:'Walls with texture, light and purpose',
  text:'Slatted, panelled and lit feature walls designed around the room, often combined with storage, shelving or a dressing area so the wall works as hard as it looks.'});
 
-M.upholstery=H('upholstery','Upholstered wall panels','Upholstered headboard');
+/* upholstery: no video until there is footage from a home we may show */
 M.hallways=H('hallways','Slatted hallway storage','Hallway storage & coat hooks');
 M.hmo=H('hmo','Practical, hard-wearing fit-outs','Shared kitchen');
 Object.assign(M.kitchens.img=M.kitchens.img||{},{'Handleless Kitchens':'abj-kitchens-t-handleless.webp','Shaker Kitchens':'abj-kitchens-t-shaker.webp','Traditional & In-Frame':'abj-kitchens-t-inframe.webp','Kings Road':'abj-kitchens-t-kingsroad.webp'});
