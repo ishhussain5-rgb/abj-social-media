@@ -6,6 +6,8 @@ Calm, editorial layout for the 12 DEV service pages (Nordiska Kök inspired, ABJ
 - Media lives on branches, under `media/`: `web-media-a`/`web-media-b` hold the second reels (films) and tile photos; `web-media-c`/`d`/`e` hold the hero clips (two long, slow clips per page, A and B, made with `mkweb2.py`-style settings: 2 shots of about 5 s, slowed to 0.85x, steadied, 1.2 s dissolves). Each branch must stay under jsDelivr's 50 MB package limit, so start a new branch rather than letting one grow, and add it to the list in `build.py`. `build.py` maps every file name in `media.js` to its branch commit.
 - `build.py`: bundles `media.js` + `slim.js` into `abj-slim.js`.
 
+Full-width desktop layout (Nov 2026): `wide()` in `slim.js` runs on ANY DEV page (slug ending `-dev-xxxx`, 4-6 characters) that loads the bundle, before the service-page `MAP` check. From 1200px wide it widens content to 1760px with 4.2vw side margins and keeps text columns narrow. Phones are untouched. The DEV homepage (`/home-dev-r7m3k`) loads the bundle through the same loader, placed at the top of its second T123 block. Other DEV pages need that loader added before they go full width.
+
 How it loads on the DEV pages:
 - Each DEV service page has a small loader (in its "page-level head code" T123 block, between the `ABJ SLIM SERVICE PAGES (DEV)` markers) that loads `abj-slim.js` from jsDelivr `@main`.
 - `abj-slim.js` is a stable bootstrap. It reads `version.txt` from GitHub and loads `abj-slim-bundle.js` pinned to that commit.
