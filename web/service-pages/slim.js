@@ -349,7 +349,7 @@ q('.abjsl-fg')+'{max-width:1440px!important}'+q('.abjsl-fv')+'{max-width:720px!i
 q('.abjsl-more>details,.faq-section>.container')+'{max-width:var(--wmax)!important}'+
 q('#home.abjp-full .container')+'{max-width:none!important;padding-left:0!important;padding-right:0!important}'+
 q('#home.abjp-full .hero-content')+'{margin-left:calc(max((100% - var(--wmax))/2,0px) + var(--wpad))!important}'+
-q('.faq-section>.container>.display')+'{position:static!important}'+
+q('.faq-section>.container>.display')+'{position:static!important}'+q('.abj-guides .abj-g-grid')+'{grid-template-columns:repeat(4,minmax(0,1fr))!important}'+
 '}@media (min-width:1500px){'+q('.abjsl-row:has(>:nth-child(4))')+'{--n:4!important}'+q('.abjsl-row:not(:has(>:nth-child(4))) .p-card-img')+'{aspect-ratio:1/1!important}}';
 var st=D.createElement('style');st.id='abjw-css';st.textContent=c;(D.head||D.documentElement).appendChild(st)}
 
