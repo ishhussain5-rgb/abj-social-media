@@ -8,6 +8,8 @@ var MAP={
  'media-walls-dev-m9t5':'mediawalls','bespoke-storage-dev-s2k7':'storage','luxury-worktops-dev-t6p3':'worktops',
  'decors-dev-d8r4':'decors','upholstery-dev-u5h9':'upholstery','office-renovations-dev-o3f7':'office',
  'bespoke-hallways-dev-h4j8':'hallways','bathroom-cabinetry-dev-c6v2':'bathroom','hmo-makeover-dev-m2x5':'hmo'};
+/* Full-width desktop layout (Nov 2026): every DEV page (slug ends -dev-xxxx) uses the screen width, not a 1200px column. */
+if(/-dev-[a-z0-9]{4,6}\/?$/.test(P))wide();
 var key=MAP[P.replace(/^\/|\/$/g,'')];if(!key)return;
 var WIDE=window.matchMedia&&matchMedia('(min-width:1024px)').matches;
 /* Videos are silent, slow ambient footage, so they start by themselves even when the phone has Reduce Motion switched on (iOS otherwise shows a play button). */
@@ -333,6 +335,23 @@ function hero(){ // two crossfading clips, same behaviour as the homepage hero
  ['touchstart','touchend','scroll','pointerdown','click'].forEach(function(e){window.addEventListener(e,kick,{passive:true})});
  [].slice.call(vis.querySelectorAll('img')).forEach(function(i){i.classList.add('abjsl-under')});
  V.forEach(function(v){shade.parentNode===vis?vis.insertBefore(v,shade):vis.appendChild(v)});if(own){vis.appendChild(shade);vis.appendChild(cap)}h.classList.add('abjp-vid');if(!RM){kick();['loadedmetadata','loadeddata','canplay','canplaythrough'].forEach(function(e){V[0].addEventListener(e,kick)});D.addEventListener('visibilitychange',function(){if(!D.hidden)kick()});window.addEventListener('pageshow',kick);var tries=0,iv=setInterval(function(){kick();if(++tries>16||!V[cur].paused)clearInterval(iv)},400);if('IntersectionObserver' in window)new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)kick()})}).observe(vis)}}
+
+function wide(){if(D.getElementById('abjw-css'))return;D.documentElement.classList.add('abjw');
+var X='html.abjw:not(#x1):not(#x2):not(#x3):not(#x4):not(#x5):not(#x6) body ';
+var q=function(sel){return sel.split(',').map(function(t){return X+t.trim()}).join(',')};
+var c='@media (min-width:1200px){html.abjw{--wmax:1760px;--wpad:clamp(32px,4.2vw,88px)}'+
+q('.container,.header-inner,.cookie-inner,.abjf-w')+'{max-width:var(--wmax)!important;width:100%!important;padding-left:var(--wpad)!important;padding-right:var(--wpad)!important;box-sizing:border-box!important;margin-left:auto!important;margin-right:auto!important}'+
+q('.container .container')+'{padding-left:0!important;padding-right:0!important}'+
+q('.abjp-duo-grid,.journey-steps,.faq-list,.abjsl-kg,.abjsl-pg')+'{max-width:none!important}'+
+q('.abjp-duo-grid')+'{padding-left:var(--wpad)!important;padding-right:var(--wpad)!important;box-sizing:border-box!important}'+
+q('.section-header,.abj-g-head')+'{max-width:min(1000px,100%)!important}'+
+q('.abjsl-fg')+'{max-width:1440px!important}'+q('.abjsl-fv')+'{max-width:720px!important}'+
+q('.abjsl-more>details,.faq-section>.container')+'{max-width:var(--wmax)!important}'+
+q('#home.abjp-full .container')+'{max-width:none!important;padding-left:0!important;padding-right:0!important}'+
+q('#home.abjp-full .hero-content')+'{margin-left:calc(max((100% - var(--wmax))/2,0px) + var(--wpad))!important}'+
+q('.faq-section>.container>.display')+'{position:static!important}'+
+'}@media (min-width:1500px){'+q('.abjsl-row:has(>:nth-child(4))')+'{--n:4!important}'+q('.abjsl-row:not(:has(>:nth-child(4))) .p-card-img')+'{aspect-ratio:1/1!important}}';
+var st=D.createElement('style');st.id='abjw-css';st.textContent=c;(D.head||D.documentElement).appendChild(st)}
 
 function run(){
  if(D.documentElement.classList.contains('abjsl'))return;D.documentElement.classList.add('abjsl');css();lux();try{var hm=D.getElementById('home');hm&&hm.classList.add('abjsl-k-'+key)}catch(e){}
