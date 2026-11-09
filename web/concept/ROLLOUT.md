@@ -19,7 +19,7 @@ Tilda update method (no UI clicks except Publish): in the page editor run
 | Home offices | /office-renovations-dev-o3f7 | 352693703 | rec5644307403 | live on DEV |
 | Hallways | /bespoke-hallways-dev-h4j8 | 352714403 | rec5644309203 | live on DEV |
 | Bathroom cabinetry | /bathroom-cabinetry-dev-c6v2 | 352714503 | rec5644313603 | live on DEV |
-| Upholstery | /upholstery-dev-u5h9 | 352693603 | rec5644317103 | live on DEV (photo hero; no video until there is footage from a home we may show) |
+| Upholstery | /upholstery-dev-u5h9 | 352693603 | rec5644317103 | live on DEV (C clip from headboard photos; replace when better footage exists) |
 | HMO | /hmo-makeover-dev-m2x5 | 352714603 | rec5644319403 | live on DEV |
 | About | /about-abj-dev-a5b9 | 354002803 | rec5644393503 | live on DEV |
 | Finance | /flexible-finance-dev-f3n7 | 354002603 | rec5644398003 | live on DEV |
@@ -32,13 +32,19 @@ Tilda update method (no UI clicks except Publish): in the page editor run
 | Terms | /terms-and-conditions-dev-v9c7 | 354171103 | rec5644434203 | live on DEV (text carried over from the old block in the editor) |
 | Payment terms | /payment-terms-abj-dev-h4e2 | 354170903 | rec5644436303 | live on DEV |
 | Privacy | /privacypolicy-dev-b1c4 | 354171203 | rec5644437003 | live on DEV |
-| Stamford, Oundle, Market Deeping, Bourne, Spalding, Grantham, Huntingdon, St Ives, Ely, Wisbech | area pages | 354171303 etc. | one each | live on DEV (area-template.html filled from each old page in the editor) |
+| Stamford, Oundle, Market Deeping, Bourne, Spalding, Grantham, Huntingdon, St Ives, Ely, Wisbech | /fitted-kitchens-bedrooms-<town>-dev-xxxx | 354171303, 354171403, 354171603, 354171703, 354171803, 354172003, 354172103, 354172203, 354172303, 354172403 | rec5644439903, 5644440803, 5644441703, 5644442703, 5644443703, 5649047003, 5649047603, 5649055803, 5649056903, 5649057503 | live on DEV (area-template.html filled from each old page in the editor) |
 | Oakham, Cambridge | area pages | 354171903, 354172603 | | to do (bespoke layouts) |
 | Case studies x2, Near me, Cut & edge | live only | | | to do (need DEV copies) |
 
 All room-page H1s now lead with the service and "Peterborough" (e.g. "Fitted wardrobes in Peterborough, built to make every inch count"). Page titles, descriptions, URLs and FAQs carried over from the old DEV pages.
 Media for batch 2-3 pages: branch web-media-l (c9b6a43), plus images already on the Tilda CDN.
+Hero clips for storage, office, hallways, bathroom, upholstery and HMO: branch web-media-m (c622e97), stills-based Ken Burns
+"C" clips (two photos per wide frame, 0.6 s dissolves, no slow-motion or frame blending). Room pages republished from 45dafb9.
 
 Editor helper: tilda_swap.js (load from jsDelivr in the page editor, then `await abjSwap({src, must, mode})`).
 Never run it before the records have loaded; it now waits and refuses if no records are found (a race on the About page once
 overwrote the old block; it was restored from the published page before publishing).
+
+Updating a page that has placeholders filled in the editor (booking, terms, payment, privacy, area pages): patch the saved
+block code in the editor (read `#record<id> pre code`, change it, saverecord) instead of re-sending out/<slug>.html,
+so the form key and the carried-over text stay in place.
