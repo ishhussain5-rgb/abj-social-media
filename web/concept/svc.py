@@ -28,13 +28,13 @@ def hero(p):
         attrs = ' class="on" autoplay' if i == 0 else ''
         pre = 'auto' if i == 0 else 'none'
         vids.append(' <video%s data-cap="%s" data-mp="%s" muted playsinline preload="%s" poster="%s"><source media="(max-width:760px)" src="%s"><source src="%s"></video>'
-                    % (attrs, E(cap), img(tall.replace('.mp4', '-poster.webp')), pre, img(wide.replace('.mp4', '-poster.webp')), img(tall), img(wide)))
+                    % (attrs, E(html.unescape(cap)), img(tall.replace('.mp4', '-poster.webp')), pre, img(wide.replace('.mp4', '-poster.webp')), img(tall), img(wide)))
     if not vids and p.get("hero_img"):
         vids.append(' <img class="hi" src="%s" alt="%s" fetchpriority="high">' % (img(p["hero_img"][0]), E(p["hero_img"][1])))
     cap = p["videos"][0][2] if p["videos"] else p.get("hero_cap", "")
     return ('<section class="hero hm" aria-label="%s">\n%s\n <div class="w">\n  <span class="kick">%s</span>\n  <h1>%s</h1>\n  <p>%s</p>\n'
             '  <div class="acts"><a class="bt" href="{BOOK}">Book a free design visit</a><a class="lnk" href="#kc-styles">%s</a></div>\n </div>\n <span class="cap">%s</span>\n</section>'
-            % (E(p["name"]), "\n".join(vids), p["kicker"], p["h1"], p["lead"], p.get("explore", "Explore the styles"), E(cap)))
+            % (E(p["name"]), "\n".join(vids), p["kicker"], p["h1"], p["lead"], p.get("explore", "Explore the styles"), cap))
 
 
 def intro(p):
