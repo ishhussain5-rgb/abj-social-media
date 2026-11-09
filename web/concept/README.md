@@ -24,4 +24,4 @@ To roll back a page: turn the old blocks back on (power icon), turn the new bloc
 
 ## Backups
 - `backup/home-2026-11-09-kitchen-hero.html`: the homepage block before the room montage. In Tilda this is block rec5644097603 (turned off). To revert, turn it on, turn rec5643988903 off and publish the page.
-- Homepage montage and bedroom panel photo: branch `web-media-j` (commit 63c1b09). The montage borrows a few seconds from each room page's clips (worktops A, wardrobes A, media walls B, bedrooms A, storage A, kitchens L).
+- Homepage montage and bedroom panel photo: branch `web-media-j` (latest commit 5b32b03). The montage borrows a few seconds from room page clips (worktops A, wardrobes A, media walls B, storage A, kitchens L); the bedroom shot is a slow push-in on BespokeBedrooms57.jpg from the Drive gallery, and the bedroom panel is BespokeBedrooms13.jpg.
