@@ -17,7 +17,11 @@ The high-end page design approved on 9 Nov 2026. Every page is one self-containe
 ## Tilda status
 | Page | Page ID | New block | Old blocks |
 |---|---|---|---|
-| Homepage DEV `/home-dev-r7m3k` | 350369803 | rec5643988903 | 5 old blocks turned off (kept, not deleted) |
+| Homepage DEV `/home-dev-r7m3k` | 350369803 | rec5643988903 (room montage hero, 9 Nov) | rec5644097603 = backup of the first new-standard version (kitchen hero), turned off; 5 old blocks turned off |
 | Kitchens DEV `/bespoke-kitchens-dev-k7q2` | 352648603 | rec5644015603 | 5 old blocks turned off (kept, not deleted) |
 
 To roll back a page: turn the old blocks back on (power icon), turn the new block off, then publish that one page.
+
+## Backups
+- `backup/home-2026-11-09-kitchen-hero.html`: the homepage block before the room montage. In Tilda this is block rec5644097603 (turned off). To revert, turn it on, turn rec5643988903 off and publish the page.
+- Homepage montage and bedroom panel photo: branch `web-media-j` (commit 63c1b09). The montage borrows a few seconds from each room page's clips (worktops A, wardrobes A, media walls B, bedrooms A, storage A, kitchens L).
