@@ -175,6 +175,16 @@
  #kc .hero .cap{display:none}#kc .hero .acts{gap:20px}#kc .intro .w,#kc .det .w,#kc .bk{grid-template-columns:1fr}#kc .bk figure{height:42vh}
  #kc .sh{flex-direction:column;align-items:flex-start}#kc .arw{display:none}#kc .card{flex-basis:78vw}
  #kc .pg{grid-template-columns:1fr 1fr;gap:14px}#kc .pg .f2{margin-top:48px}#kc .ps{grid-template-columns:1fr 1fr;gap:28px 18px}#kc .ps h3{font-size:22px}#kc .ps p{font-size:13.5px}#kc .facts{gap:10px 24px}#kc .intro{padding:64px 0 56px}#kc .sty{padding-bottom:64px}#kc .proc,#kc .det{padding:64px 0}#kc .proj{padding-bottom:64px}#kc .pimg{height:56vh}#kc .qt{min-height:64vh}}
+/* cookie banner + phone action bar */
+#kc .ck{position:fixed;left:clamp(12px,2vw,32px);bottom:clamp(12px,2vw,32px);z-index:90;max-width:440px;background:var(--g);color:var(--lin);padding:24px 26px;box-shadow:0 24px 60px -20px rgba(0,0,0,.45);display:flex;flex-direction:column;gap:18px;opacity:0;visibility:hidden;transform:translateY(16px);transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1),visibility 0s .6s}
+#kc .ck.o{opacity:1;visibility:visible;transform:none;transition:opacity .5s,transform .6s cubic-bezier(.2,.7,.2,1)}
+#kc .ck p{font-size:13.5px;line-height:1.6;color:rgba(243,238,230,.78)}#kc .ck b{display:block;font:400 22px/1.2 var(--serif);color:var(--lin);margin-bottom:6px}#kc .ck p a{color:var(--go);border-bottom:1px solid rgba(201,169,110,.5)}
+#kc .ck div{display:flex;gap:10px}#kc .ck button{flex:1;height:46px;border:0;cursor:pointer;font:500 11px/1 var(--sans);letter-spacing:.22em;text-transform:uppercase}
+#kc .ck .ck-n{background:none;color:var(--lin);box-shadow:inset 0 0 0 1px rgba(243,238,230,.4)}#kc .ck .ck-y{background:var(--lin);color:var(--ink)}#kc .ck .ck-y:hover{background:var(--go)}
+#kc .mbar{display:none}
+@media (max-width:760px){#kc .mbar{display:grid;grid-template-columns:1fr 1fr 1.3fr;position:fixed;left:0;right:0;bottom:0;z-index:70;background:rgba(14,27,26,.97);backdrop-filter:blur(8px);padding:8px 8px calc(8px + env(safe-area-inset-bottom,0px));gap:6px;transform:translateY(110%);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+ #kc .mbar.o{transform:none}#kc .mbar a{display:flex;align-items:center;justify-content:center;height:46px;font:500 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--lin);box-shadow:inset 0 0 0 1px rgba(243,238,230,.25)}#kc .mbar a.b{background:var(--lin);color:var(--ink);box-shadow:none}
+ #kc .ck{left:10px;right:10px;bottom:72px;max-width:none;padding:20px}}
 /* ===== shared components added for the homepage and other pages ===== */
 #kc .hero.hm h1{font-size:clamp(44px,5.6vw,100px);max-width:12.5em}
 /* room panels: four tall panels, the hovered one opens up */
@@ -421,6 +431,8 @@
  <div class="ft-s"><a href="https://www.instagram.com/abjkitchensbedrooms/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/ABJKitchensBedrooms" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@abjkitchenandbedroomltd" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@abjkitchensandbedrooms" target="_blank" rel="noopener">YouTube</a><a href="https://www.linkedin.com/company/abj-kitchens-and-bedrooms/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/_ABJKitchens" target="_blank" rel="noopener">X</a></div>
  <div class="ft-l"><span>&copy; 2026 AB Joinery Kitchens and Bedrooms Ltd &middot; Registered in England and Wales, company no. 11100736 &middot; 3 Brassey Close, Peterborough PE1 2AZ<br>Part of the ABJ group: <a href="https://abjaccessories.co.uk/" target="_blank" rel="noopener">ABJ Accessories</a> &middot; <a href="https://www.cutandedgexpress.com/" target="_blank" rel="noopener">Cut &amp; Edge Express</a></span><nav aria-label="Legal"><a href="/payment-terms-abj-dev-h4e2">Payment terms</a><a href="/terms-and-conditions-dev-v9c7">Terms &amp; conditions</a><a href="/privacypolicy-dev-b1c4">Privacy policy</a><a href="#cookie-settings">Cookie settings</a></nav></div>
 </div></footer>
+<div class="ck" id="kc-ck" role="dialog" aria-live="polite" aria-label="Cookie consent"><p><b>Our use of cookies</b>We use cookies to analyse traffic and improve your visit. Analytics only load after you accept. <a href="/privacypolicy-dev-b1c4">Privacy policy</a></p><div><button type="button" class="ck-n">Decline</button><button type="button" class="ck-y">Accept</button></div></div>
+<nav class="mbar" id="kc-mbar" aria-label="Quick contact"><a href="tel:+441733686767">Call</a><a href="https://wa.me/447479219421">WhatsApp</a><a class="b" href="/bookingform-dev-k9b4">Book a visit</a></nav>
 </div>
 
 <script>
@@ -439,6 +451,17 @@ V.forEach(function(v){v.addEventListener('ended',function(){if(V.length<2){v.cur
 setTimeout(function(){V[1]&&(V[1].preload='auto')},4000);
 /* rail arrows */
 R.querySelectorAll('.arw').forEach(function(w){var rail=document.getElementById(w.dataset.for);if(!rail)return;w.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var c=rail.querySelector('.card');rail.scrollBy({left:(c?c.offsetWidth+24:400)*2*(+b.dataset.d),behavior:'smooth'})})})});
+/* cookie consent: same storage key as the existing site, so a choice made on any page carries over */
+var CKK='abj_cookie_consent',ck=document.getElementById('kc-ck');var gs=function(k){try{return localStorage.getItem(k)}catch(e){return null}};var ss=function(k,v){try{localStorage.setItem(k,v)}catch(e){}};
+var cons=function(){var v=gs(CKK);if(!v&&gs('abj_cookie')==='1'){v='accepted';ss(CKK,v)}return v};var ok=function(){return cons()==='accepted'};
+var ev=function(n,p){if(!ok())return;try{typeof gtag==='function'&&gtag('event',n,p||{})}catch(e){}try{window.dataLayer&&dataLayer.push(Object.assign({event:n},p||{}))}catch(e){}};
+var showC=function(){ck&&ck.classList.add('o')},hideC=function(){ck&&ck.classList.remove('o')};
+if(ck){var c0=cons();if(c0!=='accepted'&&c0!=='declined')setTimeout(showC,2500);ck.querySelector('.ck-y').addEventListener('click',function(){ss(CKK,'accepted');hideC();ev('cookie_accept',{event_category:'Consent'})});ck.querySelector('.ck-n').addEventListener('click',function(){ss(CKK,'declined');hideC()})}
+R.querySelectorAll('a[href="#cookie-settings"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();showC()})});
+R.querySelectorAll('a[href^="tel:"]').forEach(function(a){a.addEventListener('click',function(){ev('phone_call',{event_category:'Contact',event_label:a.href.replace('tel:',''),value:1})})});
+R.querySelectorAll('a[href*="wa.me"]').forEach(function(a){a.addEventListener('click',function(){ev('whatsapp_click',{event_category:'Contact',event_label:'WhatsApp'})})});
+/* phone action bar appears once the hero has scrolled away */
+var mbar=document.getElementById('kc-mbar'),hero=R.querySelector('.hero');var mb2=function(){mbar&&mbar.classList.toggle('o',window.scrollY>(hero?hero.offsetHeight*.7:400))};mb2();addEventListener('scroll',mb2,{passive:true});
 /* gentle reveal */
 if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});R.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}else{R.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
 })();
