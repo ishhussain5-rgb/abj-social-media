@@ -247,6 +247,13 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 #kc .rvg figcaption{font:500 11px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
 #kc .rvg figcaption b{color:var(--ink);font-weight:500}
 #kc .sr{color:var(--go);letter-spacing:.18em;font-size:13px;margin-bottom:16px;display:block}
+/* single review */
+#kc .q1{background:var(--lin2);padding:clamp(72px,7vw,130px) 0;text-align:center}
+#kc .q1 .w{max-width:1180px}
+#kc .q1 .sr{display:block;margin-bottom:22px}
+#kc .q1 blockquote{font:300 clamp(26px,2.6vw,44px)/1.25 var(--serif);max-width:24em;margin:0 auto}
+#kc .q1 cite{display:block;margin-top:28px;font:500 11px/1.6 var(--sans);font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--mut)}
+#kc .q1 cite b{color:var(--ink);font-weight:500}#kc .q1 cite a{margin-left:14px;border-bottom:1px solid var(--go);color:var(--ink)}
 /* guides */
 #kc .gd{padding:0 0 clamp(80px,8vw,140px)}
 #kc .gdg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(20px,2.4vw,44px);margin-top:clamp(32px,3vw,52px)}
