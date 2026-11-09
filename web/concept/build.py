@@ -56,7 +56,7 @@ def menu(nav):
             '  <ol>' + items + '</ol>\n'
             '  <div class="mm-c"><a href="tel:+441733686767">01733 686767</a><a href="https://wa.me/447479219421">WhatsApp</a>'
             '<a href="mailto:info@abjkitchensandbedrooms.co.uk">Email</a><span>3 Brassey Close, Peterborough</span>'
-            '<a class="btn" href="' + BOOK + '">Book a design visit</a></div>\n </div>\n'
+            '<a class="bt" href="' + BOOK + '">Book a design visit</a></div>\n </div>\n'
             ' <div class="mm-r" aria-hidden="true">' + imgs + '<span>Designed, made &amp; fitted in Peterborough</span></div>\n</div>')
 
 
@@ -69,10 +69,10 @@ AREAS = [("/home-dev-r7m3k", "Peterborough")] + [("/fitted-kitchens-bedrooms-%s"
 
 def footer(ft):
     areas = "".join('<a href="%s">%s</a>' % a for a in AREAS)
-    return '''<footer class="ft" aria-label="Site footer"><div class="w">
+    return '''<div class="ft" role="contentinfo" aria-label="Site footer"><div class="w">
  <div class="ft-top">
   <h2>''' + ft + '''</h2>
-  <div class="acts"><a class="ph" href="tel:+441733686767">01733 686767</a><a class="btn" href="''' + BOOK + '''">Book a free design visit</a></div>
+  <div class="acts"><a class="ph" href="tel:+441733686767">01733 686767</a><a class="bt" href="''' + BOOK + '''">Book a free design visit</a></div>
  </div>
  <div class="ft-g">
   <div class="ft-b">
@@ -88,7 +88,7 @@ def footer(ft):
  <div class="ft-ar" style="padding-bottom:36px"><h4 style="font:500 10.5px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--go);margin-bottom:16px">Areas we cover</h4><div class="ft-a">''' + areas + '''</div></div>
  <div class="ft-s"><a href="https://www.instagram.com/abjkitchensbedrooms/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/ABJKitchensBedrooms" target="_blank" rel="noopener">Facebook</a><a href="https://www.tiktok.com/@abjkitchenandbedroomltd" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@abjkitchensandbedrooms" target="_blank" rel="noopener">YouTube</a><a href="https://www.linkedin.com/company/abj-kitchens-and-bedrooms/" target="_blank" rel="noopener">LinkedIn</a><a href="https://x.com/_ABJKitchens" target="_blank" rel="noopener">X</a></div>
  <div class="ft-l"><span>&copy; 2026 AB Joinery Kitchens and Bedrooms Ltd &middot; Registered in England and Wales, company no. 11100736 &middot; 3 Brassey Close, Peterborough PE1 2AZ<br>Part of the ABJ group: <a href="https://abjaccessories.co.uk/" target="_blank" rel="noopener">ABJ Accessories</a> &middot; <a href="https://www.cutandedgexpress.com/" target="_blank" rel="noopener">Cut &amp; Edge Express</a></span><nav aria-label="Legal"><a href="/payment-terms-abj-dev-h4e2">Payment terms</a><a href="/terms-and-conditions-dev-v9c7">Terms &amp; conditions</a><a href="/privacypolicy-dev-b1c4">Privacy policy</a><a href="#cookie-settings">Cookie settings</a></nav></div>
-</div></footer>'''
+</div></div>'''
 
 
 CK = ('<div class="ck" id="kc-ck" role="dialog" aria-live="polite" aria-label="Cookie consent"><p><b>Our use of cookies</b>We use cookies to analyse traffic and improve your visit. Analytics only load after you accept. <a href="/privacypolicy-dev-b1c4">Privacy policy</a></p><div><button type="button" class="ck-n">Decline</button><button type="button" class="ck-y">Accept</button></div></div>\n'
@@ -122,6 +122,8 @@ R.querySelectorAll('a[href^="tel:"]').forEach(function(a){a.addEventListener('cl
 R.querySelectorAll('a[href*="wa.me"]').forEach(function(a){a.addEventListener('click',function(){ev('whatsapp_click',{event_category:'Contact',event_label:'WhatsApp'})})});
 /* phone action bar appears once the hero has scrolled away */
 var mbar=document.getElementById('kc-mbar'),hero=R.querySelector('.hero');var mb2=function(){mbar&&mbar.classList.toggle('o',window.scrollY>(hero?hero.offsetHeight*.7:400))};mb2();addEventListener('scroll',mb2,{passive:true});
+/* undo what the old site-wide head scripts add to this page */
+var cln=function(){document.documentElement.classList.remove('abjm','abj-dock-hide','kit');R.querySelectorAll('.abjm-hide').forEach(function(e){e.classList.remove('abjm-hide')})};cln();document.addEventListener('DOMContentLoaded',cln);addEventListener('load',cln);setTimeout(cln,1200);setTimeout(cln,3000);
 /* gentle reveal */
 if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});R.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}else{R.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
 })();
