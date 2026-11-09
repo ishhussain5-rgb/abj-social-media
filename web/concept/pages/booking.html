@@ -1,0 +1,82 @@
+<!--META {"slug":"booking","title":"Booking","nav":"/bookingform-dev-k9b4","ft":"Prefer to talk it through?"} -->
+<style>#kc .hd{background:rgba(243,238,230,.97);color:var(--ink);box-shadow:0 1px 0 var(--hair)}#kc .hd:before{opacity:0}</style>
+<section class="bkp" aria-label="Book a free design visit">
+ <div class="l">
+  <img src="{KC}kc-handleless-l.webp" alt="" aria-hidden="true">
+  <span class="kick">Free design visit &middot; Peterborough</span>
+  <h1>Book your free design visit in Peterborough</h1>
+  <p>Bespoke kitchens, wardrobes, bedrooms and fitted furniture, designed, made and fitted in Peterborough. Get a home survey, a 3D design and a clear quote, with no obligation.</p>
+  <ol>
+   <li><b>We call you back</b><span>Usually within 2 hours on weekdays, to talk through your ideas.</span></li>
+   <li><b>We visit and measure</b><span>A free, no-pressure visit at a time that suits you.</span></li>
+   <li><b>You see it in 3D</b><span>Your room designed in 3D, with an itemised quote.</span></li>
+  </ol>
+  <div class="ct"><a href="tel:+441733686767">01733 686767</a><a href="https://wa.me/447479219421">WhatsApp photos</a><span>4.9 on Google &middot; 10-year guarantee</span></div>
+ </div>
+ <div class="r">
+  <div class="bf" id="kc-bf">
+   <form id="abj-booking-form" novalidate aria-label="Book a free design visit">
+    <span class="kick">Your details</span>
+    <h2>Tell us about your project</h2>
+    <p class="sub">It takes about a minute. Rough ideas are fine; we measure everything at the visit.</p>
+    <div class="g2">
+     <div class="f" id="f-name"><label for="abj-name">Your name</label><input id="abj-name" name="name" type="text" autocomplete="name" placeholder="e.g. Sarah Johnson" required><span class="em">Please enter your name.</span></div>
+     <div class="f" id="f-phone"><label for="abj-phone">Phone number</label><input id="abj-phone" name="phone" type="tel" autocomplete="tel" placeholder="07700 900123" required><span class="em">Please enter a valid phone number.</span></div>
+    </div>
+    <div class="f" id="f-addr"><label for="abj-addr">Address with postcode</label><input id="abj-addr" name="address" type="text" autocomplete="street-address" placeholder="e.g. 14 Main St, Stamford, PE9 2JR" required><div class="pc" id="abj-pc" aria-live="polite"></div><span class="em">Please enter your address, including the postcode.</span></div>
+    <fieldset class="f" id="f-proj"><legend>What would you like? (choose any)</legend>
+     <div class="chips" id="abj-chips"></div>
+     <span class="em">Please choose at least one.</span>
+    </fieldset>
+    <div class="f" id="f-other" hidden><label for="abj-other">Tell us what else</label><input id="abj-other" type="text" placeholder="e.g. boot room, library"><span class="em">Please tell us a little more.</span></div>
+    <div class="g2">
+     <div class="f" id="f-timing"><label for="abj-timing">When are you hoping to start?</label><select id="abj-timing" required><option value="">Choose one</option><option>As soon as possible</option><option>Within 1–3 months</option><option>Within 3–6 months</option><option>Within 6–12 months</option><option>Just researching</option></select><span class="em">Please choose one.</span></div>
+     <div class="f" id="f-src"><label for="abj-src">How did you hear about us?</label><select id="abj-src" required><option value="">Choose one</option><option>Google Search</option><option>Google Maps</option><option>Facebook</option><option>Instagram</option><option>Word of Mouth</option><option>Drove past showroom</option><option>Returning customer</option><option>Other</option></select><span class="em">Please choose one.</span></div>
+    </div>
+    <div class="f"><label for="abj-notes">Anything else? (optional)</label><textarea id="abj-notes" placeholder="Room sizes, styles you like, questions..."></textarea></div>
+    <div class="hp" aria-hidden="true"><input type="checkbox" id="abj-bot" tabindex="-1" autocomplete="off"></div>
+    <div class="send"><button class="bt d" type="submit" id="abj-submit">Send my enquiry</button><small>Your details are private and never shared.</small></div>
+    <div class="se" id="abj-se" role="alert">Sorry, something went wrong. Please call us on <a href="tel:+441733686767">01733 686767</a> or try again.</div>
+   </form>
+   <div class="ok" id="abj-ok" tabindex="-1">
+    <span class="kick">Thank you</span>
+    <h2>You&rsquo;re all set, <span id="abj-okname"></span></h2>
+    <p>Your enquiry is on its way. We&rsquo;ll call you on <b id="abj-okphone"></b>, usually within 2 hours (Mon&ndash;Fri). In the meantime, you can send photos of your room on WhatsApp.</p>
+    <div class="acts"><a class="bt d" href="https://wa.me/447479219421">Send photos on WhatsApp</a><a class="lnk" href="/gallery-dev-g7l3">See our work</a></div>
+   </div>
+  </div>
+ </div>
+</section>
+<script>
+(function(){
+var W3F='{W3F}',MAIL='info@abjkitchensandbedrooms.co.uk';
+var PROJS=['Kitchen','Bedroom','Wardrobe (Fitted/Sliding)','Media Wall','Worktops','Utility Room','Under-Stair Storage','Hallway','Loft','Living Room','Office Refit','HMO Renovation','Other'];
+var $=function(id){return document.getElementById(id)};
+var chips=$('abj-chips');
+PROJS.forEach(function(p){var l=document.createElement('label');l.innerHTML='<input type="checkbox" value="'+p+'"><span>'+p+'</span>';chips.appendChild(l)});
+var sel=function(){return [].map.call(chips.querySelectorAll('input:checked'),function(i){return i.value})};
+chips.addEventListener('change',function(){$('f-other').hidden=sel().indexOf('Other')<0;$('f-proj').classList.remove('err')});
+var PC=/\b([A-PR-UWYZ][A-HK-Y]?\d[A-Z\d]?\s*\d[ABD-HJLNP-UW-Z]{2})\b/i,pt;
+$('abj-addr').addEventListener('input',function(){var v=this.value,o=$('abj-pc');$('f-addr').classList.remove('err');clearTimeout(pt);var m=v.match(PC);if(!m){o.textContent='';o.className='pc';return}
+ pt=setTimeout(function(){fetch('https://api.postcodes.io/postcodes/'+encodeURIComponent(m[1])).then(function(r){return r.json()}).then(function(d){if(d.status===200){o.textContent='✓ Postcode found';o.className='pc'}else{o.textContent='That postcode doesn’t look right';o.className='pc no'}}).catch(function(){o.textContent=''})},400)});
+['abj-name','abj-phone','abj-timing','abj-src','abj-other'].forEach(function(id){$(id).addEventListener('input',function(){this.closest('.f').classList.remove('err')});$(id).addEventListener('change',function(){this.closest('.f').classList.remove('err')})});
+function check(){var ok=true,bad=function(id){$(id).classList.add('err');ok=false};
+ if($('abj-name').value.trim().length<2)bad('f-name');
+ if(!/^[\d\s+()-]{7,}$/.test($('abj-phone').value.trim()))bad('f-phone');
+ var a=$('abj-addr').value.trim();if(a.length<6||!PC.test(a))bad('f-addr');
+ var s=sel();if(!s.length)bad('f-proj');
+ if(s.indexOf('Other')>=0&&$('abj-other').value.trim().length<2)bad('f-other');
+ if(!$('abj-timing').value)bad('f-timing');
+ if(!$('abj-src').value)bad('f-src');
+ if(!ok){var f=document.querySelector('#kc-bf .err');f&&f.scrollIntoView({behavior:'smooth',block:'center'})}
+ return ok}
+$('abj-booking-form').addEventListener('submit',function(e){e.preventDefault();if($('abj-bot').checked)return;if(!check())return;
+ var nm=$('abj-name').value.trim(),ph=$('abj-phone').value.trim(),ad=$('abj-addr').value.trim(),oth=$('abj-other').value.trim();
+ var pj=sel().map(function(p){return p==='Other'?'Other ('+oth+')':p}).join(', '),src=$('abj-src').value,tm=$('abj-timing').value,nt=$('abj-notes').value.trim();
+ var b=$('abj-submit');b.disabled=true;b.textContent='Sending…';$('abj-se').classList.remove('on');
+ var body=['Name: '+nm,'Phone: '+ph,'Address: '+ad,'Projects: '+pj,'Source: '+src,'Timing: '+tm,'Notes: '+(nt||'None')].join('\n');
+ fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify({access_key:W3F,subject:'New Enquiry - '+pj,from_name:'ABJ Booking',replyto:MAIL,name:nm,phone:ph,address:ad,projects:pj,heard_from:src,timing:tm,notes:nt,message:body,botcheck:''})})
+ .then(function(r){return r.json()}).then(function(d){if(d&&d.success===true){$('abj-okname').textContent=nm.split(' ')[0];$('abj-okphone').textContent=ph;$('kc-bf').classList.add('done');var k=$('abj-ok');k.focus({preventScroll:true});k.scrollIntoView({behavior:'smooth',block:'center'})}else throw 0})
+ .catch(function(){b.disabled=false;b.textContent='Send my enquiry';$('abj-se').classList.add('on')})});
+})();
+</script>
