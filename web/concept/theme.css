@@ -481,3 +481,5 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 #kc .tx table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:15px}
 #kc .tx td,#kc .tx th{border-bottom:1px solid var(--hair);padding:10px 8px;text-align:left;vertical-align:top}
 @media (max-width:1100px){#kc .lgw{grid-template-columns:1fr}#kc .lgn{display:none}}
+#kc .gm{display:flex;justify-content:center;margin-top:clamp(28px,3vw,48px)}
+@media (max-width:760px){#kc .ih .side{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}#kc .ih .side b{font-size:64px}#kc .ih .side span{margin-top:0;font-size:20px;flex:1 1 55%}#kc .ih .side small{width:100%;margin-top:4px}}

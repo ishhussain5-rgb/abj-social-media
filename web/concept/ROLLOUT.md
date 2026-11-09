@@ -21,7 +21,24 @@ Tilda update method (no UI clicks except Publish): in the page editor run
 | Bathroom cabinetry | /bathroom-cabinetry-dev-c6v2 | 352714503 | rec5644313603 | live on DEV |
 | Upholstery | /upholstery-dev-u5h9 | 352693603 | rec5644317103 | live on DEV (photo hero; no video until there is footage from a home we may show) |
 | HMO | /hmo-makeover-dev-m2x5 | 352714603 | rec5644319403 | live on DEV |
-| Info, booking, area and legal pages | see plan doc | | | to do |
+| About | /about-abj-dev-a5b9 | 354002803 | rec5644393503 | live on DEV |
+| Finance | /flexible-finance-dev-f3n7 | 354002603 | rec5644398003 | live on DEV |
+| Booking | /bookingform-dev-k9b4 | 354003303 | rec5644399403 | live on DEV (web3forms key filled in the editor, not stored in the repo) |
+| Offers | /offers-dev-o8f2 | 354002703 | rec5644423903 | live on DEV (November offers; update monthly) |
+| FAQs | /faq-abj-dev-q4z6 | 354003103 | rec5644425603 | live on DEV |
+| Gallery | /gallery-dev-g7l3 | 354003003 | rec5644426903 | live on DEV (gallery.py + gallery_data.txt) |
+| Products we use | /products-we-use-dev-u2a5 | 354170803 | rec5644428803 | live on DEV |
+| Blog & guides | /abjfeeds-dev-b2f8 | 354003203 | rec5644431103 | live on DEV (Tilda CMS block 3271 kept on and moved into the page) |
+| Terms | /terms-and-conditions-dev-v9c7 | 354171103 | rec5644434203 | live on DEV (text carried over from the old block in the editor) |
+| Payment terms | /payment-terms-abj-dev-h4e2 | 354170903 | rec5644436303 | live on DEV |
+| Privacy | /privacypolicy-dev-b1c4 | 354171203 | rec5644437003 | live on DEV |
+| Stamford, Oundle, Market Deeping, Bourne, Spalding, Grantham, Huntingdon, St Ives, Ely, Wisbech | area pages | 354171303 etc. | one each | live on DEV (area-template.html filled from each old page in the editor) |
+| Oakham, Cambridge | area pages | 354171903, 354172603 | | to do (bespoke layouts) |
+| Case studies x2, Near me, Cut & edge | live only | | | to do (need DEV copies) |
 
 All room-page H1s now lead with the service and "Peterborough" (e.g. "Fitted wardrobes in Peterborough, built to make every inch count"). Page titles, descriptions, URLs and FAQs carried over from the old DEV pages.
 Media for batch 2-3 pages: branch web-media-l (c9b6a43), plus images already on the Tilda CDN.
+
+Editor helper: tilda_swap.js (load from jsDelivr in the page editor, then `await abjSwap({src, must, mode})`).
+Never run it before the records have loaded; it now waits and refuses if no records are found (a race on the About page once
+overwrote the old block; it was restored from the published page before publishing).

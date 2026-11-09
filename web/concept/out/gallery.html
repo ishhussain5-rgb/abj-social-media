@@ -487,6 +487,8 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 #kc .tx table{width:100%;border-collapse:collapse;margin:18px 0 24px;font-size:15px}
 #kc .tx td,#kc .tx th{border-bottom:1px solid var(--hair);padding:10px 8px;text-align:left;vertical-align:top}
 @media (max-width:1100px){#kc .lgw{grid-template-columns:1fr}#kc .lgn{display:none}}
+#kc .gm{display:flex;justify-content:center;margin-top:clamp(28px,3vw,48px)}
+@media (max-width:760px){#kc .ih .side{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px}#kc .ih .side b{font-size:64px}#kc .ih .side span{margin-top:0;font-size:20px;flex:1 1 55%}#kc .ih .side small{width:100%;margin-top:4px}}
 </style>
 
 <div id="kc">
@@ -603,6 +605,7 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
   <a class="gi" data-c="Storage" href="https://static.tildacdn.net/tila3230-6565-4136-b330-366639303766/UnderStair34.webp"><img loading="lazy" src="https://static.tildacdn.net/tila3230-6565-4136-b330-366639303766/UnderStair34.webp" alt="Under-stairs pull-out drawers next to a carpeted staircase"></a>
   <a class="gi" data-c="Storage" href="https://static.tildacdn.net/tila6533-3339-4165-a536-313964383533/UnderStair36.webp"><img loading="lazy" src="https://static.tildacdn.net/tila6533-3339-4165-a536-313964383533/UnderStair36.webp" alt="Deep under-stairs pull-out drawers open"></a>
  </div>
+ <div class="gm"><button type="button" class="bt d" id="kc-gm">Show more photos</button></div>
 </div></section>
 
 <section class="sec alt" aria-label="Case studies"><div class="w">
@@ -625,7 +628,9 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 <div class="lb" id="kc-lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><button type="button" class="x" aria-label="Close">&times;</button><button type="button" class="pv" aria-label="Previous photo">&larr;</button><figure><img alt=""><figcaption></figcaption></figure><button type="button" class="nx" aria-label="Next photo">&rarr;</button></div>
 <script>
 (function(){var g=document.getElementById('kc-gg');if(!g)return;var bs=document.querySelectorAll('#kc .gf button'),it=[].slice.call(g.querySelectorAll('.gi'));
-bs.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;bs.forEach(function(x){x.classList.toggle('on',x===b)});it.forEach(function(a){a.hidden=!(f==='*'||a.dataset.c===f)})})});
+var F='*',N=16,gm=document.getElementById('kc-gm');var draw=function(){var m=it.filter(function(a){return F==='*'||a.dataset.c===F});it.forEach(function(a){a.hidden=true});m.forEach(function(a,i){a.hidden=i>=N});var left=m.length-N;gm.parentNode.style.display=left>0?'':'none';gm.textContent='Show more photos ('+left+')'};
+gm.addEventListener('click',function(){N+=16;draw()});
+bs.forEach(function(b){b.addEventListener('click',function(){F=b.dataset.f;N=16;bs.forEach(function(x){x.classList.toggle('on',x===b)});draw()})});draw();
 var lb=document.getElementById('kc-lb'),im=lb.querySelector('img'),cp=lb.querySelector('figcaption'),cur=0,vis=function(){return it.filter(function(a){return !a.hidden})};
 var show=function(i){var v=vis();cur=(i+v.length)%v.length;var a=v[cur];im.src=a.href;im.alt=a.querySelector('img').alt;cp.textContent=im.alt};
 it.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();lb.hidden=false;document.documentElement.style.overflow='hidden';show(vis().indexOf(a));lb.querySelector('.x').focus()})});

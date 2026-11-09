@@ -31,6 +31,7 @@ page = '''<!--META {"slug":"gallery","title":"Gallery","nav":"/gallery-dev-g7l3"
  <div class="gg" id="kc-gg">
 %s
  </div>
+ <div class="gm"><button type="button" class="bt d" id="kc-gm">Show more photos</button></div>
 </div></section>
 
 <section class="sec alt" aria-label="Case studies"><div class="w">
@@ -53,7 +54,9 @@ page = '''<!--META {"slug":"gallery","title":"Gallery","nav":"/gallery-dev-g7l3"
 <div class="lb" id="kc-lb" role="dialog" aria-modal="true" aria-label="Photo viewer" hidden><button type="button" class="x" aria-label="Close">&times;</button><button type="button" class="pv" aria-label="Previous photo">&larr;</button><figure><img alt=""><figcaption></figcaption></figure><button type="button" class="nx" aria-label="Next photo">&rarr;</button></div>
 <script>
 (function(){var g=document.getElementById('kc-gg');if(!g)return;var bs=document.querySelectorAll('#kc .gf button'),it=[].slice.call(g.querySelectorAll('.gi'));
-bs.forEach(function(b){b.addEventListener('click',function(){var f=b.dataset.f;bs.forEach(function(x){x.classList.toggle('on',x===b)});it.forEach(function(a){a.hidden=!(f==='*'||a.dataset.c===f)})})});
+var F='*',N=16,gm=document.getElementById('kc-gm');var draw=function(){var m=it.filter(function(a){return F==='*'||a.dataset.c===F});it.forEach(function(a){a.hidden=true});m.forEach(function(a,i){a.hidden=i>=N});var left=m.length-N;gm.parentNode.style.display=left>0?'':'none';gm.textContent='Show more photos ('+left+')'};
+gm.addEventListener('click',function(){N+=16;draw()});
+bs.forEach(function(b){b.addEventListener('click',function(){F=b.dataset.f;N=16;bs.forEach(function(x){x.classList.toggle('on',x===b)});draw()})});draw();
 var lb=document.getElementById('kc-lb'),im=lb.querySelector('img'),cp=lb.querySelector('figcaption'),cur=0,vis=function(){return it.filter(function(a){return !a.hidden})};
 var show=function(i){var v=vis();cur=(i+v.length)%%v.length;var a=v[cur];im.src=a.href;im.alt=a.querySelector('img').alt;cp.textContent=im.alt};
 it.forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();lb.hidden=false;document.documentElement.style.overflow='hidden';show(vis().indexOf(a));lb.querySelector('.x').focus()})});
