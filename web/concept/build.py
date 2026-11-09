@@ -109,6 +109,9 @@ hs();addEventListener('scroll',hs,{passive:true});
 var V=R.querySelectorAll('.hero video'),cap=R.querySelector('.hero .cap'),cur=0;
 V.forEach(function(v){v.addEventListener('ended',function(){if(V.length<2){v.currentTime=0;v.play();return}var n=V[(cur+1)%V.length];n.preload='auto';n.currentTime=0;var p=n.play();var sw=function(){n.classList.add('on');v.classList.remove('on');cur=(cur+1)%V.length;if(cap&&n.dataset.cap)cap.textContent=n.dataset.cap};p&&p.then?p.then(sw,function(){v.currentTime=0;v.play()}):sw()})});
 setTimeout(function(){V[1]&&(V[1].preload='auto')},4000);
+/* montage: phone poster, and the caption follows the room on screen */
+var mob=window.matchMedia&&matchMedia('(max-width:760px)').matches;
+V.forEach(function(v){if(mob&&v.dataset.mp)v.poster=v.dataset.mp;if(!v.dataset.caps)return;var cs;try{cs=JSON.parse(v.dataset.caps)}catch(e){return}var last=0;v.addEventListener('timeupdate',function(){var t=v.currentTime,i=0;for(var k=0;k<cs.length;k++)if(t>=cs[k][0])i=k;if(i!==last&&cap){last=i;cap.style.opacity=0;setTimeout(function(){cap.innerHTML=cs[i][1];cap.style.opacity=1},250)}})});
 /* rail arrows */
 R.querySelectorAll('.arw').forEach(function(w){var rail=document.getElementById(w.dataset.for);if(!rail)return;w.querySelectorAll('button').forEach(function(b){b.addEventListener('click',function(){var c=rail.querySelector('.card');rail.scrollBy({left:(c?c.offsetWidth+24:400)*2*(+b.dataset.d),behavior:'smooth'})})})});
 /* cookie consent: same storage key as the existing site, so a choice made on any page carries over */
