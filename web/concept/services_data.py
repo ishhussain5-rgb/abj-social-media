@@ -7,6 +7,7 @@ MEDIA = {
     "k": "123050832ba2be74a77bf0f7c632826f8cc5c439",   # wardrobe + bedroom photos from the Drive gallery
     "l": "c9b6a43e8a2c02ad59b5f96be569168331082850",   # hallway, storage, office, panelling, bathroom, worktop photos (Drive)
     "i": "69dbc3e188cebfa373bcfe64fceb39654b3a684a",   # kitchen photos (kc-*)
+    "m": "c622e97c6fffffaf3dcbd6af4209d7084d46f850",   # smooth photo-based hero clips (C) for storage, office, hallways, bathroom, upholstery, hmo
 }
 # images already on the site's Tilda CDN (used by the old DEV pages)
 T = lambda path: "https://static.tildacdn.net/" + path
@@ -213,8 +214,7 @@ PAGES = [
 },
 {
  "slug": "storage", "name": "Bespoke storage", "url": "/bespoke-storage-dev-s2k7", "footer": "Let&rsquo;s plan your storage",
- "videos": [("d:abj-storage-A-wide.mp4", "d:abj-storage-A-v.mp4", "Hidden drinks cabinet"),
-            ("d:abj-storage-B-wide.mp4", "d:abj-storage-B-v.mp4", "Made-to-measure drawers")],
+ "videos": [("m:abj-storage-C-wide.mp4", "m:abj-storage-C-v.mp4", "Made-to-measure storage &amp; display cabinets")],
  "kicker": "Bespoke storage &middot; Peterborough", "h1": "Bespoke storage in Peterborough, built into every awkward corner",
  "lead": "Under-stair drawers, alcove units, larders and utility rooms, made to measure in our Peterborough workshop so no space is wasted.",
  "intro_kick": "The ABJ approach",
@@ -250,8 +250,7 @@ PAGES = [
 },
 {
  "slug": "office", "name": "Home offices", "url": "/office-renovations-dev-o3f7", "footer": "Let&rsquo;s design your workspace",
- "videos": [("e:abj-office-A-wide.mp4", "e:abj-office-A-v.mp4", "Panelled home office"),
-            ("e:abj-office-B-wide.mp4", "e:abj-office-B-v.mp4", "Desk &amp; shelving")],
+ "videos": [("m:abj-office-C-wide.mp4", "m:abj-office-C-v.mp4", "Fitted home offices &amp; desks")],
  "kicker": "Home offices &middot; Peterborough", "h1": "Bespoke home offices in Peterborough, built around how you work",
  "lead": "Fitted desks, library walls, printer cupboards and cable-free workspaces for homes and businesses, made in our Peterborough workshop.",
  "intro_kick": "The ABJ approach",
@@ -286,8 +285,7 @@ PAGES = [
 },
 {
  "slug": "hallways", "name": "Hallway storage", "url": "/bespoke-hallways-dev-h4j8", "footer": "Let&rsquo;s design your hallway",
- "videos": [("e:abj-hallways-A-wide.mp4", "e:abj-hallways-A-v.mp4", "Slatted hallway storage"),
-            ("e:abj-hallways-B-wide.mp4", "e:abj-hallways-B-v.mp4", "Hallway storage &amp; coat hooks")],
+ "videos": [("m:abj-hallways-C-wide.mp4", "m:abj-hallways-C-v.mp4", "Hallway storage &amp; under-stair drawers")],
  "kicker": "Hallways &middot; Peterborough", "h1": "Bespoke hallway storage in Peterborough, designed around family life",
  "lead": "Coat walls, shoe storage, benches and under-stair cupboards, made to measure so the first room you see is the calmest.",
  "intro_kick": "The ABJ approach",
@@ -322,8 +320,7 @@ PAGES = [
 },
 {
  "slug": "bathroom", "name": "Bathroom cabinetry", "url": "/bathroom-cabinetry-dev-c6v2", "footer": "Let&rsquo;s design your bathroom",
- "videos": [("d:abj-bathroom-A-wide.mp4", "d:abj-bathroom-A-v.mp4", "Freestanding bath &amp; fitted vanity"),
-            ("d:abj-bathroom-B-wide.mp4", "d:abj-bathroom-B-v.mp4", "Fluted double vanity")],
+ "videos": [("m:abj-bathroom-C-wide.mp4", "m:abj-bathroom-C-v.mp4", "Floating oak vanity with stone basin")],
  "kicker": "Bathroom cabinetry &middot; Peterborough", "h1": "Bathroom cabinetry &amp; vanity units in Peterborough, made to measure",
  "lead": "Fitted vanity units, tall cabinets, boxing and worktops in moisture-resistant materials, made to fit around your pipework.",
  "intro_kick": "The ABJ approach",
@@ -359,7 +356,7 @@ PAGES = [
 },
 {
  "slug": "upholstery", "name": "Upholstery", "url": "/upholstery-dev-u5h9", "footer": "Let&rsquo;s design your headboard",
- "videos": [], "hero_img": (T("tila3534-3534-4235-b538-323862316138/bed2.webp"), "Bed with a tall vertical panelled upholstered headboard"), "hero_cap": "Tall panelled headboard",
+ "videos": [("m:abj-upholstery-C-wide.mp4", "m:abj-upholstery-C-v.mp4", "Upholstered headboards")],
  "kicker": "Upholstery &middot; Peterborough", "h1": "Bespoke upholstery in Peterborough, handmade for your bedroom",
  "lead": "Headboards, upholstered beds, wall panels and reupholstery, made to measure in fabrics you choose at home.",
  "intro_kick": "The ABJ approach",
@@ -393,8 +390,7 @@ PAGES = [
 },
 {
  "slug": "hmo", "name": "HMO fit-outs", "url": "/hmo-makeover-dev-m2x5", "footer": "Let&rsquo;s plan your HMO",
- "videos": [("e:abj-hmo-A-wide.mp4", "e:abj-hmo-A-v.mp4", "Practical, hard-wearing fit-outs"),
-            ("e:abj-hmo-B-wide.mp4", "e:abj-hmo-B-v.mp4", "Shared kitchen")],
+ "videos": [("m:abj-hmo-C-wide.mp4", "m:abj-hmo-C-v.mp4", "Shared kitchens, utility &amp; lounge fit-outs")],
  "kicker": "HMO fit-outs &middot; Peterborough", "h1": "HMO makeovers &amp; fit-outs in Peterborough, built for heavy use",
  "lead": "Room furniture, shared kitchens and storage for landlords, made in our Peterborough workshop to cope with daily use by several tenants.",
  "explore": "See what we fit",
