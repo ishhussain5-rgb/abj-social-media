@@ -120,7 +120,7 @@
 #kc .ps p{color:var(--mut);font-size:14.5px}
 /* book */
 #kc .bk{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:clamp(540px,76vh,820px);background:var(--g);color:var(--lin)}
-#kc .bk figure{overflow:hidden}#kc .bk figure img{width:100%;height:100%;object-fit:cover;object-position:50% 72%}
+#kc .bk figure{overflow:hidden;position:relative}#kc .bk figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 72%}
 #kc .bk .t{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,6vw,120px) var(--pad);padding-right:calc(max((100vw - var(--max))/2,0px) + var(--pad))}
 #kc .bk .kick{color:rgba(243,238,230,.7)}
 #kc .bk h2{margin:20px 0 22px;max-width:10em}
@@ -218,7 +218,7 @@
 /* workshop band with process */
 #kc .ws{background:var(--g);color:var(--lin)}
 #kc .ws-a{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);min-height:clamp(560px,80vh,860px)}
-#kc .ws-a figure{overflow:hidden;order:2}#kc .ws-a figure img{width:100%;height:100%;object-fit:cover}
+#kc .ws-a figure{overflow:hidden;order:2;position:relative}#kc .ws-a figure img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 #kc .ws-a .t{display:flex;flex-direction:column;justify-content:center;padding:clamp(56px,6vw,120px) var(--pad);padding-left:calc(max((100vw - var(--max))/2,0px) + var(--pad))}
 #kc .ws .kick{color:rgba(243,238,230,.7)}
 #kc .ws h2{margin:20px 0 22px;max-width:11em}
