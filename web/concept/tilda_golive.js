@@ -72,6 +72,21 @@
       html = html.replace('<header class="hd" id="kc-hd">', '<div class="hd" id="kc-hd" role="banner">').replace('</div></header>', '</div></div>');
     if (!html.includes('data-abj-links'))
       html = html.replace('<div class="hd" id="kc-hd"', '<script>document.documentElement.setAttribute(\'data-abj-links\',\'1\')</script><div class="hd" id="kc-hd"');
+    // Screaming Frog, 10 Nov 2026. Images get their real width/height (stops layout shift warnings). data-wh + the :where() rule keep
+    // height:auto wherever no other rule sets a height, so nothing on the page changes size.
+    const dims = window.__abjDims || {};
+    html = html.replace(/<img\b[^>]*>/g, tag => {
+      if (/\swidth=/.test(tag)) return tag;
+      const m = tag.match(/\ssrc="([^"]+)"/); const d = m && dims[m[1]];
+      return d ? tag.replace(/^<img\b/, '<img width="' + d[0] + '" height="' + d[1] + '" data-wh') : tag;
+    });
+    if (html.includes(' data-wh') && !html.includes(':where(#kc img[data-wh])'))
+      html = html.replace('</style>', ':where(#kc img[data-wh]){height:auto}</style>');
+    // the booking page's faint background photo had an empty alt
+    html = html.replace(/(kc-handleless-l\.webp" )alt="" aria-hidden="true"/, '$1alt="Handleless kitchen" aria-hidden="true"');
+    // town pages shared the H2 "What we make"; name the town
+    const town = (html.match(/A few of ([^<&]+?)&rsquo;s landmarks/) || [])[1];
+    if (town) html = html.replace(/(<h2[^>]*>)What we make(<\/h2>)/, '$1What we make in ' + town + '$2');
     return html;
   };
   // the site footer page carries two scripts that new pages still need (lead hand-off to ABJ Factory, conversion de-duplication).
@@ -164,6 +179,7 @@
     await loaded();
     const nid = ids().find(i => code(i).includes(NEW) && isOn(i)); if (!nid) throw new Error('no live new-design block');
     const c0 = code(nid);
+    if (!window.__abjDims) window.__abjDims = await (await fetch(o.base + 'imgdims.json')).json();
     let c = window.abjSeoFix(window.abjFooterUpgrade(await window.abjTheme(c0, o.base)));
     if (o.footerScripts) c = withFooterScripts(c);
     if (/-dev-[a-z0-9]{4,5}\b/.test(c)) throw 'DEV link found';
