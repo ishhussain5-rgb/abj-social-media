@@ -33,8 +33,12 @@ Tilda update method (no UI clicks except Publish): in the page editor run
 | Payment terms | /payment-terms-abj-dev-h4e2 | 354170903 | rec5644436303 | live on DEV |
 | Privacy | /privacypolicy-dev-b1c4 | 354171203 | rec5644437003 | live on DEV |
 | Stamford, Oundle, Market Deeping, Bourne, Spalding, Grantham, Huntingdon, St Ives, Ely, Wisbech | /fitted-kitchens-bedrooms-<town>-dev-xxxx | 354171303, 354171403, 354171603, 354171703, 354171803, 354172003, 354172103, 354172203, 354172303, 354172403 | rec5644439903, 5644440803, 5644441703, 5644442703, 5644443703, 5649047003, 5649047603, 5649055803, 5649056903, 5649057503 | live on DEV (area-template.html filled from each old page in the editor) |
-| Oakham, Cambridge | area pages | 354171903, 354172603 | | to do (bespoke layouts) |
-| Case studies x2, Near me, Cut & edge | live only | | | to do (need DEV copies) |
+| Oakham | /fitted-kitchens-bedrooms-oakham-dev-e4y6 | 354171903 | rec5649232103 | live on DEV (bespoke layout, landmarks added in the editor: patch only) |
+| Cambridge | /fitted-kitchens-bedrooms-cambridge-dev-s4w2 | 354172603 | rec5649232503 | live on DEV (bespoke layout, landmarks added in the editor: patch only) |
+| Case study: Kings Road | /case-study-kings-road-kitchen-peterborough-dev-c3k8 | 373659003 | rec5649275103 | live on DEV (patch only) |
+| Case study: Handleless island | /case-study-handleless-island-kitchen-dev-h6w2 | 373659103 | rec5649275303 | live on DEV (patch only) |
+| Bespoke furniture near me | /near-me-peterborough-dev-n7p4 | 373659203 | rec5649275503 | live on DEV (patch only; FAQPage JSON-LD added; meta title fixed, see 404 note) |
+| Cut & Edge | none | 373659303 (unpublished copy) | | not needed: the live page is archived and 301s to cutandedgexpress.com |
 
 All room-page H1s now lead with the service and "Peterborough" (e.g. "Fitted wardrobes in Peterborough, built to make every inch count"). Page titles, descriptions, URLs and FAQs carried over from the old DEV pages.
 Media for batch 2-3 pages: branch web-media-l (c9b6a43), plus images already on the Tilda CDN.
@@ -48,3 +52,27 @@ overwrote the old block; it was restored from the published page before publishi
 Updating a page that has placeholders filled in the editor (booking, terms, payment, privacy, area pages): patch the saved
 block code in the editor (read `#record<id> pre code`, change it, saverecord) instead of re-sending out/<slug>.html,
 so the form key and the carried-over text stay in place.
+
+## Landmarks on area pages (Nov 2026)
+All 12 town pages have a photo hero of a local landmark plus a "A few of <town>'s landmarks" section with two more photos and
+Wikimedia Commons credits (author + licence links). Source list: `landmarks.json`. Images were converted to webp and uploaded
+to the Tilda CDN from the editor; `abjLandmarks({rec,town,imgs})` in tilda_update.js applied them. Area pages are now
+**patch mode only**: `abjUpdate({rec,mode:'patch',base})` swaps the theme `<style>` and rewrites case-study links, nothing else.
+
+## Republishing everything
+`abjUpdate` (tilda_update.js): mode `direct` for room and info pages (home, kitchens ... blog), mode `patch` for booking, legal,
+the 12 town pages, both case studies and near-me. Then a real click on the Publish icon. Full republish done 10 Nov from ba043d3.
+QA: load qa.js on the site origin and run `abjQARun([...paths])` (desktop 1905 and phone 390).
+
+## Blog articles (/abjfeeds/tpost/...)
+Tilda CMS renders these outside our blocks and they are shared with the live site. `post-skin.js` re-renders an article in the
+new design. Preview: add `?preview=new` to any article URL (`?preview=old` to stop). At go-live add to the site head
+(Site settings > More > HTML code for the HEAD), pinned to a commit:
+`<script>window.ABJ_POST_SKIN=true</script><script src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@<commit>/web/concept/post-skin.js" defer></script>`
+
+## Go-live checklist
+- Every internal `-dev-xxxx` link must point at the live URL (e.g. /home-dev-r7m3k -> /, /bespoke-kitchens-dev-k7q2 -> /bespoke-kitchens,
+  /bookingform-dev-k9b4 -> /bookingform, /abjfeeds-dev-b2f8 -> /abjfeeds). Do it in build.py and the patch helper, then republish.
+- Live /near-me-peterborough (123982426) is also the site's 404 page (meta title "Page Not Found"). Decide: keep it as the 404, or
+  make a separate new-design 404 page and point Site settings > 404 at it.
+- Turn on the blog post skin (head snippet above).
