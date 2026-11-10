@@ -10,6 +10,7 @@
   const US = /\b(color|colors|colored|center|centered|centers|organize|organized|organizing|organization|favorite|favorites|gray|realize|realized|customize|customized|personalize|personalized|optimize|optimized|maximize|minimize|specialize|specialized|catalog|aluminum|cozy|jewelry|neighbor|neighbors|neighborhood|labor|honor|harbor|fulfill|inquire|inquiry|inquiries|license(?=d)|traveler|modeling|canceled|meters|liter|liters|tire|curb)\b/i;
   window.abjQA = function (doc, win, W) {
     const out = [], root = doc.getElementById('kc'); if (!root) return ['no #kc block on the page'];
+    doc.documentElement.style.scrollBehavior = 'auto'; doc.body.style.scrollBehavior = 'auto';
     if (doc.documentElement.scrollWidth > W + 1) out.push('page overflows sideways (' + doc.documentElement.scrollWidth + 'px wide)');
     const hidden = e => e.closest('.mm,.ck,[hidden],template,noscript,.lb,.hd,.mbar') || win.getComputedStyle(e).visibility === 'hidden';
     const seen = new Set();
@@ -21,7 +22,7 @@
       const t = e.textContent.trim().replace(/\s+/g, ' ');
       if (/^[\d★·\s.()]{1,6}$/.test(t)) continue; // decorative step numbers and stars
       const absY = r.top + win.scrollY + r.height / 2;
-      win.scrollTo(0, Math.max(0, absY - win.innerHeight / 2));
+      win.scrollTo({ top: Math.max(0, absY - win.innerHeight / 2), behavior: 'instant' });
       const r2 = e.getBoundingClientRect();
       const x = Math.min(Math.max(r2.left + 4, 1), W - 2), y = Math.min(Math.max(r2.top + r2.height / 2, 1), win.innerHeight - 2);
       const stack = doc.elementsFromPoint(x, y).filter(s => !s.closest('.hd,.mbar,.ck,.mm'));
