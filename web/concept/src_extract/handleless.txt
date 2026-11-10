@@ -1,0 +1,36 @@
+SOURCE: live page /case-study-handleless-island-kitchen (Tilda 343217603). DEV copy: /case-study-handleless-island-kitchen-dev-h6w2 (Tilda 373659103, old block rec 5649236603 holds 1 JSON-LD script, carried over by %%LD%%).
+H1: Handleless Gloss Kitchen with a Waterfall Island & Media Wall
+P: A warm, light handleless kitchen with slim gold accents, a marble-effect waterfall island seating six, a swing-out larder and a matching media wall with an electric fire in the living space. Designed, manufactured and fitted by our own team.
+Buttons: Book a Free Design Visit / See the Photos
+IMG https://static.tildacdn.net/tila6530-3531-4466-a365-333134386564/abj-handleless-islan.webp | Handleless gloss kitchen with a marble-effect waterfall island, velvet stools and a gold pendant
+P: A sociable family kitchen that feels light and luxurious, with every appliance and cupboard hidden behind clean, handleless fronts.
+H2: The Handleless Island Kitchen in Brief
+Spaces: Kitchen, island seating, study nook and living-room media wall
+Style: Handleless warm light gloss with slim gold-tone accents
+Worktops: Marble-effect worktops with a waterfall island and matching full-height splashback
+Island: Long waterfall island with seating for six
+Storage: Floor-to-ceiling tall units, integrated ovens and a swing-out corner larder
+Made by: Designed, manufactured and installed by ABJ, with no subcontracted furniture
+H2: Light, Warm and Completely Handleless
+P: The family wanted a kitchen that felt bright and luxurious but still worked hard every day. We designed a fully handleless scheme in a warm, light gloss, with slim gold-tone accents running through the fronts to pick up the brass of the pendant lights and stools.
+P: The centrepiece is a long island finished with a waterfall marble-effect worktop that drops to the floor at both ends. It seats six, so it doubles as the family dining table, and the veining continues into a matching full-height splashback along the back wall.
+P: Floor-to-ceiling tall units keep the ovens, fridge and everyday clutter behind flush doors, while concealed LED lighting under the wall units washes the splashback with light.
+IMG https://static.tildacdn.net/tila3736-3239-4439-b761-383339313833/abj-handleless-islan.webp | Waterfall marble-effect island with gold pendant light and tall handleless gloss units
+FIGCAPTION: The waterfall island doubles as the family dining table.
+H2: Storage and Finishing Touches
+P: The parts you notice every day are the ones that were planned most carefully.
+H3: Swing-out corner larder / P: A tall larder beside the ovens uses swing-out shelving so nothing gets lost in the back of the cupboard.
+H3: A built-in study nook / P: A compact desk with a floating shelf turns a small recess into a homework and laptop spot.
+H3: Matching media wall / P: In the living space, a woodgrain media wall with an electric fire and fluted, handleless storage ties the rooms together.
+H3: Lighting built in / P: LED profiles under the wall units and recessed ceiling lines are planned into the joinery rather than added afterwards.
+H2: The Kitchen in Photos (8 photos)
+IMG https://static.tildacdn.net/tila3831-6130-4338-b163-386532613337/abj-handleless-islan.webp | Island seating with green velvet stools beside handleless gloss base units
+IMG https://static.tildacdn.net/tila3066-3661-4732-b465-633930316138/abj-handleless-islan.webp | Long run of handleless units with under-cabinet LED lighting
+IMG https://static.tildacdn.net/tila6364-6537-4439-a235-663130643435/abj-handleless-islan.webp | Tall swing-out corner larder beside built-in ovens
+IMG https://static.tildacdn.net/tila6536-6637-4332-b363-313261643964/abj-handleless-islan.webp | Waterfall edge detail of the marble-effect island worktop
+IMG https://static.tildacdn.net/tila6363-3130-4264-a265-333261643061/abj-handleless-islan.webp | Marble-effect full-height splashback lit by LED profile lighting
+IMG https://static.tildacdn.net/tila3437-6438-4633-a438-666562323762/abj-handleless-islan.webp | Induction hob set into marble-effect worktop
+IMG https://static.tildacdn.net/tila3438-3263-4530-b562-613063303536/abj-handleless-islan.webp | Built-in study nook with floating desk and green velvet chair
+IMG https://static.tildacdn.net/tila6136-6132-4433-b562-326535353739/abj-handleless-islan.webp | Woodgrain media wall with electric fire and recessed ceiling lighting
+H2: What Does a Project Like This Cost? (same Investment + Typical programme text as the Kings Road case study)
+Related: Bespoke kitchens /bespoke-kitchens-dev-k7q2, Worktops /luxury-worktops-dev-t6p3, Media walls /media-walls-dev-m9t5, the Kings Road case study /case-study-kings-road-kitchen-peterborough-dev-c3k8, Gallery /gallery-dev-g7l3
