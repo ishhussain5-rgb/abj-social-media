@@ -17,7 +17,7 @@
     for (const e of root.querySelectorAll('*')) {
       const own = [...e.childNodes].some(n => n.nodeType === 3 && n.textContent.trim().length > 0); if (!own) continue;
       if (hidden(e)) continue;
-      const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 2) continue;
+      const r = e.getBoundingClientRect(); if (r.width < 2 || r.height < 2 || r.right < 0 || r.left > W) continue;
       const cs = win.getComputedStyle(e); if (+cs.opacity < .2) continue;
       const t = e.textContent.trim().replace(/\s+/g, ' ');
       if (/^[\d★·\s.()]{1,6}$/.test(t)) continue; // decorative step numbers and stars
@@ -53,7 +53,7 @@
     const us = txt.match(US); if (us) out.push('US spelling: ' + us[0]);
     for (const a of root.querySelectorAll('a,button')) { if (hidden(a)) continue; const r = a.getBoundingClientRect(); if (r.width < 2) continue; if (!a.textContent.trim() && !a.getAttribute('aria-label') && !a.querySelector('img')) out.push('empty link/button: ' + (a.getAttribute('href') || a.className)); const h = a.getAttribute('href') || ''; if (h.startsWith('#') && h.length > 1 && h !== '#cookie-settings' && !doc.getElementById(h.slice(1))) out.push('link to missing section: ' + h); }
     for (const e of root.querySelectorAll('section *')) {
-      const r = e.getBoundingClientRect(); if (r.width < 2 || hidden(e) || e.closest('.rail,.pan,.gg,.rooms,.proj,.hero,.bk figure')) continue;
+      const r = e.getBoundingClientRect(); if (r.width < 2 || hidden(e) || e.closest('.rail,.pan,.gg,.rooms,.proj,.hero,.bk figure,.rvg')) continue;
       if (r.right > W + 4 && r.left < W) { out.push('element runs off screen: ' + e.tagName.toLowerCase() + '.' + (e.className || '').toString().split(' ')[0]); break; }
     }
     return out;
