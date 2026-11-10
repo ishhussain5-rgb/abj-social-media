@@ -88,6 +88,44 @@ Live links come from `linkmap.json` (all 39 checked: no DEV links left, every ta
 | Live page | Live Tilda page | DEV page / rec | New live rec | Old recs switched off | Status |
 |---|---|---|---|---|---|
 | /products-we-use | 333106403 | 354170803 / 5644428803 | 5653872103 | 5129201203 | LIVE 10 Nov (pilot) |
+| /terms-and-conditions | 82695596 | (captured from DEV) | 5657521403 | 1375663731 | LIVE 10 Nov |
+| /payment-terms-abj | 84863476 | (captured from DEV) | 5657524703 | 1454796151, 1408567331 | LIVE 10 Nov |
+| /privacypolicy | 70795693 | (captured from DEV) | 5657527203 | 1454563181 | LIVE 10 Nov |
+| /bespoke-kitchens | 73297273 | (captured from DEV) | 5657531303 | 1278191031 (1993983471 was already off) | LIVE 10 Nov |
+| /bespoke-wardrobes | 73280437 | (captured from DEV) | 5657532803 | 1291093181 (1993990101 was already off) | LIVE 10 Nov |
+| /bespoke-bedrooms-abj | 73297487 | (captured from DEV) | 5657534703 | 1448848451 (1993992071 was already off) | LIVE 10 Nov |
+| /media-walls | 73279037 | (captured from DEV) | 5657536503 | 1448933701 (1994007311 was already off) | LIVE 10 Nov |
+| /luxury-worktops-abj | 73545333 | (captured from DEV) | 5657537203 | 1448863051 (1994002551 was already off) | LIVE 10 Nov |
+| /bespoke-decors-peterborough | 73195791 | (captured from DEV) | 5657538603 | 1448931661 (1994004111 was already off) | LIVE 10 Nov |
+| /bespoke-storage-solutions | 73372439 | (captured from DEV) | 5657540503 | 1448954911 (1994010151 was already off) | LIVE 10 Nov |
+| /bespoke-office-renovations | 73279381 | (captured from DEV) | 5657545803 | 1449578951 (1994017681 was already off) | LIVE 10 Nov |
+| /bespoke-hallways | 73340083 | (captured from DEV) | 5657547203 | 1448859141 (1993998411 was already off) | LIVE 10 Nov |
+| /bathroom-cabinetry | 152105513 | (captured from DEV) | 5657550603 | 2436256093, 2436285593, 2436285963 | LIVE 10 Nov |
+| /upholstery | 146924323 | (captured from DEV) | 5657552903 | 2353737813 (2353737823 was already off) | LIVE 10 Nov |
+| /hmo-makeover | 73279797 | (captured from DEV) | 5657563103 | 1449632171 | LIVE 10 Nov |
+| /about-abj | 112290576 | (captured from DEV) | 5657563503 | 2462587463, 5250489903 (5250461703 was already off) | LIVE 10 Nov |
+| /flexible-finance | 108529576 | (captured from DEV) | 5657564103 | 2373816383 | LIVE 10 Nov |
+| /offers | 343764303 | (captured from DEV) | 5657564603 | 5259514203 (5259514303 was already off) | LIVE 10 Nov |
+| /faq-abj | 107787436 | (captured from DEV) | 5657568403 | 1752229531 | LIVE 10 Nov |
+| /gallery | 74160025 | (captured from DEV) | 5657569603 | 1306655851 | LIVE 10 Nov |
+| /abjfeeds | 72969701 | (captured from DEV) | 5657639303 | 1332791091 (CMS feed block 4905431403 kept ON) | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-stamford | 150457663 | (captured from DEV) | 5657580503 | 2409389263, 4634077903 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-oundle | 150775693 | (captured from DEV) | 5657582203 | 2414441003, 4634136503 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-market-deeping | 150780073 | (captured from DEV) | 5657592803 | 2414452603, 4634148103 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-bourne | 150783143 | (captured from DEV) | 5657595203 | 2414457943, 4634161503 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-spalding | 150784123 | (captured from DEV) | 5657603903 | 2414459263, 4634166903 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-grantham | 150787653 | (captured from DEV) | 5657604403 | 2414600663, 4642729103 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-huntingdon | 150784883 | (captured from DEV) | 5657605503 | 2414460823, 4634461203 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-st-ives | 150785703 | (captured from DEV) | 5657607203 | 2414463403, 4634463603 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-ely | 150786283 | (captured from DEV) | 5657610303 | 2414464713, 4642707703 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-wisbech | 150786943 | (captured from DEV) | 5657613103 | 2414466953, 4642714903 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-oakham | 204575403 | (captured from DEV) | 5657616703 | 3283452703 | LIVE 10 Nov |
+| /fitted-kitchens-bedrooms-cambridge | 241181303 | (captured from DEV) | 5657622403 | 3850669703, 3850707203 | LIVE 10 Nov |
+| /case-study-kings-road-kitchen-peterborough | 343215603 | (captured from DEV) | 5657625703 | 5250674903 (5250675103 was already off) | LIVE 10 Nov |
+| /case-study-handleless-island-kitchen | 343217603 | (captured from DEV) | 5657627903 | 5250683803 (5250684003 was already off) | LIVE 10 Nov |
+| /near-me-peterborough (404 page) | 123982426 | (captured from DEV) | 5657633603 | 1991934101, 2003941381 | LIVE 10 Nov |
+| /bookingform | 74327267 | (captured from DEV) | 5657643903 | 2276598863 (6 older blocks were already off) | LIVE 10 Nov |
+| / (homepage) | 30601906 | (captured from DEV) | 5657646303 | 2355676343, 5259604203, 5121863303, 2462487293 | LIVE 10 Nov |
 
 Live Tilda page ids: / 30601906, /bespoke-kitchens 73297273, /bespoke-wardrobes 73280437, /bespoke-bedrooms-abj 73297487,
 /media-walls 73279037, /luxury-worktops-abj 73545333, /bespoke-decors-peterborough 73195791, /bespoke-storage-solutions 73372439,
@@ -98,3 +136,7 @@ Live Tilda page ids: / 30601906, /bespoke-kitchens 73297273, /bespoke-wardrobes 
 /case-study-handleless-island-kitchen 343217603, /near-me-peterborough 123982426 (also the 404 page), town pages:
 stamford 150457663, oundle 150775693, market-deeping 150780073, bourne 150783143, spalding 150784123, grantham 150787653,
 huntingdon 150784883, st-ives 150785703, ely 150786283, wisbech 150786943, oakham 204575403, cambridge 241181303.
+
+Live publish 10 Nov 2026 07:35-07:59 from commit 7836ecc (current theme incl. tighter phone spacing + folding phone footer).
+To undo one page: open its LIVE editor, load tilda_golive.js, `await abjRollback()` (uses the browser's saved list), or by hand:
+switch the new block off and switch the listed old blocks back on, then publish. Old blocks were never edited.
