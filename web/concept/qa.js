@@ -1,7 +1,7 @@
 /* Automatic page checks for the DEV pages. Load on the site origin, then:
      abjQARun(['/home-dev-r7m3k', ...])   -> results collect in window.__qa (window.__qaDone when finished)
-   Each page is opened in an off-screen iframe at 1905 and 390 wide. The iframe is stretched to the full page height,
-   so what sits under every piece of text can be read with elementsFromPoint (text over photos/video is skipped).
+   Each page is opened in an off-screen iframe at 1905 and 390 wide. Each line of text is scrolled into view
+   and what sits under it is read with elementsFromPoint (text over photos/video is skipped).
    Checks: hard-to-read text, sideways overflow, things running off screen, broken or blurry images, clipped text,
    leftover placeholders or HTML entities, empty links, US spellings in visible text. */
 (function () {
@@ -20,8 +20,11 @@
       const cs = win.getComputedStyle(e); if (+cs.opacity < .2) continue;
       const t = e.textContent.trim().replace(/\s+/g, ' ');
       if (/^[\d★·\s.()]{1,6}$/.test(t)) continue; // decorative step numbers and stars
-      const x = Math.min(Math.max(r.left + 4, 1), W - 2), y = r.top + r.height / 2;
-      const stack = doc.elementsFromPoint(x, y);
+      const absY = r.top + win.scrollY + r.height / 2;
+      win.scrollTo(0, Math.max(0, absY - win.innerHeight / 2));
+      const r2 = e.getBoundingClientRect();
+      const x = Math.min(Math.max(r2.left + 4, 1), W - 2), y = Math.min(Math.max(r2.top + r2.height / 2, 1), win.innerHeight - 2);
+      const stack = doc.elementsFromPoint(x, y).filter(s => !s.closest('.hd,.mbar,.ck,.mm'));
       let bg = null, media = false;
       for (const s of stack) {
         if (s === e || e.contains(s)) continue;
@@ -47,7 +50,7 @@
     const txt = root.innerText;
     for (const re of [/\{[A-Z0-9]{2,}\}/, /%%[A-Z0-9]+%%/, /\bundefined\b/, /\bNaN\b/, /&amp;|&[a-z]{2,8};/, /\bnull\b/]) { const m = txt.match(re); if (m) out.push('leftover text: ' + m[0]); }
     const us = txt.match(US); if (us) out.push('US spelling: ' + us[0]);
-    for (const a of root.querySelectorAll('a,button')) { if (hidden(a)) continue; const r = a.getBoundingClientRect(); if (r.width < 2) continue; if (!a.textContent.trim() && !a.getAttribute('aria-label') && !a.querySelector('img')) out.push('empty link/button: ' + (a.getAttribute('href') || a.className)); const h = a.getAttribute('href') || ''; if (h.startsWith('#') && h.length > 1 && !doc.getElementById(h.slice(1))) out.push('link to missing section: ' + h); }
+    for (const a of root.querySelectorAll('a,button')) { if (hidden(a)) continue; const r = a.getBoundingClientRect(); if (r.width < 2) continue; if (!a.textContent.trim() && !a.getAttribute('aria-label') && !a.querySelector('img')) out.push('empty link/button: ' + (a.getAttribute('href') || a.className)); const h = a.getAttribute('href') || ''; if (h.startsWith('#') && h.length > 1 && h !== '#cookie-settings' && !doc.getElementById(h.slice(1))) out.push('link to missing section: ' + h); }
     for (const e of root.querySelectorAll('section *')) {
       const r = e.getBoundingClientRect(); if (r.width < 2 || hidden(e) || e.closest('.rail,.pan,.gg,.rooms,.proj,.hero,.bk figure')) continue;
       if (r.right > W + 4 && r.left < W) { out.push('element runs off screen: ' + e.tagName.toLowerCase() + '.' + (e.className || '').toString().split(' ')[0]); break; }
@@ -63,9 +66,7 @@
         await Promise.race([new Promise(r => f.onload = r), new Promise(r => setTimeout(r, 20000))]);
         const d = f.contentDocument; d.querySelectorAll('img[loading=lazy]').forEach(i => i.loading = 'eager');
         d.querySelectorAll('#kc .rv').forEach(e => e.classList.add('in'));
-        await new Promise(r => setTimeout(r, 2500));
-        f.style.height = Math.min(d.documentElement.scrollHeight, 30000) + 'px';
-        await new Promise(r => setTimeout(r, 1500));
+        await new Promise(r => setTimeout(r, 3500));
         const res = window.abjQA(d, f.contentWindow, w);
         window.__qa.push((w > 500 ? 'desktop ' : 'phone   ') + p + (res.length ? '\n   - ' + res.join('\n   - ') : '  OK'));
         f.remove();
