@@ -35,7 +35,7 @@ MENU = [("/bespoke-kitchens-dev-k7q2", "Kitchens", KC + "kc-run-s.webp"),
         ("/case-study-kings-road-kitchen-peterborough-dev-c3k8", "Projects", KC + "kc-kr-bar-s.webp"),
         ("/about-abj-dev-a5b9", "About ABJ", KC + "kc-detail-s.webp")]
 
-LG = ('<a class="lg" href="/home-dev-r7m3k" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="%s" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"%s><span class="lgw">ABJ Kitchens<span>&amp; Bedrooms</span></span></a>')
+LG = ('<a class="lg" href="/home-dev-r7m3k" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="%s" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"%s><span class="lgt">ABJ Kitchens<span>&amp; Bedrooms</span></span></a>')
 
 
 def header(nav):

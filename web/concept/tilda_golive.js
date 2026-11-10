@@ -63,7 +63,8 @@
       const part = html.slice(i, j).replace(/<img src="([^"]+)" alt=""/g, (m, src) => '<img src="' + src + '" alt="' + (MENU_ALT[src.split('/').pop()] || 'ABJ Kitchens & Bedrooms project') + '"');
       html = html.slice(0, i) + part + html.slice(j);
     }
-    html = html.split('<b>ABJ Kitchens<span>&amp; Bedrooms</span></b>').join('<span class="lgw">ABJ Kitchens<span>&amp; Bedrooms</span></span>');
+    html = html.split('<b>ABJ Kitchens<span>&amp; Bedrooms</span></b>').join('<span class="lgt">ABJ Kitchens<span>&amp; Bedrooms</span></span>')
+      .split('<span class="lgw">ABJ Kitchens<span>').join('<span class="lgt">ABJ Kitchens<span>');
     html = html.split('aria-controls="kc-mm">').join('aria-controls="kc-mm" aria-label="Open menu">').split('aria-label="Open menu" aria-label="Open menu"').join('aria-label="Open menu"');
     return html;
   };
