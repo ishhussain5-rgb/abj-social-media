@@ -140,3 +140,13 @@ huntingdon 150784883, st-ives 150785703, ely 150786283, wisbech 150786943, oakha
 Live publish 10 Nov 2026 07:35-07:59 from commit 7836ecc (current theme incl. tighter phone spacing + folding phone footer).
 To undo one page: open its LIVE editor, load tilda_golive.js, `await abjRollback()` (uses the browser's saved list), or by hand:
 switch the new block off and switch the listed old blocks back on, then publish. Old blocks were never edited.
+
+### SEO pass (10 Nov 2026, after the SEO checker fell from 98 to 90)
+- Every live page now has "Don't use footer for this page" ticked in Page settings, so the old global footer
+  (page 346585603) no longer prints under the new design. The footer page itself is untouched.
+  Its two scripts the new pages still need (web3forms -> ABJ Factory lead hand-off, conversion de-duplication) are copied
+  into each page's new block (`abjRefresh({footerScripts:true})`). Undo: untick the setting and publish that page.
+- Logo text moved out of `<b>` (class `lgt`), menu photos have alt text, menu button has `aria-label="Open menu"`.
+- Header is `<div class="hd" role="banner">`, not `<header>`: the old site's head scripts (left in place) restyle the first
+  `<header>` on desktop and add an extra burger. The block also sets `data-abj-links` on `<html>` so the old link script
+  stops adding "Project Gallery", "FAQs" and a second "Privacy Policy" link. Refreshed from commit 8264aad.
