@@ -23,6 +23,13 @@ window.abjSwap = async function (o) {
     const k = (codes.join('\n').match(/(?:var W3F=|web3formsAccessKey:)['"]([0-9a-f-]{36})['"]/) || [])[1];
     if (!k) throw 'no form key found'; html = html.split('{W3F}').join(k);
   }
+  if (o.mode !== 'area' && html.includes('%%LD%%')) {
+    const lds = [];
+    for (const c of codes) for (const m of c.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)) {
+      const t = m[1].trim(); if (/"LocalBusiness"|"WebSite"/.test(t) && !/FAQPage|WebPage|"Service"/.test(t)) continue; lds.push(t);
+    }
+    html = html.split('%%LD%%').join(lds.map(t => '<script type="application/ld+json">' + t + '</' + 'script>').join('\n'));
+  }
   if (o.mode === 'legal') {
     const x = window.abjLegal(codes[0]); if (!x || x.body.length < 1500) throw 'legal extract failed';
     html = html.replace('<!--LEGAL-->', x.body);
