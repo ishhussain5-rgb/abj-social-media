@@ -35,7 +35,7 @@ MENU = [("/bespoke-kitchens-dev-k7q2", "Kitchens", KC + "kc-run-s.webp"),
         ("/case-study-kings-road-kitchen-peterborough-dev-c3k8", "Projects", KC + "kc-kr-bar-s.webp"),
         ("/about-abj-dev-a5b9", "About ABJ", KC + "kc-detail-s.webp")]
 
-LG = ('<a class="lg" href="/home-dev-r7m3k" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="%s" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"%s><b>ABJ Kitchens<span>&amp; Bedrooms</span></b></a>')
+LG = ('<a class="lg" href="/home-dev-r7m3k" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="%s" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"%s><span class="lgw">ABJ Kitchens<span>&amp; Bedrooms</span></span></a>')
 
 
 def header(nav):
@@ -43,14 +43,23 @@ def header(nav):
     return ('<header class="hd" id="kc-hd"><div class="w">\n ' + LG % (LOGO, "") +
             '\n <nav aria-label="Main">' + links + '</nav>\n'
             ' <div class="hr"><a class="ph" href="tel:+441733686767">01733 686767</a><a class="lnk" href="' + BOOK +
-            '">Book a design visit</a><button class="mb" type="button" aria-expanded="false" aria-controls="kc-mm"><span>Menu</span><i></i></button></div>\n</div></header>')
+            '">Book a design visit</a><button class="mb" type="button" aria-expanded="false" aria-controls="kc-mm" aria-label="Open menu"><span>Menu</span><i></i></button></div>\n</div></header>')
+
+
+MENU_ALT = {  # descriptive alt text for the menu photos (same text as abjSeoFix in tilda_golive.js)
+    "kc-run-s.webp": "Fitted kitchen run with tall larder units", "abj-wardrobes-t-fitted.webp": "Fitted wardrobes",
+    "abj-bedrooms-t-slopes.webp": "Fitted bedroom furniture under a sloping ceiling", "abj-mediawalls-t-minimal.webp": "Media wall with a floating TV unit",
+    "kc-kr-island-s.webp": "Kitchen island with a stone worktop", "abj-decors-t-slatted.webp": "Slatted timber wall panelling",
+    "abj-storage-t-pantry.webp": "Pantry cupboard with open shelving", "abj-office-t-home.webp": "Fitted home office",
+    "kc-shaker-s.webp": "Shaker-style cabinetry", "kc-inframe-s.webp": "In-frame cabinetry",
+    "kc-kr-bar-s.webp": "Bar wall from the Kings Road kitchen", "kc-detail-s.webp": "Cabinet detail from our Peterborough workshop"}
 
 
 def menu(nav):
     on = next((i for i, m in enumerate(MENU) if m[0] == nav), -1)
     items = "".join('<li><a href="%s" data-i="%d"%s style="transition-delay:%.2fs"><small>%02d</small>%s</a></li>'
                     % (h, i, ' class="on"' if i == on else "", .05 + i * .03, i + 1, t) for i, (h, t, _) in enumerate(MENU))
-    imgs = "".join('<img src="%s" alt="" loading="lazy"%s>' % (im, ' class="on"' if i == max(on, 0) else "") for i, (_, _, im) in enumerate(MENU))
+    imgs = "".join('<img src="%s" alt="%s" loading="lazy"%s>' % (im, MENU_ALT.get(im.rsplit('/', 1)[-1], t), ' class="on"' if i == max(on, 0) else "") for i, (_, t, im) in enumerate(MENU))
     return ('<div class="mm" id="kc-mm" role="dialog" aria-modal="true" aria-label="Menu">\n <div class="mm-l">\n'
             '  <div class="mm-t">' + LG % (LOGO, "") + '<button class="x" type="button"><span>Close</span><i></i></button></div>\n'
             '  <ol>' + items + '</ol>\n'

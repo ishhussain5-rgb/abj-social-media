@@ -26,8 +26,8 @@
 #kc .hd.s{background:rgba(243,238,230,.96);backdrop-filter:blur(10px);color:var(--ink);box-shadow:0 1px 0 var(--hair)}
 #kc .lg{display:flex;align-items:center;gap:14px}
 #kc .lg img{width:48px;height:48px;border-radius:50%;background:#fff}
-#kc .lg b{font:400 21px/1.05 var(--serif);letter-spacing:.01em}
-#kc .lg b span{display:block;font:500 9.5px/1.6 var(--sans);letter-spacing:.3em;text-transform:uppercase;opacity:.75}
+#kc .lg .lgw{font:400 21px/1.05 var(--serif);letter-spacing:.01em}
+#kc .lg .lgw span{display:block;font:500 9.5px/1.6 var(--sans);letter-spacing:.3em;text-transform:uppercase;opacity:.75}
 #kc nav{display:flex;gap:clamp(18px,2.2vw,40px);font:500 12px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase}
 #kc nav a{padding:8px 0;border-bottom:1px solid transparent}#kc nav a:hover,#kc nav a.on{border-color:currentColor}
 #kc .hr{display:flex;align-items:center;gap:28px;font:500 12px/1 var(--sans);letter-spacing:.12em}
@@ -41,7 +41,7 @@
 #kc .mm.o{opacity:1;visibility:visible;transition:opacity .5s ease}
 #kc .mm-l{display:flex;flex-direction:column;padding:28px var(--pad) 40px;overflow-y:auto}
 #kc .mm-t{display:flex;align-items:center;justify-content:space-between;height:58px;margin-bottom:clamp(28px,5vh,64px)}
-#kc .mm-t .lg b{color:var(--lin)}
+#kc .mm-t .lg .lgw{color:var(--lin)}
 #kc .mm .x{background:none;border:0;color:inherit;font:500 11.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;cursor:pointer;display:inline-flex;align-items:center;gap:12px}
 #kc .mm .x i{position:relative;width:22px;height:22px}#kc .mm .x i:before,#kc .mm .x i:after{content:"";position:absolute;left:0;right:0;top:50%;border-top:1px solid currentColor;transform:rotate(45deg)}#kc .mm .x i:after{transform:rotate(-45deg)}
 #kc .mm ol{list-style:none;columns:2;column-gap:clamp(24px,4vw,80px)}
@@ -155,7 +155,7 @@
 #kc .ft-g{display:grid;grid-template-columns:minmax(0,3fr) repeat(3,minmax(0,2fr)) minmax(0,3fr);gap:clamp(28px,3vw,56px);padding:clamp(48px,4.4vw,80px) 0}
 #kc .ft-g h4{font:500 10.5px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--go);margin-bottom:22px}
 #kc .ft-g ul{list-style:none;display:grid;gap:10px;font-size:14px;color:rgba(243,238,230,.78)}
-#kc .ft-b .lg{margin-bottom:24px}#kc .ft-b .lg b{color:var(--lin)}
+#kc .ft-b .lg{margin-bottom:24px}#kc .ft-b .lg .lgw{color:var(--lin)}
 #kc .ft-b p{font-size:14px;color:rgba(243,238,230,.66);max-width:24em}
 #kc .ft-b .rt{display:inline-block;margin-top:22px;font:500 11px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase;border-bottom:1px solid rgba(243,238,230,.35);padding-bottom:4px}
 #kc .ft-v address{font-style:normal;font-size:14px;line-height:1.75;color:rgba(243,238,230,.78)}
@@ -173,7 +173,7 @@
 @media (prefers-reduced-motion:reduce){#kc.js .rv{opacity:1;transform:none}#kc .card img{transition:none}}
 /* responsive */
 @media (max-width:1100px){#kc nav{display:none}#kc .hr .ph{display:none}#kc .hero .cap{display:none}#kc .mm{grid-template-columns:1fr}#kc .mm-r{display:none}#kc .pg{grid-template-columns:1fr 1fr}#kc .pg .tx{grid-column:1/-1}#kc .pg .f2{margin-top:60px}#kc .ps{grid-template-columns:1fr 1fr}}
-@media (max-width:760px){#kc .mm ol{columns:1}#kc .mm-c .bt{margin-left:0}#kc .mb span{display:none}#kc .hd .w{height:70px}#kc .lg img{width:40px;height:40px}#kc .lg b{font-size:18px}#kc .hr .lnk{display:none}
+@media (max-width:760px){#kc .mm ol{columns:1}#kc .mm-c .bt{margin-left:0}#kc .mb span{display:none}#kc .hd .w{height:70px}#kc .lg img{width:40px;height:40px}#kc .lg .lgw{font-size:18px}#kc .hr .lnk{display:none}
  #kc .hero .cap{display:none}#kc .hero .acts{gap:20px}#kc .intro .w,#kc .det .w,#kc .bk{grid-template-columns:1fr}#kc .bk figure{height:42vh}
  #kc .sh{flex-direction:column;align-items:flex-start}#kc .arw{display:none}#kc .card{flex-basis:78vw}
  #kc .pg{grid-template-columns:1fr 1fr;gap:14px}#kc .pg .f2{margin-top:48px}#kc .ps{grid-template-columns:1fr 1fr;gap:28px 18px}#kc .ps h3{font-size:22px}#kc .ps p{font-size:13.5px}#kc .facts{gap:10px 24px}#kc .intro{padding:64px 0 56px}#kc .sty{padding-bottom:64px}#kc .proc,#kc .det{padding:64px 0}#kc .proj{padding-bottom:64px}#kc .pimg{height:56vh}#kc .qt{min-height:64vh}}
@@ -616,24 +616,24 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
  #kc.js .ft .acc:not(.op)>:not(h4){display:none}
  #kc.js .ft .acc.op{padding-bottom:20px}#kc.js .ft .acc.op>:not(h4){animation:kcft .4s cubic-bezier(.2,.7,.2,1) both}
  #kc .ft-s{gap:10px 20px;padding-top:22px;font-size:10.5px}
- #kc .ft-l{margin-top:20px;gap:12px;font-size:11.5px}#kc .ft-l nav{gap:6px 18px;font-size:11.5px}
+ #kc .ft-l{margin-top:20px;gap:12px;font-size:11.5px}#kc .ft-l nav{gap:2px 18px;font-size:11.5px}#kc .ft-l nav a,#kc .ft-l span a{display:inline-block;padding:10px 0}
 }
 @keyframes kcft{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 </style>
 
 <div id="kc">
 <header class="hd" id="kc-hd"><div class="w">
- <a class="lg" href="/" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="https://static.tildacdn.net/tila3033-3866-4332-b431-333831333166/ABJ-logo-roundel-256.webp" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"><b>ABJ Kitchens<span>&amp; Bedrooms</span></b></a>
+ <a class="lg" href="/" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="https://static.tildacdn.net/tila3033-3866-4332-b431-333831333166/ABJ-logo-roundel-256.webp" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"><span class="lgw">ABJ Kitchens<span>&amp; Bedrooms</span></span></a>
  <nav aria-label="Main"><a href="/bespoke-kitchens">Kitchens</a><a href="/bespoke-wardrobes">Wardrobes</a><a href="/bespoke-bedrooms-abj">Bedrooms</a><a href="/media-walls">Media walls</a><a href="/case-study-kings-road-kitchen-peterborough">Projects</a></nav>
- <div class="hr"><a class="ph" href="tel:+441733686767">01733 686767</a><a class="lnk" href="/bookingform">Book a design visit</a><button class="mb" type="button" aria-expanded="false" aria-controls="kc-mm"><span>Menu</span><i></i></button></div>
+ <div class="hr"><a class="ph" href="tel:+441733686767">01733 686767</a><a class="lnk" href="/bookingform">Book a design visit</a><button class="mb" type="button" aria-expanded="false" aria-controls="kc-mm" aria-label="Open menu"><span>Menu</span><i></i></button></div>
 </div></header>
 <div class="mm" id="kc-mm" role="dialog" aria-modal="true" aria-label="Menu">
  <div class="mm-l">
-  <div class="mm-t"><a class="lg" href="/" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="https://static.tildacdn.net/tila3033-3866-4332-b431-333831333166/ABJ-logo-roundel-256.webp" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"><b>ABJ Kitchens<span>&amp; Bedrooms</span></b></a><button class="x" type="button"><span>Close</span><i></i></button></div>
+  <div class="mm-t"><a class="lg" href="/" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="https://static.tildacdn.net/tila3033-3866-4332-b431-333831333166/ABJ-logo-roundel-256.webp" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"><span class="lgw">ABJ Kitchens<span>&amp; Bedrooms</span></span></a><button class="x" type="button"><span>Close</span><i></i></button></div>
   <ol><li><a href="/bespoke-kitchens" data-i="0" style="transition-delay:0.05s"><small>01</small>Kitchens</a></li><li><a href="/bespoke-wardrobes" data-i="1" style="transition-delay:0.08s"><small>02</small>Wardrobes</a></li><li><a href="/bespoke-bedrooms-abj" data-i="2" style="transition-delay:0.11s"><small>03</small>Bedrooms</a></li><li><a href="/media-walls" data-i="3" style="transition-delay:0.14s"><small>04</small>Media walls</a></li><li><a href="/luxury-worktops-abj" data-i="4" style="transition-delay:0.17s"><small>05</small>Worktops</a></li><li><a href="/bespoke-decors-peterborough" data-i="5" style="transition-delay:0.20s"><small>06</small>Wall panelling</a></li><li><a href="/bespoke-storage-solutions" data-i="6" style="transition-delay:0.23s"><small>07</small>Storage</a></li><li><a href="/bespoke-office-renovations" data-i="7" style="transition-delay:0.26s"><small>08</small>Home offices</a></li><li><a href="/bespoke-hallways" data-i="8" style="transition-delay:0.29s"><small>09</small>Hallways</a></li><li><a href="/bathroom-cabinetry" data-i="9" style="transition-delay:0.32s"><small>10</small>Bathrooms</a></li><li><a href="/case-study-kings-road-kitchen-peterborough" data-i="10" style="transition-delay:0.35s"><small>11</small>Projects</a></li><li><a href="/about-abj" data-i="11" style="transition-delay:0.38s"><small>12</small>About ABJ</a></li></ol>
   <div class="mm-c"><a href="tel:+441733686767">01733 686767</a><a href="https://wa.me/447479219421">WhatsApp</a><a href="mailto:info@abjkitchensandbedrooms.co.uk">Email</a><span>3 Brassey Close, Peterborough</span><a class="bt" href="/bookingform">Book a design visit</a></div>
  </div>
- <div class="mm-r" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-run-s.webp" alt="" loading="lazy" class="on"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-wardrobes-t-fitted.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-bedrooms-t-slopes.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-mediawalls-t-minimal.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-kr-island-s.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-decors-t-slatted.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-storage-t-pantry.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-office-t-home.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-shaker-s.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-inframe-s.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-kr-bar-s.webp" alt="" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-detail-s.webp" alt="" loading="lazy"><span>Designed, made &amp; fitted in Peterborough</span></div>
+ <div class="mm-r" aria-hidden="true"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-run-s.webp" alt="Fitted kitchen run with tall larder units" loading="lazy" class="on"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-wardrobes-t-fitted.webp" alt="Fitted wardrobes" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-bedrooms-t-slopes.webp" alt="Fitted bedroom furniture under a sloping ceiling" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-mediawalls-t-minimal.webp" alt="Media wall with a floating TV unit" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-kr-island-s.webp" alt="Kitchen island with a stone worktop" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-decors-t-slatted.webp" alt="Slatted timber wall panelling" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-storage-t-pantry.webp" alt="Pantry cupboard with open shelving" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@74e75bd623438e99a5f6d391a3a69adb1561e56a/media/abj-office-t-home.webp" alt="Fitted home office" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-shaker-s.webp" alt="Shaker-style cabinetry" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-inframe-s.webp" alt="In-frame cabinetry" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-kr-bar-s.webp" alt="Bar wall from the Kings Road kitchen" loading="lazy"><img src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@69dbc3e188cebfa373bcfe64fceb39654b3a684a/media/kc-detail-s.webp" alt="Cabinet detail from our Peterborough workshop" loading="lazy"><span>Designed, made &amp; fitted in Peterborough</span></div>
 </div>
 
 <main>
@@ -694,7 +694,7 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
  </div>
  <div class="ft-g">
   <div class="ft-b">
-   <a class="lg" href="/" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="https://static.tildacdn.net/tila3033-3866-4332-b431-333831333166/ABJ-logo-roundel-256.webp" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48" loading="lazy"><b>ABJ Kitchens<span>&amp; Bedrooms</span></b></a>
+   <a class="lg" href="/" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="https://static.tildacdn.net/tila3033-3866-4332-b431-333831333166/ABJ-logo-roundel-256.webp" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48" loading="lazy"><span class="lgw">ABJ Kitchens<span>&amp; Bedrooms</span></span></a>
    <p>Bespoke kitchens, wardrobes, bedrooms and media walls, designed, made and fitted from our Peterborough workshop.</p>
    <a class="rt" href="https://share.google/wadbR4QCwRXxM5fcm" target="_blank" rel="noopener">4.9 from 100+ Google reviews</a>
   </div>

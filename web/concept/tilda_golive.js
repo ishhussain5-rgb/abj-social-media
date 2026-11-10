@@ -49,6 +49,40 @@
     if (i < 0 || j < 0) throw 'no theme style in block';
     return html.slice(0, i) + st + html.slice(j + 8);
   };
+
+  // SEO fixes (10 Nov 2026), same as build.py: menu photo alt text, logo text not in <b>, menu button label
+  const MENU_ALT = { 'kc-run-s.webp': 'Fitted kitchen run with tall larder units', 'abj-wardrobes-t-fitted.webp': 'Fitted wardrobes',
+    'abj-bedrooms-t-slopes.webp': 'Fitted bedroom furniture under a sloping ceiling', 'abj-mediawalls-t-minimal.webp': 'Media wall with a floating TV unit',
+    'kc-kr-island-s.webp': 'Kitchen island with a stone worktop', 'abj-decors-t-slatted.webp': 'Slatted timber wall panelling',
+    'abj-storage-t-pantry.webp': 'Pantry cupboard with open shelving', 'abj-office-t-home.webp': 'Fitted home office',
+    'kc-shaker-s.webp': 'Shaker-style cabinetry', 'kc-inframe-s.webp': 'In-frame cabinetry',
+    'kc-kr-bar-s.webp': 'Bar wall from the Kings Road kitchen', 'kc-detail-s.webp': 'Cabinet detail from our Peterborough workshop' };
+  window.abjSeoFix = function (html) {
+    const i = html.indexOf('<div class="mm-r" aria-hidden="true">'), j = i < 0 ? -1 : html.indexOf('</div>', i);
+    if (i >= 0 && j > i) {
+      const part = html.slice(i, j).replace(/<img src="([^"]+)" alt=""/g, (m, src) => '<img src="' + src + '" alt="' + (MENU_ALT[src.split('/').pop()] || 'ABJ Kitchens & Bedrooms project') + '"');
+      html = html.slice(0, i) + part + html.slice(j);
+    }
+    html = html.split('<b>ABJ Kitchens<span>&amp; Bedrooms</span></b>').join('<span class="lgw">ABJ Kitchens<span>&amp; Bedrooms</span></span>');
+    html = html.split('aria-controls="kc-mm">').join('aria-controls="kc-mm" aria-label="Open menu">').split('aria-label="Open menu" aria-label="Open menu"').join('aria-label="Open menu"');
+    return html;
+  };
+  // the site footer page carries two scripts that new pages still need (lead hand-off to ABJ Factory, conversion de-duplication).
+  // Run on the footer page editor (page 346585603): copies them into this browser's storage so they can be added to each page's block.
+  window.abjCaptureFooterScripts = async function () {
+    await loaded();
+    const c = code('5302826903');
+    const sc = [...c.matchAll(/<script>([\s\S]*?)<\/script>/g)].map(m => m[0]).filter(t => /functions\/v1\/sales|generate_lead/.test(t));
+    if (sc.length !== 2) throw new Error('expected 2 footer scripts, found ' + sc.length);
+    localStorage.setItem('abj_ft_scripts', sc.join('\n'));
+    return 'captured ' + sc.length + ' scripts, ' + sc.join('').length + ' chars';
+  };
+  const withFooterScripts = html => {
+    if (html.includes('functions/v1/sales')) return html;
+    const sc = localStorage.getItem('abj_ft_scripts') || '';
+    if (!/functions\/v1\/sales/.test(sc) || !/generate_lead/.test(sc)) throw new Error('footer scripts not captured');
+    return html + '\n<!-- copied from the site footer (abj-site-footer) so leads still reach ABJ Factory when this page hides the footer -->\n' + sc + '\n';
+  };
   window.abjLive = function (html, map) {
     const keys = Object.keys(map).sort((a, b) => b.length - a.length);
     const rx = new RegExp('(' + keys.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')(?![A-Za-z0-9_-])', 'g');
@@ -121,9 +155,10 @@
   window.abjRefresh = async function (o) {
     if (/\(private test|DEV/.test(document.title)) throw 'this is a DEV page';
     await loaded();
-    const nid = ids().find(i => code(i).includes(NEW) && isOn(i)); if (!nid) throw 'no live new-design block';
+    const nid = ids().find(i => code(i).includes(NEW) && isOn(i)); if (!nid) throw new Error('no live new-design block');
     const c0 = code(nid);
-    const c = window.abjFooterUpgrade(await window.abjTheme(c0, o.base));
+    let c = window.abjSeoFix(window.abjFooterUpgrade(await window.abjTheme(c0, o.base)));
+    if (o.footerScripts) c = withFooterScripts(c);
     if (/-dev-[a-z0-9]{4,5}\b/.test(c)) throw 'DEV link found';
     if (c === c0) return 'already up to date';
     await save(nid, c);
