@@ -40,10 +40,13 @@ LG = ('<a class="lg" href="/home-dev-r7m3k" aria-label="ABJ Kitchens &amp; Bedro
 
 def header(nav):
     links = "".join('<a%s href="%s">%s</a>' % (' class="on"' if h == nav else "", h, t) for h, t in NAV)
-    return ('<header class="hd" id="kc-hd"><div class="w">\n ' + LG % (LOGO, "") +
+    # div role="banner", not <header>: the old site's head scripts (kept for rollback) rewrite the first <header> on desktop.
+    # data-abj-links stops the old link script adding FAQs/Gallery/Privacy links to our navs.
+    return ('<script>document.documentElement.setAttribute(\'data-abj-links\',\'1\')</script>'
+            '<div class="hd" id="kc-hd" role="banner"><div class="w">\n ' + LG % (LOGO, "") +
             '\n <nav aria-label="Main">' + links + '</nav>\n'
             ' <div class="hr"><a class="ph" href="tel:+441733686767">01733 686767</a><a class="lnk" href="' + BOOK +
-            '">Book a design visit</a><button class="mb" type="button" aria-expanded="false" aria-controls="kc-mm" aria-label="Open menu"><span>Menu</span><i></i></button></div>\n</div></header>')
+            '">Book a design visit</a><button class="mb" type="button" aria-expanded="false" aria-controls="kc-mm" aria-label="Open menu"><span>Menu</span><i></i></button></div>\n</div></div>')
 
 
 MENU_ALT = {  # descriptive alt text for the menu photos (same text as abjSeoFix in tilda_golive.js)

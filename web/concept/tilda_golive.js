@@ -66,6 +66,12 @@
     html = html.split('<b>ABJ Kitchens<span>&amp; Bedrooms</span></b>').join('<span class="lgt">ABJ Kitchens<span>&amp; Bedrooms</span></span>')
       .split('<span class="lgw">ABJ Kitchens<span>').join('<span class="lgt">ABJ Kitchens<span>');
     html = html.split('aria-controls="kc-mm">').join('aria-controls="kc-mm" aria-label="Open menu">').split('aria-label="Open menu" aria-label="Open menu"').join('aria-label="Open menu"');
+    // The old site's head code (left in place for rollback) edits the first <header> on desktop and adds FAQs/Gallery/Privacy links to any
+    // nav it finds. Our header becomes a div with role="banner" so those scripts find nothing, and data-abj-links tells the link script it has run.
+    if ((html.match(/<\/header>/g) || []).length === 1 && html.includes('<header class="hd" id="kc-hd">'))
+      html = html.replace('<header class="hd" id="kc-hd">', '<div class="hd" id="kc-hd" role="banner">').replace('</div></header>', '</div></div>');
+    if (!html.includes('data-abj-links'))
+      html = html.replace('<div class="hd" id="kc-hd"', '<script>document.documentElement.setAttribute(\'data-abj-links\',\'1\')</script><div class="hd" id="kc-hd"');
     return html;
   };
   // the site footer page carries two scripts that new pages still need (lead hand-off to ABJ Factory, conversion de-duplication).
