@@ -2,11 +2,14 @@
    Tilda renders blog posts (/abjfeeds/tpost/...) itself, outside our page blocks. This script re-renders the
    post inside the new-design header, footer and theme, using the post's own title, date, author, image and text.
    It only runs on /tpost/ pages and only when switched on:
-     - for go-live: put  <script>window.ABJ_POST_SKIN=true</script>  before this script in the site head
+     - for go-live: put  <script>window.ABJ_POST_SKIN=true</script>  before this script in the site head,
+       or load it as post-skin.js?on (same effect, fewer bytes; Tilda's site HEAD box holds at most 65,535 bytes)
      - to preview before then: add ?preview=new to any article URL (remembered for that browser), ?preview=old to stop.
    If anything goes wrong it leaves the original Tilda page untouched. */
 (function () {
   if (!/\/tpost\//.test(location.pathname) || document.getElementById('kc')) return;
+  var me = document.currentScript;
+  if (me && /post-skin\.js\?on\b/.test(me.src)) window.ABJ_POST_SKIN = true;
   var q = location.search, on = window.ABJ_POST_SKIN === true;
   try {
     if (/preview=new/.test(q)) localStorage.setItem('abj_post_skin', '1');
