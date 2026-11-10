@@ -76,3 +76,5 @@ new design. Preview: add `?preview=new` to any article URL (`?preview=old` to st
 - Live /near-me-peterborough (123982426) is also the site's 404 page (meta title "Page Not Found"). Decide: keep it as the 404, or
   make a separate new-design 404 page and point Site settings > 404 at it.
 - Turn on the blog post skin (head snippet above).
+- The site head shows a "Sorry, we couldn't find that page" banner on any page whose canonical is /near-me-peterborough but whose
+  URL is not. The DEV near-me copy's canonical was cleared for that reason (10 Nov). The live page keeps its own canonical.
