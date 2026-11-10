@@ -87,6 +87,8 @@
     // town pages shared the H2 "What we make"; name the town
     const town = (html.match(/A few of ([^<&]+?)&rsquo;s landmarks/) || [])[1];
     if (town) html = html.replace(/(<h2[^>]*>)What we make(<\/h2>)/, '$1What we make in ' + town + '$2');
+    // keep two-word towns together when the heading wraps ("Market Deeping", "St Ives")
+    if (town && town.includes(' ')) html = html.replace('>What we make in ' + town + '</h2>', '>What we make in ' + town.replace(/ /g, '&nbsp;') + '</h2>');
     return html;
   };
   // the site footer page carries two scripts that new pages still need (lead hand-off to ABJ Factory, conversion de-duplication).
