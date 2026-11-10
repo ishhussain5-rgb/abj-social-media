@@ -564,3 +564,31 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 #kc .lmc{margin-top:18px;font-size:11.5px;line-height:1.7;color:var(--mut);max-width:70em}
 #kc .lmc a{border-bottom:1px solid var(--hair)}
 @media (max-width:760px){#kc .lmg{grid-template-columns:1fr;gap:14px}#kc .lmg figcaption{left:14px;bottom:12px}}
+/* ===== guide articles (Tilda feed posts, rendered by post-skin.js) ===== */
+#kc .cs.pg{min-height:clamp(560px,88svh,900px)}
+#kc .cs.pg h1{font-size:clamp(34px,3.4vw,62px)}
+#kc .pmeta{margin-top:22px;font:500 11px/1.6 var(--sans);letter-spacing:.22em;text-transform:uppercase;color:rgba(243,238,230,.65)}
+#kc .pmeta a{color:var(--lin);border-bottom:1px solid rgba(243,238,230,.35)}
+#kc .pbw{padding:clamp(64px,7vw,120px) 0}
+#kc .pbody{max-width:740px;margin:0 auto;font-size:17px;line-height:1.75;color:#2e3a37}
+#kc .pbody h2{font-size:clamp(28px,2.4vw,40px);line-height:1.12;margin:52px 0 18px;color:var(--ink)}
+#kc .pbody h3,#kc .pbody h4{font-size:clamp(22px,1.7vw,28px);line-height:1.2;margin:36px 0 12px;color:var(--ink)}
+#kc .pbody>:first-child{margin-top:0}
+#kc .pbody .t-redactor__text,#kc .pbody p{margin:0 0 20px}
+#kc .pbody ul,#kc .pbody ol{margin:0 0 22px 1.25em}
+#kc .pbody li{margin-bottom:8px;padding-left:4px}
+#kc .pbody ul li::marker{color:var(--gd)}
+#kc .pbody a{color:var(--ink);border-bottom:1px solid var(--go);transition:color .25s}
+#kc .pbody a:hover{color:var(--gd)}
+#kc .pbody strong,#kc .pbody b{font-weight:600;color:var(--ink)}
+#kc .pbody figure{margin:36px 0}
+#kc .pbody img{width:100%;height:auto;display:block}
+#kc .pbody figcaption,#kc .pbody .t-redactor__caption{margin-top:12px;font:500 10.5px/1.6 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--mut)}
+#kc .pbody blockquote{margin:36px 0;padding-left:24px;border-left:2px solid var(--go);font:300 clamp(22px,1.8vw,28px)/1.4 var(--serif);color:var(--ink)}
+#kc .pbody table{width:100%;border-collapse:collapse;margin:24px 0 30px;font-size:15px}
+#kc .pbody td,#kc .pbody th{border-bottom:1px solid var(--hair);padding:12px 10px;text-align:left;vertical-align:top}
+#kc .pbody th{font-weight:600;color:var(--ink)}
+#kc .pbody hr{border:0;border-top:1px solid var(--hair);margin:40px 0}
+#kc .pbody iframe{width:100%;aspect-ratio:16/9;height:auto;border:0}
+#kc .pnav{max-width:740px;margin:56px auto 0;padding-top:28px;border-top:1px solid var(--hair);display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+@media (max-width:760px){#kc .pbody{font-size:16px;line-height:1.7}#kc .pbody h2{margin-top:40px}#kc .pbw{padding:48px 0}}
