@@ -16,6 +16,9 @@
   const code = id => ((document.querySelector('#record' + id + ' pre code') || {}).textContent || '');
   const isOn = id => rec(id).getAttribute('off') !== 'y';
   const NEW = '(DEV, new standard)';
+  const idb = () => new Promise((res, rej) => { const q = indexedDB.open('abj_golive', 1); q.onupgradeneeded = () => q.result.createObjectStore('b'); q.onsuccess = () => res(q.result); q.onerror = () => rej(q.error); });
+  const idbPut = async (k, v) => { const d = await idb(); await new Promise((res, rej) => { const t = d.transaction('b', 'readwrite'); t.objectStore('b').put(v, k); t.oncomplete = res; t.onerror = () => rej(t.error); }); };
+  window.abjBackup = async k => { const d = await idb(); return new Promise(res => { const q = d.transaction('b').objectStore('b').get(k); q.onsuccess = () => res(q.result); }); };
   const loaded = async () => { for (let i = 0; i < 40 && !(ids().length && ids().every(id => rec(id).hasAttribute('off'))); i++) await W(500); await W(800); };
   const save = async (id, c) => {
     const r = await tp__fetch({ url: '/page/submit/', body: { comm: 'saverecord', pageid: window.pageid, recordid: id, onlythisfield: 'code', code: c }, explanation: 'save code' });
@@ -59,6 +62,8 @@
     // backup: which blocks exist and which were on (codes stay in Tilda untouched)
     const bak = { page: window.pageid, title: document.title, at: new Date().toISOString(), records: before.map(i => ({ id: i, on: isOn(i), type: rec(i).getAttribute('data-record-type') || '', len: code(i).length })) };
     localStorage.setItem('abj_golive_bak_' + window.pageid, JSON.stringify(bak));
+    // extra private copy of every old block's code in this browser (IndexedDB on tilda.cc; never sent anywhere)
+    await idbPut('p' + window.pageid, { bak, codes: Object.fromEntries(before.map(i => [i, code(i)])) });
     const keep = id => o.keep && o.keep.test(rec(id).getAttribute('data-record-type') || rec(id).getAttribute('recordtype') || rec(id).className);
     const small = live.filter(i => !keep(i) && code(i)).sort((a, b) => code(a).length - code(b).length)[0];
     if (!small) throw 'no HTML block to duplicate';
@@ -69,10 +74,12 @@
     if (!code(nid).includes(NEW)) throw 'new block did not save';
     for (let i = 0; i < 14 && ids()[0] !== nid; i++) tp__upRecord(nid);
     await tp__saveRecordsSort(); await W(1500);
+    // old blocks must still hold exactly the code they had (checked while they are still on: Tilda hides the code of switched-off blocks)
+    const untouched = live.every(i => code(i).length === bak.records.find(r => r.id === i).len);
+    if (!untouched) throw 'an old block changed - stopped before switching anything off';
     for (const id of live) { if (keep(id)) continue; await tp__offRecord(id); await W(700); }
     bak.newRec = nid; localStorage.setItem('abj_golive_bak_' + window.pageid, JSON.stringify(bak));
     localStorage.removeItem('abj_golive_code');
-    const untouched = before.every(i => code(i).length === bak.records.find(r => r.id === i).len);
     return { page: document.title.replace('Tilda: ', '').slice(0, 45), newRec: nid, links: x.n, turnedOff: live.filter(i => !keep(i)).length, kept: live.filter(keep), oldCodesUntouched: untouched, first: ids()[0], bak: JSON.stringify(bak.records) };
   };
 

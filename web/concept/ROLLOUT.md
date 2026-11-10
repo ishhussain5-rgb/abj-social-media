@@ -78,3 +78,23 @@ new design. Preview: add `?preview=new` to any article URL (`?preview=old` to st
 - Turn on the blog post skin (head snippet above).
 - The site head shows a "Sorry, we couldn't find that page" banner on any page whose canonical is /near-me-peterborough but whose
   URL is not. The DEV near-me copy's canonical was cleared for that reason (10 Nov). The live page keeps its own canonical.
+
+## Go-live (from 10 Nov 2026)
+Method: `abjCapture(<DEV rec>)` in the DEV page editor, then `abjGoLive({base, expect})` in the LIVE page editor (tilda_golive.js).
+The new block is added as a new record; the old blocks are only switched off (never edited or deleted). Their codes are also kept
+privately in that browser's IndexedDB (`abj_golive` on tilda.cc). Undo: `abjRollback()` in the live editor, then publish.
+Live links come from `linkmap.json` (all 39 checked: no DEV links left, every target page returns 200).
+
+| Live page | Live Tilda page | DEV page / rec | New live rec | Old recs switched off | Status |
+|---|---|---|---|---|---|
+| /products-we-use | 333106403 | 354170803 / 5644428803 | 5653872103 | 5129201203 | LIVE 10 Nov (pilot) |
+
+Live Tilda page ids: / 30601906, /bespoke-kitchens 73297273, /bespoke-wardrobes 73280437, /bespoke-bedrooms-abj 73297487,
+/media-walls 73279037, /luxury-worktops-abj 73545333, /bespoke-decors-peterborough 73195791, /bespoke-storage-solutions 73372439,
+/bespoke-office-renovations 73279381, /bespoke-hallways 73340083, /bathroom-cabinetry 152105513, /upholstery 146924323,
+/hmo-makeover 73279797, /about-abj 112290576, /flexible-finance 108529576, /bookingform 74327267, /offers 343764303,
+/faq-abj 107787436, /gallery 74160025, /products-we-use 333106403, /abjfeeds 72969701, /terms-and-conditions 82695596,
+/payment-terms-abj 84863476, /privacypolicy 70795693, /case-study-kings-road-kitchen-peterborough 343215603,
+/case-study-handleless-island-kitchen 343217603, /near-me-peterborough 123982426 (also the 404 page), town pages:
+stamford 150457663, oundle 150775693, market-deeping 150780073, bourne 150783143, spalding 150784123, grantham 150787653,
+huntingdon 150784883, st-ives 150785703, ely 150786283, wisbech 150786943, oakham 204575403, cambridge 241181303.
