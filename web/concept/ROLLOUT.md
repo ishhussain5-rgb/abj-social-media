@@ -150,3 +150,15 @@ switch the new block off and switch the listed old blocks back on, then publish.
 - Header is `<div class="hd" role="banner">`, not `<header>`: the old site's head scripts (left in place) restyle the first
   `<header>` on desktop and add an extra burger. The block also sets `data-abj-links` on `<html>` so the old link script
   stops adding "Project Gallery", "FAQs" and a second "Privacy Policy" link. Refreshed from commit 8264aad.
+
+### Screaming Frog pass (10 Nov 2026, ~10:00)
+- Every image in the new blocks has its real width/height (from `imgdims.json`, built from the SF export plus a browser
+  check), with `data-wh` and `:where(#kc img[data-wh]){height:auto}` so no image changes size. Checked on all 39 pages
+  at 1440 and 390 wide: 0 images changed size.
+- Town pages: H2 "What we make" -> "What we make in <town>". Booking page background photo alt "Handleless kitchen".
+- X cards: site-wide twitter:title/description in Site Settings > HEAD are wrapped in an HTML comment (not deleted);
+  each live page's own HEAD code has its own twitter:title/description appended (old head code kept; a copy of each
+  page's previous HEAD code is in this browser's localStorage `abj_headbak_<pageid>`, the site HEAD in
+  `abj_sitehead_backup_20261110`). Undo: remove the appended lines / the comment markers and republish.
+- og:description set in Page settings for /about-abj (was empty) and /flexible-finance (was the homepage's).
+- Publishing from script: `tp__fetch({url:'/page/publish/',body:{comm:'pagepublish',pageid,csrf:getCSRF(),returnjson:'yes'}})`.
