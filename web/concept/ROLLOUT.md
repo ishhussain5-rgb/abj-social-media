@@ -70,12 +70,29 @@ new design. Preview: add `?preview=new` to any article URL (`?preview=old` to st
 (Site settings > More > HTML code for the HEAD), pinned to a commit:
 `<script>window.ABJ_POST_SKIN=true</script><script src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@<commit>/web/concept/post-skin.js" defer></script>`
 
+**LIVE since 10 Nov 2026.** The site HEAD box holds at most 65,535 bytes (Tilda silently cuts anything longer, which would
+leave a broken half tag), and it was already at 65,388. So the live line is the compact form, last line of the site HEAD:
+`<!--blog skin 10.11.26--><script src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@113f662a2c80b48186b9d3759fce0da63ff998ca/web/concept/post-skin.js?on" defer></script>`
+(`?on` switches the skin on, same as ABJ_POST_SKIN=true). To make room, the wording of our own 10 Nov comment around the old
+X tags was shortened; the old X tags themselves are untouched inside it. Site HEAD is now 65,498 bytes: **37 bytes free**, so
+any new site-wide code needs space made first (or goes in per-page HEAD code instead). Backups in the Tilda tab's localStorage:
+`abj_sitehead_backup_20261110_blogskin` (before) and `abj_sitehead_intended_20261110_blogskin` (after).
+Turn off: delete that last line in Site settings > More > HTML code for the HEAD, then republish /abjfeeds (72969701).
+Turn on/refresh: articles pick up a site HEAD change when /abjfeeds is republished. Other pages pick the line up on their next
+publish; it does nothing there (exits straight away when the address has no /tpost/).
+Checked 10 Nov on all 8 articles at 390 and 1440: new header/footer, 1 H1, article text identical in length to the original,
+no broken images, no sideways scroll, no DEV links, canonical and X/OG tags unchanged.
+
 ## Go-live checklist
 - Every internal `-dev-xxxx` link must point at the live URL (e.g. /home-dev-r7m3k -> /, /bespoke-kitchens-dev-k7q2 -> /bespoke-kitchens,
   /bookingform-dev-k9b4 -> /bookingform, /abjfeeds-dev-b2f8 -> /abjfeeds). Do it in build.py and the patch helper, then republish.
 - Live /near-me-peterborough (123982426) is also the site's 404 page (meta title "Page Not Found"). Decide: keep it as the 404, or
   make a separate new-design 404 page and point Site settings > 404 at it.
-- Turn on the blog post skin (head snippet above).
+- ~~Turn on the blog post skin (head snippet above).~~ Done 10 Nov 2026.
+- Search Console, 10 Nov 2026: sitemap.xml and sitemap-feeds.xml resubmitted; new 404 validation started (67 URLs; of the 65 shown,
+  60 now 301 to live pages and 5 stay 404 on purpose: two old /tpost/ posts Tilda can't redirect and three Tilda template placeholders like
+  /{{link@url}}); indexing requested for /, /bespoke-kitchens, /bespoke-wardrobes, /bespoke-bedrooms-abj, /media-walls,
+  /luxury-worktops-abj, /bespoke-decors-peterborough, /about-abj, /gallery, /abjfeeds (Google's daily limit is about 10).
 - The site head shows a "Sorry, we couldn't find that page" banner on any page whose canonical is /near-me-peterborough but whose
   URL is not. The DEV near-me copy's canonical was cleared for that reason (10 Nov). The live page keeps its own canonical.
 
