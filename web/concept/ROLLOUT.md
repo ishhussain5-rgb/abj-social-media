@@ -162,3 +162,5 @@ switch the new block off and switch the listed old blocks back on, then publish.
   `abj_sitehead_backup_20261110`). Undo: remove the appended lines / the comment markers and republish.
 - og:description set in Page settings for /about-abj (was empty) and /flexible-finance (was the homepage's).
 - Publishing from script: `tp__fetch({url:'/page/publish/',body:{comm:'pagepublish',pageid,csrf:getCSRF(),returnjson:'yes'}})`.
+- 301 added (Site Settings > SEO > 301 Redirects): /shop/851184866934-apples -> /. Old /tpost/<slug> URLs can't be
+  redirected there (Tilda's blog router answers /tpost/* with its own 404 before the redirect list is checked).
