@@ -62,6 +62,7 @@
       de.classList.add('abjnew'); de.setAttribute('data-abjm-native', 'abjnew');
       document.body.insertBefore(document.importNode(kc, true), document.body.firstChild);
       (new Function(js.textContent.replace(/^\s*<script>|<\/script>\s*$/g, '')))();
+      [].forEach.call(document.getElementById('kc').querySelectorAll('script'), function (x) { try { (new Function(x.textContent))(); } catch (e) {} });
       clearTimeout(give); de.classList.remove('abjpost-wait');
     }).catch(function (e) { clearTimeout(give); de.classList.remove('abjpost-wait'); if (window.console) console.warn('ABJ post skin', e); });
   })();

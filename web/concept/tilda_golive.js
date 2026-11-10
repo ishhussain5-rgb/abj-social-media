@@ -26,6 +26,29 @@
     await tp__updateRecord(id); await W(1500);
   };
 
+
+  // same replacements as ft_upgrade() in build.py: folding footer on phones
+  const FTJS = '<script>(function(){var r=document.getElementById("kc");if(!r)return;r.querySelectorAll(".ft .acc>h4").forEach(function(h){if(h.getAttribute("data-acc"))return;h.setAttribute("data-acc","1");h.setAttribute("role","button");h.setAttribute("tabindex","0");h.setAttribute("aria-expanded","false");var t=function(){var o=h.parentNode.classList.toggle("op");h.setAttribute("aria-expanded",o?"true":"false")};h.addEventListener("click",t);h.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t()}})})})();</' + 'script>';
+  window.abjFooterUpgrade = function (html) {
+    if (html.includes('class="acc"')) return html;
+    for (const [a, b] of [['<div><h4>Rooms</h4>', '<div class="acc"><h4>Rooms</h4>'], ['<div><h4>More</h4>', '<div class="acc"><h4>More</h4>'],
+      ['<div><h4>ABJ</h4>', '<div class="acc"><h4>ABJ</h4>'], ['<div class="ft-v"><h4>Visit</h4>', '<div class="ft-v acc"><h4>Visit</h4>'],
+      ['<div class="ft-ar" style="padding-bottom:36px">', '<div class="ft-ar acc">']]) {
+      if (html.split(a).length !== 2) throw 'footer part not found once: ' + a;
+      html = html.replace(a, b);
+    }
+    if (html.split('<div class="ft-l">').length !== 2) throw 'footer legal row not found';
+    return html.replace('<div class="ft-l">', FTJS + '\n <div class="ft-l">');
+  };
+  // put the current theme (first <style> of out-live/home.html) in place of the block's own copy
+  window.abjTheme = async function (html, base) {
+    const home = await (await fetch(base + 'out-live/home.html', { cache: 'no-store' })).text();
+    const st = home.match(/<style>[\s\S]*?<\/style>/)[0];
+    if (!st.includes('folding footer')) throw 'theme source is old';
+    const i = html.indexOf('<style>'), j = html.indexOf('</style>', i);
+    if (i < 0 || j < 0) throw 'no theme style in block';
+    return html.slice(0, i) + st + html.slice(j + 8);
+  };
   window.abjLive = function (html, map) {
     const keys = Object.keys(map).sort((a, b) => b.length - a.length);
     const rx = new RegExp('(' + keys.map(k => k.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')(?![A-Za-z0-9_-])', 'g');
@@ -55,7 +78,7 @@
     if (o.expect && !from.title.includes(o.expect)) throw 'captured block is from "' + from.title + '", expected ' + o.expect;
     const x = window.abjLive(html, map);
     if (x.left.length) throw 'DEV links left: ' + x.left.join(', ');
-    html = x.html;
+    html = window.abjFooterUpgrade(await window.abjTheme(x.html, o.base));
     const before = ids(), live = before.filter(isOn);
     if (!before.length || !live.length) throw 'records not loaded';
     if (before.some(i => code(i).includes(NEW))) throw 'page already has a new-design block';
@@ -92,5 +115,18 @@
     const wasOn = bak ? bak.records.filter(r => r.on).map(r => r.id) : ids().filter(i => i !== nid);
     for (const id of wasOn) if (rec(id) && !isOn(id)) { await tp__offRecord(id); await W(700); }
     return 'new block ' + nid + ' off; switched back on: ' + wasOn.join(',') + ' — now publish';
+  };
+
+  // a page that already went live: bring ONLY its new-design block up to the current theme and folding footer
+  window.abjRefresh = async function (o) {
+    if (/\(private test|DEV/.test(document.title)) throw 'this is a DEV page';
+    await loaded();
+    const nid = ids().find(i => code(i).includes(NEW) && isOn(i)); if (!nid) throw 'no live new-design block';
+    const c0 = code(nid);
+    const c = window.abjFooterUpgrade(await window.abjTheme(c0, o.base));
+    if (/-dev-[a-z0-9]{4,5}\b/.test(c)) throw 'DEV link found';
+    if (c === c0) return 'already up to date';
+    await save(nid, c);
+    return 'refreshed block ' + nid + ' (' + c0.length + ' -> ' + code(nid).length + ')';
   };
 })();
