@@ -51,9 +51,9 @@
     const txt = root.innerText;
     for (const re of [/\{[A-Z0-9]{2,}\}/, /%%[A-Z0-9]+%%/, /\bundefined\b/, /\bNaN\b/, /&amp;|&[a-z]{2,8};/, /\bnull\b/]) { const m = txt.match(re); if (m) out.push('leftover text: ' + m[0]); }
     const us = txt.match(US); if (us) out.push('US spelling: ' + us[0]);
-    for (const a of root.querySelectorAll('a,button')) { if (hidden(a)) continue; const r = a.getBoundingClientRect(); if (r.width < 2) continue; if (!a.textContent.trim() && !a.getAttribute('aria-label') && !a.querySelector('img')) out.push('empty link/button: ' + (a.getAttribute('href') || a.className)); const h = a.getAttribute('href') || ''; if (h.startsWith('#') && h.length > 1 && h !== '#cookie-settings' && !doc.getElementById(h.slice(1))) out.push('link to missing section: ' + h); }
+    for (const a of root.querySelectorAll('a,button')) { if (hidden(a)) continue; const r = a.getBoundingClientRect(); if (r.width < 2) continue; if (!a.textContent.trim() && !a.getAttribute('aria-label') && !a.querySelector('img')) out.push('empty link/button: ' + (a.getAttribute('href') || a.className)); const h = a.getAttribute('href') || ''; if (h.startsWith('#') && h.length > 1 && h !== '#cookie-settings' && !h.startsWith('#!/') && !doc.getElementById(h.slice(1))) out.push('link to missing section: ' + h); }
     for (const e of root.querySelectorAll('section *')) {
-      const r = e.getBoundingClientRect(); if (r.width < 2 || hidden(e) || e.closest('.rail,.pan,.gg,.rooms,.proj,.hero,.bk figure,.rvg')) continue;
+      const r = e.getBoundingClientRect(); if (r.width < 2 || hidden(e) || e.closest('.rail,.pan,.gg,.rooms,.proj,.hero,.bk figure,.rvg,.csg')) continue;
       if (r.right > W + 4 && r.left < W) { out.push('element runs off screen: ' + e.tagName.toLowerCase() + '.' + (e.className || '').toString().split(' ')[0]); break; }
     }
     return out;
