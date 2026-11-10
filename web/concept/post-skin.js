@@ -29,7 +29,7 @@
   (function wait() {
     var art = document.querySelector('.t-cms__page'), body = art && art.querySelector('.t-redactor__tte-view'), h1 = art && art.querySelector('h1');
     if (!art || !body || !h1) { if (++tries < 80) return setTimeout(wait, 100); de.classList.remove('abjpost-wait'); return; }
-    fetch(BASE + 'out/post-chrome.html').then(function (r) { return r.text(); }).then(function (html) {
+    fetch(BASE + (window.ABJ_POST_SKIN === true ? 'out-live/' : 'out/') + 'post-chrome.html').then(function (r) { return r.text(); }).then(function (html) {
       var title = h1.textContent.trim();
       var time = art.querySelector('time'), up = art.querySelector('.t-uptitle');
       var date = (time && time.textContent.trim()) || (up && up.textContent.trim()) || '';
