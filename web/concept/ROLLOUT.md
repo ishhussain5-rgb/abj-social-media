@@ -352,5 +352,6 @@ DEV pages = current LIVE block + guide (commit 758b23a): kitchens 352648603/5644
 bedrooms 352674703/5644237603, media walls 352685103/5644238303, sloping 377339703/5698354303, sliding 377441303/5698620103,
 walk-in 377441403/5698620803. Old DEV block codes: IndexedDB `abj_svc_bak` keys `<page>-dev-before-calc-20261111`;
 live codes used: `live-<livepageid>-20261111`. Checked on the published DEV pages at 1920x911: guide works, fits one window, noindex.
-Open before LIVE: are Alex's totals inc or ex VAT (one media wall quote says + VAT); the Kitchens page says "from £5,000"
+VAT: Ish confirmed (11 Nov) Alex's grand totals include VAT, so the small print says "Prices include VAT" (DEV @ 3315235).
+Open before LIVE: the Kitchens page says "from £5,000"
 but real fitted compact kitchens come out at about £2,350-£4,000; Alex/surveyor to approve the ranges.
