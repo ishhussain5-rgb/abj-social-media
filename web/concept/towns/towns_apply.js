@@ -20,7 +20,7 @@
     c = once(c, /(<h2>Serving [^<]*<\/h2>\s*<p>)[\s\S]*?(<\/p>\s*<div class="rel">)/, (m, a, b) => a + d.det + b, 'det');
     const faqHtml = d.faqs.map(q => '<details><summary>' + q[0] + '</summary><p>' + q[1] + '</p></details>').join('\n  ');
     c = once(c, /(<section class="det">[\s\S]*?<div class="rv">\s*)<details>[\s\S]*<\/details>(\s*<\/div>\s*<\/div><\/section>)/, (m, a, b) => a + faqHtml + b, 'faqs');
-    c = once(c, /<script type="application\/ld\+json">(\s*\{[\s\S]*?"@type"\s*:\s*"FAQPage"[\s\S]*?)<\/script>/, (m, j) => {
+    c = once(c, /<script type="application\/ld\+json">([^<]*?"@type"\s*:\s*"FAQPage"[^<]*)<\/script>/, (m, j) => {
       const o = JSON.parse(j);
       o.mainEntity = d.faqs.map(q => ({ '@type': 'Question', name: plain(q[0]), acceptedAnswer: { '@type': 'Answer', text: plain(q[1]) } }));
       return '<script type="application/ld+json">\n' + JSON.stringify(o, null, 1) + '\n</script>';
