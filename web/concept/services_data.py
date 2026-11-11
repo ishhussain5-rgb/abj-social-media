@@ -7,7 +7,8 @@ MEDIA = {
     "k": "123050832ba2be74a77bf0f7c632826f8cc5c439",   # wardrobe + bedroom photos from the Drive gallery
     "l": "c9b6a43e8a2c02ad59b5f96be569168331082850",   # hallway, storage, office, panelling, bathroom, worktop photos (Drive)
     "i": "69dbc3e188cebfa373bcfe64fceb39654b3a684a",   # kitchen photos (kc-*)
-    "m": "c622e97c6fffffaf3dcbd6af4209d7084d46f850",   # smooth photo-based hero clips (C) for storage, office, hallways, bathroom, upholstery, hmo
+    "m": "c622e97c6fffffaf3dcbd6af4209d7084d46f850",
+    "n": "7de4888393349d8c26fd9b3a03e21e3178a1d6ba",   # design illustrations (AI, always captioned as such) for the sloping-ceiling page   # smooth photo-based hero clips (C) for storage, office, hallways, bathroom, upholstery, hmo
 }
 # images already on the site's Tilda CDN (used by the old DEV pages)
 T = lambda path: "https://static.tildacdn.net/" + path
@@ -421,30 +422,27 @@ PAGES = [
 
 {
  "slug": "sloping-wardrobes", "name": "Sloping-ceiling wardrobes", "url": "/sloping-ceiling-wardrobes-dev-s5e2", "footer": "Let&rsquo;s design your loft wardrobes",
- "videos": [("w:abj-wardrobes-B-wide.mp4", "w:abj-wardrobes-B-v.mp4", "Loft wardrobes &amp; dressing table under the eaves"),
-            ("g:abj-bedrooms-B-wide.mp4", "g:abj-bedrooms-B-v.mp4", "Fitted loft bedroom with eaves drawers")],
+ "videos": [("w:abj-wardrobes-B-wide.mp4", "w:abj-wardrobes-B-v.mp4", "Loft wardrobes &amp; dressing table under the eaves")],
  "kicker": "Sloping ceilings &amp; eaves &middot; Peterborough", "h1": "Fitted wardrobes for sloping ceilings &amp; eaves, made in Peterborough",
  "lead": "Wardrobes, drawers and cupboards that follow your roofline, for loft conversions, dormers and bedrooms under the eaves.",
  "explore": "See what fits under a slope",
  "intro_kick": "Made for awkward rooms",
- "statement": "Standard wardrobes stop where the ceiling starts to slope, and the space behind them is lost. We measure the exact angle of your roof and build angled carcasses and doors that follow it, so every part of the room is used, from full-height hanging to low eaves drawers.",
+ "statement": "Standard wardrobes stop where the ceiling starts to slope, and the space behind them is lost. We measure the exact angle of your roof and build angled carcasses and doors that follow it, so every part of the room is used, from full-height hanging to low eaves drawers and dressing tables.",
  "facts": FACTS,
  "styles_h": "What we build under a slope", "styles_p": "Hanging where the height allows, drawers and cupboards where it doesn&rsquo;t, all made to the angle of your ceiling.",
- "styles": [("g:abj-wardrobes-t-fitted.webp", "White gloss fitted wardrobes following a sloping loft ceiling", "Angled full-height wardrobes", "Doors cut to the pitch of your roof, so the wardrobe runs wall to wall with no gaps."),
-            (T("tila6537-6362-4638-b334-386664353733/BespokeBedrooms33.webp"), "Loft eaves storage with fitted drawers under a skylight", "Eaves drawers &amp; cupboards", "Low drawer runs and cupboards that turn the knee wall into real storage."),
-            ("g:abj-bedrooms-t-slopes.webp", "Fitted dressing table and storage under the eaves", "Dressing tables under the eaves", "A lit dressing table and mirror where the ceiling is too low for hanging."),
-            (T("tild6664-3336-4531-b966-313535303131/BespokeFittedWardrob.jpg"), "Loft fitted wardrobes under a sloped ceiling with a built-in TV unit", "Loft conversions", "Wardrobes, TV units and shelving planned around dormers, skylights and steel beams."),
-            (T("tild6133-6233-4063-a639-663961623837/abj-bed27.jpg"), "Loft bedroom with a walnut headboard panel and sloped-ceiling storage", "Headboard walls &amp; bedside units", "The whole loft bedroom designed together, from the bed wall to the eaves."),
-            ("k:abj-b-sage-loft.webp", "Sage green painted wardrobes and shelving in a loft bedroom", "Painted &amp; Shaker loft wardrobes", "Shaker or slab doors in any colour, with open shelving where the roof drops.")],
+ "styles": [(T("tila6337-6339-4734-a237-306631373133/BespokeBedrooms30.webp"), "White gloss fitted wardrobes built into a sloped loft ceiling", "Angled full-height wardrobes", "Doors cut to the pitch of your roof, so the wardrobe runs wall to wall with no gaps."),
+            (T("tila6537-6362-4638-b334-386664353733/BespokeBedrooms33.webp"), "Loft bedroom with fitted eaves drawers and cupboards under a skylight", "Eaves drawers &amp; cupboards", "Low drawer runs and cupboards that turn the knee wall into real storage."),
+            (T("tild3132-3061-4665-b162-666361386636/UnderStair22.jpg"), "Fitted loft cupboards following the roof slope around a round window", "Loft conversions &amp; dormers", "Cupboards planned around dormers, skylights, round windows and steels."),
+            ("n:ai-slope-walkin.webp", "Design illustration of a walk-in wardrobe under a sloping loft roof", "Walk-in storage under the roof", "Design illustration. Open hanging, shelves and drawers running the length of a loft room.")],
  "cta_card": "Send us a photo of your loft room",
  "feature": {"kick": "Measured to the angle", "h": "Every centimetre under the roof, put to work",
              "p": "At the free design visit we measure the pitch of the ceiling, the height of the knee wall, dormers, skylights and any loft hatch. Your 3D design then shows exactly where long hanging, short hanging, shelves and drawers fit before anything is made.",
-             "points": ["Angled carcasses and doors made to your roof pitch", "Low eaves drawers and cupboards in the knee wall", "Access kept to eaves voids, hatches and pipework", "Lighting built in, so deep corners are easy to see into"],
-             "big": ("g:abj-bedrooms-B-wide-poster.webp", "Loft bedroom with fitted eaves drawers following the sloping ceiling", "78% 70%"),
-             "small": [("g:abj-wardrobes-B-wide-poster.webp", "Loft dressing table and wardrobes under a sloping ceiling", "Loft dressing area"),
-                       (T("tila6337-6339-4734-a237-306631373133/BespokeBedrooms30.webp"), "White gloss fitted wardrobes built into a sloped loft ceiling", "Angled doors")]},
+             "points": ["Angled carcasses and doors made to your roof pitch", "Low eaves drawers, cupboards and dressing tables in the knee wall", "Access kept to eaves voids, hatches and pipework", "Lighting built in, so deep corners are easy to see into"],
+             "big": ("g:abj-bedrooms-A-wide-poster.webp", "Loft bedroom with a walnut headboard wall and fitted storage under the eaves", "60% 55%"),
+             "small": [("n:ai-slope-oak-lit.webp", "Design illustration of lit oak wardrobes stepping down under a sloping ceiling", "Design illustration: lit oak loft wardrobes"),
+                       ("n:ai-slope-open-shelving.webp", "Design illustration of open oak shelving and hanging under a roof slope", "Design illustration: open shelving under the eaves")]},
  "quote": REV_IFTIKHAR,
- "book": ("g:abj-bedrooms-A-wide-poster.webp", "Loft bedroom with an oak headboard wall and fitted storage under the eaves", "50% 50%"),
+ "book": ("k:abj-b-sage-loft.webp", "Sage green painted wardrobes and shelving in a loft bedroom", "50% 55%"),
  "book_h": "Show us your loft room",
  "book_p": "Send a few photos on WhatsApp or book a visit. We will measure the slope, talk through what you need to store and send you a 3D design with an itemised quote, with no pressure to go ahead.",
  "seo_h": "Wardrobes for sloping ceilings, eaves &amp; loft conversions in Peterborough",
