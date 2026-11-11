@@ -30,7 +30,8 @@
   };
   W.abjHomeMobile = function (code) {
     const css = '/*abj-home-mobile*/@media (max-width:760px){#kc .hero.hm:not(.sm):after{background:linear-gradient(0deg,rgba(8,14,13,.8) 0%,rgba(8,14,13,.5) 40%,rgba(8,14,13,.12) 70%,rgba(8,14,13,0) 85%)}#kc .hero.hm:not(.sm) .kick{display:none}#kc .hero.hm:not(.sm) h1{font-size:32px;line-height:1.08;margin:0 0 16px}}/*/abj-home-mobile*/';
-    let c = code.replace(/\/\*abj-home-mobile\*\/[\s\S]*?(\/\*\/abj-home-mobile\*\/|\}\}(?=<\/style>|#|\/\*))/, '');
+    let c = code.includes('/*/abj-home-mobile*/') ? code.replace(/\/\*abj-home-mobile\*\/[\s\S]*?\/\*\/abj-home-mobile\*\//, '')
+      : code.replace(/\/\*abj-home-mobile\*\/@media \(max-width:760px\)\{[^{}]*(\{[^{}]*\}[^{}]*)*\}/, '');
     const i = c.indexOf('</style>'); if (i < 0) throw new Error('no style');
     return c.slice(0, i) + css + c.slice(i);
   };
