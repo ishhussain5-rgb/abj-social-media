@@ -130,7 +130,7 @@
  <div class="rv">
   <span class="kick">Cost guide</span>
   <h2>What could your kitchen cost?</h2>
-  <p class="lead">Tell us about your kitchen in a sentence, the way you&rsquo;d describe it to a friend. We&rsquo;ll pick out the details and show you a realistic price range, based on kitchens we&rsquo;ve designed, made and fitted around Peterborough.</p>
+  <p class="lead">Tell us about your kitchen in a sentence, the way you&rsquo;d describe it to a friend. We&rsquo;ll pick out the details and show you a realistic price range for a bespoke kitchen, made to measure in our own workshop and fitted by our team, not off the shelf.</p>
   <form id="kc-calc" onsubmit="return false">
    <div class="ai"><div class="ai-in" onclick="if(event.target===this)document.getElementById('kc-say').focus()"><span class="ai-k"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l1.9 5.1 5.1 1.9-5.1 1.9L10 15.5l-1.9-5.1L3 8.5l5.1-1.9z"/><path d="M16 13l.8 2.2 2.2.8-2.2.8L16 19l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Describe it in your own words</span>
     <textarea id="kc-say" rows="2" placeholder="e.g. a U-shaped Shaker kitchen with an oak worktop, an island and a Quooker tap"></textarea>
@@ -188,7 +188,7 @@
   <ul class="inc"><li>3D design &amp; site survey</li><li>Made in Peterborough</li><li>Fitted by our own team</li><li>12-month guarantee</li></ul>
   <div class="acts"><a class="bt" href="/bookingform" id="kc-cb">Book a free design visit</a><a class="bt o" id="kc-wa" href="https://wa.me/447479219421" target="_blank" rel="noopener">Send this to us</a></div>
   </div>
-  <p class="fine">A rough guide for planning, not a quote. Your exact price comes with your 3D design after a free home visit. Prices include VAT, manufacture and fitting; building work, flooring and moving gas, water or electrics are extra. 0% finance is available on projects over &pound;6,000 (subject to status).</p>
+  <p class="fine">A rough guide for planning a bespoke, made-to-measure kitchen, not a quote. Your exact price comes with your 3D design after a free home visit. Prices include VAT, manufacture and fitting; building work, flooring and moving gas, water or electrics are extra. 0% finance is available on projects over &pound;6,000 (subject to status).</p>
  </aside>
 </div>
 <a class="pill" href="#kc-cost" aria-label="Jump to your guide price"><span>Guide price</span><b id="kc-pl">&pound;0</b></a>
@@ -196,10 +196,10 @@
 (function(){
  /* ROUGH GUIDE PRICES (GBP inc VAT, made & fitted). Edit here only. [low, high] per size: compact, medium, large, statement */
  var P={
-  base:[[5000,7500],[7500,11500],[11000,16500],[16000,24000]],
-  style:[1,1.08,1.35],
+  base:[[5000,8000],[8500,13500],[13000,20000],[19000,30000]],
+  style:[1,1.1,1.35],
   wt:[[[0,0],[0,0],[0,0],[0,0]],[[300,600],[500,900],[700,1200],[1000,1700]],[[900,1500],[1500,2500],[2200,3500],[3000,4800]],[[1300,2000],[2100,3300],[3000,4600],[4200,6500]]],
-  island:[2500,4500],bar:[1200,2400],app:[[1500,2800],[2000,3800],[2500,4500],[3000,5500]],larder:[1200,2200],tap:[700,1100],led:[300,650]
+  island:[3000,5500],bar:[1200,2400],app:[[1500,2800],[2000,3800],[2500,4500],[3000,5500]],larder:[1500,2800],tap:[700,1100],led:[300,650]
  };
  var SZ=['compact','medium','large','statement'],ST=['handleless','Shaker','in-frame'],WT=['laminate','solid wood','quartz','sintered stone'],XN={island:'an island',bar:'a breakfast bar',app:'appliances',larder:'a larder unit',tap:'a boiling-water tap',led:'LED lighting'};
  var f=document.getElementById('kc-calc');if(!f)return;var sec=document.getElementById('kc-cost');
