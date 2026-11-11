@@ -26,13 +26,13 @@ MENU = [("/bespoke-kitchens-dev-k7q2", "Kitchens", KC + "kc-run-s.webp"),
         ("/bespoke-wardrobes-dev-w4m8", "Wardrobes", TILE + "abj-wardrobes-t-fitted.webp"),
         ("/bespoke-bedrooms-dev-b3n6", "Bedrooms", TILE + "abj-bedrooms-t-slopes.webp"),
         ("/media-walls-dev-m9t5", "Media walls", TILE + "abj-mediawalls-t-minimal.webp"),
+        ("/gallery-dev-g7l3", "Projects", KC + "kc-kr-bar-s.webp"),
         ("/luxury-worktops-dev-t6p3", "Worktops", KC + "kc-kr-island-s.webp"),
         ("/decors-dev-d8r4", "Wall panelling", TILE + "abj-decors-t-slatted.webp"),
         ("/bespoke-storage-dev-s2k7", "Storage", TILE + "abj-storage-t-pantry.webp"),
         ("/office-renovations-dev-o3f7", "Home offices", TILE + "abj-office-t-home.webp"),
         ("/bespoke-hallways-dev-h4j8", "Hallways", KC + "kc-shaker-s.webp"),
         ("/bathroom-cabinetry-dev-c6v2", "Bathrooms", KC + "kc-inframe-s.webp"),
-        ("/gallery-dev-g7l3", "Projects", KC + "kc-kr-bar-s.webp"),
         ("/about-abj-dev-a5b9", "About ABJ", KC + "kc-detail-s.webp")]
 
 LG = ('<a class="lg" href="/home-dev-r7m3k" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="%s" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"%s><span class="lgt">ABJ Kitchens<span>&amp; Bedrooms</span></span></a>')
