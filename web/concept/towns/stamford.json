@@ -3,22 +3,50 @@
  "slug": "stamford",
  "live": 150457663,
  "dev": 354171303,
- "intro2": "We&rsquo;re a Peterborough workshop, not a national chain, so nothing arrives in standard cabinet sizes. The same small team designs your room, makes it at Brassey Close and fits it in your Stamford home.",
+ "intro2": "Every kitchen, wardrobe and bedroom is made to your room&rsquo;s exact sizes, so period proportions, chimney breasts, sloping ceilings and awkward corners are no problem. We fit the newer family homes around Stamford and the nearby villages too. We&rsquo;re a Peterborough workshop, not a national chain: the same small team designs your room, makes it at Brassey Close and fits it.",
  "sty": "Tall Georgian rooms, cottage alcoves or a box room in a newer house: each piece is drawn for the space it&rsquo;s going into.",
  "proc_lead": "Making takes four to six weeks once you approve the design. Stamford is only half an hour away, so fitting days are as easy to arrange as they are in Peterborough.",
  "steps": [
-  ["Design visit", "We measure the room in person and check what matters in older Stamford homes: wall lines, ceiling heights and chimney breasts. Free, with no obligation."],
-  ["3D design &amp; quote", "You see the finished room in 3D, whether that&rsquo;s painted Shaker or handleless, with a quote that lists every item."],
-  ["Made in Peterborough", "Every carcass and filler is cut to your measurements in our Brassey Close workshop, about 15 miles away."],
-  ["Fitted by our team", "The people who made it fit it. In the town centre we agree van access and delivery times with you first."]
+  [
+   "Design visit",
+   "We measure the room in person and check what matters in older Stamford homes: wall lines, ceiling heights and chimney breasts. Free, with no obligation."
+  ],
+  [
+   "3D design &amp; quote",
+   "You see the finished room in 3D, whether that&rsquo;s painted Shaker or handleless, with a quote that lists every item."
+  ],
+  [
+   "Made in Peterborough",
+   "Every carcass and filler is cut to your measurements in our Brassey Close workshop, about 15 miles away."
+  ],
+  [
+   "Fitted by our team",
+   "The people who made it fit it. In the town centre we agree van access and delivery times with you first."
+  ]
  ],
  "bk": "Send us a few photos of the room on WhatsApp or book a visit. We&rsquo;ll come out to Stamford, measure up and send you a 3D design with an itemised quote. There&rsquo;s no charge and no obligation.",
  "det": "Our showroom and workshop are in Peterborough, around 15 miles from Stamford. As well as the town itself, we design and fit in Easton on the Hill, Ketton, Uffington and Great Casterton. We cover homes up to 80 miles from Peterborough, so if you&rsquo;re further out, <a href=\"tel:01733686767\">call 01733 686767</a> and we&rsquo;ll tell you straight away.",
  "faqs": [
-  ["How far is Stamford from your workshop?", "About 15 miles, or 25 to 30 minutes on the A47 and A1. Design visits, final measures and fitting days are easy to arrange, and if anything needs a return visit we can usually be back the same week."],
-  ["Do I need permission for fitted furniture in a listed or conservation-area home?", "Usually not for the furniture itself. Stamford was England&rsquo;s first conservation area, though, and work that touches original fabric, such as removing a wall, altering a chimney breast or fixing into panelling, may need consent. We point out anything like that at the survey so you can check with South Kesteven District Council."],
-  ["Can you fit a kitchen in an older Stamford townhouse or cottage?", "Yes. Walls in stone houses are rarely straight, so we scribe each unit and filler to the room instead of forcing standard sizes in. Tall Georgian rooms suit full-height wardrobes and larder storage, and cottage alcoves suit fitted cupboards and shelving."],
-  ["How much does a fitted kitchen cost in Stamford?", "Straightforward fitted kitchens start from around &pound;5,000. Larger kitchens with stone worktops, appliances and more storage cost more. After the free survey you get an itemised quote, so you can see exactly where the money goes."],
-  ["Can I see your work before I book?", "Yes. Our showroom is at 3 Brassey Close, Peterborough PE1 2AZ, about half an hour from Stamford. Call 01733 686767 to arrange a time, or ask to see photos of similar jobs at your design visit."]
- ]
+  [
+   "How far is Stamford from your workshop?",
+   "About 15 miles, or 25 to 30 minutes on the A47 and A1. Design visits, final measures and fitting days are easy to arrange, and if anything needs a return visit we can usually be back the same week."
+  ],
+  [
+   "Do I need permission for fitted furniture in a listed or conservation-area home?",
+   "Usually not for the furniture itself. Stamford was England&rsquo;s first conservation area, though, and work that touches original fabric, such as removing a wall, altering a chimney breast or fixing into panelling, may need consent. We point out anything like that at the survey so you can check with South Kesteven District Council."
+  ],
+  [
+   "Can you fit a kitchen in an older Stamford townhouse or cottage?",
+   "Yes. Walls in stone houses are rarely straight, so we scribe each unit and filler to the room instead of forcing standard sizes in. Tall Georgian rooms suit full-height wardrobes and larder storage, and cottage alcoves suit fitted cupboards and shelving."
+  ],
+  [
+   "How much does a fitted kitchen cost in Stamford?",
+   "Straightforward fitted kitchens start from around &pound;5,000. Larger kitchens with stone worktops, appliances and more storage cost more. After the free survey you get an itemised quote, so you can see exactly where the money goes."
+  ],
+  [
+   "Can I see your work before I book?",
+   "Yes. Our showroom is at 3 Brassey Close, Peterborough PE1 2AZ, about half an hour from Stamford. Call 01733 686767 to arrange a time, or ask to see photos of similar jobs at your design visit."
+  ]
+ ],
+ "intro1": "Stamford&rsquo;s Georgian townhouses, stone cottages and conservation-area homes are rarely a standard shape, which is exactly why we build to measure."
 }

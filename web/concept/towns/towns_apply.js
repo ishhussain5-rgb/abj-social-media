@@ -11,6 +11,7 @@
   };
   window.abjTownCopy = function (code, d) {
     let c = code;
+    if (d.intro1) c = once(c, /(<section class="intro">[\s\S]*?<p class="big">)[\s\S]*?(<\/p>)/, (m, a, b) => a + d.intro1 + b, 'intro1');
     c = once(c, /(<p style="color:var\(--mut\);max-width:44em;margin-top:28px">)[\s\S]*?(<\/p>)/, (m, a, b) => a + d.intro2 + b, 'intro2');
     c = once(c, /(<h2 style="margin-top:16px">What we make[^<]*<\/h2><\/div><div class="rv" style="display:flex;align-items:flex-end;gap:40px"><p>)[\s\S]*?(<\/p>)/, (m, a, b) => a + d.sty + b, 'sty');
     const steps = d.steps.map((s, i) => '\n  <div class="rv"><i>0' + (i + 1) + '</i><h3>' + s[0] + '</h3><p>' + s[1] + '</p></div>').join('');
