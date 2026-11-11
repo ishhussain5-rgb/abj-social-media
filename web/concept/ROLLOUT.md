@@ -317,7 +317,7 @@ note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up 
 - Doubled link wording varied: menu "Arrange a free design visit" / "WhatsApp us"; footer CTA "Request a free design visit";
   footer links "Bespoke kitchens/wardrobes/bedrooms", "Media wall units", "Storage & pantries", "Home office furniture",
   "Project gallery", "Finance options"; cookie banner "How we use your data". Left alone: logo, phone number, town names.
-- Homepage only (on the test homepage, waiting for go-live): the same, plus hero facts <b> -> span.fk (same look; "2,500+"
+- Homepage (live 11 Nov ~15:55 after Ish's OK; old block in abj_home_bak 'home-20261111-before-polish'): the same, plus hero facts <b> -> span.fk (same look; "2,500+"
   bold once), body CTA "Start with a design visit", "bespoke media walls". Test homepage block was replaced with the live
   block + these changes (old test block in IndexedDB abj_home_bak 'homedev-20261111-before-polish').
 Check: 0 repeated photos on 44 pages, 0 footer H4s, 0 broken images. PageSpeed (Ish): 98/100/100/100 mobile and desktop.
