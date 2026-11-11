@@ -321,3 +321,11 @@ note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up 
   bold once), body CTA "Start with a design visit", "bespoke media walls". Test homepage block was replaced with the live
   block + these changes (old test block in IndexedDB abj_home_bak 'homedev-20261111-before-polish').
 Check: 0 repeated photos on 44 pages, 0 footer H4s, 0 broken images. PageSpeed (Ish): 98/100/100/100 mobile and desktop.
+
+## Kitchen cost guide (11 Nov 2026, DEV only)
+`calc/kitchen_calc.html` (self-contained section, scoped CSS + JS) inserted before "How it works" with `calc/insert.js`.
+DEV Kitchens (352648603, rec 5644015603) was first replaced with the current LIVE Kitchens block (so the preview is exact);
+old DEV block in IndexedDB abj_svc_bak 'kitchens-dev-before-calc-20261111'. Four picks (size / style / worktop / extras)
+plus a plain-English box that reads a description and sets the picks (runs in the browser; no AI service, no cost).
+Prices in the P object are Claude's rough placeholders anchored to the site's "from around £5,000" - NOT approved:
+Ish/Alex must confirm before it goes live. GA event 'kitchen_cost_guide' fires only after cookie consent.
