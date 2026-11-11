@@ -332,3 +332,8 @@ Ish/Alex must confirm before it goes live. GA event 'kitchen_cost_guide' fires o
 - 11 Nov evening, Ish's idea: describe-first flow. The section opens with just the description box ("Show my guide price",
   Enter, three tappable examples, "or choose the options yourself"); the price and pre-set options appear after. On phones and
   tablets the price card sits straight under the description and the options follow. DEV updated (calc @ ed2058c).
+- 11 Nov ~20:20: prices recalibrated against Checkatrade 2026 (avg new kitchen ~£10.5k; quartz fitted £200-550/m2) and the
+  site's own "from around £5,000" and £8k/£12k offer tiers: worktop and appliance extras lowered, breakfast bar added
+  (£1.2k-2.4k). More everyday phrases understood ("decent sized", "family", "breakfast bar", "massive"...). Desktop stage 2
+  fits one screen (tested 1280x720 to 1920x911); on reveal the section lines up under the header. insert.js now replaces any
+  version. DEV @ 34f775f. Still needs Alex/surveyor to check the ranges before LIVE.
