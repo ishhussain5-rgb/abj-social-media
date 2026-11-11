@@ -200,3 +200,27 @@ while /bespoke-kitchens sits around 29th for the same searches. "10-year guarant
 | /bookingform Facebook description | (empty, so Tilda's template text "An online form to collect contact information, number of guests..." was used) | Book a free design visit for a kitchen, bedroom, wardrobe or media wall. We come to you across Peterborough and up to 80 miles away. |
 
 Rollback: paste the old text back into Page settings and publish that one page. Compare clicks for these searches after 4 weeks.
+
+## 7 new service pages LIVE (11 Nov 2026)
+Built to catch searches the site had no page for (Search Console gaps). Each live page is a duplicate of its private DEV page
+(the DEV pages stay as they were: private, noindex). Block code = `out-live/<slug>.html` at 4cbf91a + theme/footer/SEO fixes
+from `tilda_golive.js` + the two site-footer scripts (lead hand-off, conversion de-duplication). Page settings and HEAD code
+come from `golive_new7.json` (title, description, social title/description/image, canonical; HEAD = BreadcrumbList +
+twitter:title/description; Service + FAQPage schema sit in the block). Each published on its own and checked live: 200,
+index allowed, canonical correct, one H1, no DEV links, all images sized, no repeated photos, footer scripts present,
+43 internal links all 200, no sideways scroll at 390 px.
+
+| Live address | Tilda page id | DEV page it came from |
+|---|---|---|
+| /fitted-wardrobes-sloping-ceilings | 377674203 | /sloping-ceiling-wardrobes-dev-s5e2 |
+| /under-stairs-storage | 377674303 | /under-stairs-storage-dev-u7s3 |
+| /sliding-wardrobes | 377674503 | /sliding-wardrobes-dev-s3w8 |
+| /walk-in-wardrobes | 377674603 | /walk-in-wardrobes-dev-w2d6 |
+| /office-fit-out-peterborough | 377674703 | /office-fit-out-dev-o8c4 |
+| /cabinet-makers-peterborough | 377674803 | /bespoke-joinery-dev-j4c9 |
+| /alcove-units | 377674903 | /alcove-units-dev-a6c1 |
+
+Existing live pages given links to them (only the `.rel` related-links line changed in each block, then published):
+wardrobes 73280437, bedrooms 73297487, storage 73372439, hallways 73340083, office 73279381, media walls 73279037.
+Search Console: sitemap.xml resubmitted 11 Nov (read the same day, 45 pages). Indexing requests: daily quota used on 11 Nov,
+so request the 7 addresses from 12 Nov. Rollback for a page: tick "Hide from search engines" and unpublish that page only.
