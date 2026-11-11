@@ -336,4 +336,5 @@ Ish/Alex must confirm before it goes live. GA event 'kitchen_cost_guide' fires o
   site's own "from around £5,000" and £8k/£12k offer tiers: worktop and appliance extras lowered, breakfast bar added
   (£1.2k-2.4k). More everyday phrases understood ("decent sized", "family", "breakfast bar", "massive"...). Desktop stage 2
   fits one screen (tested 1280x720 to 1920x911); on reveal the section lines up under the header. insert.js now replaces any
-  version. DEV @ 34f775f. Still needs Alex/surveyor to check the ranges before LIVE.
+  version. DEV @ 34f775f.
+- 11 Nov: bespoke recalibration (base compact 5–8k, medium 8.5–13.5k, large 13–20k, statement 19–30k; Shaker x1.1; island 3–5.5k; larder 1.5–2.8k) and "made to measure in our own workshop, not off the shelf" wording. DEV @ af0dd6c. Still needs Alex/surveyor to check the ranges before LIVE.
