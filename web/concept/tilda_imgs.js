@@ -13,8 +13,12 @@
   });
   const MAX = 100000;
   const W = ms => new Promise(r => setTimeout(r, ms));
-  const load = () => { try { return JSON.parse(localStorage.getItem('abjTI') || '{}'); } catch (e) { return {}; } };
-  const save = m => { try { localStorage.setItem('abjTI', JSON.stringify(m)); } catch (e) {} };
+  // localStorage on tilda.cc is full, so the map lives in IndexedDB ('abj_ti', key 'map') and in window.__abjTImap
+  const idb = (mode, fn) => new Promise((res, rej) => { const o = indexedDB.open('abj_ti', 1); o.onupgradeneeded = () => o.result.createObjectStore('kv'); o.onerror = () => rej(o.error);
+    o.onsuccess = () => { const t = o.result.transaction('kv', mode); const st = t.objectStore('kv'); const q = fn(st); t.oncomplete = () => res(q && q.result); t.onerror = () => rej(t.error); }; });
+  const load = () => window.__abjTImap || {};
+  const save = m => { window.__abjTImap = m; return idb('readwrite', st => st.put(JSON.stringify(m), 'map')); };
+  const restore = async () => { const v = await idb('readonly', st => st.get('map')); window.__abjTImap = v ? JSON.parse(v) : {}; return Object.keys(window.__abjTImap).length; };
   async function upload(blob, name) {
     const id = 'abjtu' + Math.floor(Math.random() * 1e9); const inp = document.createElement('input'); inp.type = 'hidden'; inp.id = id; document.body.appendChild(inp);
     let url = null, err = null; TUWidget.init(inp).done(o => { url = o && o.tuInfo && o.tuInfo.cdnUrl; }).fail(e => { err = String(e); });
@@ -31,9 +35,9 @@
     return { blob: await c.convertToBlob({ type: 'image/webp', quality: 0.92 }), w, h, ow: bm.width, oh: bm.height };
   }
   window.abjTI = {
-    items, load,
+    items, load, restore,
     async build(log) {
-      const m = load();
+      await restore(); const m = load();
       for (const it of items) {
         if (m[it.key]) continue;
         let scale = 1, r = null;
@@ -45,7 +49,7 @@
           r = { url, w: k.w, h: k.h, ow: k.ow, oh: k.oh, kb: Math.round(sz / 1024), kind: it.kind };
           if (sz <= MAX) break; scale *= 0.85;
         }
-        m[it.key] = r; save(m); if (log) log(it.nm + ' ' + r.w + 'w ' + r.kb + 'k');
+        m[it.key] = r; await save(m); if (log) log(it.nm + ' ' + r.w + 'w ' + r.kb + 'k');
       }
       return Object.keys(m).length;
     },
