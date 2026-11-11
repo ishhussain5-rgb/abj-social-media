@@ -9,8 +9,15 @@ for c, _, _ in rows:
 def thumb(p):
     i, n = p.split('/', 1)
     return ('https://thb.tildacdn.com/%s/-/resize/720x/-/format/webp/%s' % (i, n)) if i.startswith('tild') else 'https://static.tildacdn.net/' + p
+# show the room types mixed on the first screen (round-robin in filter order); the bordered, old-watermark photo goes last
+_last = ('abj-white-handleless.jpg',)
+_by = {c: [r for r in rows if r[0] == c] for c in cats}
+for c in cats: _by[c] = [r for r in _by[c] if not r[1].endswith(_last)] + [r for r in _by[c] if r[1].endswith(_last)]
+_shown = []
+for i in range(max(len(v) for v in _by.values())):
+    _shown += [_by[c][i] for c in cats if i < len(_by[c])]
 items = '\n'.join('  <a class="gi" data-c="%s" href="https://static.tildacdn.net/%s"><img loading="lazy" src="%s" alt="%s"></a>'
-                  % (html.escape(c), p, thumb(p), html.escape(a, quote=True)) for c, p, a in rows)
+                  % (html.escape(c), p, thumb(p), html.escape(a, quote=True)) for c, p, a in _shown)
 chips = '<button type="button" class="on" data-f="*">All <i>%d</i></button>' % len(rows) + ''.join(
     '<button type="button" data-f="%s">%s <i>%d</i></button>' % (html.escape(c), html.escape(c), sum(1 for r in rows if r[0] == c)) for c in cats)
 page = '''<!--META {"slug":"gallery","title":"Gallery","nav":"/gallery-dev-g7l3","ft":"Like what you see?"} -->

@@ -350,7 +350,7 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 #kc .bf .err input,#kc .bf .err select,#kc .bf input.err{border-color:#a3342b}
 #kc .bf .em{display:none;margin-top:6px;font-size:12.5px;color:#a3342b}
 #kc .bf .err .em{display:block}
-#kc .bf .pc{margin-top:6px;font-size:12.5px;color:var(--g2);min-height:0}
+#kc .bf .pc{margin-top:6px;font-size:12.5px;color:var(--g2);min-height:0;background:none;padding:0;display:block}#kc .bf .pc:empty{display:none}
 #kc .bf .pc.no{color:#a3342b}
 #kc .bf fieldset{border:0;margin-bottom:26px}
 #kc .chips{display:flex;flex-wrap:wrap;gap:8px}
@@ -613,3 +613,6 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
  #kc .ft-l{margin-top:20px;gap:12px;font-size:11.5px}#kc .ft-l nav{gap:2px 18px;font-size:11.5px}#kc .ft-l nav a,#kc .ft-l span a{display:inline-block;padding:10px 0}
 }
 @keyframes kcft{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* the old site head adds .kd-first (padding-top:48px !important on desktop) to the first section; keep the .ih intro clear of the fixed header */
+@media (min-width:821px){html:not(#kd-a):not(#kd-b) #kc .ih.kd-first{padding-top:calc(86px + clamp(56px,7vw,120px))!important}}

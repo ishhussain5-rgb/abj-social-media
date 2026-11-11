@@ -20,7 +20,7 @@ BOOK = "/bookingform-dev-k9b4"
 
 NAV = [("/bespoke-kitchens-dev-k7q2", "Kitchens"), ("/bespoke-wardrobes-dev-w4m8", "Wardrobes"),
        ("/bespoke-bedrooms-dev-b3n6", "Bedrooms"), ("/media-walls-dev-m9t5", "Media walls"),
-       ("/case-study-kings-road-kitchen-peterborough-dev-c3k8", "Projects")]
+       ("/gallery-dev-g7l3", "Projects")]
 
 MENU = [("/bespoke-kitchens-dev-k7q2", "Kitchens", KC + "kc-run-s.webp"),
         ("/bespoke-wardrobes-dev-w4m8", "Wardrobes", TILE + "abj-wardrobes-t-fitted.webp"),
@@ -32,7 +32,7 @@ MENU = [("/bespoke-kitchens-dev-k7q2", "Kitchens", KC + "kc-run-s.webp"),
         ("/office-renovations-dev-o3f7", "Home offices", TILE + "abj-office-t-home.webp"),
         ("/bespoke-hallways-dev-h4j8", "Hallways", KC + "kc-shaker-s.webp"),
         ("/bathroom-cabinetry-dev-c6v2", "Bathrooms", KC + "kc-inframe-s.webp"),
-        ("/case-study-kings-road-kitchen-peterborough-dev-c3k8", "Projects", KC + "kc-kr-bar-s.webp"),
+        ("/gallery-dev-g7l3", "Projects", KC + "kc-kr-bar-s.webp"),
         ("/about-abj-dev-a5b9", "About ABJ", KC + "kc-detail-s.webp")]
 
 LG = ('<a class="lg" href="/home-dev-r7m3k" aria-label="ABJ Kitchens &amp; Bedrooms home"><img src="%s" alt="ABJ Kitchens &amp; Bedrooms logo" width="48" height="48"%s><span class="lgt">ABJ Kitchens<span>&amp; Bedrooms</span></span></a>')
@@ -94,7 +94,7 @@ def footer(ft):
   </div>
   <div><h4>Rooms</h4><ul><li><a href="/bespoke-kitchens-dev-k7q2">Kitchens</a></li><li><a href="/bespoke-wardrobes-dev-w4m8">Wardrobes</a></li><li><a href="/bespoke-bedrooms-dev-b3n6">Bedrooms</a></li><li><a href="/media-walls-dev-m9t5">Media walls</a></li><li><a href="/luxury-worktops-dev-t6p3">Worktops</a></li><li><a href="/decors-dev-d8r4">Wall panelling</a></li></ul></div>
   <div><h4>More</h4><ul><li><a href="/bespoke-storage-dev-s2k7">Storage</a></li><li><a href="/bespoke-hallways-dev-h4j8">Hallways &amp; stairs</a></li><li><a href="/office-renovations-dev-o3f7">Home offices</a></li><li><a href="/bathroom-cabinetry-dev-c6v2">Bathroom cabinetry</a></li><li><a href="/upholstery-dev-u5h9">Upholstery</a></li><li><a href="/hmo-makeover-dev-m2x5">HMO fit-outs</a></li></ul></div>
-  <div><h4>ABJ</h4><ul><li><a href="/about-abj-dev-a5b9">About us</a></li><li><a href="/gallery-dev-g7l3">Gallery</a></li><li><a href="/case-study-kings-road-kitchen-peterborough-dev-c3k8">Projects</a></li><li><a href="/offers-dev-o8f2">Offers</a></li><li><a href="/flexible-finance-dev-f3n7">Finance</a></li><li><a href="/faq-abj-dev-q4z6">FAQs</a></li><li><a href="/abjfeeds-dev-b2f8">Guides</a></li></ul></div>
+  <div><h4>ABJ</h4><ul><li><a href="/about-abj-dev-a5b9">About us</a></li><li><a href="/gallery-dev-g7l3">Gallery</a></li><li><a href="/case-study-kings-road-kitchen-peterborough-dev-c3k8">Case study</a></li><li><a href="/offers-dev-o8f2">Offers</a></li><li><a href="/flexible-finance-dev-f3n7">Finance</a></li><li><a href="/faq-abj-dev-q4z6">FAQs</a></li><li><a href="/abjfeeds-dev-b2f8">Guides</a></li></ul></div>
   <div class="ft-v"><h4>Visit</h4><address>Showroom &amp; workshop<br>3 Brassey Close<br>Peterborough PE1 2AZ<br><a href="tel:+441733686767">01733 686767</a><br><a href="https://wa.me/447479219421">WhatsApp 07479 219421</a><br><a href="mailto:info@abjkitchensandbedrooms.co.uk">Email us</a></address><a class="lnk" href="https://www.google.com/maps/search/?api=1&amp;query=ABJ+Kitchens+%26+Bedrooms+3+Brassey+Close+Peterborough+PE1+2AZ" target="_blank" rel="noopener">Get directions</a></div>
  </div>
  <div class="ft-ar" style="padding-bottom:36px"><h4 style="font:500 10.5px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--go);margin-bottom:16px">Areas we cover</h4><div class="ft-a">''' + areas + '''</div></div>
