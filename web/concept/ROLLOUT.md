@@ -224,3 +224,14 @@ Existing live pages given links to them (only the `.rel` related-links line chan
 wardrobes 73280437, bedrooms 73297487, storage 73372439, hallways 73340083, office 73279381, media walls 73279037.
 Search Console: sitemap.xml resubmitted 11 Nov (read the same day, 45 pages). Indexing requests: daily quota used on 11 Nov,
 so request the 7 addresses from 12 Nov. Rollback for a page: tick "Hide from search engines" and unpublish that page only.
+
+## Town pages: own copy for each town (11 Nov 2026)
+Why: the 10 template town pages shared about half their text word for word (intro, How it works, booking text, "Serving"
+text, 4 of 5 FAQs). Near-identical location pages are what Google's scaled-content policy targets. Each now has copy written
+from its own local facts in `towns/<slug>.json`, applied by `towns/towns_apply.js` (`abjTownCopy(code, data)`), which only
+touches those 5 sections plus the FAQPage schema and checks nothing else in the block changed. The headline-size intro line
+was also cut to one sentence (it had grown to ~80 words). Extra "10-year guarantee" mentions were left out of the new copy
+until the T&Cs question is settled (the facts strip still shows it). Shared text across town pages: ~49% -> 10-21%.
+Backups: the old block code of each live town page is in Chrome's IndexedDB on tilda.cc (database `abj_town_bak`, key
+`p<pageid>`); to roll back a page, save that code back into its block and publish. Stamford DEV (354171303) has the same copy.
+New service-page descriptions were rewritten by hand the same day (golive_new7.json, commit 8a2a01c).
