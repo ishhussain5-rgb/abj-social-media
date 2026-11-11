@@ -284,5 +284,5 @@ note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up 
     73.2-79.6s, half speed, vidstab) instead of the dining room/sunburst light; phone caption via `data-capm`, phone poster via
     `data-mp`. Desktop clip, poster and caption unchanged. Old block in IndexedDB `abj_svc_bak`, key `kitchens-phoneclips-20261111`.
   - Homepage: phone montage ends on a fitted wardrobe wall (n05 3.6-6.9s) instead of the Hisense wine-fridge logo and worktop
-    corner; phone caption list via `data-capsm`. On the test homepage only, waiting for Ish's go-live.
+    corner; phone caption list via `data-capsm`. Live homepage published 11 Nov ~13:10 after Ish's OK (old block in `abj_home_bak`, key `home-20261111-phoneclip`).
   - Other pages' phone clips checked: all show furniture. Worktops clip A ends on the dining table/sunburst light (offered a re-cut).
