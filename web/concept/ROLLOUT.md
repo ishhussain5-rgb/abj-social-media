@@ -271,3 +271,11 @@ after it, and a slightly darker fade behind the hero text (video and wording unc
 (350369803, desktop + 390 px). Live homepage published 11 Nov ~11:44 after Ish's OK (old block code in Chrome IndexedDB `abj_home_bak`, key
 `home-20261111`). Site HEAD: the last two "10-year guarantee" texts (a commented-out twitter tag and the old mobile-menu
 note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up on their next publish (home republished).
+
+## Visual review 2: phone menu and homepage on phones (11 Nov 2026)
+- Phone menu: "Projects" moved from 11th to 5th (after Media walls) on all 46 live pages (`fixes_1111b.js` abjMenu,
+  `run_menu.js`), numbers, animation delays and hover photos renumbered; site HEAD pin moved to b44b379 for blog articles.
+- Homepage on phones only (max-width 760px, `abjHomeMobile`): stronger bottom fade behind the hero text, the small label above
+  the headline hidden (it repeated "Peterborough"), headline 32px. Checked on the test homepage, approved by Ish, live
+  homepage (block 5657646303) published 11 Nov ~12:31. Old block code in IndexedDB `abj_home_bak`, key `home-20261111-mobile`.
+  Desktop unchanged (checked: label shown, headline 73px, side fade). out-live/home.html matches.
