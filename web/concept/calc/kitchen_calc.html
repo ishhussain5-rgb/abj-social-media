@@ -1,0 +1,204 @@
+<section class="calc" id="kc-cost" aria-label="Kitchen cost guide">
+<style>
+#kc .calc{background:var(--g);color:var(--lin);padding:clamp(72px,7vw,128px) 0}
+#kc .calc .kick{color:var(--go)}
+#kc .calc .ch{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(40px,5vw,110px);align-items:start}
+#kc .calc h2{margin:16px 0 18px;color:var(--lin)}
+#kc .calc .lead{max-width:34em;color:rgba(243,238,230,.74);margin-bottom:clamp(30px,3vw,48px)}
+#kc .calc .ai{margin-bottom:22px}
+#kc .calc .ai-in{display:block;padding:18px 20px 14px;border:1px solid rgba(201,169,110,.55);background:rgba(243,238,230,.04);cursor:text}
+#kc .calc .ai-in:focus-within{border-color:var(--go);background:rgba(243,238,230,.07)}
+#kc .calc .ai-k{display:flex;align-items:center;gap:10px;font:500 11px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--go)}
+#kc .calc .ai-k svg{width:16px;height:16px;fill:var(--go);stroke:none;margin:0;animation:kcsp 3.2s ease-in-out infinite}
+@keyframes kcsp{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+#kc .calc textarea{display:block;overflow:hidden;min-height:2.7em;width:100%;margin-top:10px;border:0;outline:0;resize:none;background:transparent;color:var(--lin);font:300 clamp(20px,1.7vw,26px)/1.35 var(--serif)}
+#kc .calc textarea::placeholder{color:rgba(243,238,230,.38)}
+#kc .calc .ai-out{display:flex;flex-wrap:wrap;gap:8px;min-height:0;margin-top:12px}
+#kc .calc .ai-out span{padding:7px 12px;border:1px solid rgba(201,169,110,.45);font:500 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lin);animation:kcin .4s cubic-bezier(.2,.7,.2,1) both}
+#kc .calc .ai-out span.q{border-style:dashed;color:rgba(243,238,230,.6)}
+@keyframes kcin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+#kc .calc .or{display:flex;align-items:center;gap:16px;margin:0 0 22px;font:500 10.5px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:rgba(243,238,230,.4)}
+#kc .calc .or:before,#kc .calc .or:after{content:"";flex:1;height:1px;background:rgba(243,238,230,.14)}
+#kc .calc .tip{display:flex;gap:10px;margin-top:12px;padding:12px 14px;background:var(--lin2);font-size:13px;line-height:1.5;color:var(--ink)}
+#kc .calc .tip:before{content:"";flex:0 0 7px;height:7px;margin-top:6px;background:var(--go);transform:rotate(45deg)}
+#kc .calc .tip:empty{display:none}
+#kc .calc label.hit{animation:kchit .9s ease}
+@keyframes kchit{0%{box-shadow:0 0 0 0 rgba(201,169,110,.7)}100%{box-shadow:0 0 0 10px rgba(201,169,110,0)}}
+#kc .calc fieldset{border:0;padding:0;margin:0 0 clamp(24px,2.4vw,34px)}
+#kc .calc legend{display:flex;align-items:baseline;gap:14px;font:500 11px/1.4 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:rgba(243,238,230,.66);margin-bottom:14px}
+#kc .calc legend i{font:300 22px/1 var(--serif);font-style:normal;letter-spacing:0;color:var(--go)}
+#kc .calc .op{display:grid;gap:10px}
+#kc .calc .op4{grid-template-columns:repeat(4,minmax(0,1fr))}
+#kc .calc .op3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#kc .calc .op5{grid-template-columns:repeat(5,minmax(0,1fr))}
+#kc .calc label{position:relative;display:flex;flex-direction:column;gap:6px;min-height:100%;padding:16px 16px 15px;border:1px solid rgba(243,238,230,.18);cursor:pointer;transition:border-color .25s,background .25s;-webkit-tap-highlight-color:transparent}
+#kc .calc label:hover{border-color:rgba(243,238,230,.42)}
+#kc .calc input{position:absolute;opacity:0;pointer-events:none}
+#kc .calc label b{font:400 21px/1.1 var(--serif);color:var(--lin)}
+#kc .calc label span{font-size:12.5px;line-height:1.45;color:rgba(243,238,230,.6)}
+#kc .calc label svg{width:46px;height:30px;margin-bottom:4px;stroke:rgba(243,238,230,.55);fill:none;stroke-width:1.3}
+#kc .calc label:has(input:checked){border-color:var(--go);background:rgba(201,169,110,.09)}
+#kc .calc label:has(input:checked) svg{stroke:var(--go)}
+#kc .calc label:has(input:focus-visible){outline:2px solid var(--go);outline-offset:2px}
+#kc .calc label.off{opacity:.35;pointer-events:none}
+#kc .calc .xt label{flex-direction:row;align-items:center;gap:10px;padding:13px 14px}
+#kc .calc .xt label:before{content:"";flex:0 0 14px;height:14px;border:1px solid rgba(243,238,230,.45);transition:.2s}
+#kc .calc .xt label:has(input:checked):before{background:var(--go);border-color:var(--go);box-shadow:inset 0 0 0 3px var(--g)}
+#kc .calc .xt label b{font:500 13px/1.3 var(--sans);letter-spacing:.02em}
+#kc .calc .res{position:sticky;top:110px;background:var(--lin);color:var(--ink);padding:clamp(28px,2.6vw,44px)}
+#kc .calc .res .kick{color:var(--gd)}
+#kc .calc .pr{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:14px 0 6px;font:300 clamp(44px,4.4vw,74px)/1 var(--serif);letter-spacing:-.01em}
+#kc .calc .pr em{font-style:normal;font-size:.5em;color:var(--mut)}
+#kc .calc .sum{font-size:14px;color:var(--mut);min-height:3em}
+#kc .calc .bars{display:grid;gap:11px;margin:22px 0 24px;padding:22px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+#kc .calc .bar{display:grid;grid-template-columns:118px minmax(0,1fr) 64px;align-items:center;gap:12px;font-size:12.5px}
+#kc .calc .bar s{display:block;height:6px;background:var(--lin2);text-decoration:none;position:relative;overflow:hidden}
+#kc .calc .bar s:after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w,0%);background:var(--g2);transition:width .6s cubic-bezier(.2,.7,.2,1)}
+#kc .calc .bar em{font-style:normal;text-align:right;color:var(--mut)}
+#kc .calc .inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:13px;color:var(--mut);margin-bottom:24px}
+#kc .calc .inc li:before{content:"";display:inline-block;width:6px;height:6px;margin-right:9px;background:var(--go);transform:rotate(45deg) translateY(-2px)}
+#kc .calc .acts{display:flex;flex-wrap:wrap;gap:10px}
+#kc .calc .acts .bt{background:var(--g);color:var(--lin);flex:1 1 auto}
+#kc .calc .acts .bt.o{background:transparent;color:var(--ink);border:1px solid var(--hair)}
+#kc .calc .fine{margin-top:18px;font-size:11.5px;line-height:1.55;color:var(--mut)}
+@media (max-width:1100px){#kc .calc .ch{grid-template-columns:1fr}#kc .calc .res{position:relative;top:0}}
+@media (max-width:760px){#kc .calc .op4,#kc .calc .op5{grid-template-columns:1fr 1fr}#kc .calc .op3{grid-template-columns:1fr 1fr 1fr}#kc .calc .op3 label span{display:none}#kc .calc label{padding:14px 12px}#kc .calc label b{font-size:19px}#kc .calc .inc{grid-template-columns:1fr}#kc .calc .bar{grid-template-columns:96px minmax(0,1fr) 56px}
+ #kc .calc .pill{position:fixed;left:12px;right:12px;bottom:calc(66px + env(safe-area-inset-bottom));z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--lin);color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.28);font:500 11px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:0;transform:translateY(12px);pointer-events:none;transition:.35s}
+ #kc .calc .pill b{font:400 22px/1 var(--serif);letter-spacing:0;text-transform:none}
+ #kc .calc.vis .pill{opacity:1;transform:none;pointer-events:auto}}
+@media (min-width:761px){#kc .calc .pill{display:none}}
+</style>
+<div class="w ch">
+ <div class="rv">
+  <span class="kick">Cost guide</span>
+  <h2>What could your kitchen cost?</h2>
+  <p class="lead">Four quick choices and you&rsquo;ll see a realistic price range, based on kitchens we&rsquo;ve designed, made and fitted around Peterborough. Change anything and the guide updates as you go.</p>
+  <form id="kc-calc" onsubmit="return false">
+   <div class="ai"><label class="ai-in" for="kc-say"><span class="ai-k"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l1.9 5.1 5.1 1.9-5.1 1.9L10 15.5l-1.9-5.1L3 8.5l5.1-1.9z"/><path d="M16 13l.8 2.2 2.2.8-2.2.8L16 19l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Describe it in your own words</span>
+    <textarea id="kc-say" rows="2" placeholder="e.g. a U-shaped Shaker kitchen with an oak worktop, an island and a Quooker tap"></textarea></label>
+    <div class="ai-out" id="kc-got" aria-live="polite"></div>
+   </div>
+   <p class="or"><span>or pick below</span></p>
+   <fieldset><legend><i>01</i>How big is the room?</legend>
+    <div class="op op4">
+     <label><input type="radio" name="sz" value="0"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3z"/></svg><b>Compact</b><span>Galley or small L, up to 4&nbsp;m of units</span></label>
+     <label><input type="radio" name="sz" value="1" checked><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3zM3 9h6v18H3z"/></svg><b>Medium</b><span>L-shape, about 5&ndash;7&nbsp;m of units</span></label>
+     <label><input type="radio" name="sz" value="2"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3zM3 9h6v18H3zM37 9h6v18h-6z"/></svg><b>Large</b><span>U-shape or a wall of tall units</span></label>
+     <label><input type="radio" name="sz" value="3"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3zM3 9h6v18H3zM17 15h14v6H17z"/></svg><b>Statement</b><span>Large open-plan with an island</span></label>
+    </div>
+   </fieldset>
+   <fieldset><legend><i>02</i>Which style?</legend>
+    <div class="op op3">
+     <label><input type="radio" name="st" value="0" checked><b>Handleless</b><span>Clean lines, J-pull or rail</span></label>
+     <label><input type="radio" name="st" value="1"><b>Shaker</b><span>Framed doors, painted to any colour</span></label>
+     <label><input type="radio" name="st" value="2"><b>In-frame</b><span>Doors set inside a solid frame</span></label>
+    </div>
+   </fieldset>
+   <fieldset><legend><i>03</i>Worktop</legend>
+    <div class="op op4">
+     <label><input type="radio" name="wt" value="0"><b>Laminate</b><span>Hard-wearing, wide choice</span></label>
+     <label><input type="radio" name="wt" value="1"><b>Solid wood</b><span>Oak or walnut staves</span></label>
+     <label><input type="radio" name="wt" value="2" checked><b>Quartz</b><span>Our most popular choice</span></label>
+     <label><input type="radio" name="wt" value="3"><b>Sintered stone</b><span>Heat and scratch proof</span></label>
+    </div>
+   </fieldset>
+   <fieldset class="xt"><legend><i>04</i>Anything else? <span style="letter-spacing:.1em;text-transform:none">(optional)</span></legend>
+    <div class="op op5">
+     <label data-x="island"><input type="checkbox" name="x" value="island"><b>Island</b></label>
+     <label><input type="checkbox" name="x" value="app"><b>Appliances</b></label>
+     <label><input type="checkbox" name="x" value="larder"><b>Larder unit</b></label>
+     <label><input type="checkbox" name="x" value="tap"><b>Boiling-water tap</b></label>
+     <label><input type="checkbox" name="x" value="led"><b>LED lighting</b></label>
+    </div>
+   </fieldset>
+  </form>
+ </div>
+ <aside class="res rv" aria-live="polite">
+  <span class="kick">Your guide price</span>
+  <div class="pr"><span id="kc-lo">&pound;0</span><em>to</em><span id="kc-hi">&pound;0</span></div>
+  <p class="sum" id="kc-sum"></p>
+  <p class="tip" id="kc-tip"></p>
+  <div class="bars" id="kc-bars"></div>
+  <ul class="inc"><li>3D design &amp; site survey</li><li>Made in Peterborough</li><li>Fitted by our own team</li><li>12-month guarantee</li></ul>
+  <div class="acts"><a class="bt" href="/bookingform" id="kc-cb">Book a free design visit</a><a class="bt o" id="kc-wa" href="https://wa.me/447479219421" target="_blank" rel="noopener">Send this to us</a></div>
+  <p class="fine">A rough guide for planning, not a quote. Your exact price comes with your 3D design after a free home visit. Prices include VAT, manufacture and fitting; building work, flooring and moving gas, water or electrics are extra. 0% finance is available on projects over &pound;6,000 (subject to status).</p>
+ </aside>
+</div>
+<a class="pill" href="#kc-cost" aria-label="Jump to your guide price"><span>Guide price</span><b id="kc-pl">&pound;0</b></a>
+<script>
+(function(){
+ /* ROUGH GUIDE PRICES (GBP inc VAT, made & fitted). Edit here only. [low, high] per size: compact, medium, large, statement */
+ var P={
+  base:[[5000,7500],[7500,11500],[11000,16500],[16000,24000]],
+  style:[1,1.08,1.35],
+  wt:[[[0,0],[0,0],[0,0],[0,0]],[[500,900],[800,1300],[1100,1800],[1600,2500]],[[1300,2000],[2000,3000],[2900,4200],[4000,5800]],[[1800,2600],[2700,3900],[3800,5400],[5200,7400]]],
+  island:[2500,4500],app:[[2000,3200],[2500,4000],[3000,5000],[3500,6000]],larder:[1200,2200],tap:[700,1100],led:[300,650]
+ };
+ var SZ=['compact','medium','large','statement'],ST=['handleless','Shaker','in-frame'],WT=['laminate','solid wood','quartz','sintered stone'],XN={island:'an island',app:'appliances',larder:'a larder unit',tap:'a boiling-water tap',led:'LED lighting'};
+ var f=document.getElementById('kc-calc');if(!f)return;
+ var $=function(i){return document.getElementById(i)},r250=function(n){return Math.round(n/250)*250},gbp=function(n){return '£'+n.toLocaleString('en-GB')};
+ var shown=[0,0],raf;
+ function anim(lo,hi){cancelAnimationFrame(raf);var a=shown.slice(),t0=performance.now();(function s(t){var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);var l=r250(a[0]+(lo-a[0])*e),h=r250(a[1]+(hi-a[1])*e);$('kc-lo').textContent=gbp(l);$('kc-hi').textContent=gbp(h);$('kc-pl').textContent=gbp(l)+'–'+gbp(h).replace('£','');if(k<1)raf=requestAnimationFrame(s);else shown=[lo,hi]})(t0)}
+ function calc(){
+  var sz=+f.sz.value,st=+f.st.value,wt=+f.wt.value,xs=[].slice.call(f.querySelectorAll('[name=x]:checked')).map(function(x){return x.value});
+  var isl=f.querySelector('[data-x=island]');isl.classList.toggle('off',sz===3);if(sz===3)isl.querySelector('input').checked=false;
+  xs=xs.filter(function(x){return !(x==='island'&&sz===3)});
+  var cab=[P.base[sz][0]*P.style[st],P.base[sz][1]*P.style[st]];
+  if(sz===3||xs.indexOf('island')>=0){var il=sz===3?[0,0]:P.island;cab=[cab[0]+il[0]*P.style[st],cab[1]+il[1]*P.style[st]]}
+  var top=P.wt[wt][sz].slice(),ex=[0,0];
+  xs.forEach(function(x){if(x==='island')return;var v=x==='app'?P.app[sz]:P[x];ex[0]+=v[0];ex[1]+=v[1]});
+  var lo=r250(cab[0]+top[0]+ex[0]),hi=r250(cab[1]+top[1]+ex[1]);
+  anim(lo,hi);
+  var mid=function(v){return (v[0]+v[1])/2},tot=mid(cab)+mid(top)+mid(ex)||1;
+  var rows=[['Cabinets & fitting',mid(cab)],['Worktops',mid(top)],['Extras',mid(ex)]];
+  $('kc-bars').innerHTML=rows.map(function(r){var p=Math.round(r[1]/tot*100);return '<div class="bar"><span>'+r[0]+'</span><s style="--w:'+p+'%"></s><em>'+(r[1]?'~'+gbp(r3(r[1])):'&ndash;')+'</em></div>'}).join('');
+  function r3(n){return Math.round(n/100)*100}
+  var xt=xs.map(function(x){return XN[x]});
+  var d='A '+SZ[sz]+' '+ST[st]+' kitchen with '+WT[wt]+' worktops'+(xt.length?', plus '+(xt.length>1?xt.slice(0,-1).join(', ')+' and '+xt[xt.length-1]:xt[0]):'')+'.';
+  $('kc-sum').textContent=d;
+  var tip='';
+  if(st===2)tip='In-frame is our most hand-crafted style. Shaker gives a very similar look for roughly a quarter less.';
+  else if(wt===3)tip='Sintered stone takes a hot pan straight from the hob. Quartz looks almost identical for around 20% less.';
+  else if(sz>=2&&xs.indexOf('larder')<0)tip='Kitchens this size usually have room for a larder unit, which is the best value storage you can add.';
+  else if(sz===1&&xs.indexOf('island')<0)tip='If your room is over about 4.5 m wide, an island is often possible. Add it to see the difference.';
+  else if(wt===0&&sz>=1)tip='Upgrading laminate to quartz on a kitchen this size adds about '+gbp(r250(P.wt[2][sz][0]))+' to '+gbp(r250(P.wt[2][sz][1]))+'.';
+  else if(lo>=6000)tip='This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+  else tip='Quartz is the worktop most of our customers choose.';
+  $('kc-tip').textContent=tip;
+  $('kc-wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the cost guide on your website: '+d+' Guide price '+gbp(lo)+' to '+gbp(hi)+'. Could we arrange a free design visit?');
+  try{if(window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event','kitchen_cost_guide',{size:SZ[sz],style:ST[st],worktop:WT[wt],extras:xs.join('|'),low:lo,high:hi})}catch(e){}
+ }
+ /* plain-English understanding: reads a description and sets the choices */
+ var K={
+  sz:[[/\b(compact|small|tiny|galley|narrow|studio|flat|apartment)\b/,0],[/\b(medium|average|l[\s-]?shaped?|l[\s-]?shape|standard)\b/,1],[/\b(large|big|u[\s-]?shaped?|u[\s-]?shape|spacious|tall units|bank of tall)\b/,2],[/\b(statement|huge|open[\s-]?plan|kitchen[\s-]?diner|extension)\b/,3]],
+  st:[[/\b(handle[\s-]?less|modern|sleek|minimal|contemporary|gloss|j[\s-]?pull|true handleless)\b/,0],[/\b(shaker|classic|painted|cottage|country|farmhouse)\b/,1],[/\b(in[\s-]?frame|heritage|period|traditional|georgian|victorian)\b/,2]],
+  wt:[[/\b(laminate|budget|cheap)\b/,0],[/\b(wood|wooden|oak|walnut|timber|butcher|iroko|solid wood)\b/,1],[/\b(quartz|silestone|caesarstone|marble[\s-]?effect|granite|stone)\b/,2],[/\b(sintered|dekton|ceramic|porcelain|neolith|lapitec)\b/,3]],
+  x:[[/\b(island|peninsula)\b/,'island'],[/\b(appliances?|oven|ovens|hob|fridge|freezer|dishwasher|integrated|neff|bosch|siemens|miele|aeg|range cooker|extractor)\b/,'app'],[/\b(larder|pantry|tall cupboard)\b/,'larder'],[/\b(quooker|boiling|hot water tap|instant hot)\b/,'tap'],[/\b(led|lighting|lights|lit|plinth light)\b/,'led']]
+ };
+ var LBL={sz:['Compact','Medium','Large','Statement'],st:['Handleless','Shaker','In-frame'],wt:['Laminate','Solid wood','Quartz','Sintered stone']},XL={island:'Island',app:'Appliances',larder:'Larder unit',tap:'Boiling-water tap',led:'LED lighting'};
+ function setR(n,v){var i=f.querySelector('[name='+n+'][value="'+v+'"]');if(i&&!i.checked){i.checked=true;i.parentNode.classList.remove('hit');void i.parentNode.offsetWidth;i.parentNode.classList.add('hit')}}
+ function understand(t){
+  t=' '+t.toLowerCase().replace(/[^a-z0-9.\s-]/g,' ')+' ';var got=[],ask=[];
+  var m=t.match(/(\d+(?:\.\d+)?)\s*(m|metres?|meters?)\b/);var sz=null;
+  if(m){var L=+m[1];sz=L<=4?0:L<=7?1:2}
+  K.sz.forEach(function(k){if(k[0].test(t))sz=sz===null?k[1]:Math.max(sz,k[1])});
+  var isl=/\b(island)\b/.test(t);if(sz===null&&isl)sz=3;
+  ['st','wt'].forEach(function(n){var v=null;K[n].forEach(function(k){if(k[0].test(t))v=k[1]});if(v!==null){setR(n,v);got.push(LBL[n][v])}else ask.push(n)});
+  if(sz!==null){setR('sz',sz);got.unshift(LBL.sz[sz])}else ask.unshift('sz');
+  K.x.forEach(function(k){var i=f.querySelector('[name=x][value='+k[1]+']');if(!i)return;
+   if(k[0].test(t)){if(!(k[1]==='island'&&sz===3)){if(!i.checked){i.checked=true;i.dataset.ai='1';i.parentNode.classList.remove('hit');void i.parentNode.offsetWidth;i.parentNode.classList.add('hit')}got.push(XL[k[1]])}else got.push(XL.island)}
+   else if(i.dataset.ai==='1'){i.checked=false;delete i.dataset.ai}});
+  if(/granite/.test(t))got.push('Granite priced like quartz');
+  var Q={sz:'Size? pick below',st:'Style? pick below',wt:'Worktop? pick below'};
+  $('kc-got').innerHTML=t.trim()?got.map(function(g){return '<span>'+g+'</span>'}).join('')+ask.map(function(a){return '<span class="q">'+Q[a]+'</span>'}).join(''):'';
+  calc();
+ }
+ var tm;$('kc-say').addEventListener('input',function(){this.style.height='auto';this.style.height=this.scrollHeight+'px';clearTimeout(tm);var v=this.value;tm=setTimeout(function(){understand(v)},350)});
+ f.addEventListener('change',function(e){if(e.target.id==='kc-say')return;if(e.target.name==='x')delete e.target.dataset.ai;calc()});calc();
+ var sec=$('kc-cost'),res=sec.querySelector('.res');
+ if('IntersectionObserver' in window){var inSec=false,resVis=false,up=function(){sec.classList.toggle('vis',inSec&&!resVis)};
+  new IntersectionObserver(function(e){inSec=e[0].isIntersecting;up()},{threshold:0}).observe(f);
+  new IntersectionObserver(function(e){resVis=e[0].isIntersecting;up()},{threshold:.25}).observe(res)}
+})();
+</script>
+</section>
