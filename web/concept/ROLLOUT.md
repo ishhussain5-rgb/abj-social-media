@@ -297,3 +297,13 @@ note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up 
   b44b379 -> 3a321ec (post-chrome menu images), /abjfeeds republished. Rescan: 0 jsDelivr images over 100 kB, 0 broken.
 - Still flagged: 44 Tilda-hosted images (36 town landmark photos, gallery thumbnails, a few on the new pages). Waiting for
   Ish's decision (browser re-encode + Tilda upload, before/after sheet first).
+- Tilda-hosted images (afternoon, Ish approved "go live"): 53 phone-sized copies made in the browser and uploaded with
+  Tilda's own uploader (`tilda_imgs.js`, abjTI; map in Chrome IndexedDB `abj_ti` key `map` on tilda.cc - localStorage there
+  is full). Applied to 19 live pages (12 towns, gallery, worktops, sloping, under-stairs, sliding, walk-in, cabinet makers):
+  town photos 2/3 and new-page cards keep the original in srcset (browser uses the copy only when sharp enough);
+  six town heroes (Deeping, Huntingdon, Ely, St Ives, Wisbech, Cambridge) use <picture style="display:contents"> with a
+  phone crop at full detail for <=480px; gallery thumbnails swapped to WebP copies. The six heavy heroes (Stamford, Bourne,
+  Spalding, Grantham, Oakham, Oundle) left as they are (Ish's choice). Rescan: 98% of 298 images under 100 kB, the only
+  ones over are those six, no JPG/PNG warnings, 0 broken. An earlier run's 53 uploads are unused duplicates in the Tilda
+  image library (map lost to full localStorage).
+  NOTE: out-live/ for the gallery and the town blocks does NOT include these swaps - always transform the live block.
