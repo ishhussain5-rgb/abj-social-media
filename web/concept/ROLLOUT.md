@@ -364,3 +364,11 @@ but real fitted compact kitchens come out at about £2,350-£4,000; Alex/surveyo
   media 73279037/5657536503, sloping 377674203/5699149203, sliding 377674503/5699150703, walk-in 377674603/5699151403,
   alcoves 377674903/5699153503, under-stairs 377674303/5699149903, storage 73372439/5657540503, office 73279381/5657545803,
   hallways 73340083/5657547203, bathroom 152105513/5657550603, worktops 73545333/5657537203, decors 73195791/5657538603.
+- 11 Nov 21:00-ish: ALL 15 guides LIVE (Ish: "yes please go for it"), calc files @f3a93e4, inserted before "How it works"
+  in each live block, each page published on its own. Backups: IndexedDB `abj_svc_bak` key `live-<pageid>-before-guide-20261111`
+  (Kitchens HEAD: `head-73297273-before-guide-20261111`). Checked every live URL at 1920x911: one guide, price works, fits one
+  window, indexable, canonical correct, one H1, no DEV links.
+  Kitchens FAQ (visible + FAQPage schema in the page HEAD) changed from "typically start from £5,000" to "A compact bespoke
+  kitchen, made and fitted, starts from around £2,500, and a typical medium kitchen with quartz worktops comes to around
+  £7,000 to £9,500..." so it matches the guide (Ish left the choice to me). Still saying "from around £5,000": homepage FAQ
+  schema, handleless and Kings Road case studies. Rollback for a page: save the backup code into its block, publish that page.
