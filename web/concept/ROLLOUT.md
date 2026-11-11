@@ -245,3 +245,12 @@ Badges now read "12-month guarantee"; FAQ answers say longer manufacturer warran
 Live sweep of 53 addresses afterwards: no "10-year" left except the T&Cs manufacturer list, finance terms (3-10 years) and
 "handles that still look right in ten years". The repo sources (pages/, out/, out-live/, services_data.py, towns/) match.
 Not on the website: check Google Business Profile, social bios and any ads for "10-year guarantee".
+
+## Service pages and last stock phrases (11 Nov 2026)
+The 18 service pages shared the same "How it works" steps, intro line and booking heading/text word for word. Each now has
+its own (`svccopy/<slug>.json`, applied with `svccopy/svc_apply.js`; `services_data.py` carries the same per-page steps,
+proc_p, book_h and book_p so a rebuild matches). Pages with their own booking text already (worktops, HMO, sloping,
+under-stairs, office fit-out) only had the steps changed. Old block code: Chrome IndexedDB `abj_svc_bak` on tilda.cc.
+`tidy.js` then removed the last stock phrases (About "The ABJ journey" -> "Our story", Cambridge "Your journey" -> "How it
+works", case studies "Ready to transform your home?" -> "Planning something similar?") and the dash in each town hero line.
+Final sweep of 45 live pages: all 200, one H1 each, valid schema, no stock phrases, no "10-year"; repeated text 0-12% a page.
