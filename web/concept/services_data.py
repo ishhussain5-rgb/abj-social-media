@@ -482,7 +482,7 @@ PAGES = [
              "p": "We measure the rise and angle of your staircase at the free design visit, then plan pull-outs and drawers in the deep, low corner and cupboards where the height allows. Heavy-duty soft-close runners take the weight of shoes, bags and the vacuum.",
              "points": ["Pull-outs and drawers cut to the staircase angle", "Heavy-duty soft-close runners", "Space planned for the vacuum, coats and recycling", "Access kept to meters, fuse boards and pipework"],
              "big": (T("tila6533-3339-4165-a536-313964383533/UnderStair36.webp"), "Deep under-stairs pull-out drawers open", "50% 50%"),
-             "small": [("l:abj-st-us-drawers.webp", "White under-stairs storage with drawers open", "Deep drawers"),
+             "small": [(T("tila6230-6334-4861-a435-363232633635/UnderStair7.webp"), "Under-stairs pull-out drawers beneath a walnut slat panel", "Drawers under slats"),
                        ("l:abj-hl-us-gloss.webp", "Gloss under-stairs cupboards in a hallway", "Handle-free gloss")]},
  "quote": REV_IFTIKHAR,
  "book": (T("tild3735-6338-4530-b333-303330336334/UnderStair21.jpg"), "Under-stairs pull-out drawers in a hallway", "50% 50%"),
