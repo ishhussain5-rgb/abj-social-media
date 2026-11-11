@@ -71,6 +71,14 @@ def lead(what):
             f'show you a guide price based on real quotes for {what}s we&rsquo;ve made in our Peterborough workshop and fitted ourselves.')
 
 
+MEDIA_FINISH = dict(n='st', legend='Finish', ev='finish',
+        opts=[('Woodgrain or matt', 'Oak, walnut, larch or plain'), ('Painted-look doors', 'Shaker or panelled doors'),
+              ('High gloss', 'Gloss or premium finishes')],
+        mult=[1, 1.1, 1.2],
+        words=[('woodgrain|wood grain|oak|walnut|larch|matt|matte|plain|white|grey|gray|black|handleless|gola|modern', 0),
+               ('painted|shaker|panelled|paneled|framed|classic|linen', 1), ('gloss|glossy|high gloss|acrylic|marble|galaxy|shiny', 2)],
+        lbl=['Woodgrain / matt', 'Painted-look', 'High gloss'], say=['woodgrain', 'painted-look', 'high-gloss'], q='Finish? pick below')
+
 SERVICES = {
  'kitchen': dict(
   noun='kitchen', ev='kitchen_cost_guide', title='What could your kitchen cost?',
@@ -347,6 +355,314 @@ SERVICES = {
  if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
  return 'We design the wardrobes, headboard wall, bedside units and lighting together, so the room feels finished.';
 }''', fine=FINE_FURN.format(what='fitted bedrooms', x='')),
+ 'alcove': dict(
+  noun='alcove units', ev='alcove_cost_guide', title='What could your alcove units cost?',
+  lead=('Tell us about your alcoves in a sentence: one or both, cupboards, shelves or a desk. We&rsquo;ll show you a guide price worked out '
+        'from our real quotes for fitted furniture made in our Peterborough workshop and fitted by our team.'),
+  ph='e.g. cupboards with floating shelves in both alcoves either side of the chimney, painted doors and LED lights',
+  ex=[('Both alcoves, painted', 'Cupboards and shelves in both alcoves either side of the chimney breast, painted doors'),
+      ('One alcove desk', 'A built-in desk with shelving in one alcove'),
+      ('Full wall with slats', 'A full wall of alcove units across the chimney breast, oak slats and LED lighting')],
+  groups=[
+   dict(n='sz', legend='How much?', ev='size', checked=1,
+        opts=[('One alcove', 'Cupboard and shelves'), ('Both alcoves', 'Cupboards below, shelves above'),
+              ('Both, full height', 'Floor-to-ceiling units'), ('Full wall', 'Alcoves joined across the chimney')],
+        svg=['<svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M15 3v24M31 3v24M3 18h12M3 11h12"/></svg>',
+             '<svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M13 3v24M33 3v24M3 18h10M33 18h10M3 11h10M33 11h10"/></svg>',
+             '<svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M13 3v24M33 3v24M8 3v24M38 3v24"/></svg>',
+             '<svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M13 3v24M33 3v24M13 9h20M8 3v24M38 3v24"/></svg>'],
+        words=[('one alcove|single alcove|an alcove|one side', 0), ('both alcoves|two alcoves|either side|both sides|pair', 1),
+               ('full height|floor to ceiling|floor-to-ceiling|bookcases?|tall', 2), ('whole wall|full wall|over the chimney|across the chimney|wall to wall', 3)],
+        lbl=['One alcove', 'Both alcoves', 'Full height', 'Full wall'], say=['one alcove', 'both alcoves', 'both alcoves, full height', 'a full wall'],
+        q='How much? pick below'),
+   dict(MEDIA_FINISH),
+  ],
+  base=[[500, 850], [900, 1500], [1300, 2000], [1800, 2600]],
+  inst=[[200, 300], [300, 450], [400, 600], [500, 750]],
+  ext={'led': X_LED, 'glass': E('glass doors', 'Glass doors', [245, 600], 'glass|glazed|display'),
+       'shelves': E('floating shelves', 'Floating shelves', [100, 300], 'floating shel(f|ves)|floating'),
+       'desk': E('a built-in desk', 'Built-in desk', [300, 700], 'desk|study|work from home|home office'),
+       'slats': E('slatted panels', 'Slatted panels', [125, 400], 'slat|slats|slatted|acoustic|fluted'),
+       'drawers': E('drawers', 'Drawers', [150, 400], 'drawers?')},
+  lbl=dict(base='Cabinets &amp; shelving', ext='Extras', inst='Delivery &amp; fitting'), notes=[],
+  say=r"function(s,w){return 'Alcove units for '+w('sz')+' in a '+w('st')+' finish'}",
+  tip=r"""function(s,gbp,rnd){
+ if(s.v.st===2)return 'Gloss and premium finishes make a real statement. A matt or woodgrain finish costs a little less.';
+ if(!s.has('led'))return 'LED lighting under the shelves makes alcoves glow in the evening, and it is one of the cheaper extras.';
+ if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+ return 'Every alcove is a different size, so we measure each one and make the units to fit, wall to wall.';
+}""", fine=FINE_FURN.format(what='fitted furniture', x='').replace('based on recent quotes for fitted furniture', 'worked out from our recent quotes for fitted furniture')),
+
+ 'understairs': dict(
+  noun='under-stairs storage', ev='understairs_cost_guide', title='What could your under-stairs storage cost?',
+  lead=('Tell us about your stairs in a sentence and what you&rsquo;d like to keep there. We&rsquo;ll show you a guide price worked out from our '
+        'real quotes for fitted furniture made in our Peterborough workshop and fitted by our team.'),
+  ph='e.g. pull-out shoe and coat towers under the whole staircase, painted Shaker doors and lighting',
+  ex=[('Pull-outs for shoes and coats', 'Three pull-out towers under the stairs for shoes and coats'),
+      ('Full staircase of drawers', 'Drawers and pull-outs along the whole staircase, handleless'),
+      ('Open stairs with a desk', 'An open-plan staircase with a built-in desk and shelving')],
+  groups=[
+   dict(n='sz', legend='How much space?', ev='size', checked=1,
+        opts=[('Small', 'A cupboard or two pull-outs'), ('Medium', 'Three or four pull-outs'),
+              ('Full staircase', 'Pull-outs and drawers all along'), ('Feature', 'Open stairs with shelving or a desk')],
+        svg=['<svg viewBox="0 0 46 30"><path d="M3 27h40V3L3 27z" fill="none"/><path d="M31 27V10M37 27V6"/></svg>',
+             '<svg viewBox="0 0 46 30"><path d="M3 27h40V3L3 27z"/><path d="M25 27V16M31 27V12M37 27V7"/></svg>',
+             '<svg viewBox="0 0 46 30"><path d="M3 27h40V3L3 27z"/><path d="M13 27v-6M19 27V18M25 27V15M31 27V11M37 27V7"/></svg>',
+             '<svg viewBox="0 0 46 30"><path d="M3 27h40V3L3 27z"/><path d="M15 27V20h14v7M31 12h10"/></svg>'],
+        words=[('small|cupboard|one door|two pull[\\s-]?outs?|2 pull[\\s-]?outs?', 0), ('medium|three|four|3 pull|4 pull', 1),
+               ('whole staircase|whole stair|full staircase|all along|entire|full length|large|big', 2), ('open[\\s-]?plan|open stairs|feature|desk|study|wine', 3)],
+        lbl=['Small', 'Medium', 'Full staircase', 'Feature'], say=['small', 'medium', 'full-length', 'feature'], q='Size? pick below'),
+   dict(n='st', legend='What kind of storage?', ev='type',
+        opts=[('Cupboards &amp; shelves', 'Doors with shelving behind'), ('Pull-out towers', 'Full-depth towers that slide out'),
+              ('Drawers', 'Deep drawers cut to the stairs')],
+        mult=[1, 1.2, 1.25],
+        words=[('cupboards?|doors?|shelves|shelving', 0), ('pull[\\s-]?outs?|towers?|slide out', 1), ('drawers?', 2)],
+        lbl=['Cupboards', 'Pull-outs', 'Drawers'], say=['cupboard', 'pull-out', 'drawer'], q='Type? pick below'),
+  ],
+  base=[[600, 1000], [1000, 1600], [1500, 2300], [2000, 3000]],
+  inst=[[200, 300], [250, 400], [350, 550], [450, 700]],
+  ext={'led': X_LED, 'shoes': E('shoe racks', 'Shoe racks', [100, 300], 'shoes?|shoe racks?|trainers|boots'),
+       'coats': E('coat hanging', 'Coat hanging', [50, 150], 'coats?|jackets?|hanging|hooks'),
+       'wine': E('wine storage', 'Wine storage', [150, 400], 'wine|bottles'),
+       'desk': E('a built-in desk', 'Built-in desk', [300, 700], 'desk|study|work from home|home office'),
+       'gola': E('a handleless finish', 'Handleless', [50, 150], 'handle[\\s-]?less|push to open|push-to-open|gola')},
+  lbl=dict(base='Units &amp; doors', ext='Extras', inst='Delivery &amp; fitting'), notes=[],
+  say=r"function(s,w){return 'A '+w('sz')+' under-stairs design with '+w('st')+' storage'}",
+  tip=r"""function(s,gbp,rnd){
+ if(s.v.st===0&&s.sz>=1)return 'Pull-out towers bring everything to the front, so nothing gets lost at the back. They cost about a fifth more.';
+ if(!s.has('led'))return 'A little LED lighting makes deep under-stairs space much easier to use.';
+ if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+ return 'Every staircase is different, so we cut each unit to the angle of yours.';
+}""", fine=FINE_FURN.format(what='fitted furniture', x='').replace('based on recent quotes for fitted furniture', 'worked out from our recent quotes for fitted furniture')),
+
+ 'storage': dict(
+  noun='storage', ev='storage_cost_guide', title='What could your storage cost?',
+  lead=('Tell us what you&rsquo;d like in a sentence: a larder, a utility room, a boot room or living room storage. We&rsquo;ll show you a guide '
+        'price worked out from our real quotes for fitted furniture made in our Peterborough workshop and fitted by our team.'),
+  ph='e.g. a utility room with tall units, a laminate worktop, a pull-out bin and a boot bench',
+  ex=[('A tall larder', 'One tall larder cupboard with pull-out shelves'),
+      ('Utility room', 'A utility room with tall units, a laminate worktop and a pull-out bin'),
+      ('Boot room', 'A boot room with tall cupboards, a bench and coat storage, painted Shaker')],
+  groups=[
+   dict(n='sz', legend='How much?', ev='size', checked=1,
+        opts=[('Single unit', 'One tall larder or cupboard'), ('Small run', 'About 2&ndash;3&nbsp;m of units'),
+              ('Utility or boot room', 'A room&rsquo;s worth of units'), ('Full room', 'Two or three walls')],
+        svg=[panels(1), panels(3), panels(5), panels(8)], metres=[1.2, 3.2, 5],
+        words=[('single|one unit|one cupboard|a larder|larder cupboard|tall cupboard|pantry cupboard', 0), ('small|run|wall of|living room|lounge', 1),
+               ('utility|boot room|bootroom|laundry|pantry room|walk-in pantry', 2), ('full room|whole room|two walls|three walls|large|big', 3)],
+        lbl=['Single unit', 'Small run', 'Utility / boot room', 'Full room'], say=['single-unit', 'small', 'utility-size', 'full-room'], q='Size? pick below'),
+   dict(n='st', legend='Which style?', ev='style',
+        opts=[('Handleless or matt', 'Clean, modern lines'), ('Shaker', 'Framed doors in any colour'), ('Gloss', 'High-gloss acrylic')],
+        mult=[1, 1.1, 1.15],
+        words=[('handle[\\s-]?less|matt|matte|modern|plain|woodgrain|oak|white|grey', 0), ('shaker|painted|classic|cottage|framed', 1), ('gloss|glossy|acrylic', 2)],
+        lbl=['Handleless / matt', 'Shaker', 'Gloss'], say=['handleless', 'Shaker', 'gloss'], q='Style? pick below'),
+  ],
+  base=[[500, 900], [1300, 2100], [2200, 3500], [3300, 5000]],
+  inst=[[150, 250], [350, 550], [550, 850], [800, 1200]],
+  ext={'worktop': E('a laminate worktop', 'Worktop', [250, 600], 'worktops?|counter|work surface|sink'),
+       'larder': E('larder pull-outs', 'Larder pull-outs', [300, 700], 'pull[\\s-]?outs?|spice|larder fittings'),
+       'led': X_LED, 'bin': E('a pull-out bin', 'Pull-out bin', [235, 300], 'bins?|recycling|waste'),
+       'bench': E('a boot bench', 'Boot bench', [250, 500], 'bench|seat|boots?|coats?'),
+       'glass': E('a glass display cabinet', 'Glass display', [300, 650], 'glass|display|glazed')},
+  lbl=dict(base='Cabinets &amp; panels', ext='Extras', inst='Delivery &amp; fitting'),
+  notes=[dict(words='washing machine|dryer|appliances?|sink|tap', chip='Appliances: not included',
+              tip='Appliances, sinks and taps aren’t in this guide price. We design the units around the ones you have.')],
+  say=r"function(s,w){return 'A '+w('sz')+' '+w('st')+' storage design'}",
+  tip=r"""function(s,gbp,rnd){
+ if(s.sz===0&&!s.has('larder'))return 'Larder pull-outs bring tins and jars to the front, so nothing is lost at the back.';
+ if(s.sz>=2&&!s.has('worktop'))return 'Most utility rooms we make have a worktop for folding and sorting. Add it to see the difference.';
+ if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+ return 'Every unit is drawn around the space and the things you want to keep in it.';
+}""", fine=FINE_FURN.format(what='fitted furniture', x='').replace('based on recent quotes for fitted furniture', 'worked out from our recent quotes for fitted furniture').replace('Electrical connections are', 'Appliances, plumbing and electrical connections are')),
+
+ 'office': dict(
+  noun='home office', ev='office_cost_guide', title='What could your home office cost?',
+  lead=('Tell us about your workspace in a sentence: a desk nook, a study wall or a full room. We&rsquo;ll show you a guide price worked out '
+        'from our real quotes for fitted furniture made in our Peterborough workshop and fitted by our team.'),
+  ph='e.g. a built-in desk with shelving and cupboards along a 3 m wall, oak finish with LED lighting',
+  ex=[('Desk nook', 'A compact desk with shelving built into a bedroom alcove'),
+      ('Study wall', 'A 3 m study wall with a desk, cupboards, drawers and shelving'),
+      ('Library office', 'A full home office with library shelving, glass doors and LED lighting')],
+  groups=[
+   dict(n='sz', legend='How big?', ev='size', checked=1,
+        opts=[('Desk nook', 'Desk and shelves, up to 1.5&nbsp;m'), ('Study wall', 'Desk and storage, 2&ndash;3&nbsp;m'),
+              ('Two walls', 'Desk, storage and shelving'), ('Full office', 'A whole room or library wall')],
+        svg=[panels(2), panels(4), panels(6), panels(8)], metres=[1.6, 3.2, 5],
+        words=[('nook|compact|small|alcove|bedroom', 0), ('study wall|one wall|medium', 1), ('two walls|l[\\s-]?shaped?|large|big', 2),
+               ('full office|whole room|library|entire room|huge', 3)],
+        lbl=['Desk nook', 'Study wall', 'Two walls', 'Full office'], say=['desk-nook', 'study-wall', 'two-wall', 'full-room'], q='Size? pick below'),
+   DOOR_FINISH,
+  ],
+  base=[[700, 1100], [1500, 2400], [2400, 3800], [3500, 5500]],
+  inst=[[200, 300], [300, 450], [450, 750], [700, 1100]],
+  ext={'drawers': E('drawers or filing', 'Drawers / filing', [150, 400], 'drawers?|filing|files|paperwork'),
+       'glass': E('glass display doors', 'Glass doors', [245, 600], 'glass|glazed|display'),
+       'led': X_LED, 'shelves': E('extra shelving', 'Extra shelving', [100, 300], 'shel(f|ves)|bookcase|books|library'),
+       'kit': E('a hidden equipment cupboard', 'Equipment cupboard', [200, 450], 'printer|router|equipment|hidden|chargers?|cables?')},
+  lbl=dict(base='Desk, cabinets &amp; doors', ext='Extras', inst='Delivery &amp; fitting'),
+  notes=[dict(words='business|commercial|team|staff|reception|boardroom|company', chip='Business office',
+              tip='For a business office, our office fit-out page covers commercial work, priced from a site visit.')],
+  say=r"function(s,w){return 'A '+w('sz')+' home office with '+w('st')+' doors'}",
+  tip=r"""function(s,gbp,rnd){
+ if(s.v.st===2)return 'High-gloss acrylic gives a mirror-like finish. A matt door in the same colour costs about a fifth less.';
+ if(!s.has('kit'))return 'A ventilated cupboard for the printer and router keeps the room calm and clear.';
+ if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+ return 'We plan sockets, cables and screen height into the design, so the desk works as well as it looks.';
+}""", fine=FINE_FURN.format(what='fitted furniture', x='').replace('based on recent quotes for fitted furniture', 'worked out from our recent quotes for fitted furniture')),
+
+ 'hallway': dict(
+  noun='hallway storage', ev='hallway_cost_guide', title='What could your hallway storage cost?',
+  lead=('Tell us about your hallway in a sentence: coats, shoes, a bench or a full wall of cupboards. We&rsquo;ll show you a guide price '
+        'worked out from our real quotes for fitted furniture made in our Peterborough workshop and fitted by our team.'),
+  ph='e.g. a floor-to-ceiling coat and shoe wall with a bench, oak slats and a mirror',
+  ex=[('Shoe cabinet', 'A slim shoe cabinet for the hallway'),
+      ('Coats, shoes and a bench', 'A coat and shoe unit with a bench seat and hooks'),
+      ('Mirrored full wall', 'A full wall of hallway cupboards with mirrored sliding doors and lighting')],
+  groups=[
+   dict(n='sz', legend='How much?', ev='size', checked=1,
+        opts=[('Shoe cabinet', 'A slim unit for shoes'), ('Coat &amp; shoe unit', 'Hanging, shoes and a shelf'),
+              ('Full wall', 'Floor-to-ceiling cupboards'), ('Hall &amp; under-stairs', 'A full wall plus under the stairs')],
+        svg=[panels(1), panels(2), panels(5), panels(7)],
+        words=[('shoe cabinet|slim|small|narrow', 0), ('coat|coats|shoes?|unit|hooks', 1), ('full wall|floor to ceiling|floor-to-ceiling|whole wall|tall', 2),
+               ('under[\\s-]?stairs|under the stairs|whole hallway|entire', 3)],
+        lbl=['Shoe cabinet', 'Coat &amp; shoe unit', 'Full wall', 'Hall &amp; under-stairs'], say=['shoe-cabinet', 'coat-and-shoe', 'full-wall', 'hall-and-under-stairs'],
+        q='Size? pick below'),
+   dict(n='st', legend='Door finish', ev='finish',
+        opts=[('Matt or woodgrain', 'Plain colours, oak and walnut'), ('Painted-look', 'Shaker or panelled doors'),
+              ('Mirrored sliding', 'Full-height mirror doors')],
+        mult=[1, 1.15, 1.2],
+        words=[('matt|matte|woodgrain|oak|walnut|plain|white|grey', 0), ('painted|shaker|panelled|classic', 1), ('mirror|mirrored|sliding', 2)],
+        lbl=['Matt / woodgrain', 'Painted-look', 'Mirrored sliding'], say=['matt', 'painted-look', 'mirrored sliding'], q='Finish? pick below'),
+  ],
+  base=[[400, 700], [900, 1400], [1500, 2300], [2300, 3500]],
+  inst=[[150, 250], [250, 400], [350, 550], [500, 800]],
+  ext={'bench': E('a bench seat', 'Bench seat', [200, 450], 'bench|seat'),
+       'slats': E('a slatted coat wall', 'Slatted coat wall', [200, 500], 'slat|slats|slatted|hooks'),
+       'mirror': E('a mirror', 'Mirror', [155, 300], 'mirror'), 'led': X_LED, 'shoes': X_SHOES},
+  lbl=dict(base='Cabinets &amp; doors', ext='Extras', inst='Delivery &amp; fitting'), notes=[],
+  say=r"function(s,w){return 'A '+w('sz')+' hallway design with '+w('st')+' doors'}",
+  tip=r"""function(s,gbp,rnd){
+ if(s.sz>=1&&!s.has('bench'))return 'A bench to sit and change shoes is the most popular addition in a hallway.';
+ if(s.v.st!==2&&s.sz>=2)return 'Mirrored sliding doors reflect light into a dark hallway and need no room to swing open.';
+ if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+ return 'We build around radiators, meters and door frames, so every centimetre of the hall is used.';
+}""", fine=FINE_FURN.format(what='fitted furniture', x='').replace('based on recent quotes for fitted furniture', 'worked out from our recent quotes for fitted furniture')),
+
+ 'bathroom': dict(
+  noun='bathroom cabinetry', ev='bathroom_cost_guide', title='What could your bathroom cabinetry cost?',
+  lead=('Tell us about your bathroom in a sentence: a vanity, tall storage or a whole wall. We&rsquo;ll show you a guide price worked out from '
+        'our real quotes for fitted furniture made in our Peterborough workshop and fitted by our team.'),
+  ph='e.g. a floating vanity with drawers, a tall unit and a lit mirror in a walnut finish',
+  ex=[('Floating vanity', 'A floating vanity unit with two drawers'),
+      ('Vanity and tall unit', 'A vanity with a tall storage unit and a lit mirror'),
+      ('Whole en-suite', 'Fitted cabinetry for a whole en-suite, fluted fronts and LED lighting')],
+  groups=[
+   dict(n='sz', legend='How much?', ev='size', checked=1,
+        opts=[('Vanity unit', 'One vanity, wall-hung or standing'), ('Vanity &amp; tall unit', 'A vanity plus tall storage'),
+              ('Full wall', 'A wall of cabinetry'), ('Whole room', 'Cabinetry around the room')],
+        svg=[panels(1), panels(3), panels(5), panels(8)],
+        words=[('vanity|basin unit|sink unit|small|single', 0), ('tall unit|tall storage|tallboy|vanity and|plus', 1),
+               ('full wall|wall of|whole wall|floor to ceiling|large', 2), ('whole room|en[\\s-]?suite|entire|whole bathroom', 3)],
+        lbl=['Vanity unit', 'Vanity &amp; tall unit', 'Full wall', 'Whole room'], say=['a vanity unit', 'a vanity and tall unit', 'a full wall of cabinetry', 'cabinetry for the whole room'],
+        q='Size? pick below'),
+   dict(n='st', legend='Finish', ev='finish',
+        opts=[('Matt or woodgrain', 'Plain colours, oak and walnut'), ('Fluted or slatted', 'Textured fronts'), ('High gloss', 'Gloss acrylic')],
+        mult=[1, 1.15, 1.2],
+        words=[('matt|matte|woodgrain|oak|walnut|plain|white|grey', 0), ('fluted|slatted|slats|ribbed|textured', 1), ('gloss|glossy|acrylic', 2)],
+        lbl=['Matt / woodgrain', 'Fluted', 'High gloss'], say=['matt', 'fluted', 'high-gloss'], q='Finish? pick below'),
+  ],
+  base=[[500, 900], [900, 1500], [1500, 2400], [2200, 3500]],
+  inst=[[150, 250], [250, 400], [350, 550], [450, 700]],
+  ext={'top': E('a stone or quartz top', 'Quartz top', [300, 800], 'quartz|stone|marble|top|worktop'),
+       'mirror': E('a lit mirror', 'Lit mirror', [275, 450], 'mirror'), 'led': X_LED,
+       'drawers': E('extra drawers', 'Extra drawers', [150, 400], 'drawers?'), 'glass': X_GLASS},
+  lbl=dict(base='Cabinets &amp; panels', ext='Extras', inst='Delivery &amp; fitting'),
+  notes=[dict(words='basin|sink|tap|toilet|wc|shower|bath|plumbing', chip='Sanitaryware: not included',
+              tip='Basins, taps, toilets and plumbing aren’t in this guide price. We make the cabinetry around the ones you choose.')],
+  say=r"function(s,w){var a=w('sz');return a.charAt(0).toUpperCase()+a.slice(1)+' in a '+w('st')+' finish'}",
+  tip=r"""function(s,gbp,rnd){
+ if(!s.has('mirror'))return 'A lit mirror finishes a vanity beautifully and is one of the most popular extras.';
+ if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+ return 'We use moisture-resistant boards and edging made for bathrooms.';
+}""", fine=FINE_FURN.format(what='fitted furniture', x='').replace('based on recent quotes for fitted furniture', 'worked out from our recent quotes for fitted furniture').replace('Electrical connections are', 'Basins, taps, plumbing and electrical connections are')),
+
+ 'worktop': dict(
+  noun='worktops', ev='worktop_cost_guide', title='What could your worktops cost?',
+  lead=('Tell us about your kitchen and the worktop you like in a sentence. We&rsquo;ll show you a guide price based on real quotes for '
+        'worktops and splashbacks we&rsquo;ve supplied and fitted.'),
+  ph='e.g. quartz worktops with full-height splashbacks for a medium L-shaped kitchen',
+  ex=[('Quartz for a medium kitchen', 'Quartz worktops and full-height splashbacks for a medium L-shaped kitchen'),
+      ('Laminate for a small kitchen', 'Laminate worktops for a small galley kitchen'),
+      ('Stone with a waterfall', 'Natural stone worktops for a large kitchen with a waterfall end')],
+  groups=[
+   dict(n='sz', legend='How big is the kitchen?', ev='size', checked=1,
+        opts=[('Compact', 'Galley or small L, up to 4&nbsp;m'), ('Medium', 'L-shape, about 5&ndash;7&nbsp;m'),
+              ('Large', 'U-shape or a long run'), ('Statement', 'Large, with an island')],
+        svg=KITCHEN_SVG, metres=[4, 7, 10],
+        words=[('compact|small|galley|narrow|tiny', 0), ('medium|average|l[\\s-]?shaped?|standard|decent', 1), ('large|big|u[\\s-]?shaped?|long', 2),
+               ('statement|island|open[\\s-]?plan|huge|kitchen[\\s-]?diner', 3)],
+        lbl=['Compact', 'Medium', 'Large', 'Statement'], say=['compact', 'medium', 'large', 'statement'], q='Size? pick below'),
+   dict(n='wt', legend='Worktop', ev='worktop', label='Worktops &amp; splashbacks', checked=2,
+        opts=[('Laminate', 'Matching splashback included'), ('Solid wood', 'Oak or walnut staves'),
+              ('Quartz', 'With full-height splashbacks'), ('Natural stone', 'Quartzite, granite or sintered')],
+        add=[[[450, 800], [1000, 1400], [1300, 1900], [1700, 2500]],
+             [[800, 1400], [1300, 2200], [1900, 3000], [2600, 4000]],
+             [[2000, 2800], [3000, 4000], [3300, 4500], [4500, 6500]],
+             [[2300, 3200], [3300, 4400], [3700, 5000], [5000, 7200]]],
+        words=[('laminate|egger|budget|cheap', 0), ('wood|wooden|oak|walnut|timber|butcher|iroko|solid wood', 1),
+               ('quartz|silestone|caesarstone|marble[\\s-]?effect|compac|stone', 2),
+               ('sintered|dekton|ceramic|porcelain|neolith|real marble|natural marble|natural stone|quartzite|taj mahal|granite', 3)],
+        lbl=['Laminate', 'Solid wood', 'Quartz', 'Natural stone'], say=['laminate', 'solid wood', 'quartz', 'natural stone'], q='Worktop? pick below'),
+  ],
+  base=[[0, 0], [0, 0], [0, 0], [0, 0]], inst=[[0, 0], [0, 0], [0, 0], [0, 0]],
+  ext={'waterfall': E('a waterfall end', 'Waterfall end', [300, 700], 'waterfall'),
+       'glass': E('a glass splashback behind the hob', 'Glass hob splashback', [150, 250], 'glass splashback|glass|behind the hob|behind the cooker')},
+  lbl=dict(base='', ext='Extras', inst=''),
+  notes=[dict(words='sink|tap|hob|appliances?|units|cabinets|doors', chip='Worktops only',
+              tip='This guide is for worktops only. For a whole kitchen, use the cost guide on our kitchens page.')],
+  say=r"function(s,w){return w('wt').charAt(0).toUpperCase()+w('wt').slice(1)+' worktops for a '+w('sz')+' kitchen'}",
+  tip=r"""function(s,gbp,rnd){
+ if(s.v.wt===3)return 'Natural stone is one of a kind. Quartz gives a similar look for a little less.';
+ if(s.v.wt===0&&s.sz>=1)return 'Upgrading to quartz with full-height splashbacks adds about '+['£1,550 to £2,000','£2,000 to £2,600','£2,000 to £2,600','£2,800 to £4,000'][s.sz]+' on a kitchen this size.';
+ if(s.v.wt===1)return 'Solid wood needs oiling now and then. Quartz is the low-maintenance choice.';
+ return 'We bring samples to your home so you can compare them in your own light.';
+}""",
+  fine=('A rough guide based on recent quotes for worktops we&rsquo;ve supplied and fitted, not a quote. Your exact price comes after we measure and '
+        'template your kitchen. Removing old worktops, plumbing and electrics are extra. ' + FIN)),
+
+ 'decor': dict(
+  noun='feature wall', ev='featurewall_cost_guide', title='What could your feature wall cost?',
+  lead=('Tell us about your wall in a sentence: where it is, how wide, and the look you like. We&rsquo;ll show you a guide price worked out from '
+        'our real quotes for panelling we&rsquo;ve supplied and fitted.'),
+  ph='e.g. oak slatted panels behind the bed, about 3 m wide, with LED lighting',
+  ex=[('Slats behind the bed', 'Oak slatted panels behind the bed, about 3 m wide'),
+      ('Living room wall', 'A full living room wall of black slats with floating shelves'),
+      ('Painted panelling', 'Painted panelling on a 4 m wall')],
+  groups=[
+   dict(n='sz', legend='How wide?', ev='size', checked=1,
+        opts=[('Feature strip', 'Up to about 1.2&nbsp;m'), ('Behind a bed or TV', 'About 2&ndash;3&nbsp;m'),
+              ('Full wall', 'About 4&nbsp;m'), ('Large wall', '5&nbsp;m or more')],
+        svg=[panels(2), panels(5), panels(8), panels(11)], metres=[1.4, 3.2, 4.6],
+        words=[('strip|small|narrow|feature strip', 0), ('behind the bed|behind the tv|headboard|medium', 1), ('full wall|whole wall|living room|lounge', 2),
+               ('large|big|huge|two walls|massive', 3)],
+        lbl=['Feature strip', 'Behind a bed / TV', 'Full wall', 'Large wall'], say=['feature-strip', 'medium', 'full-wall', 'large-wall'], q='Width? pick below'),
+   dict(n='st', legend='Which look?', ev='look',
+        opts=[('Slatted timber', 'Oak, walnut or black slats'), ('Fluted panels', 'Rounded, textured fronts'), ('Painted panelling', 'Framed panels in any colour')],
+        mult=[1, 1.15, 1.25],
+        words=[('slat|slats|slatted|acoustic|oak|walnut|black', 0), ('fluted|ribbed|reeded', 1), ('painted|panelling|paneling|panelled|shaker|frame', 2)],
+        lbl=['Slatted', 'Fluted', 'Painted'], say=['slatted', 'fluted', 'painted'], q='Look? pick below'),
+  ],
+  base=[[250, 450], [450, 800], [750, 1250], [1100, 1800]],
+  inst=[[100, 200], [150, 300], [250, 450], [350, 600]],
+  ext={'led': X_LED, 'shelves': E('floating shelves', 'Floating shelves', [100, 300], 'shel(f|ves)|floating'),
+       'units': E('storage units below', 'Storage below', [400, 900], 'storage|cupboards?|units?|cabinets?|tv unit')},
+  lbl=dict(base='Panels', ext='Extras', inst='Delivery &amp; fitting'), notes=[],
+  say=r"function(s,w){return 'A '+w('sz')+' '+w('st')+' feature wall'}",
+  tip=r"""function(s,gbp,rnd){
+ if(!s.has('led'))return 'An LED glow behind or between the panels brings a feature wall to life in the evening.';
+ if(s.v.st===0)return 'Acoustic slat panels also soften echo, which helps in rooms with hard floors.';
+ return 'We bring samples so you can see the finish against your own walls and light.';
+}""", fine=FINE_FURN.format(what='panelling', x='').replace('based on recent quotes for panelling', 'worked out from our recent quotes for panelling')),
 }
 
 # words for size groups that carry metres

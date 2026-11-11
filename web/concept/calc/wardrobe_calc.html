@@ -223,9 +223,9 @@ window.__ABJ_CALC__={"ev":"wardrobe_cost_guide","base":[[700,1100],[1300,2000],[
   hi=rnd(hi);lo=rnd(lo,hi);s.lo=lo;s.hi=hi;
   anim(lo,hi);
   var mid=function(v){return (v[0]+v[1])/2},tot=rows.reduce(function(a,r){return a+mid(r[1])},0)||1,r3=function(n){return Math.round(n/50)*50};
-  $('kc-bars').innerHTML=rows.map(function(r){var p=Math.round(mid(r[1])/tot*100);return '<div class="bar"><span>'+r[0]+'</span><s style="--w:'+p+'%"></s><em>'+(mid(r[1])?'~'+gbp(r3(mid(r[1]))):'&ndash;')+'</em></div>'}).join('');
+  $('kc-bars').innerHTML=rows.filter(function(r){return r[0]}).map(function(r){var p=Math.round(mid(r[1])/tot*100);return '<div class="bar"><span>'+r[0]+'</span><s style="--w:'+p+'%"></s><em>'+(mid(r[1])?'~'+gbp(r3(mid(r[1]))):'&ndash;')+'</em></div>'}).join('');
   var xt=s.xs.map(function(k){return C.ext[k].name});
-  var d=C.say(s,function(n){var g=C.groups.filter(function(g){return g.n===n})[0];return g.say[s.v[n]]})+(xt.length?', plus '+list(xt):'')+'.';d=d.replace(/^A ([aeiou])/i,'An $1');
+  var d=C.say(s,function(n){var g=C.groups.filter(function(g){return g.n===n})[0];return g.say[s.v[n]]})+(xt.length?', plus '+list(xt):'')+'.';d=d.replace(/^A ([aeio])/i,'An $1');
   $('kc-sum').textContent=d;
   $('kc-tip').textContent=note||C.tip(s,gbp,rnd);
   $('kc-wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the cost guide on your website: '+d+' Guide price '+gbp(lo)+' to '+gbp(hi)+'. Could we arrange a free design visit?');

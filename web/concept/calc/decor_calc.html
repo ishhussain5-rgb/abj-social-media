@@ -1,0 +1,268 @@
+<section class="calc s1" id="kc-cost" aria-label="Feature wall cost guide">
+<style>
+#kc .calc{background:var(--g);color:var(--lin);padding:clamp(72px,7vw,128px) 0}
+#kc .calc .kick{color:var(--go)}
+#kc .calc .ch{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:clamp(40px,5vw,110px);align-items:start}
+#kc .calc h2{margin:16px 0 18px;color:var(--lin)}
+#kc .calc .lead{max-width:34em;color:rgba(243,238,230,.74);margin-bottom:clamp(30px,3vw,48px)}
+#kc .calc .ai{margin-bottom:22px}
+#kc .calc .ai-in{display:block;padding:18px 20px 14px;border:1px solid rgba(201,169,110,.55);background:rgba(243,238,230,.04);cursor:text}
+#kc .calc .ai-in:focus-within{border-color:var(--go);background:rgba(243,238,230,.07)}
+#kc .calc .ai-k{display:flex;align-items:center;gap:10px;font:500 11px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:var(--go)}
+#kc .calc .ai-k svg{width:16px;height:16px;fill:var(--go);stroke:none;margin:0;animation:kcsp 3.2s ease-in-out infinite}
+@keyframes kcsp{0%,100%{opacity:.55;transform:scale(.92)}50%{opacity:1;transform:scale(1.06)}}
+#kc .calc textarea{display:block;overflow:hidden;min-height:2.7em;width:100%;margin-top:10px;border:0;outline:0;resize:none;background:transparent;color:var(--lin);font:300 clamp(20px,1.7vw,26px)/1.35 var(--serif)}
+#kc .calc textarea::placeholder{color:rgba(243,238,230,.38)}
+#kc .calc .ai-out{display:flex;flex-wrap:wrap;gap:8px;min-height:0;margin-top:12px}
+#kc .calc .ai-out span{padding:7px 12px;border:1px solid rgba(201,169,110,.45);font:500 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--lin);animation:kcin .4s cubic-bezier(.2,.7,.2,1) both}
+#kc .calc .ai-out span.q{border-style:dashed;color:rgba(243,238,230,.6)}
+@keyframes kcin{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+#kc .calc .ai-in{position:relative}
+#kc .calc .ai-go{display:flex;justify-content:flex-end;margin-top:10px}
+#kc .calc .ai-go .bt{height:46px;padding:0 22px;background:var(--go);color:var(--g)}
+#kc .calc .ai-go .bt:hover{background:var(--lin)}
+#kc .calc .ai-ex{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:14px}
+#kc .calc .ai-ex span{font:500 10.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(243,238,230,.45);margin-right:4px}
+#kc .calc .ai-ex button{border:1px solid rgba(243,238,230,.22);background:transparent;color:rgba(243,238,230,.82);padding:9px 13px;font:400 13px/1.2 var(--sans);cursor:pointer;transition:.2s}
+#kc .calc .ai-ex button:hover{border-color:var(--go);color:var(--lin)}
+#kc .calc .ai-skip{display:inline-block;margin-top:16px;border:0;background:none;padding:0;color:rgba(243,238,230,.6);font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;text-decoration:underline;text-underline-offset:5px;cursor:pointer}
+#kc .calc .ai-skip:hover{color:var(--lin)}
+#kc .calc.s1 .pk,#kc .calc.s1 .res .full,#kc .calc.s2 .res .ph,#kc .calc.s2 .ai-ex,#kc .calc.s2 .ai-skip,#kc .calc.s2 .ai-go{display:none}
+#kc .calc.s2 .pk{animation:kcup .6s cubic-bezier(.2,.7,.2,1) both}
+#kc .calc.s2 .res .full{animation:kcin .5s cubic-bezier(.2,.7,.2,1) both}
+@keyframes kcup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+#kc .calc .ph .pr{color:rgba(27,35,33,.22)}
+#kc .calc .ph p{font-size:14px;color:var(--mut);margin:6px 0 22px;max-width:30em}
+#kc .calc .ai-note{width:100%;font-size:13px;color:rgba(243,238,230,.7);margin-top:2px}
+#kc .calc .or{display:flex;align-items:center;gap:16px;margin:0 0 22px;font:500 10.5px/1 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:rgba(243,238,230,.4)}
+#kc .calc .or:before,#kc .calc .or:after{content:"";flex:1;height:1px;background:rgba(243,238,230,.14)}
+#kc .calc .tip{display:flex;gap:10px;margin-top:12px;padding:12px 14px;background:var(--lin2);font-size:13px;line-height:1.5;color:var(--ink)}
+#kc .calc .tip:before{content:"";flex:0 0 7px;height:7px;margin-top:6px;background:var(--go);transform:rotate(45deg)}
+#kc .calc .tip:empty{display:none}
+#kc .calc label.hit{animation:kchit .9s ease}
+@keyframes kchit{0%{box-shadow:0 0 0 0 rgba(201,169,110,.7)}100%{box-shadow:0 0 0 10px rgba(201,169,110,0)}}
+#kc .calc fieldset{border:0;padding:0;margin:0 0 clamp(24px,2.4vw,34px)}
+#kc .calc legend{display:flex;align-items:baseline;gap:14px;font:500 11px/1.4 var(--sans);letter-spacing:.28em;text-transform:uppercase;color:rgba(243,238,230,.66);margin-bottom:14px}
+#kc .calc legend i{font:300 22px/1 var(--serif);font-style:normal;letter-spacing:0;color:var(--go)}
+#kc .calc .op{display:grid;gap:10px}
+#kc .calc .op4{grid-template-columns:repeat(4,minmax(0,1fr))}
+#kc .calc .op3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#kc .calc .op2{grid-template-columns:repeat(2,minmax(0,1fr))}
+#kc .calc .op5{grid-template-columns:repeat(5,minmax(0,1fr))}
+#kc .calc .op6{grid-template-columns:repeat(6,minmax(0,1fr))}
+#kc .calc label{position:relative;display:flex;flex-direction:column;gap:6px;min-height:100%;padding:16px 16px 15px;border:1px solid rgba(243,238,230,.18);cursor:pointer;transition:border-color .25s,background .25s;-webkit-tap-highlight-color:transparent}
+#kc .calc label:hover{border-color:rgba(243,238,230,.42)}
+#kc .calc input{position:absolute;opacity:0;pointer-events:none}
+#kc .calc label b{font:400 21px/1.1 var(--serif);color:var(--lin)}
+#kc .calc label span{font-size:12.5px;line-height:1.45;color:rgba(243,238,230,.6)}
+#kc .calc label svg{width:46px;height:30px;margin-bottom:4px;stroke:rgba(243,238,230,.55);fill:none;stroke-width:1.3}
+#kc .calc label:has(input:checked){border-color:var(--go);background:rgba(201,169,110,.09)}
+#kc .calc label:has(input:checked) svg{stroke:var(--go)}
+#kc .calc label:has(input:focus-visible){outline:2px solid var(--go);outline-offset:2px}
+#kc .calc label.off{opacity:.35;pointer-events:none}
+#kc .calc .xt label{flex-direction:row;align-items:center;gap:10px;padding:13px 14px}
+#kc .calc .xt label:before{content:"";flex:0 0 14px;height:14px;border:1px solid rgba(243,238,230,.45);transition:.2s}
+#kc .calc .xt label:has(input:checked):before{background:var(--go);border-color:var(--go);box-shadow:inset 0 0 0 3px var(--g)}
+#kc .calc .xt label b{font:500 13px/1.3 var(--sans);letter-spacing:.02em}
+#kc .calc .res{position:sticky;top:110px;background:var(--lin);color:var(--ink);padding:clamp(28px,2.6vw,44px)}
+#kc .calc .res .kick{color:var(--gd)}
+#kc .calc .pr{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 14px;margin:14px 0 6px;font:300 clamp(44px,4.4vw,74px)/1 var(--serif);letter-spacing:-.01em}
+#kc .calc .pr em{font-style:normal;font-size:.5em;color:var(--mut)}
+#kc .calc .sum{font-size:14px;color:var(--mut);min-height:3em}
+#kc .calc .bars{display:grid;gap:11px;margin:22px 0 24px;padding:22px 0;border-top:1px solid var(--hair);border-bottom:1px solid var(--hair)}
+#kc .calc .bar{display:grid;grid-template-columns:118px minmax(0,1fr) 64px;align-items:center;gap:12px;font-size:12.5px}
+#kc .calc .bar s{display:block;height:6px;background:var(--lin2);text-decoration:none;position:relative;overflow:hidden}
+#kc .calc .bar s:after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w,0%);background:var(--g2);transition:width .6s cubic-bezier(.2,.7,.2,1)}
+#kc .calc .bar em{font-style:normal;text-align:right;color:var(--mut)}
+#kc .calc .inc{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:6px 18px;font-size:13px;color:var(--mut);margin-bottom:24px}
+#kc .calc .inc li:before{content:"";display:inline-block;width:6px;height:6px;margin-right:9px;background:var(--go);transform:rotate(45deg) translateY(-2px)}
+#kc .calc .acts{display:flex;flex-wrap:wrap;gap:10px}
+#kc .calc .acts .bt{background:var(--g);color:var(--lin);flex:1 1 auto}
+#kc .calc .acts .bt.o{background:transparent;color:var(--ink);border:1px solid var(--hair)}
+#kc .calc .fine{margin-top:18px;font-size:11.5px;line-height:1.55;color:var(--mut)}
+@media (min-width:1101px){
+ #kc .calc.s2{padding:30px 0 30px}
+ #kc .calc.s2 h2{font-size:clamp(30px,2.5vw,44px);margin:8px 0 14px}
+ #kc .calc.s2 .lead{display:none}
+ #kc .calc.s2 .ai{margin-bottom:10px}
+ #kc .calc.s2 .ai-in{padding:12px 16px 10px}
+ #kc .calc.s2 textarea{font-size:20px;margin-top:6px;min-height:0}
+ #kc .calc.s2 .ai-out{margin-top:8px}
+ #kc .calc.s2 .ai-out span{padding:6px 10px;font-size:10px}
+ #kc .calc.s2 .or{margin:0 0 12px}
+ #kc .calc.s2 fieldset{margin-bottom:12px}
+ #kc .calc.s2 legend{margin-bottom:7px}
+ #kc .calc.s2 legend i{font-size:18px}
+ #kc .calc.s2 label{padding:9px 12px;gap:2px}
+ #kc .calc.s2 label b{font-size:17px}
+ #kc .calc.s2 label span{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #kc .calc.s2 label svg{width:30px;height:20px;margin:0 0 2px}
+ #kc .calc.s2 .xt label{padding:10px 11px;gap:8px}
+ #kc .calc.s2 .xt label b{font-size:12px}
+ #kc .calc.s2 .res{top:96px;padding:26px 32px}
+ #kc .calc.s2 .pr{font-size:clamp(40px,3.3vw,60px);margin:8px 0 4px}
+ #kc .calc.s2 .sum{min-height:0;font-size:13.5px}
+ #kc .calc.s2 .tip{margin-top:10px;padding:10px 12px}
+ #kc .calc.s2 .bars{margin:14px 0 14px;padding:14px 0;gap:8px}
+ #kc .calc.s2 .inc{margin-bottom:16px;gap:4px 18px}
+ #kc .calc.s2 .acts .bt{height:50px}
+ #kc .calc.s2 .fine{margin-top:12px;font-size:11px;line-height:1.5}
+}
+@media (min-width:1101px) and (max-height:860px){
+ #kc .calc.s2{padding:20px 0 20px}
+ #kc .calc.s2 h2{font-size:clamp(28px,2.2vw,36px);margin:6px 0 10px}
+ #kc .calc.s2 .ch>div:first-child>.kick{display:none}
+ #kc .calc.s2 label span,#kc .calc.s2 label svg{display:none}
+ #kc .calc.s2 label{padding:9px 12px}
+ #kc .calc.s2 fieldset{margin-bottom:10px}
+ #kc .calc.s2 .or{margin-bottom:10px}
+ #kc .calc.s2 .res{top:92px;padding:20px 26px}
+ #kc .calc.s2 .res .inc{display:none}
+ #kc .calc.s2 .bars{margin:10px 0 12px;padding:10px 0}
+ #kc .calc.s2 .acts .bt{height:46px}
+}
+@media (max-width:1100px){#kc .calc .ch{grid-template-columns:1fr;gap:0}#kc .calc .ch>div:first-child,#kc .calc #kc-calc{display:contents}#kc .calc .res{position:relative;top:0;order:1;margin:6px 0 34px}#kc .calc .pk{order:2}#kc .calc.s1 .res{display:none}#kc .calc .or span{text-align:center}}
+@media (max-width:760px){#kc .calc .op4,#kc .calc .op5,#kc .calc .op6{grid-template-columns:1fr 1fr}#kc .calc .op3{grid-template-columns:1fr 1fr 1fr}#kc .calc .op3 label span{display:none}#kc .calc label{padding:14px 12px}#kc .calc label b{font-size:19px}#kc .calc .inc{grid-template-columns:1fr}#kc .calc .bar{grid-template-columns:96px minmax(0,1fr) 56px}
+ #kc .calc .pill{position:fixed;left:12px;right:12px;bottom:calc(66px + env(safe-area-inset-bottom));z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--lin);color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.28);font:500 11px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:0;transform:translateY(12px);pointer-events:none;transition:.35s}
+ #kc .calc .pill b{font:400 22px/1 var(--serif);letter-spacing:0;text-transform:none}
+ #kc .calc.s2.vis .pill{opacity:1;transform:none;pointer-events:auto}}
+@media (min-width:761px){#kc .calc .pill{display:none}}
+</style>
+<div class="w ch">
+ <div class="rv">
+  <span class="kick">Cost guide</span>
+  <h2>What could your feature wall cost?</h2>
+  <p class="lead">Tell us about your wall in a sentence: where it is, how wide, and the look you like. We&rsquo;ll show you a guide price worked out from our real quotes for panelling we&rsquo;ve supplied and fitted.</p>
+  <form id="kc-calc" onsubmit="return false">
+   <div class="ai"><div class="ai-in" onclick="if(event.target===this)document.getElementById('kc-say').focus()"><span class="ai-k"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l1.9 5.1 5.1 1.9-5.1 1.9L10 15.5l-1.9-5.1L3 8.5l5.1-1.9z"/><path d="M16 13l.8 2.2 2.2.8-2.2.8L16 19l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Describe it in your own words</span>
+    <textarea id="kc-say" rows="2" placeholder="e.g. oak slatted panels behind the bed, about 3 m wide, with LED lighting"></textarea>
+    <span class="ai-go"><button type="button" class="bt" id="kc-go">Show my guide price</button></span></div>
+    <div class="ai-out" id="kc-got" aria-live="polite"></div>
+    <div class="ai-ex"><span>Try</span><button type="button" data-t="Oak slatted panels behind the bed, about 3 m wide">Slats behind the bed</button><button type="button" data-t="A full living room wall of black slats with floating shelves">Living room wall</button><button type="button" data-t="Painted panelling on a 4 m wall">Painted panelling</button></div>
+    <button type="button" class="ai-skip" id="kc-skip">or choose the options yourself</button>
+   </div>
+   <div class="pk">
+   <p class="or"><span id="kc-or">Adjust anything below</span></p>
+   <fieldset><legend><i>01</i>How wide?</legend>
+    <div class="op op4">
+     <label><input type="radio" name="sz" value="0"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M23.0 3v24"/></svg><b>Feature strip</b><span>Up to about 1.2&nbsp;m</span></label>
+     <label><input type="radio" name="sz" value="1" checked><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M11.0 3v24M19.0 3v24M27.0 3v24M35.0 3v24"/></svg><b>Behind a bed or TV</b><span>About 2&ndash;3&nbsp;m</span></label>
+     <label><input type="radio" name="sz" value="2"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M8.0 3v24M13.0 3v24M18.0 3v24M23.0 3v24M28.0 3v24M33.0 3v24M38.0 3v24"/></svg><b>Full wall</b><span>About 4&nbsp;m</span></label>
+     <label><input type="radio" name="sz" value="3"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M6.6 3v24M10.3 3v24M13.9 3v24M17.5 3v24M21.2 3v24M24.8 3v24M28.5 3v24M32.1 3v24M35.7 3v24M39.4 3v24"/></svg><b>Large wall</b><span>5&nbsp;m or more</span></label>
+    </div>
+   </fieldset>
+   <fieldset><legend><i>02</i>Which look?</legend>
+    <div class="op op3">
+     <label><input type="radio" name="st" value="0" checked><b>Slatted timber</b><span>Oak, walnut or black slats</span></label>
+     <label><input type="radio" name="st" value="1"><b>Fluted panels</b><span>Rounded, textured fronts</span></label>
+     <label><input type="radio" name="st" value="2"><b>Painted panelling</b><span>Framed panels in any colour</span></label>
+    </div>
+   </fieldset>
+   <fieldset class="xt"><legend><i>03</i>Anything else? <span style="letter-spacing:.1em;text-transform:none">(optional)</span></legend>
+    <div class="op op3">
+     <label><input type="checkbox" name="x" value="led"><b>LED lighting</b></label>
+     <label><input type="checkbox" name="x" value="shelves"><b>Floating shelves</b></label>
+     <label><input type="checkbox" name="x" value="units"><b>Storage below</b></label>
+    </div>
+   </fieldset>
+   </div>
+  </form>
+ </div>
+ <aside class="res rv" aria-live="polite">
+  <span class="kick">Your guide price</span>
+  <div class="ph"><div class="pr">&pound;&thinsp;&ndash;</div><p>Describe your feature wall and your guide price appears here, with what makes it up and how to bring it down.</p><ul class="inc"><li>3D design &amp; site survey</li><li>Made in Peterborough</li><li>Fitted by our own team</li><li>12-month guarantee</li></ul></div>
+  <div class="full">
+  <div class="pr"><span id="kc-lo">&pound;0</span><em>to</em><span id="kc-hi">&pound;0</span></div>
+  <p class="sum" id="kc-sum"></p>
+  <p class="tip" id="kc-tip"></p>
+  <div class="bars" id="kc-bars"></div>
+  <ul class="inc"><li>3D design &amp; site survey</li><li>Made in Peterborough</li><li>Fitted by our own team</li><li>12-month guarantee</li></ul>
+  <div class="acts"><a class="bt" href="/bookingform" id="kc-cb">Book a free design visit</a><a class="bt o" id="kc-wa" href="https://wa.me/447479219421" target="_blank" rel="noopener">Send this to us</a></div>
+  </div>
+  <p class="fine">A rough guide worked out from our recent quotes for panelling we&rsquo;ve made and fitted, not a quote. Your exact price comes with your 3D design after a free home visit. It covers making, delivering and fitting. Electrical connections are extra unless agreed. Prices include VAT. 0% finance is available on projects over &pound;6,000 (subject to status).</p>
+ </aside>
+</div>
+<a class="pill" href="#kc-cost" aria-label="Jump to your guide price"><span>Guide price</span><b id="kc-pl">&pound;0</b></a>
+<script>
+window.__ABJ_CALC__={"ev":"featurewall_cost_guide","base":[[250,450],[450,800],[750,1250],[1100,1800]],"inst":[[100,200],[150,300],[250,450],[350,600]],"lbl":{"base":"Panels","ext":"Extras","inst":"Delivery & fitting"},"metres":[1.4,3.2,4.6],"notes":[],"groups":[{"n":"sz","ev":"size","words":[["strip|small|narrow|feature strip",0],["behind the bed|behind the tv|headboard|medium",1],["full wall|whole wall|living room|lounge",2],["large|big|huge|two walls|massive",3]],"lbl":["Feature strip","Behind a bed / TV","Full wall","Large wall"],"say":["feature-strip","medium","full-wall","large-wall"],"q":"Width? pick below"},{"n":"st","ev":"look","mult":[1,1.15,1.25],"words":[["slat|slats|slatted|acoustic|oak|walnut|black",0],["fluted|ribbed|reeded",1],["painted|panelling|paneling|panelled|shaker|frame",2]],"lbl":["Slatted","Fluted","Painted"],"say":["slatted","fluted","painted"],"q":"Look? pick below"}],"ext":{"led":{"name":"LED lighting","lbl":"LED lighting","p":[185,450],"words":"led|lighting|lights|lit|light|sensor light"},"shelves":{"name":"floating shelves","lbl":"Floating shelves","p":[100,300],"words":"shel(f|ves)|floating"},"units":{"name":"storage units below","lbl":"Storage below","p":[400,900],"words":"storage|cupboards?|units?|cabinets?|tv unit"}},say:function(s,w){return 'A '+w('sz')+' '+w('st')+' feature wall'},tip:function(s,gbp,rnd){
+ if(!s.has('led'))return 'An LED glow behind or between the panels brings a feature wall to life in the evening.';
+ if(s.v.st===0)return 'Acoustic slat panels also soften echo, which helps in rooms with hard floors.';
+ return 'We bring samples so you can see the finish against your own walls and light.';
+}};
+(function(){
+ var C=window.__ABJ_CALC__;delete window.__ABJ_CALC__;
+ var f=document.getElementById('kc-calc');if(!f||!C)return;var sec=document.getElementById('kc-cost');
+ var $=function(i){return document.getElementById(i)},gbp=function(n){return '£'+n.toLocaleString('en-GB')};
+ var rnd=function(n,hi){var s=(hi||n)<5000?50:250;return Math.round(n/s)*s};
+ var RX=function(a){return new RegExp('\\b('+a+')\\b')};
+ C.groups.forEach(function(g){g.rx=(g.words||[]).map(function(w){return [RX(w[0]),w[1]]})});
+ Object.keys(C.ext).forEach(function(k){C.ext[k].rx=C.ext[k].words?RX(C.ext[k].words):null});
+ (C.notes||[]).forEach(function(n){n.rx=RX(n.words)});
+ var shown=[0,0],raf,note='';
+ function anim(lo,hi){cancelAnimationFrame(raf);var a=shown.slice(),t0=performance.now();(function s(t){var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);var l=rnd(a[0]+(lo-a[0])*e,hi),h=rnd(a[1]+(hi-a[1])*e,hi);$('kc-lo').textContent=gbp(l);$('kc-hi').textContent=gbp(h);$('kc-pl').textContent=gbp(l)+'–'+gbp(h).replace('£','');if(k<1)raf=requestAnimationFrame(s);else shown=[lo,hi]})(t0)}
+ function list(a){return a.length>1?a.slice(0,-1).join(', ')+' and '+a[a.length-1]:a[0]}
+ function state(){
+  var v={};C.groups.forEach(function(g){v[g.n]=+f[g.n].value});
+  var sz=v[C.groups[0].n],xs=[].slice.call(f.querySelectorAll('[name=x]:checked')).map(function(x){return x.value});
+  Object.keys(C.ext).forEach(function(k){var e=C.ext[k];if(e.incl==null)return;var l=f.querySelector('[data-x='+k+']');var inc=e.incl.indexOf(sz)>=0;l.classList.toggle('off',inc);if(inc){l.querySelector('input').checked=false;xs=xs.filter(function(x){return x!==k})}});
+  return {v:v,sz:sz,xs:xs,has:function(k){return xs.indexOf(k)>=0}};
+ }
+ function calc(){
+  var s=state(),sz=s.sz,m=1,rows=[],lo=0,hi=0;
+  C.groups.forEach(function(g){if(g.mult)m*=g.mult[s.v[g.n]]});
+  var cab=[C.base[sz][0]*m,C.base[sz][1]*m];rows.push([C.lbl.base,cab]);
+  C.groups.forEach(function(g){if(g.add){rows.push([g.label,g.add[s.v[g.n]][sz]])}});
+  var ex=[0,0];s.xs.forEach(function(k){var e=C.ext[k],p=typeof e.p[0]==='number'?e.p:e.p[sz],k2=e.mult?m:1;ex[0]+=p[0]*k2;ex[1]+=p[1]*k2});
+  rows.push([C.lbl.ext,ex]);rows.push([C.lbl.inst,C.inst[sz]]);
+  rows.forEach(function(r){lo+=r[1][0];hi+=r[1][1]});
+  hi=rnd(hi);lo=rnd(lo,hi);s.lo=lo;s.hi=hi;
+  anim(lo,hi);
+  var mid=function(v){return (v[0]+v[1])/2},tot=rows.reduce(function(a,r){return a+mid(r[1])},0)||1,r3=function(n){return Math.round(n/50)*50};
+  $('kc-bars').innerHTML=rows.filter(function(r){return r[0]}).map(function(r){var p=Math.round(mid(r[1])/tot*100);return '<div class="bar"><span>'+r[0]+'</span><s style="--w:'+p+'%"></s><em>'+(mid(r[1])?'~'+gbp(r3(mid(r[1]))):'&ndash;')+'</em></div>'}).join('');
+  var xt=s.xs.map(function(k){return C.ext[k].name});
+  var d=C.say(s,function(n){var g=C.groups.filter(function(g){return g.n===n})[0];return g.say[s.v[n]]})+(xt.length?', plus '+list(xt):'')+'.';d=d.replace(/^A ([aeio])/i,'An $1');
+  $('kc-sum').textContent=d;
+  $('kc-tip').textContent=note||C.tip(s,gbp,rnd);
+  $('kc-wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the cost guide on your website: '+d+' Guide price '+gbp(lo)+' to '+gbp(hi)+'. Could we arrange a free design visit?');
+  try{if(sec.classList.contains('s2')&&window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted'){var ev={extras:s.xs.join('|'),low:lo,high:hi};C.groups.forEach(function(g){ev[g.ev]=g.say[s.v[g.n]]});gtag('event',C.ev,ev)}}catch(e){}
+ }
+ function hit(i){i.parentNode.classList.remove('hit');void i.parentNode.offsetWidth;i.parentNode.classList.add('hit')}
+ function setR(n,v){var i=f.querySelector('[name='+n+'][value="'+v+'"]');if(i&&!i.checked){i.checked=true;hit(i)}}
+ function understand(t){
+  t=' '+t.toLowerCase().replace(/[^a-z0-9.\s-]/g,' ')+' ';var got=[],ask=[],g0=C.groups[0],sz=null;note='';
+  var m=t.match(/(\d+(?:\.\d+)?)\s*(m|metres?|meters?)\b/);
+  if(m&&C.metres){var L=+m[1];sz=0;C.metres.forEach(function(x){if(L>x)sz++})}
+  g0.rx.forEach(function(k){if(k[0].test(t))sz=sz===null?k[1]:Math.max(sz,k[1])});
+  Object.keys(C.ext).forEach(function(k){var e=C.ext[k];if(sz===null&&e.sizeIf!=null&&e.rx&&e.rx.test(t))sz=e.sizeIf});
+  C.groups.slice(1).forEach(function(g){var v=null;g.rx.forEach(function(k){if(k[0].test(t))v=k[1]});if(v!==null){setR(g.n,v);got.push(g.lbl[v])}else ask.push(g)});
+  if(sz!==null){setR(g0.n,sz);got.unshift(g0.lbl[sz])}else ask.unshift(g0);
+  Object.keys(C.ext).forEach(function(k){var e=C.ext[k],i=f.querySelector('[name=x][value='+k+']');if(!i||!e.rx)return;
+   if(e.rx.test(t)){if(!(e.incl&&e.incl.indexOf(sz)>=0)){if(!i.checked){i.checked=true;i.dataset.ai='1';hit(i)}}got.push(e.lbl)}
+   else if(i.dataset.ai==='1'){i.checked=false;delete i.dataset.ai}});
+  (C.notes||[]).forEach(function(n){if(n.rx.test(t)){if(n.chip)got.push(n.chip);if(n.tip&&!note)note=n.tip}});
+  $('kc-got').innerHTML=t.trim()?got.map(function(g){return '<span>'+g+'</span>'}).join('')+ask.map(function(g){return '<span class="q">'+g.q+'</span>'}).join('')+(got.length?'':'<p class="ai-note">We couldn&rsquo;t pick out the details from that, so choose them below.</p>'):'';
+  understand.found=got.length;
+  calc();
+ }
+ var tm;$('kc-say').addEventListener('input',function(){this.style.height='auto';this.style.height=this.scrollHeight+'px';clearTimeout(tm);var v=this.value;tm=setTimeout(function(){understand(v)},350)});
+ function go(fromText){
+  if(fromText){clearTimeout(tm);understand($('kc-say').value)}
+  sec.classList.remove('s1');sec.classList.add('s2');calc();
+  var ta=$('kc-say');ta.rows=1;ta.style.height='auto';ta.style.height=ta.scrollHeight+'px';
+  $('kc-or').textContent=fromText&&understand.found?'We’ve set these from your description. Change anything':'Pick your options';
+  try{if(window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event',C.ev+'_start',{method:fromText?'describe':'pick'})}catch(e){}
+  var hd=document.getElementById('kc-hd'),hh=hd?hd.getBoundingClientRect().height:0;
+  setTimeout(function(){var el=window.innerWidth<=1100?sec.querySelector('.res'):sec;var y=window.pageYOffset+el.getBoundingClientRect().top-(window.innerWidth<=1100?hh+12:hh);window.scrollTo({top:y,behavior:'smooth'})},80);
+ }
+ $('kc-go').addEventListener('click',function(){go(true)});
+ $('kc-skip').addEventListener('click',function(){go(false)});
+ $('kc-say').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();if($('kc-say').value.trim())go(true)}});
+ [].forEach.call(sec.querySelectorAll('.ai-ex button'),function(b){b.addEventListener('click',function(){var t=$('kc-say');t.value=b.getAttribute('data-t');t.style.height='auto';t.style.height=t.scrollHeight+'px';go(true)})});
+ f.addEventListener('change',function(e){if(e.target.id==='kc-say')return;if(e.target.name==='x')delete e.target.dataset.ai;else note='';calc()});calc();
+ var res=sec.querySelector('.res');
+ if('IntersectionObserver' in window){var inSec=false,resVis=false,up=function(){sec.classList.toggle('vis',inSec&&!resVis)};
+  new IntersectionObserver(function(e){inSec=e[0].isIntersecting;up()},{threshold:0}).observe(f);
+  new IntersectionObserver(function(e){resVis=e[0].isIntersecting;up()},{threshold:.25}).observe(res)}
+})();
+</script>
+</section>
