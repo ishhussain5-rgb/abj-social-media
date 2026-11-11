@@ -1,0 +1,1 @@
+Phone-only hero clips (11 Nov 2026, visual review 2): Kitchens second clip (sage drinks cabinet, IMG_5758 73.2-79.6s, half speed, vidstab) and homepage montage with a fitted-wardrobe ending (n05 3.6-6.9s) replacing the wine-fridge/worktop close-ups. Desktop clips unchanged.
