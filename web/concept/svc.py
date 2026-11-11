@@ -45,8 +45,10 @@ def intro(p):
 
 def styles(p):
     cards = []
-    for i, (im, alt, t, d) in enumerate(p["styles"]):
-        cards.append('  <a class="card" href="{BOOK}"><figure><img loading="lazy" src="%s" alt="%s"></figure><span class="n">(%02d)</span><h3>%s</h3><p>%s</p></a>' % (img(im), E(alt), i + 1, t, d))
+    for i, st in enumerate(p["styles"]):
+        im, alt, t, d = st[:4]
+        pos = (' style="object-position:%s"' % st[4]) if len(st) > 4 else ''
+        cards.append('  <a class="card" href="{BOOK}"><figure><img loading="lazy" src="%s" alt="%s"%s></figure><span class="n">(%02d)</span><h3>%s</h3><p>%s</p></a>' % (img(im), E(alt), pos, i + 1, t, d))
     cards.append('  <a class="card cta" href="{BOOK}"><span class="kick" style="color:rgba(243,238,230,.7);margin-bottom:18px">Not sure yet?</span><h3>%s</h3><span class="lnk">Book a design visit</span></a>' % p["cta_card"])
     return ('<section class="sty" id="kc-styles">\n <div class="w sh"><div class="rv"><span class="kick">Styles</span><h2 style="margin-top:16px">%s</h2></div>'
             '<div class="rv" style="display:flex;align-items:flex-end;gap:40px"><p>%s</p><div class="arw" data-for="kc-rail"><button type="button" data-d="-1" aria-label="Previous">&larr;</button>'
