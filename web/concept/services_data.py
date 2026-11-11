@@ -16,13 +16,13 @@ T = lambda path: "https://static.tildacdn.net/" + path
 STEPS = [("Design visit", "We measure the room and talk through how you live and what you need to store. Free and without obligation."),
          ("3D design &amp; quote", "You see the room in 3D before anything is made, with a clear, itemised quotation."),
          ("Made in Peterborough", "Every piece is built to order in our own workshop, to the millimetre."),
-         ("Fitted by our team", "The team that made it fits it, and it is backed by a 10-year guarantee.")]
+         ("Fitted by our team", "The team that made it fits it, and it is backed by a 12-month guarantee.")]
 PROC_P = "Most projects take four to six weeks to make after you approve the design, and days rather than weeks to fit."
 BOOK_P = "Tell us about your room and we will arrange a visit to measure, listen and talk through ideas. You will receive a 3D design and an itemised quote, with no pressure to go ahead."
 FIN = ("AB Joinery Kitchens and Bedrooms Ltd t/a ABJ Kitchens and Bedrooms is an introducer appointed representative of Ideal Sales Solutions Ltd T/A Ideal4Finance. "
        "Ideal Sales Solutions is a credit broker and not a lender (FRN 703401). Finance is available subject to status. The rate offered is provisional and will depend upon personal circumstances, the loan amount and term.")
 
-FACTS = ["<b>Free</b> 3D design visit", "<b>10-year</b> guarantee", "<b>4.9</b> on Google &middot; 100+ reviews", "Made in <b>Peterborough</b>"]
+FACTS = ["<b>Free</b> 3D design visit", "<b>12-month</b> guarantee", "<b>4.9</b> on Google &middot; 100+ reviews", "Made in <b>Peterborough</b>"]
 REV_IFTIKHAR = ("I had my kitchen fitted in 2021 and now have had wardrobes for 3 rooms. Great prices and quality materials. From the drawings to completion all in 3 weeks.", "Iftikhar Ahmed", "Wardrobes")
 REV_RICH = ("We cannot recommend ABJ Joinery highly enough. From our very first enquiry through to the completed installation of our media wall, every member of the team provided a truly first-class service.", "MRM Rich", "Media wall")
 REV_OLGA = ("ABJ designed and fitted a lovely kitchen with quality units and a quartz worktop. Great attention to detail. The finished result is better than we could have imagined.", "Olga Isakova", "Kitchen")
@@ -55,7 +55,7 @@ PAGES = [
  "book": ("k:abj-w-sliding-white.webp", "White sliding wardrobe with a mirror door in a bright bedroom", "50% 50%"),
  "seo_h": "Fitted wardrobes in Peterborough",
  "seo": ["ABJ Kitchens &amp; Bedrooms designs, makes and fits bespoke wardrobes for homes across Peterborough, Stamford, Market Deeping, Huntingdon and the surrounding villages. Because every carcass and door is made to order in our own workshop, we can fit wardrobes wall to wall, around chimney breasts and under loft slopes where standard units leave gaps.",
-         "Choose hinged or <a href=\"#kc-styles\">sliding wardrobes</a>, a full walk-in dressing room, or wardrobes as part of a <a href=\"/bespoke-bedrooms-dev-b3n6\">complete fitted bedroom</a>. Every wardrobe is fitted by our own team and backed by a 10-year manufacturer guarantee."],
+         "Choose hinged or <a href=\"#kc-styles\">sliding wardrobes</a>, a full walk-in dressing room, or wardrobes as part of a <a href=\"/bespoke-bedrooms-dev-b3n6\">complete fitted bedroom</a>. Every wardrobe is fitted by our own team and backed by our 12-month guarantee."],
  "related": [("/bespoke-bedrooms-dev-b3n6", "Fitted bedrooms"), ("/bespoke-storage-dev-s2k7", "Storage"), ("/flexible-finance-dev-f3n7", "Finance"), ("/abjfeeds/tpost/sliding-vs-hinged-wardrobes", "Sliding vs hinged guide"), ("/sliding-wardrobes-dev-s3w8", "Sliding wardrobes"), ("/walk-in-wardrobes-dev-w2d6", "Walk-in wardrobes"), ("/sloping-ceiling-wardrobes-dev-s5e2", "Sloping ceilings")],
  "service_name": "Bespoke fitted wardrobes", "service_type": "Wardrobe design, manufacture and installation",
  "faqs": [("What are bespoke fitted wardrobes?", "Bespoke fitted wardrobes are made-to-measure storage solutions designed around your room, style and storage needs. They can be built wall to wall, floor to ceiling and around awkward features such as alcoves, chimney breasts or sloped ceilings."),
@@ -92,7 +92,7 @@ PAGES = [
  "book": ("k:abj-b-sage-loft.webp", "Sage green fitted bedroom in a loft with a wooden door", "50% 55%"),
  "seo_h": "Fitted bedrooms in Peterborough",
  "seo": ["ABJ Kitchens &amp; Bedrooms designs, makes and fits complete bedrooms for homes across Peterborough, Stamford, Spalding, Huntingdon and the surrounding villages. A fitted bedroom can include <a href=\"/bespoke-wardrobes-dev-w4m8\">wardrobes</a>, headboard walls, bedside units, dressing tables, desks and integrated lighting, all made to measure.",
-         "Because we manufacture everything in our own Peterborough workshop, we can work around loft slopes, chimney breasts, box sections and uneven walls. Our own team fits every bedroom, backed by a 10-year manufacturer guarantee."],
+         "Because we manufacture everything in our own Peterborough workshop, we can work around loft slopes, chimney breasts, box sections and uneven walls. Our own team fits every bedroom, backed by our 12-month guarantee."],
  "related": [("/bespoke-wardrobes-dev-w4m8", "Wardrobes"), ("/upholstery-dev-u5h9", "Upholstered headboards"), ("/flexible-finance-dev-f3n7", "Finance"), ("/abjfeeds/tpost/fitted-wardrobes-sloping-ceilings", "Sloped ceilings guide"), ("/sloping-ceiling-wardrobes-dev-s5e2", "Loft &amp; eaves wardrobes")],
  "service_name": "Fitted bedrooms", "service_type": "Bedroom furniture design, manufacture and installation",
  "faqs": [("What is included in a bespoke fitted bedroom?", "A fitted bedroom can include made-to-measure wardrobes, bedside units, dressing tables, drawer packs, desks, shelves, headboards, beds, mirrors and integrated lighting. The exact combination is designed around your room and priorities."),
@@ -128,7 +128,7 @@ PAGES = [
  "book": ("g:abj-mediawalls-t-fire.webp", "Media wall with an electric fire in a living room", "50% 60%"),
  "seo_h": "Bespoke media walls in Peterborough",
  "seo": ["ABJ Kitchens &amp; Bedrooms designs, makes and fits bespoke media walls for living rooms across Peterborough, Stamford, Market Deeping, Huntingdon and the surrounding villages. Every wall is built around your screen, with storage for consoles and speakers, LED lighting and an electric fire where suitable.",
-         "Because we make the joinery in our own workshop, we can match <a href=\"/decors-dev-d8r4\">wall panelling</a> and storage elsewhere in the room. Our own team fits every media wall, backed by a 10-year manufacturer guarantee."],
+         "Because we make the joinery in our own workshop, we can match <a href=\"/decors-dev-d8r4\">wall panelling</a> and storage elsewhere in the room. Our own team fits every media wall, backed by our 12-month guarantee."],
  "related": [("/decors-dev-d8r4", "Wall panelling"), ("/bespoke-storage-dev-s2k7", "Storage"), ("/flexible-finance-dev-f3n7", "Finance"), ("/abjfeeds/tpost/media-wall-ideas-living-rooms", "Media wall ideas"), ("/alcove-units-dev-a6c1", "Alcove units")],
  "service_name": "Bespoke media walls", "service_type": "Media wall design, manufacture and installation",
  "faqs": [("How much does a bespoke media wall cost?", "Cost depends on wall size, storage, finish, lighting, fireplace and technical requirements. We provide a clear quote after measuring your room and understanding the specification."),

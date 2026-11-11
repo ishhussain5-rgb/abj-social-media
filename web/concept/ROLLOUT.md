@@ -235,3 +235,13 @@ until the T&Cs question is settled (the facts strip still shows it). Shared text
 Backups: the old block code of each live town page is in Chrome's IndexedDB on tilda.cc (database `abj_town_bak`, key
 `p<pageid>`); to roll back a page, save that code back into its block and publish. Stamford DEV (354171303) has the same copy.
 New service-page descriptions were rewritten by hand the same day (golive_new7.json, commit 8a2a01c).
+
+## Guarantee wording (11 Nov 2026)
+Ish confirmed ABJ's own guarantee is 12 months (T&Cs 8.1); longer warranties on doors, cabinets and fittings are the
+manufacturers' and depend on what the customer chooses (T&Cs 8.2). Every live page's block, page settings (title,
+descriptions, social text) and head code were changed with `guarantee.js` (`abjG.fix`), then each page was published on its
+own: 36 pages (home, all service pages, FAQ, about, booking, offers, upholstery, bathroom, 12 town pages, 7 new pages).
+Badges now read "12-month guarantee"; FAQ answers say longer manufacturer warranties can apply depending on what you choose.
+Live sweep of 53 addresses afterwards: no "10-year" left except the T&Cs manufacturer list, finance terms (3-10 years) and
+"handles that still look right in ten years". The repo sources (pages/, out/, out-live/, services_data.py, towns/) match.
+Not on the website: check Google Business Profile, social bios and any ads for "10-year guarantee".
