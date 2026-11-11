@@ -476,7 +476,7 @@ PAGES = [
             (T("tila6661-3436-4835-b261-343631313434/UnderStair28.webp"), "Under-stairs pull-out shelving towers", "Pull-out towers", "Full-depth towers that slide out, so nothing is lost at the back."),
             (T("tila6633-6632-4831-a530-353633383738/UnderStair2.webp"), "Handleless white under-stairs storage", "Handleless &amp; push-to-open", "Clean, handle-free fronts that sit flush with the wall."),
             (T("tild6234-6438-4430-b736-623766633535/UnderStair13.jpg"), "White under-stairs pull-out drawers and cupboard", "Drawers &amp; cupboards", "Deep drawers low down, a tall cupboard where the height allows."),
-            (T("tila3230-6565-4136-b330-366639303766/UnderStair34.webp"), "Under-stairs pull-out drawers next to a carpeted staircase", "Hallway storage", "Under-stairs storage that matches the rest of your hallway.")],
+            ("l:abj-hl-us-pullout.webp", "Under-stairs pull-out storage in a hallway", "Hallway storage", "Under-stairs storage that matches the rest of your hallway.")],
  "cta_card": "Send us a photo of your staircase",
  "feature": {"kick": "Built to the stair angle", "h": "Drawers that follow every step",
              "p": "We measure the rise and angle of your staircase at the free design visit, then plan pull-outs and drawers in the deep, low corner and cupboards where the height allows. Heavy-duty soft-close runners take the weight of shoes, bags and the vacuum.",
