@@ -329,3 +329,6 @@ old DEV block in IndexedDB abj_svc_bak 'kitchens-dev-before-calc-20261111'. Four
 plus a plain-English box that reads a description and sets the picks (runs in the browser; no AI service, no cost).
 Prices in the P object are Claude's rough placeholders anchored to the site's "from around £5,000" - NOT approved:
 Ish/Alex must confirm before it goes live. GA event 'kitchen_cost_guide' fires only after cookie consent.
+- 11 Nov evening, Ish's idea: describe-first flow. The section opens with just the description box ("Show my guide price",
+  Enter, three tappable examples, "or choose the options yourself"); the price and pre-set options appear after. On phones and
+  tablets the price card sits straight under the description and the options follow. DEV updated (calc @ ed2058c).
