@@ -29,9 +29,9 @@
     return c;
   };
   W.abjHomeMobile = function (code) {
-    if (code.includes('/*abj-home-mobile*/')) return code;
-    const css = '/*abj-home-mobile*/@media (max-width:760px){#kc .hero.hm:not(.sm):after{background:linear-gradient(0deg,rgba(8,14,13,.8) 0%,rgba(8,14,13,.5) 40%,rgba(8,14,13,.12) 70%,rgba(8,14,13,0) 85%)}#kc .hero.hm:not(.sm) h1{font-size:34px;line-height:1.08;margin:16px 0 18px}}';
-    const i = code.indexOf('</style>'); if (i < 0) throw new Error('no style');
-    return code.slice(0, i) + css + code.slice(i);
+    const css = '/*abj-home-mobile*/@media (max-width:760px){#kc .hero.hm:not(.sm):after{background:linear-gradient(0deg,rgba(8,14,13,.8) 0%,rgba(8,14,13,.5) 40%,rgba(8,14,13,.12) 70%,rgba(8,14,13,0) 85%)}#kc .hero.hm:not(.sm) .kick{display:none}#kc .hero.hm:not(.sm) h1{font-size:32px;line-height:1.08;margin:0 0 16px}}/*/abj-home-mobile*/';
+    let c = code.replace(/\/\*abj-home-mobile\*\/[\s\S]*?(\/\*\/abj-home-mobile\*\/|\}\}(?=<\/style>|#|\/\*))/, '');
+    const i = c.indexOf('</style>'); if (i < 0) throw new Error('no style');
+    return c.slice(0, i) + css + c.slice(i);
   };
 })();
