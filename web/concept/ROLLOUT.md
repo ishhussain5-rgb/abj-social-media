@@ -286,3 +286,14 @@ note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up 
   - Homepage: phone montage ends on a fitted wardrobe wall (n05 3.6-6.9s) instead of the Hisense wine-fridge logo and worktop
     corner; phone caption list via `data-capsm`. Live homepage published 11 Nov ~13:10 after Ish's OK (old block in `abj_home_bak`, key `home-20261111-phoneclip`).
   - Other pages' phone clips checked: all show furniture. Worktops clip A ends on the dining table/sunburst light (offered a re-cut).
+
+## Site scan fixes (11 Nov 2026, afternoon)
+- Text: meta descriptions trimmed under 985px (Kitchens, Oakham, Office fit-out; Office and Oakham head-code schema text matched),
+  Office fit-out H1 "Office fit-outs &amp; refurbishment, made in our Peterborough workshop", first H2 "What we fit in offices".
+- Images: the 53 jsDelivr images over 100 kB re-encoded under 100 kB (Pillow WebP method 6; long side capped at 1800; scaled
+  only where needed, never below the size shown on the page; PSNR at display size median 44 dB, lowest 36 dB). Files on
+  branch web-media-p @ f58f336 (media/l/<source commit>-<name>). `lighten.js` (abjLight) swaps the URLs; `run_light.js`
+  (abjRunLight) saved and published all 46 live pages one at a time (~300 links). Site HEAD post-skin pin moved
+  b44b379 -> 3a321ec (post-chrome menu images), /abjfeeds republished. Rescan: 0 jsDelivr images over 100 kB, 0 broken.
+- Still flagged: 44 Tilda-hosted images (36 town landmark photos, gallery thumbnails, a few on the new pages). Waiting for
+  Ish's decision (browser re-encode + Tilda upload, before/after sheet first).
