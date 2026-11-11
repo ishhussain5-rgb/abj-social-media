@@ -440,7 +440,7 @@ PAGES = [
  "feature": {"kick": "Measured to the angle", "h": "Every centimetre under the roof, put to work",
              "p": "At the free design visit we measure the pitch of the ceiling, the height of the knee wall, dormers, skylights and any loft hatch. Your 3D design then shows exactly where long hanging, short hanging, shelves and drawers fit before anything is made.",
              "points": ["Angled carcasses and doors made to your roof pitch", "Low eaves drawers and cupboards in the knee wall", "Access kept to eaves voids, hatches and pipework", "Lighting built in, so deep corners are easy to see into"],
-             "big": ("g:abj-bedrooms-B-wide-poster.webp", "Loft bedroom with fitted eaves drawers following the sloping ceiling", "50% 50%"),
+             "big": ("g:abj-bedrooms-B-wide-poster.webp", "Loft bedroom with fitted eaves drawers following the sloping ceiling", "78% 70%"),
              "small": [("g:abj-wardrobes-B-wide-poster.webp", "Loft dressing table and wardrobes under a sloping ceiling", "Loft dressing area"),
                        (T("tila6337-6339-4734-a237-306631373133/BespokeBedrooms30.webp"), "White gloss fitted wardrobes built into a sloped loft ceiling", "Angled doors")]},
  "quote": REV_IFTIKHAR,
