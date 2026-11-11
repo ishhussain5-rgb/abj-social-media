@@ -307,3 +307,17 @@ note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up 
   ones over are those six, no JPG/PNG warnings, 0 broken. An earlier run's 53 uploads are unused duplicates in the Tilda
   image library (map lost to full localStorage).
   NOTE: out-live/ for the gallery and the town blocks does NOT include these swaps - always transform the live block.
+
+## Seobility follow-ups (11 Nov 2026, ~15:40, Ish asked for all four)
+`site_polish.js` (abjPolish) on 44 live pages + blog chrome (HEAD pin 3a321ec -> 38e6be3, /abjfeeds republished):
+- No page shows the same photo twice: each phone-menu hover photo swapped page by page for a same-room photo not on that page
+  (Hallways/Bathrooms now show hallway/bathroom photos); the booking-section photo on Wardrobes and Media walls no longer
+  repeats a style card.
+- Footer titles (Rooms, More, ABJ, Visit, Areas we cover) are <div class="fh">, styled and accordion-wired exactly as before.
+- Doubled link wording varied: menu "Arrange a free design visit" / "WhatsApp us"; footer CTA "Request a free design visit";
+  footer links "Bespoke kitchens/wardrobes/bedrooms", "Media wall units", "Storage & pantries", "Home office furniture",
+  "Project gallery", "Finance options"; cookie banner "How we use your data". Left alone: logo, phone number, town names.
+- Homepage only (on the test homepage, waiting for go-live): the same, plus hero facts <b> -> span.fk (same look; "2,500+"
+  bold once), body CTA "Start with a design visit", "bespoke media walls". Test homepage block was replaced with the live
+  block + these changes (old test block in IndexedDB abj_home_bak 'homedev-20261111-before-polish').
+Check: 0 repeated photos on 44 pages, 0 footer H4s, 0 broken images. PageSpeed (Ish): 98/100/100/100 mobile and desktop.
