@@ -1,0 +1,1 @@
+Lighter copies (under 100 kB) of site images flagged by the 11 Nov 2026 scan. File name = <source commit>-<original name>; same pixels shown on the page, re-encoded (some large ones scaled to fit how they are displayed).
