@@ -94,7 +94,7 @@ SERVICES = {
         svg=KITCHEN_SVG, checked=1, metres=[4, 7, 10],
         words=[('compact|small|smallish|little|tiny|galley|narrow|studio|flat|apartment|budget', 0),
                ('medium|mid[\\s-]?sized?|average|normal|regular|decent(ly)?[\\s-]?sized?|good[\\s-]?sized?|family|l[\\s-]?shaped?|l[\\s-]?shape|standard', 1),
-               ('large|big|biggish|u[\\s-]?shaped?|u[\\s-]?shape|spacious|tall units|bank of tall|long|floor[\\s-]?to[\\s-]?ceiling', 2),
+               ('large|big|biggish|u[\\s-]?shaped?|u[\\s-]?shape|spacious|bank of tall|long', 2),
                ('statement|huge|massive|very (big|large)|open[\\s-]?plan|kitchen[\\s-]?diner|extension', 3)],
         lbl=['Compact', 'Medium', 'Large', 'Statement'], say=['compact', 'medium', 'large', 'statement'], q='Size? pick below'),
    dict(n='st', legend='Which style?', ev='style',
