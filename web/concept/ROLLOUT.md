@@ -338,3 +338,19 @@ Ish/Alex must confirm before it goes live. GA event 'kitchen_cost_guide' fires o
   fits one screen (tested 1280x720 to 1920x911); on reveal the section lines up under the header. insert.js now replaces any
   version. DEV @ 34f775f.
 - 11 Nov: bespoke recalibration (base compact 5–8k, medium 8.5–13.5k, large 13–20k, statement 19–30k; Shaker x1.1; island 3–5.5k; larder 1.5–2.8k) and "made to measure in our own workshop, not off the shelf" wording. DEV @ af0dd6c. Still needs Alex/surveyor to check the ranges before LIVE.
+
+## Cost guides on 7 DEV service pages (11 Nov 2026)
+One template, `calc/build_calc.py` (CSS `calc/calc.css.part`, engine `calc/calc_engine.js.part`), builds
+`calc/<key>_calc.html` for kitchen, wardrobe, bedroom, mediawall, sloping, sliding and walkin. Edit prices in SERVICES, run
+`python3 build_calc.py`, then insert before "How it works" on the DEV block (same as `abjCalcInsert`).
+Prices are calibrated from Alex's real quotes (Nov 2026): every real quote tested lands inside the range shown
+(kitchens 8 quotes, wardrobes 3, sliding 1, walk-in 1, sloping 1, media walls 4). Model = cabinets by size x finish factor
++ worktops (kitchens) + extras + delivery & fitting, matching how Alex lays out a quote.
+Estimates with no quote behind them yet: kitchen solid-wood worktops and in-frame (x1.35), kitchen island, walk-in dressing
+island, bedroom bedside pair and headboard wall, wardrobe drawer unit.
+DEV pages = current LIVE block + guide (commit 758b23a): kitchens 352648603/5644015603, wardrobes 352674603/5644232003,
+bedrooms 352674703/5644237603, media walls 352685103/5644238303, sloping 377339703/5698354303, sliding 377441303/5698620103,
+walk-in 377441403/5698620803. Old DEV block codes: IndexedDB `abj_svc_bak` keys `<page>-dev-before-calc-20261111`;
+live codes used: `live-<livepageid>-20261111`. Checked on the published DEV pages at 1920x911: guide works, fits one window, noindex.
+Open before LIVE: are Alex's totals inc or ex VAT (one media wall quote says + VAT); the Kitchens page says "from £5,000"
+but real fitted compact kitchens come out at about £2,350-£4,000; Alex/surveyor to approve the ranges.
