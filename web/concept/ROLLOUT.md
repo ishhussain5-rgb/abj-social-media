@@ -181,3 +181,22 @@ switch the new block off and switch the listed old blocks back on, then publish.
 - Publishing from script: `tp__fetch({url:'/page/publish/',body:{comm:'pagepublish',pageid,csrf:getCSRF(),returnjson:'yes'}})`.
 - 301 added (Site Settings > SEO > 301 Redirects): /shop/851184866934-apples -> /. Old /tpost/<slug> URLs can't be
   redirected there (Tilda's blog router answers /tpost/* with its own 404 before the redirect list is checked).
+
+## Google titles and descriptions (11 Nov 2026)
+Changed in Page settings (SEO title / SEO description; Facebook title/description for the booking page only), each page
+published on its own and checked live. Why: Search Console shows Google uses the HOMEPAGE for kitchen searches (about 4th for
+"fitted kitchens peterborough", "kitchen design peterborough", 3rd for "kitchen installation peterborough", almost no clicks),
+while /bespoke-kitchens sits around 29th for the same searches. "10-year guarantee" left out of new wording until the T&Cs match.
+
+| Page (id) | Old | New |
+|---|---|---|
+| / (30601906) title | Fitted Kitchens, Bedrooms & Design in Peterborough \| ABJ | Fitted Kitchens Peterborough \| Design & Installation \| ABJ |
+| / description | Kitchen design and installation in Peterborough, plus fitted bedrooms, wardrobes and media walls made in our workshop. 4.9-star rated, free 3D design. | Independent Peterborough kitchen company: we design, make and fit kitchens, wardrobes and media walls. Free 3D design visit. Rated 4.9★ on Google. |
+| /bespoke-kitchens (73297273) title | Bespoke Kitchens Peterborough \| Design & Installation \| ABJ | Bespoke Kitchens Peterborough \| Handleless, Shaker & Islands |
+| /bespoke-kitchens description | Bespoke kitchens designed, made and installed by our own fitters in Peterborough. Free 3D design visit, 10-year guarantee, 0% finance (subject to status). | Handleless, Shaker and island kitchens made in our Peterborough workshop and fitted by our own team. Free 3D design visit, 0% finance (subject to status). |
+| /media-walls (73279037) title | Media Wall Ideas \| Bespoke TV Walls Made in Peterborough | Media Walls Peterborough \| Bespoke TV Wall Units \| ABJ |
+| /media-walls description | Bespoke Peterborough media walls with built-in TV recess, fireplace and storage. 4.9-star rated, 10-year guarantee. Book a free design visit | Bespoke TV media wall units made in Peterborough, with TV recess, fireplace, LED lighting and hidden storage. Free design visit. 4.9★ on Google. |
+| /bookingform (74327267) Facebook title | (empty, so the page title "ABJ Kitchens and Bedrooms \| Booking Form" was used) | Book a Free Design Visit \| ABJ Kitchens & Bedrooms |
+| /bookingform Facebook description | (empty, so Tilda's template text "An online form to collect contact information, number of guests..." was used) | Book a free design visit for a kitchen, bedroom, wardrobe or media wall. We come to you across Peterborough and up to 80 miles away. |
+
+Rollback: paste the old text back into Page settings and publish that one page. Compare clicks for these searches after 4 weeks.
