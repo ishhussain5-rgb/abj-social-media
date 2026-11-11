@@ -279,3 +279,10 @@ note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up 
   the headline hidden (it repeated "Peterborough"), headline 32px. Checked on the test homepage, approved by Ish, live
   homepage (block 5657646303) published 11 Nov ~12:31. Old block code in IndexedDB `abj_home_bak`, key `home-20261111-mobile`.
   Desktop unchanged (checked: label shown, headline 73px, side fade). out-live/home.html matches.
+- Phone hero re-cuts (`phoneclips.js`, files on branch web-media-o @ ba414cd; stills approved by Ish 11 Nov):
+  - Kitchens (live, block 5657531303, published ~13:03): phone clip 2 is now the sage drinks cabinet opening (IMG_5758
+    73.2-79.6s, half speed, vidstab) instead of the dining room/sunburst light; phone caption via `data-capm`, phone poster via
+    `data-mp`. Desktop clip, poster and caption unchanged. Old block in IndexedDB `abj_svc_bak`, key `kitchens-phoneclips-20261111`.
+  - Homepage: phone montage ends on a fitted wardrobe wall (n05 3.6-6.9s) instead of the Hisense wine-fridge logo and worktop
+    corner; phone caption list via `data-capsm`. On the test homepage only, waiting for Ish's go-live.
+  - Other pages' phone clips checked: all show furniture. Worktops clip A ends on the dining table/sunburst light (offered a re-cut).
