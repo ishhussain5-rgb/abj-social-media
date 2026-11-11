@@ -268,4 +268,6 @@ From an independent visual review, agreed with Ish. `fixes_1111.js` (abjFix.proj
   pushed the intro label under the fixed header. Override added in each block and theme.css.
 Homepage (`homefix.js`, abjHome): featured project moved straight after the four main rooms, "Everywhere else in your home"
 after it, and a slightly darker fade behind the hero text (video and wording unchanged). Done and checked on the test homepage
-(350369803, desktop + 390 px). Live homepage: waiting for Ish's go-ahead to publish (backup of the live block is taken first).
+(350369803, desktop + 390 px). Live homepage published 11 Nov ~11:44 after Ish's OK (old block code in Chrome IndexedDB `abj_home_bak`, key
+`home-20261111`). Site HEAD: the last two "10-year guarantee" texts (a commented-out twitter tag and the old mobile-menu
+note) changed to 12-month (HEAD now 65,500 bytes of 65,535); pages pick this up on their next publish (home republished).
