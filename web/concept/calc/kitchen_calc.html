@@ -47,6 +47,8 @@
 #kc .calc .op{display:grid;gap:10px}
 #kc .calc .op4{grid-template-columns:repeat(4,minmax(0,1fr))}
 #kc .calc .op3{grid-template-columns:repeat(3,minmax(0,1fr))}
+#kc .calc .op2{grid-template-columns:repeat(2,minmax(0,1fr))}
+#kc .calc .op5{grid-template-columns:repeat(5,minmax(0,1fr))}
 #kc .calc .op6{grid-template-columns:repeat(6,minmax(0,1fr))}
 #kc .calc label{position:relative;display:flex;flex-direction:column;gap:6px;min-height:100%;padding:16px 16px 15px;border:1px solid rgba(243,238,230,.18);cursor:pointer;transition:border-color .25s,background .25s;-webkit-tap-highlight-color:transparent}
 #kc .calc label:hover{border-color:rgba(243,238,230,.42)}
@@ -120,7 +122,7 @@
  #kc .calc.s2 .acts .bt{height:46px}
 }
 @media (max-width:1100px){#kc .calc .ch{grid-template-columns:1fr;gap:0}#kc .calc .ch>div:first-child,#kc .calc #kc-calc{display:contents}#kc .calc .res{position:relative;top:0;order:1;margin:6px 0 34px}#kc .calc .pk{order:2}#kc .calc.s1 .res{display:none}#kc .calc .or span{text-align:center}}
-@media (max-width:760px){#kc .calc .op4,#kc .calc .op6{grid-template-columns:1fr 1fr}#kc .calc .op3{grid-template-columns:1fr 1fr 1fr}#kc .calc .op3 label span{display:none}#kc .calc label{padding:14px 12px}#kc .calc label b{font-size:19px}#kc .calc .inc{grid-template-columns:1fr}#kc .calc .bar{grid-template-columns:96px minmax(0,1fr) 56px}
+@media (max-width:760px){#kc .calc .op4,#kc .calc .op5,#kc .calc .op6{grid-template-columns:1fr 1fr}#kc .calc .op3{grid-template-columns:1fr 1fr 1fr}#kc .calc .op3 label span{display:none}#kc .calc label{padding:14px 12px}#kc .calc label b{font-size:19px}#kc .calc .inc{grid-template-columns:1fr}#kc .calc .bar{grid-template-columns:96px minmax(0,1fr) 56px}
  #kc .calc .pill{position:fixed;left:12px;right:12px;bottom:calc(66px + env(safe-area-inset-bottom));z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--lin);color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.28);font:500 11px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:0;transform:translateY(12px);pointer-events:none;transition:.35s}
  #kc .calc .pill b{font:400 22px/1 var(--serif);letter-spacing:0;text-transform:none}
  #kc .calc.s2.vis .pill{opacity:1;transform:none;pointer-events:auto}}
@@ -130,13 +132,13 @@
  <div class="rv">
   <span class="kick">Cost guide</span>
   <h2>What could your kitchen cost?</h2>
-  <p class="lead">Tell us about your kitchen in a sentence, the way you&rsquo;d describe it to a friend. We&rsquo;ll pick out the details and show you a realistic price range for a bespoke kitchen, made to measure in our own workshop and fitted by our team, not off the shelf.</p>
+  <p class="lead">Tell us about your kitchen in a sentence, the way you&rsquo;d describe it to a friend. We&rsquo;ll pick out the details and show you a guide price based on real quotes for kitchens we&rsquo;ve made in our Peterborough workshop and fitted ourselves.</p>
   <form id="kc-calc" onsubmit="return false">
    <div class="ai"><div class="ai-in" onclick="if(event.target===this)document.getElementById('kc-say').focus()"><span class="ai-k"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 1.5l1.9 5.1 5.1 1.9-5.1 1.9L10 15.5l-1.9-5.1L3 8.5l5.1-1.9z"/><path d="M16 13l.8 2.2 2.2.8-2.2.8L16 19l-.8-2.2-2.2-.8 2.2-.8z"/></svg>Describe it in your own words</span>
-    <textarea id="kc-say" rows="2" placeholder="e.g. a U-shaped Shaker kitchen with an oak worktop, an island and a Quooker tap"></textarea>
+    <textarea id="kc-say" rows="2" placeholder="e.g. a U-shaped Shaker kitchen with quartz worktops, an island and a larder"></textarea>
     <span class="ai-go"><button type="button" class="bt" id="kc-go">Show my guide price</button></span></div>
     <div class="ai-out" id="kc-got" aria-live="polite"></div>
-    <div class="ai-ex"><span>Try</span><button type="button" data-t="A medium L-shaped handleless kitchen with quartz worktops">Medium handleless with quartz</button><button type="button" data-t="A large Shaker kitchen with an island, oak worktops and integrated appliances">Large Shaker with an island</button><button type="button" data-t="A small galley kitchen in a modern style with a laminate worktop">Small galley kitchen</button></div>
+    <div class="ai-ex"><span>Try</span><button type="button" data-t="A medium L-shaped handleless kitchen with quartz worktops and a breakfast bar">Medium handleless with quartz</button><button type="button" data-t="A large Shaker kitchen with an island, quartz worktops and a larder">Large Shaker with an island</button><button type="button" data-t="A small galley kitchen in a modern style with a laminate worktop">Small galley kitchen</button></div>
     <button type="button" class="ai-skip" id="kc-skip">or choose the options yourself</button>
    </div>
    <div class="pk">
@@ -145,33 +147,34 @@
     <div class="op op4">
      <label><input type="radio" name="sz" value="0"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3z"/></svg><b>Compact</b><span>Galley or small L, up to 4&nbsp;m of units</span></label>
      <label><input type="radio" name="sz" value="1" checked><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3zM3 9h6v18H3z"/></svg><b>Medium</b><span>L-shape, about 5&ndash;7&nbsp;m of units</span></label>
-     <label><input type="radio" name="sz" value="2"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3zM3 9h6v18H3zM37 9h6v18h-6z"/></svg><b>Large</b><span>U-shape or a wall of tall units</span></label>
+     <label><input type="radio" name="sz" value="2"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3zM3 9h6v18H3zM37 9h6v18h-6z"/></svg><b>Large</b><span>U-shape or floor-to-ceiling tall units</span></label>
      <label><input type="radio" name="sz" value="3"><svg viewBox="0 0 46 30"><rect x="3" y="3" width="40" height="24"/><path d="M3 3h40v6H3zM3 9h6v18H3zM17 15h14v6H17z"/></svg><b>Statement</b><span>Large open-plan with an island</span></label>
     </div>
    </fieldset>
    <fieldset><legend><i>02</i>Which style?</legend>
-    <div class="op op3">
-     <label><input type="radio" name="st" value="0" checked><b>Handleless</b><span>Clean lines, J-pull or rail</span></label>
-     <label><input type="radio" name="st" value="1"><b>Shaker</b><span>Framed doors, painted to any colour</span></label>
-     <label><input type="radio" name="st" value="2"><b>In-frame</b><span>Doors set inside a solid frame</span></label>
+    <div class="op op4">
+     <label><input type="radio" name="st" value="0" checked><b>Handleless</b><span>Gola rail, clean lines</span></label>
+     <label><input type="radio" name="st" value="1"><b>Shaker</b><span>Framed doors in any colour</span></label>
+     <label><input type="radio" name="st" value="2"><b>Gloss acrylic</b><span>Mirror-like high gloss</span></label>
+     <label><input type="radio" name="st" value="3"><b>In-frame</b><span>Doors set in a solid frame</span></label>
     </div>
    </fieldset>
    <fieldset><legend><i>03</i>Worktop</legend>
     <div class="op op4">
-     <label><input type="radio" name="wt" value="0"><b>Laminate</b><span>Hard-wearing, wide choice</span></label>
+     <label><input type="radio" name="wt" value="0"><b>Laminate</b><span>Matching splashback included</span></label>
      <label><input type="radio" name="wt" value="1"><b>Solid wood</b><span>Oak or walnut staves</span></label>
-     <label><input type="radio" name="wt" value="2" checked><b>Quartz</b><span>Our most popular choice</span></label>
-     <label><input type="radio" name="wt" value="3"><b>Sintered stone</b><span>Heat and scratch proof</span></label>
+     <label><input type="radio" name="wt" value="2" checked><b>Quartz</b><span>With full-height splashbacks</span></label>
+     <label><input type="radio" name="wt" value="3"><b>Natural stone</b><span>Quartzite, marble or sintered</span></label>
     </div>
    </fieldset>
    <fieldset class="xt"><legend><i>04</i>Anything else? <span style="letter-spacing:.1em;text-transform:none">(optional)</span></legend>
     <div class="op op6">
      <label data-x="island"><input type="checkbox" name="x" value="island"><b>Island</b></label>
      <label><input type="checkbox" name="x" value="bar"><b>Breakfast bar</b></label>
-     <label><input type="checkbox" name="x" value="app"><b>Appliances</b></label>
      <label><input type="checkbox" name="x" value="larder"><b>Larder unit</b></label>
-     <label><input type="checkbox" name="x" value="tap"><b>Boiling-water tap</b></label>
+     <label><input type="checkbox" name="x" value="glass"><b>Glass display</b></label>
      <label><input type="checkbox" name="x" value="led"><b>LED lighting</b></label>
+     <label><input type="checkbox" name="x" value="store"><b>Corner or bin pull-out</b></label>
     </div>
    </fieldset>
    </div>
@@ -188,76 +191,72 @@
   <ul class="inc"><li>3D design &amp; site survey</li><li>Made in Peterborough</li><li>Fitted by our own team</li><li>12-month guarantee</li></ul>
   <div class="acts"><a class="bt" href="/bookingform" id="kc-cb">Book a free design visit</a><a class="bt o" id="kc-wa" href="https://wa.me/447479219421" target="_blank" rel="noopener">Send this to us</a></div>
   </div>
-  <p class="fine">A rough guide for planning a bespoke, made-to-measure kitchen, not a quote. Your exact price comes with your 3D design after a free home visit. Prices include VAT, manufacture and fitting; building work, flooring and moving gas, water or electrics are extra. 0% finance is available on projects over &pound;6,000 (subject to status).</p>
+  <p class="fine">A rough guide based on recent quotes for kitchens we&rsquo;ve made and fitted, not a quote. Your exact price comes with your 3D design after a free home visit. It covers making, delivering and fitting the units and worktops. Appliances, sink and tap, plumbing, electrics, gas, building work and flooring are extra. 0% finance is available on projects over &pound;6,000 (subject to status).</p>
  </aside>
 </div>
 <a class="pill" href="#kc-cost" aria-label="Jump to your guide price"><span>Guide price</span><b id="kc-pl">&pound;0</b></a>
 <script>
+window.__ABJ_CALC__={"ev":"kitchen_cost_guide","base":[[1300,2300],[2800,4000],[4500,6500],[6500,9500]],"inst":[[600,900],[1100,1400],[1700,2200],[2200,3000]],"lbl":{"base":"Cabinets & panels","ext":"Extras","inst":"Delivery & fitting"},"metres":[4,7,10],"notes":[{"words":"appliances?|oven|ovens|hob|fridge|freezer|dishwasher|integrated|neff|bosch|siemens|miele|aeg|range cooker|extractor|sink|tap|quooker|boiling","chip":"Appliances: not included","tip":"Appliances, sinks and taps aren’t in this guide price. We design the units around the ones you choose."}],"groups":[{"n":"sz","ev":"size","words":[["compact|small|smallish|little|tiny|galley|narrow|studio|flat|apartment|budget",0],["medium|mid[\\s-]?sized?|average|normal|regular|decent(ly)?[\\s-]?sized?|good[\\s-]?sized?|family|l[\\s-]?shaped?|l[\\s-]?shape|standard",1],["large|big|biggish|u[\\s-]?shaped?|u[\\s-]?shape|spacious|tall units|bank of tall|long|floor[\\s-]?to[\\s-]?ceiling",2],["statement|huge|massive|very (big|large)|open[\\s-]?plan|kitchen[\\s-]?diner|extension",3]],"lbl":["Compact","Medium","Large","Statement"],"say":["compact","medium","large","statement"],"q":"Size? pick below"},{"n":"st","ev":"style","mult":[1,1.1,1.15,1.35],"words":[["handle[\\s-]?less|modern|sleek|minimal|contemporary|j[\\s-]?pull|true handleless|gola|matt|matte",0],["shaker|classic|painted|cottage|country|farmhouse",1],["gloss|glossy|high gloss|acrylic|shiny",2],["in[\\s-]?frame|heritage|period|traditional|georgian|victorian",3]],"lbl":["Handleless","Shaker","Gloss acrylic","In-frame"],"say":["handleless","Shaker","gloss acrylic","in-frame"],"q":"Style? pick below"},{"n":"wt","ev":"worktop","label":"Worktops & splashbacks","add":[[[450,800],[1000,1400],[1300,1900],[1700,2500]],[[800,1400],[1300,2200],[1900,3000],[2600,4000]],[[2000,2800],[3000,4000],[3300,4500],[4500,6500]],[[2300,3200],[3300,4400],[3700,5000],[5000,7200]]],"words":[["laminate|egger|budget|cheap",0],["wood|wooden|oak|walnut|timber|butcher|iroko|solid wood",1],["quartz|silestone|caesarstone|marble[\\s-]?effect|compac|stone",2],["sintered|dekton|ceramic|porcelain|neolith|lapitec|real marble|natural marble|natural stone|quartzite|taj mahal|granite",3]],"lbl":["Laminate","Solid wood","Quartz","Natural stone"],"say":["laminate","solid wood","quartz","natural stone"],"q":"Worktop? pick below"}],"ext":{"island":{"name":"an island","lbl":"Island","p":[1500,3000],"words":"island","mult":true,"incl":[3],"sizeIf":3},"bar":{"name":"a breakfast bar","lbl":"Breakfast bar","p":[400,900],"words":"breakfast bar|peninsula|bar area|breakfast counter"},"larder":{"name":"a larder unit","lbl":"Larder unit","p":[500,1000],"words":"larder|pantry|tall cupboard","mult":true},"glass":{"name":"a glass display cabinet","lbl":"Glass display","p":[300,650],"words":"glass|display|glazed|vitrine"},"led":{"name":"LED lighting","lbl":"LED lighting","p":[185,450],"words":"led|lighting|lights|lit|light|sensor light"},"store":{"name":"clever storage","lbl":"Corner or bin pull-out","p":[250,550],"words":"corner|carousel|le[\\s-]?mans|magic corner|fly moon|pull[\\s-]?out bin|waste bin|bin"}},say:function(s,w){return 'A '+w('sz')+' '+w('st')+' kitchen with '+w('wt')+' worktops'},tip:function(s,gbp,rnd){
+ if(s.v.st===3)return 'In-frame is our most hand-crafted style. Shaker gives a very similar look for noticeably less.';
+ if(s.v.wt===3)return 'Natural stone is one of a kind. Quartz gives a similar look for a little less.';
+ if(s.v.wt===0&&s.sz>=1)return 'Upgrading to quartz with full-height splashbacks adds about '+['£1,550 to £2,000','£2,000 to £2,600','£2,000 to £2,600','£2,800 to £4,000'][s.sz]+' on a kitchen this size.';
+ if(s.sz>=2&&!s.has('larder'))return 'Kitchens this size usually have room for a larder unit, which is the best value storage you can add.';
+ if(s.sz===1&&!s.has('island'))return 'If your room is over about 4.5 m wide, an island is often possible. Add it to see the difference.';
+ if(s.lo>=6000)return 'This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
+ return 'Appliances, sinks and taps aren’t in this price, so you can choose your own.';
+}};
 (function(){
- /* ROUGH GUIDE PRICES (GBP inc VAT, made & fitted). Edit here only. [low, high] per size: compact, medium, large, statement */
- var P={
-  base:[[5000,8000],[8500,13500],[13000,20000],[19000,30000]],
-  style:[1,1.1,1.35],
-  wt:[[[0,0],[0,0],[0,0],[0,0]],[[300,600],[500,900],[700,1200],[1000,1700]],[[900,1500],[1500,2500],[2200,3500],[3000,4800]],[[1300,2000],[2100,3300],[3000,4600],[4200,6500]]],
-  island:[3000,5500],bar:[1200,2400],app:[[1500,2800],[2000,3800],[2500,4500],[3000,5500]],larder:[1500,2800],tap:[700,1100],led:[300,650]
- };
- var SZ=['compact','medium','large','statement'],ST=['handleless','Shaker','in-frame'],WT=['laminate','solid wood','quartz','sintered stone'],XN={island:'an island',bar:'a breakfast bar',app:'appliances',larder:'a larder unit',tap:'a boiling-water tap',led:'LED lighting'};
- var f=document.getElementById('kc-calc');if(!f)return;var sec=document.getElementById('kc-cost');
- var $=function(i){return document.getElementById(i)},r250=function(n){return Math.round(n/250)*250},gbp=function(n){return '£'+n.toLocaleString('en-GB')};
- var shown=[0,0],raf;
- function anim(lo,hi){cancelAnimationFrame(raf);var a=shown.slice(),t0=performance.now();(function s(t){var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);var l=r250(a[0]+(lo-a[0])*e),h=r250(a[1]+(hi-a[1])*e);$('kc-lo').textContent=gbp(l);$('kc-hi').textContent=gbp(h);$('kc-pl').textContent=gbp(l)+'–'+gbp(h).replace('£','');if(k<1)raf=requestAnimationFrame(s);else shown=[lo,hi]})(t0)}
- function calc(){
-  var sz=+f.sz.value,st=+f.st.value,wt=+f.wt.value,xs=[].slice.call(f.querySelectorAll('[name=x]:checked')).map(function(x){return x.value});
-  var isl=f.querySelector('[data-x=island]');isl.classList.toggle('off',sz===3);if(sz===3)isl.querySelector('input').checked=false;
-  xs=xs.filter(function(x){return !(x==='island'&&sz===3)});
-  var cab=[P.base[sz][0]*P.style[st],P.base[sz][1]*P.style[st]];
-  if(sz===3||xs.indexOf('island')>=0){var il=sz===3?[0,0]:P.island;cab=[cab[0]+il[0]*P.style[st],cab[1]+il[1]*P.style[st]]}
-  var top=P.wt[wt][sz].slice(),ex=[0,0];
-  xs.forEach(function(x){if(x==='island')return;var v=x==='app'?P.app[sz]:P[x];ex[0]+=v[0];ex[1]+=v[1]});
-  var lo=r250(cab[0]+top[0]+ex[0]),hi=r250(cab[1]+top[1]+ex[1]);
-  anim(lo,hi);
-  var mid=function(v){return (v[0]+v[1])/2},tot=mid(cab)+mid(top)+mid(ex)||1;
-  var rows=[['Cabinets & fitting',mid(cab)],['Worktops',mid(top)],['Extras',mid(ex)]];
-  $('kc-bars').innerHTML=rows.map(function(r){var p=Math.round(r[1]/tot*100);return '<div class="bar"><span>'+r[0]+'</span><s style="--w:'+p+'%"></s><em>'+(r[1]?'~'+gbp(r3(r[1])):'&ndash;')+'</em></div>'}).join('');
-  function r3(n){return Math.round(n/100)*100}
-  var xt=xs.map(function(x){return XN[x]});
-  var d='A '+SZ[sz]+' '+ST[st]+' kitchen with '+WT[wt]+' worktops'+(xt.length?', plus '+(xt.length>1?xt.slice(0,-1).join(', ')+' and '+xt[xt.length-1]:xt[0]):'')+'.';
-  $('kc-sum').textContent=d;
-  var tip='';
-  if(st===2)tip='In-frame is our most hand-crafted style. Shaker gives a very similar look for roughly a quarter less.';
-  else if(wt===3)tip='Sintered stone takes a hot pan straight from the hob. Quartz looks almost identical for around 20% less.';
-  else if(sz>=2&&xs.indexOf('larder')<0)tip='Kitchens this size usually have room for a larder unit, which is the best value storage you can add.';
-  else if(sz===1&&xs.indexOf('island')<0)tip='If your room is over about 4.5 m wide, an island is often possible. Add it to see the difference.';
-  else if(wt===0&&sz>=1)tip='Upgrading laminate to quartz on a kitchen this size adds about '+gbp(r250(P.wt[2][sz][0]))+' to '+gbp(r250(P.wt[2][sz][1]))+'.';
-  else if(lo>=6000)tip='This is eligible for 0% finance, so you can spread the cost (50% deposit, subject to status).';
-  else tip='Quartz is the worktop most of our customers choose.';
-  $('kc-tip').textContent=tip;
-  $('kc-wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the cost guide on your website: '+d+' Guide price '+gbp(lo)+' to '+gbp(hi)+'. Could we arrange a free design visit?');
-  try{if(sec.classList.contains('s2')&&window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event','kitchen_cost_guide',{size:SZ[sz],style:ST[st],worktop:WT[wt],extras:xs.join('|'),low:lo,high:hi})}catch(e){}
+ var C=window.__ABJ_CALC__;delete window.__ABJ_CALC__;
+ var f=document.getElementById('kc-calc');if(!f||!C)return;var sec=document.getElementById('kc-cost');
+ var $=function(i){return document.getElementById(i)},gbp=function(n){return '£'+n.toLocaleString('en-GB')};
+ var rnd=function(n,hi){var s=(hi||n)<5000?50:250;return Math.round(n/s)*s};
+ var RX=function(a){return new RegExp('\\b('+a+')\\b')};
+ C.groups.forEach(function(g){g.rx=(g.words||[]).map(function(w){return [RX(w[0]),w[1]]})});
+ Object.keys(C.ext).forEach(function(k){C.ext[k].rx=C.ext[k].words?RX(C.ext[k].words):null});
+ (C.notes||[]).forEach(function(n){n.rx=RX(n.words)});
+ var shown=[0,0],raf,note='';
+ function anim(lo,hi){cancelAnimationFrame(raf);var a=shown.slice(),t0=performance.now();(function s(t){var k=Math.min(1,(t-t0)/450),e=1-Math.pow(1-k,3);var l=rnd(a[0]+(lo-a[0])*e,hi),h=rnd(a[1]+(hi-a[1])*e,hi);$('kc-lo').textContent=gbp(l);$('kc-hi').textContent=gbp(h);$('kc-pl').textContent=gbp(l)+'–'+gbp(h).replace('£','');if(k<1)raf=requestAnimationFrame(s);else shown=[lo,hi]})(t0)}
+ function list(a){return a.length>1?a.slice(0,-1).join(', ')+' and '+a[a.length-1]:a[0]}
+ function state(){
+  var v={};C.groups.forEach(function(g){v[g.n]=+f[g.n].value});
+  var sz=v[C.groups[0].n],xs=[].slice.call(f.querySelectorAll('[name=x]:checked')).map(function(x){return x.value});
+  Object.keys(C.ext).forEach(function(k){var e=C.ext[k];if(e.incl==null)return;var l=f.querySelector('[data-x='+k+']');var inc=e.incl.indexOf(sz)>=0;l.classList.toggle('off',inc);if(inc){l.querySelector('input').checked=false;xs=xs.filter(function(x){return x!==k})}});
+  return {v:v,sz:sz,xs:xs,has:function(k){return xs.indexOf(k)>=0}};
  }
- /* plain-English understanding: reads a description and sets the choices */
- var K={
-  sz:[[/\b(compact|small|smallish|little|tiny|galley|narrow|studio|flat|apartment)\b/,0],[/\b(medium|mid[\s-]?sized?|average|normal|regular|decent(ly)?[\s-]?sized?|good[\s-]?sized?|family|l[\s-]?shaped?|l[\s-]?shape|standard)\b/,1],[/\b(large|big|biggish|u[\s-]?shaped?|u[\s-]?shape|spacious|tall units|bank of tall|long)\b/,2],[/\b(statement|huge|massive|very (big|large)|open[\s-]?plan|kitchen[\s-]?diner|extension)\b/,3]],
-  st:[[/\b(handle[\s-]?less|modern|sleek|minimal|contemporary|gloss|j[\s-]?pull|true handleless)\b/,0],[/\b(shaker|classic|painted|cottage|country|farmhouse)\b/,1],[/\b(in[\s-]?frame|heritage|period|traditional|georgian|victorian)\b/,2]],
-  wt:[[/\b(laminate|budget|cheap)\b/,0],[/\b(wood|wooden|oak|walnut|timber|butcher|iroko|solid wood)\b/,1],[/\b(quartz|silestone|caesarstone|marble[\s-]?effect|granite|stone|compac)\b/,2],[/\b(sintered|dekton|ceramic|porcelain|neolith|lapitec|real marble|natural marble)\b/,3]],
-  x:[[/\b(island)\b/,'island'],[/\b(breakfast bar|peninsula|bar area|breakfast counter)\b/,'bar'],[/\b(appliances?|oven|ovens|hob|fridge|freezer|dishwasher|integrated|neff|bosch|siemens|miele|aeg|range cooker|extractor)\b/,'app'],[/\b(larder|pantry|tall cupboard)\b/,'larder'],[/\b(quooker|boiling|hot water tap|instant hot)\b/,'tap'],[/\b(led|lighting|lights|lit|plinth light)\b/,'led']]
- };
- var LBL={sz:['Compact','Medium','Large','Statement'],st:['Handleless','Shaker','In-frame'],wt:['Laminate','Solid wood','Quartz','Sintered stone']},XL={island:'Island',bar:'Breakfast bar',app:'Appliances',larder:'Larder unit',tap:'Boiling-water tap',led:'LED lighting'};
- function setR(n,v){var i=f.querySelector('[name='+n+'][value="'+v+'"]');if(i&&!i.checked){i.checked=true;i.parentNode.classList.remove('hit');void i.parentNode.offsetWidth;i.parentNode.classList.add('hit')}}
+ function calc(){
+  var s=state(),sz=s.sz,m=1,rows=[],lo=0,hi=0;
+  C.groups.forEach(function(g){if(g.mult)m*=g.mult[s.v[g.n]]});
+  var cab=[C.base[sz][0]*m,C.base[sz][1]*m];rows.push([C.lbl.base,cab]);
+  C.groups.forEach(function(g){if(g.add){rows.push([g.label,g.add[s.v[g.n]][sz]])}});
+  var ex=[0,0];s.xs.forEach(function(k){var e=C.ext[k],p=typeof e.p[0]==='number'?e.p:e.p[sz],k2=e.mult?m:1;ex[0]+=p[0]*k2;ex[1]+=p[1]*k2});
+  rows.push([C.lbl.ext,ex]);rows.push([C.lbl.inst,C.inst[sz]]);
+  rows.forEach(function(r){lo+=r[1][0];hi+=r[1][1]});
+  hi=rnd(hi);lo=rnd(lo,hi);s.lo=lo;s.hi=hi;
+  anim(lo,hi);
+  var mid=function(v){return (v[0]+v[1])/2},tot=rows.reduce(function(a,r){return a+mid(r[1])},0)||1,r3=function(n){return Math.round(n/50)*50};
+  $('kc-bars').innerHTML=rows.map(function(r){var p=Math.round(mid(r[1])/tot*100);return '<div class="bar"><span>'+r[0]+'</span><s style="--w:'+p+'%"></s><em>'+(mid(r[1])?'~'+gbp(r3(mid(r[1]))):'&ndash;')+'</em></div>'}).join('');
+  var xt=s.xs.map(function(k){return C.ext[k].name});
+  var d=C.say(s,function(n){var g=C.groups.filter(function(g){return g.n===n})[0];return g.say[s.v[n]]})+(xt.length?', plus '+list(xt):'')+'.';d=d.replace(/^A ([aeiou])/i,'An $1');
+  $('kc-sum').textContent=d;
+  $('kc-tip').textContent=note||C.tip(s,gbp,rnd);
+  $('kc-wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the cost guide on your website: '+d+' Guide price '+gbp(lo)+' to '+gbp(hi)+'. Could we arrange a free design visit?');
+  try{if(sec.classList.contains('s2')&&window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted'){var ev={extras:s.xs.join('|'),low:lo,high:hi};C.groups.forEach(function(g){ev[g.ev]=g.say[s.v[g.n]]});gtag('event',C.ev,ev)}}catch(e){}
+ }
+ function hit(i){i.parentNode.classList.remove('hit');void i.parentNode.offsetWidth;i.parentNode.classList.add('hit')}
+ function setR(n,v){var i=f.querySelector('[name='+n+'][value="'+v+'"]');if(i&&!i.checked){i.checked=true;hit(i)}}
  function understand(t){
-  t=' '+t.toLowerCase().replace(/[^a-z0-9.\s-]/g,' ')+' ';var got=[],ask=[];
-  var m=t.match(/(\d+(?:\.\d+)?)\s*(m|metres?|meters?)\b/);var sz=null;
-  if(m){var L=+m[1];sz=L<=4?0:L<=7?1:2}
-  K.sz.forEach(function(k){if(k[0].test(t))sz=sz===null?k[1]:Math.max(sz,k[1])});
-  var isl=/\b(island)\b/.test(t);if(sz===null&&isl)sz=3;
-  ['st','wt'].forEach(function(n){var v=null;K[n].forEach(function(k){if(k[0].test(t))v=k[1]});if(v!==null){setR(n,v);got.push(LBL[n][v])}else ask.push(n)});
-  if(sz!==null){setR('sz',sz);got.unshift(LBL.sz[sz])}else ask.unshift('sz');
-  K.x.forEach(function(k){var i=f.querySelector('[name=x][value='+k[1]+']');if(!i)return;
-   if(k[0].test(t)){if(!(k[1]==='island'&&sz===3)){if(!i.checked){i.checked=true;i.dataset.ai='1';i.parentNode.classList.remove('hit');void i.parentNode.offsetWidth;i.parentNode.classList.add('hit')}got.push(XL[k[1]])}else got.push(XL.island)}
+  t=' '+t.toLowerCase().replace(/[^a-z0-9.\s-]/g,' ')+' ';var got=[],ask=[],g0=C.groups[0],sz=null;note='';
+  var m=t.match(/(\d+(?:\.\d+)?)\s*(m|metres?|meters?)\b/);
+  if(m&&C.metres){var L=+m[1];sz=0;C.metres.forEach(function(x){if(L>x)sz++})}
+  g0.rx.forEach(function(k){if(k[0].test(t))sz=sz===null?k[1]:Math.max(sz,k[1])});
+  Object.keys(C.ext).forEach(function(k){var e=C.ext[k];if(sz===null&&e.sizeIf!=null&&e.rx&&e.rx.test(t))sz=e.sizeIf});
+  C.groups.slice(1).forEach(function(g){var v=null;g.rx.forEach(function(k){if(k[0].test(t))v=k[1]});if(v!==null){setR(g.n,v);got.push(g.lbl[v])}else ask.push(g)});
+  if(sz!==null){setR(g0.n,sz);got.unshift(g0.lbl[sz])}else ask.unshift(g0);
+  Object.keys(C.ext).forEach(function(k){var e=C.ext[k],i=f.querySelector('[name=x][value='+k+']');if(!i||!e.rx)return;
+   if(e.rx.test(t)){if(!(e.incl&&e.incl.indexOf(sz)>=0)){if(!i.checked){i.checked=true;i.dataset.ai='1';hit(i)}}got.push(e.lbl)}
    else if(i.dataset.ai==='1'){i.checked=false;delete i.dataset.ai}});
-  if(/granite/.test(t))got.push('Granite priced like quartz');
-  var Q={sz:'Size? pick below',st:'Style? pick below',wt:'Worktop? pick below'};
-  $('kc-got').innerHTML=t.trim()?got.map(function(g){return '<span>'+g+'</span>'}).join('')+ask.map(function(a){return '<span class="q">'+Q[a]+'</span>'}).join('')+(got.length?'':'<p class="ai-note">We couldn&rsquo;t pick out the details from that, so choose them below.</p>'):'';
+  (C.notes||[]).forEach(function(n){if(n.rx.test(t)){if(n.chip)got.push(n.chip);if(n.tip&&!note)note=n.tip}});
+  $('kc-got').innerHTML=t.trim()?got.map(function(g){return '<span>'+g+'</span>'}).join('')+ask.map(function(g){return '<span class="q">'+g.q+'</span>'}).join('')+(got.length?'':'<p class="ai-note">We couldn&rsquo;t pick out the details from that, so choose them below.</p>'):'';
   understand.found=got.length;
   calc();
  }
@@ -266,8 +265,8 @@
   if(fromText){clearTimeout(tm);understand($('kc-say').value)}
   sec.classList.remove('s1');sec.classList.add('s2');calc();
   var ta=$('kc-say');ta.rows=1;ta.style.height='auto';ta.style.height=ta.scrollHeight+'px';
-  $('kc-or').textContent=fromText&&understand.found?'We\u2019ve set these from your description. Change anything':'Pick your options';
-  try{if(window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event','kitchen_cost_guide_start',{method:fromText?'describe':'pick'})}catch(e){}
+  $('kc-or').textContent=fromText&&understand.found?'We’ve set these from your description. Change anything':'Pick your options';
+  try{if(window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event',C.ev+'_start',{method:fromText?'describe':'pick'})}catch(e){}
   var hd=document.getElementById('kc-hd'),hh=hd?hd.getBoundingClientRect().height:0;
   setTimeout(function(){var el=window.innerWidth<=1100?sec.querySelector('.res'):sec;var y=window.pageYOffset+el.getBoundingClientRect().top-(window.innerWidth<=1100?hh+12:hh);window.scrollTo({top:y,behavior:'smooth'})},80);
  }
@@ -275,7 +274,7 @@
  $('kc-skip').addEventListener('click',function(){go(false)});
  $('kc-say').addEventListener('keydown',function(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();if($('kc-say').value.trim())go(true)}});
  [].forEach.call(sec.querySelectorAll('.ai-ex button'),function(b){b.addEventListener('click',function(){var t=$('kc-say');t.value=b.getAttribute('data-t');t.style.height='auto';t.style.height=t.scrollHeight+'px';go(true)})});
- f.addEventListener('change',function(e){if(e.target.id==='kc-say')return;if(e.target.name==='x')delete e.target.dataset.ai;calc()});calc();
+ f.addEventListener('change',function(e){if(e.target.id==='kc-say')return;if(e.target.name==='x')delete e.target.dataset.ai;else note='';calc()});calc();
  var res=sec.querySelector('.res');
  if('IntersectionObserver' in window){var inSec=false,resVis=false,up=function(){sec.classList.toggle('vis',inSec&&!resVis)};
   new IntersectionObserver(function(e){inSec=e[0].isIntersecting;up()},{threshold:0}).observe(f);
