@@ -254,3 +254,18 @@ under-stairs, office fit-out) only had the steps changed. Old block code: Chrome
 `tidy.js` then removed the last stock phrases (About "The ABJ journey" -> "Our story", Cambridge "Your journey" -> "How it
 works", case studies "Ready to transform your home?" -> "Planning something similar?") and the dash in each town hero line.
 Final sweep of 45 live pages: all 200, one H1 each, valid schema, no stock phrases, no "10-year"; repeated text 0-12% a page.
+
+## Visual review fixes (11 Nov 2026)
+From an independent visual review, agreed with Ish. `fixes_1111.js` (abjFix.projects / gallery / booking / ihTop):
+- "Projects" in the header and menu now opens /gallery on every live page (46 pages); the footer's old Projects link is now
+  "Case study" (still Kings Road). build.py NAV/MENU/footer match. Blog articles take their header from out-live/post-chrome.html
+  via the site HEAD pin, moved from 113f662 to 87f5b2d (same length; HEAD still 65,486 chars), and /abjfeeds republished.
+- Gallery: photos now mixed round-robin by room type (the first screen was 16 kitchens); the bordered photo with the old
+  "Made by" watermark is last among the kitchens. gallery.py does the same.
+- Booking page: the postcode result line had picked up the white product-card style (#kc .pc) and showed as an empty 80px white
+  box; now hidden until there is a result, then plain small text. theme.css fixed too.
+- Gallery, FAQ, offers, finance, products, blog list: the old site head's .kd-first rule (padding-top:48px !important, desktop)
+  pushed the intro label under the fixed header. Override added in each block and theme.css.
+Homepage (`homefix.js`, abjHome): featured project moved straight after the four main rooms, "Everywhere else in your home"
+after it, and a slightly darker fade behind the hero text (video and wording unchanged). Done and checked on the test homepage
+(350369803, desktop + 390 px). Live homepage: waiting for Ish's go-ahead to publish (backup of the live block is taken first).
