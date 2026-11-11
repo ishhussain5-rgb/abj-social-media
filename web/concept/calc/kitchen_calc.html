@@ -47,7 +47,7 @@
 #kc .calc .op{display:grid;gap:10px}
 #kc .calc .op4{grid-template-columns:repeat(4,minmax(0,1fr))}
 #kc .calc .op3{grid-template-columns:repeat(3,minmax(0,1fr))}
-#kc .calc .op5{grid-template-columns:repeat(5,minmax(0,1fr))}
+#kc .calc .op6{grid-template-columns:repeat(6,minmax(0,1fr))}
 #kc .calc label{position:relative;display:flex;flex-direction:column;gap:6px;min-height:100%;padding:16px 16px 15px;border:1px solid rgba(243,238,230,.18);cursor:pointer;transition:border-color .25s,background .25s;-webkit-tap-highlight-color:transparent}
 #kc .calc label:hover{border-color:rgba(243,238,230,.42)}
 #kc .calc input{position:absolute;opacity:0;pointer-events:none}
@@ -78,8 +78,49 @@
 #kc .calc .acts .bt{background:var(--g);color:var(--lin);flex:1 1 auto}
 #kc .calc .acts .bt.o{background:transparent;color:var(--ink);border:1px solid var(--hair)}
 #kc .calc .fine{margin-top:18px;font-size:11.5px;line-height:1.55;color:var(--mut)}
+@media (min-width:1101px){
+ #kc .calc.s2{padding:30px 0 30px}
+ #kc .calc.s2 h2{font-size:clamp(30px,2.5vw,44px);margin:8px 0 14px}
+ #kc .calc.s2 .lead{display:none}
+ #kc .calc.s2 .ai{margin-bottom:10px}
+ #kc .calc.s2 .ai-in{padding:12px 16px 10px}
+ #kc .calc.s2 textarea{font-size:20px;margin-top:6px;min-height:0}
+ #kc .calc.s2 .ai-out{margin-top:8px}
+ #kc .calc.s2 .ai-out span{padding:6px 10px;font-size:10px}
+ #kc .calc.s2 .or{margin:0 0 12px}
+ #kc .calc.s2 fieldset{margin-bottom:12px}
+ #kc .calc.s2 legend{margin-bottom:7px}
+ #kc .calc.s2 legend i{font-size:18px}
+ #kc .calc.s2 label{padding:9px 12px;gap:2px}
+ #kc .calc.s2 label b{font-size:17px}
+ #kc .calc.s2 label span{font-size:11.5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+ #kc .calc.s2 label svg{width:30px;height:20px;margin:0 0 2px}
+ #kc .calc.s2 .xt label{padding:10px 11px;gap:8px}
+ #kc .calc.s2 .xt label b{font-size:12px}
+ #kc .calc.s2 .res{top:96px;padding:26px 32px}
+ #kc .calc.s2 .pr{font-size:clamp(40px,3.3vw,60px);margin:8px 0 4px}
+ #kc .calc.s2 .sum{min-height:0;font-size:13.5px}
+ #kc .calc.s2 .tip{margin-top:10px;padding:10px 12px}
+ #kc .calc.s2 .bars{margin:14px 0 14px;padding:14px 0;gap:8px}
+ #kc .calc.s2 .inc{margin-bottom:16px;gap:4px 18px}
+ #kc .calc.s2 .acts .bt{height:50px}
+ #kc .calc.s2 .fine{margin-top:12px;font-size:11px;line-height:1.5}
+}
+@media (min-width:1101px) and (max-height:860px){
+ #kc .calc.s2{padding:20px 0 20px}
+ #kc .calc.s2 h2{font-size:clamp(28px,2.2vw,36px);margin:6px 0 10px}
+ #kc .calc.s2 .ch>div:first-child>.kick{display:none}
+ #kc .calc.s2 label span,#kc .calc.s2 label svg{display:none}
+ #kc .calc.s2 label{padding:9px 12px}
+ #kc .calc.s2 fieldset{margin-bottom:10px}
+ #kc .calc.s2 .or{margin-bottom:10px}
+ #kc .calc.s2 .res{top:92px;padding:20px 26px}
+ #kc .calc.s2 .res .inc{display:none}
+ #kc .calc.s2 .bars{margin:10px 0 12px;padding:10px 0}
+ #kc .calc.s2 .acts .bt{height:46px}
+}
 @media (max-width:1100px){#kc .calc .ch{grid-template-columns:1fr;gap:0}#kc .calc .ch>div:first-child,#kc .calc #kc-calc{display:contents}#kc .calc .res{position:relative;top:0;order:1;margin:6px 0 34px}#kc .calc .pk{order:2}#kc .calc.s1 .res{display:none}#kc .calc .or span{text-align:center}}
-@media (max-width:760px){#kc .calc .op4,#kc .calc .op5{grid-template-columns:1fr 1fr}#kc .calc .op3{grid-template-columns:1fr 1fr 1fr}#kc .calc .op3 label span{display:none}#kc .calc label{padding:14px 12px}#kc .calc label b{font-size:19px}#kc .calc .inc{grid-template-columns:1fr}#kc .calc .bar{grid-template-columns:96px minmax(0,1fr) 56px}
+@media (max-width:760px){#kc .calc .op4,#kc .calc .op6{grid-template-columns:1fr 1fr}#kc .calc .op3{grid-template-columns:1fr 1fr 1fr}#kc .calc .op3 label span{display:none}#kc .calc label{padding:14px 12px}#kc .calc label b{font-size:19px}#kc .calc .inc{grid-template-columns:1fr}#kc .calc .bar{grid-template-columns:96px minmax(0,1fr) 56px}
  #kc .calc .pill{position:fixed;left:12px;right:12px;bottom:calc(66px + env(safe-area-inset-bottom));z-index:40;display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--lin);color:var(--ink);box-shadow:0 10px 30px rgba(0,0,0,.28);font:500 11px/1.2 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:0;transform:translateY(12px);pointer-events:none;transition:.35s}
  #kc .calc .pill b{font:400 22px/1 var(--serif);letter-spacing:0;text-transform:none}
  #kc .calc.s2.vis .pill{opacity:1;transform:none;pointer-events:auto}}
@@ -124,8 +165,9 @@
     </div>
    </fieldset>
    <fieldset class="xt"><legend><i>04</i>Anything else? <span style="letter-spacing:.1em;text-transform:none">(optional)</span></legend>
-    <div class="op op5">
+    <div class="op op6">
      <label data-x="island"><input type="checkbox" name="x" value="island"><b>Island</b></label>
+     <label><input type="checkbox" name="x" value="bar"><b>Breakfast bar</b></label>
      <label><input type="checkbox" name="x" value="app"><b>Appliances</b></label>
      <label><input type="checkbox" name="x" value="larder"><b>Larder unit</b></label>
      <label><input type="checkbox" name="x" value="tap"><b>Boiling-water tap</b></label>
@@ -156,10 +198,10 @@
  var P={
   base:[[5000,7500],[7500,11500],[11000,16500],[16000,24000]],
   style:[1,1.08,1.35],
-  wt:[[[0,0],[0,0],[0,0],[0,0]],[[500,900],[800,1300],[1100,1800],[1600,2500]],[[1300,2000],[2000,3000],[2900,4200],[4000,5800]],[[1800,2600],[2700,3900],[3800,5400],[5200,7400]]],
-  island:[2500,4500],app:[[2000,3200],[2500,4000],[3000,5000],[3500,6000]],larder:[1200,2200],tap:[700,1100],led:[300,650]
+  wt:[[[0,0],[0,0],[0,0],[0,0]],[[300,600],[500,900],[700,1200],[1000,1700]],[[900,1500],[1500,2500],[2200,3500],[3000,4800]],[[1300,2000],[2100,3300],[3000,4600],[4200,6500]]],
+  island:[2500,4500],bar:[1200,2400],app:[[1500,2800],[2000,3800],[2500,4500],[3000,5500]],larder:[1200,2200],tap:[700,1100],led:[300,650]
  };
- var SZ=['compact','medium','large','statement'],ST=['handleless','Shaker','in-frame'],WT=['laminate','solid wood','quartz','sintered stone'],XN={island:'an island',app:'appliances',larder:'a larder unit',tap:'a boiling-water tap',led:'LED lighting'};
+ var SZ=['compact','medium','large','statement'],ST=['handleless','Shaker','in-frame'],WT=['laminate','solid wood','quartz','sintered stone'],XN={island:'an island',bar:'a breakfast bar',app:'appliances',larder:'a larder unit',tap:'a boiling-water tap',led:'LED lighting'};
  var f=document.getElementById('kc-calc');if(!f)return;var sec=document.getElementById('kc-cost');
  var $=function(i){return document.getElementById(i)},r250=function(n){return Math.round(n/250)*250},gbp=function(n){return '£'+n.toLocaleString('en-GB')};
  var shown=[0,0],raf;
@@ -195,12 +237,12 @@
  }
  /* plain-English understanding: reads a description and sets the choices */
  var K={
-  sz:[[/\b(compact|small|tiny|galley|narrow|studio|flat|apartment)\b/,0],[/\b(medium|average|l[\s-]?shaped?|l[\s-]?shape|standard)\b/,1],[/\b(large|big|u[\s-]?shaped?|u[\s-]?shape|spacious|tall units|bank of tall)\b/,2],[/\b(statement|huge|open[\s-]?plan|kitchen[\s-]?diner|extension)\b/,3]],
+  sz:[[/\b(compact|small|smallish|little|tiny|galley|narrow|studio|flat|apartment)\b/,0],[/\b(medium|mid[\s-]?sized?|average|normal|regular|decent(ly)?[\s-]?sized?|good[\s-]?sized?|family|l[\s-]?shaped?|l[\s-]?shape|standard)\b/,1],[/\b(large|big|biggish|u[\s-]?shaped?|u[\s-]?shape|spacious|tall units|bank of tall|long)\b/,2],[/\b(statement|huge|massive|very (big|large)|open[\s-]?plan|kitchen[\s-]?diner|extension)\b/,3]],
   st:[[/\b(handle[\s-]?less|modern|sleek|minimal|contemporary|gloss|j[\s-]?pull|true handleless)\b/,0],[/\b(shaker|classic|painted|cottage|country|farmhouse)\b/,1],[/\b(in[\s-]?frame|heritage|period|traditional|georgian|victorian)\b/,2]],
-  wt:[[/\b(laminate|budget|cheap)\b/,0],[/\b(wood|wooden|oak|walnut|timber|butcher|iroko|solid wood)\b/,1],[/\b(quartz|silestone|caesarstone|marble[\s-]?effect|granite|stone)\b/,2],[/\b(sintered|dekton|ceramic|porcelain|neolith|lapitec)\b/,3]],
-  x:[[/\b(island|peninsula)\b/,'island'],[/\b(appliances?|oven|ovens|hob|fridge|freezer|dishwasher|integrated|neff|bosch|siemens|miele|aeg|range cooker|extractor)\b/,'app'],[/\b(larder|pantry|tall cupboard)\b/,'larder'],[/\b(quooker|boiling|hot water tap|instant hot)\b/,'tap'],[/\b(led|lighting|lights|lit|plinth light)\b/,'led']]
+  wt:[[/\b(laminate|budget|cheap)\b/,0],[/\b(wood|wooden|oak|walnut|timber|butcher|iroko|solid wood)\b/,1],[/\b(quartz|silestone|caesarstone|marble[\s-]?effect|granite|stone|compac)\b/,2],[/\b(sintered|dekton|ceramic|porcelain|neolith|lapitec|real marble|natural marble)\b/,3]],
+  x:[[/\b(island)\b/,'island'],[/\b(breakfast bar|peninsula|bar area|breakfast counter)\b/,'bar'],[/\b(appliances?|oven|ovens|hob|fridge|freezer|dishwasher|integrated|neff|bosch|siemens|miele|aeg|range cooker|extractor)\b/,'app'],[/\b(larder|pantry|tall cupboard)\b/,'larder'],[/\b(quooker|boiling|hot water tap|instant hot)\b/,'tap'],[/\b(led|lighting|lights|lit|plinth light)\b/,'led']]
  };
- var LBL={sz:['Compact','Medium','Large','Statement'],st:['Handleless','Shaker','In-frame'],wt:['Laminate','Solid wood','Quartz','Sintered stone']},XL={island:'Island',app:'Appliances',larder:'Larder unit',tap:'Boiling-water tap',led:'LED lighting'};
+ var LBL={sz:['Compact','Medium','Large','Statement'],st:['Handleless','Shaker','In-frame'],wt:['Laminate','Solid wood','Quartz','Sintered stone']},XL={island:'Island',bar:'Breakfast bar',app:'Appliances',larder:'Larder unit',tap:'Boiling-water tap',led:'LED lighting'};
  function setR(n,v){var i=f.querySelector('[name='+n+'][value="'+v+'"]');if(i&&!i.checked){i.checked=true;i.parentNode.classList.remove('hit');void i.parentNode.offsetWidth;i.parentNode.classList.add('hit')}}
  function understand(t){
   t=' '+t.toLowerCase().replace(/[^a-z0-9.\s-]/g,' ')+' ';var got=[],ask=[];
@@ -223,9 +265,11 @@
  function go(fromText){
   if(fromText){clearTimeout(tm);understand($('kc-say').value)}
   sec.classList.remove('s1');sec.classList.add('s2');calc();
+  var ta=$('kc-say');ta.rows=1;ta.style.height='auto';ta.style.height=ta.scrollHeight+'px';
   $('kc-or').textContent=fromText&&understand.found?'We\u2019ve set these from your description. Change anything':'Pick your options';
   try{if(window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event','kitchen_cost_guide_start',{method:fromText?'describe':'pick'})}catch(e){}
-  if(window.innerWidth<=1100){setTimeout(function(){var r=sec.querySelector('.res').getBoundingClientRect();var y=window.pageYOffset+r.top-90;window.scrollTo({top:y,behavior:'smooth'})},120)}
+  var hd=document.getElementById('kc-hd'),hh=hd?hd.getBoundingClientRect().height:0;
+  setTimeout(function(){var el=window.innerWidth<=1100?sec.querySelector('.res'):sec;var y=window.pageYOffset+el.getBoundingClientRect().top-(window.innerWidth<=1100?hh+12:hh);window.scrollTo({top:y,behavior:'smooth'})},80);
  }
  $('kc-go').addEventListener('click',function(){go(true)});
  $('kc-skip').addEventListener('click',function(){go(false)});
