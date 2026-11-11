@@ -355,3 +355,12 @@ live codes used: `live-<livepageid>-20261111`. Checked on the published DEV page
 VAT: Ish confirmed (11 Nov) Alex's grand totals include VAT, so the small print says "Prices include VAT" (DEV @ 3315235).
 Open before LIVE: the Kitchens page says "from £5,000"
 but real fitted compact kitchens come out at about £2,350-£4,000; Alex/surveyor to approve the ranges.
+- 11 Nov (later): 8 more guides on DEV (@f3a93e4), worked out from the same per-metre rates in Alex's quotes (no direct quote
+  for these yet): alcoves 377446503/5698633203, under-stairs 377438103/5698610503, storage 352693303/5644302703,
+  home office 352693703/5644307403, hallways 352714403/5644309203, bathroom 352714503/5644313603,
+  worktops 352693403/5644290603 (kitchen worktop figures), feature walls 352693503/5644298303. Small print says "worked out from
+  our recent quotes". Not built: office fit-out, HMO, upholstery, cabinet makers (priced per project / no data).
+  LIVE recs for go-live: kitchens 73297273/5657531303, wardrobes 73280437/5657532803, bedrooms 73297487/5657534703,
+  media 73279037/5657536503, sloping 377674203/5699149203, sliding 377674503/5699150703, walk-in 377674603/5699151403,
+  alcoves 377674903/5699153503, under-stairs 377674303/5699149903, storage 73372439/5657540503, office 73279381/5657545803,
+  hallways 73340083/5657547203, bathroom 152105513/5657550603, worktops 73545333/5657537203, decors 73195791/5657538603.
