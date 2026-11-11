@@ -10,7 +10,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 CSS = open(os.path.join(HERE, 'calc.css.part')).read()
 ENGINE = open(os.path.join(HERE, 'calc_engine.js.part')).read()
 INC = ['3D design &amp; site survey', 'Made in Peterborough', 'Fitted by our own team', '12-month guarantee']
-FIN = '0% finance is available on projects over &pound;6,000 (subject to status).'
+FIN = 'Prices include VAT. 0% finance is available on projects over &pound;6,000 (subject to status).'
 
 
 def panels(n, top=False):
