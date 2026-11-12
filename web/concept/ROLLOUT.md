@@ -372,3 +372,20 @@ but real fitted compact kitchens come out at about £2,350-£4,000; Alex/surveyo
   kitchen, made and fitted, starts from around £2,500, and a typical medium kitchen with quartz worktops comes to around
   £7,000 to £9,500..." so it matches the guide (Ish left the choice to me). Still saying "from around £5,000": homepage FAQ
   schema, handleless and Kings Road case studies. Rollback for a page: save the backup code into its block, publish that page.
+
+## New gap pages (12 Nov 2026) - built, not yet on Tilda
+From the AI-search gap analysis. Source: `new_pages_data.py` + `gen_new.py` (6 service pages), `towns/new_towns.py` (3 town pages), then `build.py`.
+DEV-ready block code is in `out-new/<slug>.html` (abjLight + abjMenuImgs + abjBkDedupe + abjFootFh applied; no photo repeats on any page, logo excepted).
+`abjAnchors` (link-text rewording) is NOT applied yet: it expects live URLs, so run the full `abjPolish` after the linkmap swap at go-live.
+| slug | DEV url | planned live url |
+|---|---|---|
+| kitchen-design | /kitchen-design-peterborough-dev-d4k8 | /kitchen-design-peterborough |
+| kitchen-cabinets | /kitchen-cabinets-peterborough-dev-c5u2 | /kitchen-cabinets-peterborough |
+| supply-only | /supply-only-kitchens-dev-s7q3 | /supply-only-kitchens-peterborough |
+| utility-boot | /utility-boot-rooms-dev-u3b9 | /utility-boot-rooms-peterborough |
+| showroom | /kitchen-showroom-peterborough-dev-r8m4 | /kitchen-showroom-peterborough |
+| bespoke-vs | /bespoke-vs-off-the-shelf-kitchens-dev-v6g2 | /bespoke-vs-off-the-shelf-kitchens |
+| st-neots | /fitted-kitchens-bedrooms-st-neots-dev-n3s7 | /fitted-kitchens-bedrooms-st-neots |
+| corby | /fitted-kitchens-bedrooms-corby-dev-c9r2 | /fitted-kitchens-bedrooms-corby |
+| kettering | /fitted-kitchens-bedrooms-kettering-dev-k4t6 | /fitted-kitchens-bedrooms-kettering |
+To do: create private (noindex) DEV pages in Tilda, save block, publish single page, check desktop + phone; town landmark photos later; add to linkmap.json and link from existing pages at go-live (needs Ish's approval). Showroom opening hours not given yet - copy says "during our opening hours, call before you travel".
