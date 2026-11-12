@@ -549,3 +549,18 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   checks, 71 in Ish's run). Only item left: 4 homepage room-panel video posters (1656-1920px) shown at 219px on phones
   (Low). Homepage rule = DEV first, so left for Ish to OK. Images under 100 kB: 100% of 339; phone-friendly 100%.
   Normal/Tilda only: several H2s per page, external links in the footer, Tilda's blog back-button with no text.
+
+## AI search test (12 Nov 2026, 22:00) + Crawler Hints
+- Cloudflare Caching > Configuration > Crawler Hints switched ON (flags: crawlhints_enabled true). Sends IndexNow pings to
+  Bing/Yandex etc. when cached pages change.
+- 12 prompts run in ChatGPT (temporary chat, Unpersonalized) and Perplexity (signed out). Copilot needs a Microsoft sign-in;
+  Gemini blocked page reading for the extension. ABJ 1st: media walls (both), wardrobes (both), sloping wardrobes (both),
+  finance (Perplexity). ABJ 3rd-4th: best kitchen makers (ChatGPT 4/5), showroom (ChatGPT 3/8), cost (ChatGPT 3/4, Perplexity
+  1st and quotes our price guide), finance (ChatGPT 4/4 + table). Missing: Stamford kitchens (both), Huntingdon wardrobes
+  (both), Perplexity 'best kitchen makers' (Küchen Kraft only). Competitors named most: Martin Thompson Joinery, S&E United
+  Joinery, Willowbrook, Acorn Joinery, Ultimate Kitchens, Hurford & Tebbutt, Fitzgeralds, Hammonds.
+- Guarantee: both tools report "10-year manufacturer guarantee" next to 12 months. Sources: (1) the site's 404 page is the old
+  /near-me-peterborough page (200 there, noindex, also served on every 404) and still says "10-year manufacturer guarantee"
+  three times; (2) /terms-and-conditions lists maker warranties (10 yrs cabinets, 6 doors, lifetime Blum). (1) to fix when
+  Tilda is signed in again (Chrome was signed out of Tilda 22:07); (2) is Alex's legal text - ask before changing.
+- Health checker gap: its "10-year" rule skips text near "manufacturer", and it doesn't crawl the 404 page. To tighten.
