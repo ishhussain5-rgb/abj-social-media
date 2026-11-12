@@ -460,3 +460,7 @@ canonical, 1 H1, no DEV links, footer scripts, 0 broken/repeated photos, links 2
 Sitemap resubmitted (54 pages). Indexing requested: Shaker, handleless, Fenland; King's Lynn hit the daily quota (follow-up 13 Nov).
 `tilda_links2.js` on every page: footer areas + "March & Whittlesey", "King's Lynn"; kitchens page row + Shaker / handleless.
 Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
+- 12 Nov 13:25: homepage footer compacted on LIVE (Ish: "put the homepage footer live immediately", no test page this time).
+  `desktop_compact.css` @129c015 inserted before the first `</style>` of live home block 5657646303 (page 30601906), insert only.
+  Footer 944px -> 616px at 1536x639 (656px at 1280); areas one line; booking buttons one row on desktop; no sideways scroll at
+  390/900/1280. Old block code: IndexedDB abj_svc_bak 'home-30601906-before-footer-20261112'. Home test page not yet updated.
