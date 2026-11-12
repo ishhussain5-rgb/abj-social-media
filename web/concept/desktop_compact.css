@@ -25,3 +25,11 @@
 @media (min-width:1101px) and (max-width:1199px){
 #kc .bk .acts .bt{padding:0 11px;letter-spacing:.07em}
 }
+/* ===== phone: bigger tap areas for the menu button and legal links, slightly tighter footer (12 Nov 2026) ===== */
+@media (max-width:760px){
+#kc .mb{padding:17px 0;margin:-9px 0}
+#kc .ft-l nav a,#kc .ft-l span a{padding:13px 0}
+#kc .ft-top h2{font-size:31px}
+#kc .ft-top{padding-bottom:26px}
+#kc .ft-s{font-size:11px}
+}
