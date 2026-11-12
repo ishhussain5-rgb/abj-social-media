@@ -503,3 +503,4 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   new '/calculatorcutlist*' -> https://www.cutandedgexpress.com/cutting-list-peterborough/. Dashboard API writes are blocked
   (403) - edits done in the dashboard form. Tested: all 10 /tpost/ cases + cutting list OK, live posts unaffected,
   all 15 town pages 200. New Tilda entries still propagating across Tilda servers at 18:10 (215/228 tries OK).
+- 12 Nov 19:07 recheck: all 30 new Tilda redirects OK on every try (150/150), no re-save needed.
