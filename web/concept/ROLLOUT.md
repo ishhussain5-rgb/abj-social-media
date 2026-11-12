@@ -468,3 +468,6 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   (figure.ix, kc-kr-detail, caption "Made in our Peterborough workshop", desktop only, hidden under 1101px) in the empty left
   column; workshop section 808 -> 635px and booking 796 -> 653px at 1904 wide (buttons one row). Phone unchanged.
   Backup 'homedev-350369803-before-fit-20261112'. Waiting for Ish to check before live.
+- 12 Nov 14:40: Ish: workshop section "still not fitting" (his Chrome is 1707x~775 CSS px at 112.5% scaling, and he counts the
+  4 steps row as part of it). Whole workshop section (photo block + steps) now 696px at 1707x775, 718 at 1904x877, 662 at
+  1536x695, 643 at 1280x720: stats in one row of 4, smaller headline/stats, tighter padding, compact steps. DEV only.
