@@ -622,6 +622,34 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 
 /* the old site head adds .kd-first (padding-top:48px !important on desktop) to the first section; keep the .ih intro clear of the fixed header */
 @media (min-width:821px){html:not(#kd-a):not(#kd-b) #kc .ih.kd-first{padding-top:calc(86px + clamp(56px,7vw,120px))!important}}
+
+/* ===== desktop: booking buttons on one line, footer fits one screen (12 Nov 2026) ===== */
+@media (min-width:1101px){
+#kc .bk .acts{flex-wrap:nowrap;gap:10px}
+#kc .bk .acts .bt{padding:0 22px;letter-spacing:.18em;white-space:nowrap;flex:0 0 auto}
+#kc .ft{padding:clamp(40px,3.2vw,56px) 0 24px}
+#kc .ft-top{align-items:center;padding-bottom:clamp(26px,2.2vw,36px)}
+#kc .ft-top h2{font-size:clamp(40px,3.4vw,58px);max-width:none}
+#kc .ft-top .acts{flex-direction:row;align-items:center;gap:32px}
+#kc .ft-g{padding:clamp(24px,2.2vw,36px) 0}
+#kc .ft-g .fh{margin-bottom:14px}
+#kc .ft-g ul{gap:5px;font-size:13.5px}
+#kc .ft-b .lg{margin-bottom:16px}
+#kc .ft-b .rt{margin-top:14px}
+#kc .ft-v address{line-height:1.6}
+#kc .ft-v .lnk{margin-top:12px}
+#kc .ft-ar{padding-bottom:22px!important}
+#kc .ft-ar .fh{margin-bottom:10px}
+#kc .ft-s{padding-top:18px}
+#kc .ft-l{margin-top:14px}
+}
+@media (min-width:1101px) and (max-width:1439px){
+#kc .bk .acts{gap:8px}
+#kc .bk .acts .bt{padding:0 14px;letter-spacing:.1em;font-size:10.5px;height:52px}
+}
+@media (min-width:1101px) and (max-width:1199px){
+#kc .bk .acts .bt{padding:0 11px;letter-spacing:.07em}
+}
 </style>
 
 <div id="kc">
@@ -662,11 +690,11 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 <section class="sty" id="kc-styles">
  <div class="w sh"><div class="rv"><span class="kick">Styles</span><h2 style="margin-top:16px">What we can supply</h2></div><div class="rv" style="display:flex;align-items:flex-end;gap:40px"><p>Choose the whole kitchen or just the parts you need.</p><div class="arw" data-for="kc-rail"><button type="button" data-d="-1" aria-label="Previous">&larr;</button><button type="button" data-d="1" aria-label="Next">&rarr;</button></div></div></div>
  <div class="rail" id="kc-rail">
-  <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://thb.tildacdn.com/tild6137-6435-4965-a535-666166316366/-/resize/720x/-/format/webp/abj-kitchen-white-sh.jpg" alt="White Shaker kitchen with a large island and seating"></figure><span class="n">(01)</span><h3>Cabinets &amp; panels</h3><p>Rigid 18mm cabinets, end panels, fillers and plinths, made to measure.</p></a>
-  <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://thb.tildacdn.com/tild3330-3561-4463-a638-333464383539/-/resize/720x/-/format/webp/abj-kitchen-grey-sha.jpg" alt="Light grey Shaker kitchen with a navy island"></figure><span class="n">(02)</span><h3>Doors &amp; finishes</h3><p>Shaker, handleless, gloss acrylic and wood-effect doors in your colour.</p></a>
+  <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://thb.tildacdn.com/tild6137-6435-4965-a535-666166316366/-/resize/1200x/-/format/webp/abj-kitchen-white-sh.jpg" alt="White Shaker kitchen with a large island and seating"></figure><span class="n">(01)</span><h3>Cabinets &amp; panels</h3><p>Rigid 18mm cabinets, end panels, fillers and plinths, made to measure.</p></a>
+  <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://thb.tildacdn.com/tild3330-3561-4463-a638-333464383539/-/resize/1200x/-/format/webp/abj-kitchen-grey-sha.jpg" alt="Light grey Shaker kitchen with a navy island"></figure><span class="n">(02)</span><h3>Doors &amp; finishes</h3><p>Shaker, handleless, gloss acrylic and wood-effect doors in your colour.</p></a>
   <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/74e75bd-abj-worktops-t-quartz.webp" alt="Sparkle quartz worktop with an undermount sink and black tap"></figure><span class="n">(03)</span><h3>Worktops &amp; splashbacks</h3><p>Laminate worktops, or quartz and stone templated and fitted by specialists.</p></a>
   <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://static.tildacdn.net/tild6166-3964-4535-a361-363966346330/IntelligentStorageSo.webp" alt="Kitchen with pull-out drawers and internal storage"></figure><span class="n">(04)</span><h3>Fittings &amp; accessories</h3><p>Pull-out bins, corner storage, larder fittings, LED lighting and handles.</p></a>
-  <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://thb.tildacdn.com/tild6639-3330-4666-b839-323935633032/-/resize/720x/-/format/webp/BespokeKitchens473.jpg" alt="Grey gloss L-shaped kitchen with a metro tile splashback"></figure><span class="n">(05)</span><h3>Builders &amp; landlords</h3><p>Kitchens for renovations, rentals and new builds, priced per kitchen.</p></a>
+  <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://thb.tildacdn.com/tild6639-3330-4666-b839-323935633032/-/resize/1200x/-/format/webp/BespokeKitchens473.jpg" alt="Grey gloss L-shaped kitchen with a metro tile splashback"></figure><span class="n">(05)</span><h3>Builders &amp; landlords</h3><p>Kitchens for renovations, rentals and new builds, priced per kitchen.</p></a>
   <a class="card" href="/bookingform-dev-k9b4"><figure><img loading="lazy" src="https://static.tildacdn.net/tila3533-3138-4364-a336-626235386339/abj-kitchen-black-br.webp" alt="Black kitchen with a brick-effect splashback and dark wood island"></figure><span class="n">(06)</span><h3>Your own fitter</h3><p>Clear drawings and a parts list so your fitter knows what goes where.</p></a>
   <a class="card cta" href="/bookingform-dev-k9b4"><span class="kick" style="color:rgba(243,238,230,.7);margin-bottom:18px">Not sure yet?</span><h3>Send us your plans or measurements</h3><span class="lnk">Book a design visit</span></a>
  </div>
@@ -678,7 +706,7 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
   <div class="rv"><span class="kick">Same kitchen, without the fitting</span><h2>Designed in 3D and priced line by line</h2><p>You get the same design service as our fitted kitchens: a 3D design, an itemised quote and cabinets built to your measurements. Every cabinet arrives assembled, so your fitter spends their time fitting, not building flat packs.</p>
    <ul><li><i>01</i>3D design and itemised quote, free</li><li><i>02</i>Rigid cabinets, assembled in our workshop</li><li><i>03</i>Delivery quoted separately</li><li><i>04</i>Fitting by our team available if plans change</li></ul>
    </div>
-  <div class="sm2 rv"><figure><img loading="lazy" src="https://static.tildacdn.net/tila3335-3465-4538-b264-316632643031/abj-kitchen-cream-is.webp" alt="Cream kitchen island with a quartz worktop and brushed brass tap"><figcaption>Cream island</figcaption></figure><figure><img loading="lazy" src="https://thb.tildacdn.com/tild3238-6432-4232-a231-373666396661/-/resize/720x/-/format/webp/abj-kitchen-navy-win.jpg" alt="Navy Shaker kitchen with white worktops"><figcaption>Navy Shaker</figcaption></figure></div>
+  <div class="sm2 rv"><figure><img loading="lazy" src="https://static.tildacdn.net/tila3335-3465-4538-b264-316632643031/abj-kitchen-cream-is.webp" alt="Cream kitchen island with a quartz worktop and brushed brass tap"><figcaption>Cream island</figcaption></figure><figure><img loading="lazy" src="https://thb.tildacdn.com/tild3238-6432-4232-a231-373666396661/-/resize/1200x/-/format/webp/abj-kitchen-navy-win.jpg" alt="Navy Shaker kitchen with white worktops"><figcaption>Navy Shaker</figcaption></figure></div>
  </div>
 </div></section>
 
@@ -699,7 +727,7 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 </div></section>
 
 <section class="bk" id="kc-book" aria-label="Book a design visit">
- <figure><img loading="lazy" src="https://thb.tildacdn.com/tild6630-6131-4730-a162-353535353562/-/resize/720x/-/format/webp/abj-kitchen-marble-i.jpg" alt="Kitchen with a marble-effect waterfall island and green velvet stools" style="object-position:50% 50%"></figure>
+ <figure><img loading="lazy" src="https://thb.tildacdn.com/tild6630-6131-4730-a162-353535353562/-/resize/1600x/-/format/webp/abj-kitchen-marble-i.jpg" alt="Kitchen with a marble-effect waterfall island and green velvet stools" style="object-position:50% 50%"></figure>
  <div class="t rv">
   <span class="kick">Free design visit</span>
   <h2>Get a supply-only quote</h2>

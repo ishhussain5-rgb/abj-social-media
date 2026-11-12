@@ -2,9 +2,10 @@
 # Same layout as the room pages (svc.py). Image refs are full URLs, taken from images already on the site.
 import json, pathlib
 HERE = pathlib.Path(__file__).parent
-_M = json.load(open("/tmp/claude-0/-home-claude/b536475e-949b-5856-b29f-57500cc39d09/scratchpad/imgmap.json"))
+_M = json.load(open(HERE / "imgmap_new.json"))
 def U(name):
-    return _M[name][0]
+    # Tilda thumbnails at 1200px so cards stay sharp on phones and big screens
+    return _M[name][0].replace("/-/resize/720x/", "/-/resize/1200x/")
 
 from services_data import FACTS, REV_OLGA, REV_IFTIKHAR, REV_RICH
 
@@ -42,7 +43,7 @@ PAGES = [
                        (U("abj-kitchen-sage-sha.webp"), "Sage green Shaker kitchen with an island and bar stools", "Sage Shaker island")],
              "link": ("/bespoke-kitchens-dev-k7q2#kc-cost", "Try the kitchen cost guide")},
  "quote": REV_OLGA,
- "book": (U("abj-kitchen-grey-sha.jpg"), "Light grey Shaker kitchen with a navy island and pendant lights", "50% 50%"),
+ "book": (U("abj-kitchen-dark-gre.jpg"), "Dark grey handleless kitchen with a marble-effect breakfast bar", "50% 50%"),
  "book_h": "Start with a free design visit",
  "book_p": "Book a visit or send a few photos on WhatsApp. We will measure the room, talk through how you use it and send you a 3D design with an itemised quote. There is nothing to pay for the design and no pressure to go ahead.",
  "proc_p": "Once you approve the design, your kitchen takes four to six weeks to make and usually one to two weeks to fit.",
@@ -309,3 +310,8 @@ PAGES = [
           ("How long does a bespoke kitchen take compared with a standard one?", "Ours take four to six weeks to make once you approve the design, then usually one to two weeks to fit. Standard ranges can be quicker if everything is in stock."),
           ("Can I see a bespoke kitchen before I decide?", "Yes. Visit our showroom at 3 Brassey Close, Peterborough, or browse finished rooms in our project gallery.")]},
 ]
+
+# the booking photo fills half the screen on desktop: use the larger Tilda size
+for _p in PAGES:
+    _b = _p["book"]
+    _p["book"] = (_b[0].replace("/-/resize/1200x/", "/-/resize/1600x/"),) + tuple(_b[1:])

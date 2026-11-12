@@ -1,0 +1,27 @@
+/* ===== desktop: booking buttons on one line, footer fits one screen (12 Nov 2026) ===== */
+@media (min-width:1101px){
+#kc .bk .acts{flex-wrap:nowrap;gap:10px}
+#kc .bk .acts .bt{padding:0 22px;letter-spacing:.18em;white-space:nowrap;flex:0 0 auto}
+#kc .ft{padding:clamp(40px,3.2vw,56px) 0 24px}
+#kc .ft-top{align-items:center;padding-bottom:clamp(26px,2.2vw,36px)}
+#kc .ft-top h2{font-size:clamp(40px,3.4vw,58px);max-width:none}
+#kc .ft-top .acts{flex-direction:row;align-items:center;gap:32px}
+#kc .ft-g{padding:clamp(24px,2.2vw,36px) 0}
+#kc .ft-g .fh{margin-bottom:14px}
+#kc .ft-g ul{gap:5px;font-size:13.5px}
+#kc .ft-b .lg{margin-bottom:16px}
+#kc .ft-b .rt{margin-top:14px}
+#kc .ft-v address{line-height:1.6}
+#kc .ft-v .lnk{margin-top:12px}
+#kc .ft-ar{padding-bottom:22px!important}
+#kc .ft-ar .fh{margin-bottom:10px}
+#kc .ft-s{padding-top:18px}
+#kc .ft-l{margin-top:14px}
+}
+@media (min-width:1101px) and (max-width:1439px){
+#kc .bk .acts{gap:8px}
+#kc .bk .acts .bt{padding:0 14px;letter-spacing:.1em;font-size:10.5px;height:52px}
+}
+@media (min-width:1101px) and (max-width:1199px){
+#kc .bk .acts .bt{padding:0 11px;letter-spacing:.07em}
+}
