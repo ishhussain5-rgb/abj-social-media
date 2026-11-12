@@ -1,0 +1,146 @@
+/* ---------- extra checks (12 Nov 2026): business facts, AI search files, structure, social cards ---------- */
+CAT.biz='Business facts & AI search';
+Object.assign(DEF,{
+ wrongfact:['Out-of-date business facts on the page','biz','High','Customers and AI assistants repeat what the site says, so old claims spread.','Change the wording to the current facts: 12-month guarantee, company incorporated 2017 (about 20 years of team experience), kitchens from around £2,500.'],
+ schemafact:['Business details in the schema don\'t match','biz','High','Google and AI assistants read the schema as fact.','Update the LocalBusiness JSON-LD in the site head code: phone 01733 686767, PE1 2AZ, founded 2017, hours Mon–Fri 8–6 and Sat 10–2.'],
+ wrongcontact:['Unexpected phone, WhatsApp or email link','biz','High','A wrong number or address loses the enquiry.','Point tel: links to 01733 686767, WhatsApp to 07479 219421 and email to info@abjkitchensandbedrooms.co.uk.'],
+ napmissing:['Phone number or address missing from the page','biz','Medium','Google matches your name, address and phone across the web.','Make sure the footer with 01733 686767 and 3 Brassey Close, PE1 2AZ is on the page.'],
+ nocta:['No booking button or tap-to-call link','biz','Medium','Visitors who are ready to enquire have nowhere to click.','Add a "Book a design visit" button (/bookingform) and a tap-to-call link.'],
+ notracking:['Tracking or lead hand-off code missing','biz','High','Enquiries from this page may not reach ABJ Factory or show in Google Analytics.','Copy the footer script block from a working page into this page and re-publish.'],
+ faqhidden:['FAQ schema question not shown on the page','biz','Medium','Google ignores FAQ schema that visitors can\'t see.','Add the question to the visible FAQ, or remove it from the schema.'],
+ llmsmissing:['AI summary file (llms.txt) missing','biz','High','AI tools use it to understand the business.','Site Settings → SEO → Manage llms.txt and llms-full.txt.'],
+ llmsgap:['Page missing from llms.txt','biz','Medium','AI tools may not know the page exists.','Add the page to both files in Site Settings → SEO → Manage llms.txt.'],
+ llmsstale:['Out-of-date facts in the AI summary files','biz','High','AI assistants repeat these to customers.','Update llms.txt and llms-full.txt in Site Settings → SEO → Manage llms.txt.'],
+ aiblocked:['robots.txt blocks AI search crawlers','biz','High','ChatGPT, Claude, Perplexity or Google AI can\'t read the site.','Remove the Disallow for that crawler in Site Settings → SEO → robots.txt (and check Cloudflare → AI Crawl Control).'],
+ usspelling:['American spellings in the copy','biz','Low','The site is written in UK English.','Change to the UK spelling shown.'],
+ oldurl:['Old address no longer redirects','seo','High','Links and Google results for old pages land on an error.','Add or fix the 301 in Site Settings → SEO → 301 Redirects (Cloudflare → Redirect Rules for /tpost/ addresses).'],
+ devlink:['Link or tag pointing to a DEV page','seo','High','Sends visitors and Google to private test pages.','Swap the DEV address for the live page address and re-publish.'],
+ placeholder:['Placeholder or template text left on the page','seo','High','Looks unfinished and creates broken links like /{{link@url}}.','Replace the placeholder in the block and re-publish.'],
+ orphan:['Page with no links from other pages (orphan)','seo','Medium','Google and visitors can only find it through the sitemap.','Link to it from a related page, the menu or the footer.'],
+ deep:['Page more than 3 clicks from the homepage','seo','Low','Deep pages get crawled less often.','Link to it from the menu, footer or a hub page.'],
+ neardup:['Pages with mostly the same text','seo','Medium','Google may treat them as duplicates and rank only one.','Rewrite the shared paragraphs so each page is mostly unique.'],
+ footerdiff:['Footer missing links that the homepage footer has','seo','Low','Inconsistent footers leave some pages less well linked.','Copy the current footer into this page\'s block.'],
+ hostlink:['Internal links using www. or http://','seo','Low','Each one goes through a redirect.','Use https://abjkitchensandbedrooms.co.uk/… or a relative /link.'],
+ headorder:['Heading levels skipped (e.g. H2 to H4)','seo','Low','Screen readers and Google expect headings in order.','Use the next heading level down.'],
+ a11y:['Accessibility gaps (unlabelled fields, buttons or embeds)','seo','Low','Screen readers can\'t tell people what the control is.','Add a label, aria-label or title.'],
+ socialdup:['Duplicate X (Twitter) card title or description','seo','Low','Shared links all look the same on X.','Give the page its own twitter:title and twitter:description in the page head code.'],
+ ogheavy:['Social share image over 300 kB','img','Low','Facebook, WhatsApp and X previews load slowly or not at all.','Upload a 1200×630 JPG under 300 kB in Page Settings → Facebook and social networks.'],
+ imgdupe:['Same photo used twice on one page','img','Medium','Repeated photos look amateurish.','Swap one of the repeats for a different project photo.']
+});
+var FACTS={phones:['01733686767','441733686767','07479219421','447479219421'],email:'info@abjkitchensandbedrooms.co.uk',founding:'2017'};
+var WRONG=[[/\b(10|ten)[\s-]*years?[\s-]+(guarantee|warranty)\b/i,'10-year guarantee (it is 12 months)'],[/\b(since|established|founded|est\.?)(\s+in)?\s+2006\b/i,'2006 founding date (company incorporated 2017)'],[/\b(start(s|ing)?\s+(from\s+)?|from\s+)(around\s+|about\s+|just\s+)?£\s?5,?000\b/i,'"from £5,000" price (now from around £2,500)']];
+var LEGAL=/privacy|terms|payment|policy|cookie|finance/i;
+var MAKERS=/blum|egger|hettich|grass|silestone|dekton|caesarstone|quartz|manufacturer|maker|supplier|brand|hinge|runner|drawer|appliance|neff|bosch|siemens|samsung|worktop|sink|tap/i;
+function factHit(txt,re){var g=new RegExp(re.source,'gi'),m;while((m=g.exec(txt))){var ctx=txt.slice(Math.max(0,m.index-60),m.index+m[0].length+40);if(!/guarantee|warranty/i.test(m[0])||!MAKERS.test(ctx))return m[0]}return null}
+var USMAP={color:'colour',colors:'colours',colored:'coloured',favorite:'favourite',favorites:'favourites',organize:'organise',organized:'organised',organizer:'organiser',customize:'customise',customized:'customised',optimize:'optimise',optimized:'optimised',center:'centre',centers:'centres',gray:'grey',aluminum:'aluminium',catalog:'catalogue',jewelry:'jewellery',cozy:'cosy',modeling:'modelling',traveling:'travelling',labeled:'labelled',personalized:'personalised',specialize:'specialise',specialized:'specialised',analyze:'analyse',realize:'realise',minimize:'minimise',maximize:'maximise',utilize:'utilise'};
+var USRE=new RegExp('\\b('+Object.keys(USMAP).join('|')+')\\b','gi');
+var MARKERS=[['Google Analytics','googletagmanager.com/gtag/js'],['lead hand-off to ABJ Factory','functions/v1/sales'],['enquiry tracking (generate_lead)','generate_lead'],['cookie banner','abj_cookie_consent']];
+var AIBOTS=['GPTBot','OAI-SearchBot','ChatGPT-User','ClaudeBot','Claude-SearchBot','Claude-User','PerplexityBot','Perplexity-User','Google-Extended','Applebot-Extended','Bingbot','CCBot'];
+var OLDURLS=['/corby-abj','/near-me-corby','/kettering-abj','/wellingborough-abj','/northampton-abj','/stneots-abj','/march-abj','/near-me-march','/chatteris-abj','/whittlesey-abj','/classic','/traditional','/modern','/contemporary','/soham-abj','/stilton-abj','/near-me-kettering','/near-me-spalding','/bespoke-sofas','/blog','/news','/stamford-abj','/oakham-abj','/uppingham-abj','/spalding-abj','/stives-abj','/bookingfor','/privacy-policy','/ABJ-offers','/kitchens','/bedrooms','/contact','/about-us','/custom-fitted-wardrobes','/kitchens-in-oundle','/bespoke-interior-solutions-cambridge','/bespoke-kitchens-buckden','/bespoke-bedrooms-warboys','/bespoke-office-renovations-over','/media-walls-over','/hmo-makeover-wisbech','/tpost/hsd05r6l21-elevate-your-kitchen-with-sophisticated','/tpost/6x4jmos5b1-dream-kitchen-or-bedroom-weve-got-you-c','/tpost/0z8expca61-office-refit-28th-july-2025','/abjfeeds/tpost/vc2izbb5o1-the-kitchen-of-your-dreams-fully-equipp'];
+function normT(s){return String(s).toLowerCase().replace(/[’'`]/g,"'").replace(/&amp;/g,'&').replace(/[^a-z0-9£'& ]+/g,' ').replace(/\s+/g,' ').trim()}
+function shingles(t){var w=t.toLowerCase().replace(/[^a-z0-9£ ]+/g,' ').split(/\s+/).filter(Boolean),s={};for(var i=0;i+5<=w.length;i++)s[w.slice(i,i+5).join(' ')]=1;return s}
+function jacc(a,b){var ka=Object.keys(a),kb=Object.keys(b),n=0;var sm=ka.length<kb.length?ka:kb,big=sm===ka?b:a;sm.forEach(function(k){if(big[k])n++});var u=ka.length+kb.length-n;return u?n/u:0}
+function ibase(u){return (/tildacdn/.test(u)?((u.match(/\/(til[da][0-9a-f-]{30,})\//)||['',''])[1]+':'):'')+u.split('/').pop().replace(/[?#].*$/,'').replace(/^[0-9a-f]{7}-/,'').replace(/\.(webp|jpe?g|png|gif|avif)$/i,'').replace(/-(s|l)$/,'').replace(/-m\d+$|-phone\d+$|-[ws]\d+$/,'')}
+function aiBlocked(t){var out=[],groups=[],cur=null;t.split(/\r?\n/).forEach(function(l){l=l.replace(/#.*/,'').trim();var m=l.match(/^user-agent:\s*(.+)$/i);if(m){if(!cur||cur.rules.length){cur={ua:[],rules:[]};groups.push(cur)}cur.ua.push(m[1].trim().toLowerCase());return}var r=l.match(/^(dis)?allow:\s*(.*)$/i);if(r&&cur)cur.rules.push({dis:!!r[1],path:r[2].trim()})});
+ AIBOTS.forEach(function(b){if(groups.some(function(G){return G.ua.indexOf(b.toLowerCase())>=0&&G.rules.some(function(r){return r.dis&&r.path==='/'})}))out.push(b+' is disallowed')});return out}
+/* extra data captured while each page is crawled */
+function crawlExtra(P,d,html,url){
+ try{
+  var vis=d.body?d.body.cloneNode(true):null;if(vis){[].slice.call(vis.querySelectorAll('script,style,noscript,template,svg')).forEach(function(n){n.remove()});P.visText=vis.textContent.replace(/\s+/g,' ').trim()}
+  var mainEl=d.querySelector('main')||d.body;var mc=mainEl?mainEl.cloneNode(true):null;
+  if(mc){[].slice.call(mc.querySelectorAll('script,style,noscript,template,svg,header,footer,nav,[role=banner],[role=contentinfo],.ft,.hd,.mm,.ck')).forEach(function(n){n.remove()});P.mainText=mc.textContent.replace(/\s+/g,' ').trim()}
+  P.tels=[];P.was=[];P.mails=[];P.hostLinks=[];P.templ=[];P.devRefs=[];
+  [].slice.call(d.querySelectorAll('a[href]')).forEach(function(a){var h=(a.getAttribute('href')||'').trim();
+   if(/^tel:/i.test(h))P.tels.push(h);else if(/wa\.me|whatsapp\.com/i.test(h))P.was.push(h);else if(/^mailto:/i.test(h))P.mails.push(h.replace(/^mailto:/i,'').split('?')[0].toLowerCase());
+   if(/\{\{|\}\}|%7B%7B/i.test(h))P.templ.push(h);
+   if(/^(https?:)?\/\/(www\.)?abjkitchensandbedrooms\.co\.uk/i.test(h)&&(/^http:/i.test(h)||/\/\/www\./i.test(h)))P.hostLinks.push(h);
+   if(/-dev-[a-z0-9]{4}\b/i.test(h))P.devRefs.push('link → '+h)});
+  P.booking=!!d.querySelector('a[href*="/bookingform"]');
+  [].slice.call(d.querySelectorAll('link[rel="canonical" i],meta[property="og:url"]')).forEach(function(l){var v=l.getAttribute('href')||l.getAttribute('content')||'';if(/-dev-[a-z0-9]{4}\b/i.test(v))P.devRefs.push((l.tagName==='LINK'?'canonical':'og:url')+' → '+v)});
+  var lds=[].slice.call(d.querySelectorAll('script[type="application/ld+json"]'));P.schemaRaw=lds.map(function(s){return s.textContent}).join('\n');
+  if(/-dev-[a-z0-9]{4}\b/i.test(P.schemaRaw))P.devRefs.push('schema mentions a DEV page');
+  P.faqQ=[];P.lb=null;
+  lds.forEach(function(s){try{(function walk(o){if(!o||typeof o!=='object')return;if(Array.isArray(o)){o.forEach(walk);return}var t=[].concat(o['@type']||[]);if(t.indexOf('Question')>=0&&o.name)P.faqQ.push(String(o.name));if(t.indexOf('LocalBusiness')>=0&&!P.lb)P.lb=o;Object.keys(o).forEach(function(k){if(o[k]&&typeof o[k]==='object')walk(o[k])})})(JSON.parse(s.textContent))}catch(e){}});
+  P.hseq=[].slice.call(d.querySelectorAll('h1,h2,h3,h4,h5,h6')).map(function(h){return +h.tagName.charAt(1)});
+  P.a11y=[];
+  [].slice.call(d.querySelectorAll('input:not([type=hidden]):not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),select,textarea')).forEach(function(i){var id=i.getAttribute('id');if(!(i.getAttribute('aria-label')||i.getAttribute('aria-labelledby')||i.getAttribute('title')||i.getAttribute('placeholder')||(id&&d.querySelector('label[for="'+id+'"]'))||i.closest('label')))P.a11y.push('form field "'+(i.getAttribute('name')||i.type||i.tagName.toLowerCase())+'" has no label')});
+  [].slice.call(d.querySelectorAll('button')).forEach(function(b){if(!(b.textContent.trim()||b.getAttribute('aria-label')||b.getAttribute('title')||b.querySelector('img[alt]:not([alt=""])')))P.a11y.push('button with no name')});
+  [].slice.call(d.querySelectorAll('iframe')).forEach(function(f){if(!f.getAttribute('title'))P.a11y.push('embed with no title: '+(f.getAttribute('src')||'').slice(0,60))});
+  var ft=d.querySelector('.ft,footer,[role=contentinfo]');P.footerLinks=ft?[].slice.call(ft.querySelectorAll('a[href]')).map(function(a){return norm(a.getAttribute('href'))}).filter(Boolean):null;
+  P.markers={};MARKERS.forEach(function(m){P.markers[m[0]]=html.indexOf(m[1])>=0});
+  var tw=[].slice.call(d.querySelectorAll('meta[name="twitter:title"]')),twd=[].slice.call(d.querySelectorAll('meta[name="twitter:description"]'));
+  P.twT=tw.length?tw[tw.length-1].getAttribute('content'):'';P.twD=twd.length?twd[twd.length-1].getAttribute('content'):'';
+  var og=d.querySelector('meta[property="og:image"]');P.ogImg=og?og.getAttribute('content'):'';
+ }catch(e){P.extraErr=String(e)}
+}
+/* site-level checks that need extra requests */
+async function extraChecks(){
+ S.site.llms={};var fs=['/llms.txt','/llms-full.txt'];
+ for(var i=0;i<fs.length;i++){try{var r=await fetch(fs[i],{cache:'no-store'});S.site.llms[fs[i]]={status:r.status,text:r.ok?await r.text():''}}catch(e){S.site.llms[fs[i]]={status:0,text:''}}}
+ try{var rr=await fetch('/robots.txt',{cache:'no-store'});if(rr.ok)S.site.aiBlocked=aiBlocked(await rr.text())}catch(e){}
+ S.site.old={};
+ for(var j=0;j<OLDURLS.length;j+=6){await waitIfPaused();if(stopped)break;await Promise.all(OLDURLS.slice(j,j+6).map(async function(p){try{var r=await fetch(p,{cache:'no-store'});S.site.old[p]={status:r.status,final:r.url}}catch(e){S.site.old[p]={status:0}}}))}
+ var og={};S.order.forEach(function(u){var P=S.pages[u];if(P&&P.ogImg)(og[P.ogImg]=og[P.ogImg]||[]).push(P.url)});S.site.og={};
+ var keys=Object.keys(og);for(var k=0;k<keys.length;k+=6){if(stopped)break;await Promise.all(keys.slice(k,k+6).map(async function(u){try{var r=await fetch(u,{mode:'cors',cache:'no-store'});if(r.ok)S.site.og[u]={size:(await r.blob()).size,pages:og[u]}}catch(e){}}))}
+}
+/* a photo the phone render could not show is only reported if it also fails when requested again */
+async function confirmBroken(){
+ S.site.okImg={};var all={};S.order.forEach(function(u){var R=S.pages[u].render;(R&&R.bad||[]).forEach(function(b){all[b]=1})});
+ var list=Object.keys(all);
+ for(var i=0;i<list.length;i++){var u=list[i],ok=false;for(var t=0;t<3&&!ok;t++){try{var r=await fetch(u,{mode:'cors',cache:'no-store'});ok=r.ok}catch(e){try{await fetch(u,{mode:'no-cors',cache:'no-store'});ok=true}catch(e2){}}if(!ok)await sleep(800)}if(ok)S.site.okImg[u]=1}
+}
+function analyseExtra(pages,ok,idx){
+ var home=S.pages[ORIGIN+'/'],g=S.groups;
+ if(g.biz){
+  ok.forEach(function(P){
+   if(P.refresh||P.path===SELF)return;var legal=LEGAL.test(P.path);
+   var txt=(P.visText||'')+' '+(P.title||'')+' '+(P.desc||'');
+   if(!legal)WRONG.forEach(function(w){var m=factHit(txt,w[0])||factHit(P.schemaRaw||'',w[0]);if(m)add('wrongfact',P.url,w[1]+': "'+m+'"')});
+   if(P.lb){var lb=P.lb,pr=[];var tel=String(lb.telephone||'').replace(/\D/g,'');if(tel&&FACTS.phones.indexOf(tel)<0)pr.push('telephone '+lb.telephone);
+    var pc=lb.address&&lb.address.postalCode;if(pc&&String(pc).replace(/\s/g,'').toUpperCase()!=='PE12AZ')pr.push('postcode '+pc);
+    if(lb.foundingDate&&String(lb.foundingDate).indexOf(FACTS.founding)!==0)pr.push('foundingDate '+lb.foundingDate);
+    var oh=JSON.stringify(lb.openingHoursSpecification||lb.openingHours||'');if(oh&&oh!=='""'&&!(/08:00/.test(oh)&&/18:00/.test(oh)&&/10:00/.test(oh)&&/14:00/.test(oh)))pr.push('opening hours '+oh.slice(0,80));
+    if(/Sunday/.test(oh))pr.push('Sunday listed as open');
+    if(pr.length)add('schemafact',P.url,pr.join('; '))}
+   var bad=[];(P.tels||[]).forEach(function(t){if(FACTS.phones.indexOf(t.replace(/\D/g,''))<0)bad.push(t)});
+   (P.was||[]).forEach(function(w){var m=w.match(/(\d{10,13})/);if(!m||m[1]!=='447479219421')bad.push('WhatsApp '+w.slice(0,60))});
+   (P.mails||[]).forEach(function(m){if(m!==FACTS.email)bad.push('email '+m)});
+   bad=bad.filter(function(v,i,a){return a.indexOf(v)===i});if(bad.length)add('wrongcontact',P.url,bad.slice(0,4).join(' , '));
+   if(!P.noindex){var miss=[];if((P.visText||'').indexOf('686767')<0&&!(P.tels||[]).length)miss.push('phone');if(!/PE1\s?2AZ/i.test(P.visText||''))miss.push('postcode');if(miss.length)add('napmissing',P.url,miss.join(' and ')+' not found')}
+   if(!legal&&!/bookingform/.test(P.path)&&!P.noindex){var c=[];if(!P.booking)c.push('no link to /bookingform');if(!(P.tels||[]).length)c.push('no tap-to-call link');if(c.length)add('nocta',P.url,c.join(', '))}
+   if(home&&home.markers&&P!==home&&P.markers){var mm=MARKERS.filter(function(m){return home.markers[m[0]]&&!P.markers[m[0]]}).map(function(m){return m[0]});if(mm.length)add('notracking',P.url,mm.join(', ')+' missing')}
+   if(P.faqQ&&P.faqQ.length){var vt=normT(P.visText||'');var hid=P.faqQ.filter(function(q){return vt.indexOf(normT(q))<0});if(hid.length)add('faqhidden',P.url,hid.length+' of '+P.faqQ.length+': '+hid.slice(0,2).join(' | '))}
+   var us={};(P.mainText||'').replace(USRE,function(w){us[w.toLowerCase()]=1;return w});var uk=Object.keys(us);if(uk.length)add('usspelling',P.url,uk.map(function(w){return w+' → '+USMAP[w]}).join(', '));
+  });
+  var L=S.site.llms||{};
+  ['/llms.txt','/llms-full.txt'].forEach(function(f){var o=L[f];if(!o||o.status!==200)add('llmsmissing',null,f+' returned '+(o?o.status:'nothing'));else WRONG.forEach(function(w){var m=factHit(o.text,w[0]);if(m)add('llmsstale',null,f+': '+w[1]+' – "'+m+'"')})});
+  if(L['/llms.txt']&&L['/llms.txt'].status===200){var lt=L['/llms.txt'].text;idx.forEach(function(P){if(!P.inSitemap)return;var full=ORIGIN+(P.path==='/'?'/':P.path);if(lt.indexOf('('+full+')')<0&&lt.indexOf('('+full+'/)')<0&&!(P.path==='/'&&lt.indexOf('('+ORIGIN+')')>=0))add('llmsgap',P.url)})}
+  (S.site.aiBlocked||[]).forEach(function(b){add('aiblocked',null,b)});
+ }
+ if(g.seo){
+  Object.keys(S.site.old||{}).forEach(function(p){var o=S.site.old[p];if(!o.status||o.status>=400)add('oldurl',ORIGIN+p,'shows '+(o.status||'no response'));else if(/-dev-/.test(o.final||''))add('oldurl',ORIGIN+p,'lands on a DEV page '+o.final)});
+  var tws={},twds={},h2b={};
+  ok.forEach(function(P){
+   if(P.path===SELF)return;
+   if(P.devRefs&&P.devRefs.length)add('devlink',P.url,P.devRefs.slice(0,3).join(' , '));
+   var ph=(P.templ||[]).slice();var pm=(P.visText||'').match(/lorem ipsum|\{\{[^}]{0,40}\}\}|\bTODO\b|\bXXX\b/i);if(pm)ph.push('text "'+pm[0]+'"');if(ph.length)add('placeholder',P.url,ph.slice(0,3).join(' , '));
+   if(P.hostLinks&&P.hostLinks.length)add('hostlink',P.url,P.hostLinks.length+' link(s), e.g. '+P.hostLinks[0]);
+   var hs=P.hseq||[];for(var i=1;i<hs.length;i++){if(hs[i]-hs[i-1]>1){add('headorder',P.url,'H'+hs[i-1]+' → H'+hs[i]);break}}
+   if(home&&home.footerLinks&&P.footerLinks&&P!==home){var hf={};P.footerLinks.forEach(function(u){hf[u]=1});var miss=home.footerLinks.filter(function(u,i,a){return a.indexOf(u)===i&&!hf[u]&&u!==P.url});if(miss.length)add('footerdiff',P.url,miss.length+' missing, e.g. '+miss.slice(0,3).map(function(u){return u.replace(ORIGIN,'')}).join(', '))}
+   if(P.a11y&&P.a11y.length){var u={};P.a11y.forEach(function(x){u[x]=(u[x]||0)+1});add('a11y',P.url,Object.keys(u).slice(0,3).map(function(k){return k+(u[k]>1?' ×'+u[k]:'')}).join(' , '))}
+   if(!P.noindex){if(P.twT)(tws[P.twT]=tws[P.twT]||[]).push(P.url);if(P.twD)(twds[P.twD]=twds[P.twD]||[]).push(P.url);if(P.h2&&P.h2[1])(h2b[P.h2[1]]=h2b[P.h2[1]]||[]).push(P.url)}
+  });
+  Object.keys(tws).forEach(function(k){if(tws[k].length>1)tws[k].forEach(function(u){add('socialdup',u,'twitter:title "'+k.slice(0,60)+'" on '+tws[k].length+' pages')})});
+  Object.keys(twds).forEach(function(k){if(twds[k].length>1)twds[k].forEach(function(u){add('socialdup',u,'twitter:description on '+twds[k].length+' pages')})});
+  Object.keys(h2b).forEach(function(k){if(h2b[k].length>1)h2b[k].forEach(function(u){add('duph2',u,'second H2: '+k)})});
+  var inbound={};ok.forEach(function(P){(P.links||[]).forEach(function(L){if(L.to&&L.to!==P.url)inbound[L.to]=(inbound[L.to]||0)+1})});
+  var depth={},q=[ORIGIN+'/'];depth[ORIGIN+'/']=0;while(q.length){var u0=q.shift(),P0=S.pages[u0];if(!P0)continue;(P0.links||[]).forEach(function(L){var T=L.to&&S.pages[L.to];var t=T&&T.redirected?norm(T.finalUrl):L.to;if(t&&depth[t]===undefined){depth[t]=depth[u0]+1;q.push(t)}})}
+  idx.forEach(function(P){if(P.path==='/'||P.path===SELF)return;if(P.inSitemap&&!inbound[P.url])add('orphan',P.url,'in the sitemap but not linked from any page');else if(depth[P.url]>3)add('deep',P.url,depth[P.url]+' clicks')});
+  var sh=idx.filter(function(P){return P.mainText&&P.mainText.split(' ').length>=150&&P.path!==SELF}).map(function(P){return {P:P,s:shingles(P.mainText)}});
+  for(var a=0;a<sh.length;a++)for(var b=a+1;b<sh.length;b++){var j=jacc(sh[a].s,sh[b].s);if(j>=0.5){add('neardup',sh[a].P.url,Math.round(j*100)+'% the same as '+sh[b].P.path);add('neardup',sh[b].P.url,Math.round(j*100)+'% the same as '+sh[a].P.path)}}
+ }
+ if(g.img){
+  ok.forEach(function(P){var seen={},rep={};(P.imgs||[]).forEach(function(I){if(/logo|roundel|favicon/i.test(I.real))return;var k=ibase(I.real);if(seen[k])rep[k]=1;seen[k]=1});var r=Object.keys(rep);if(r.length)add('imgdupe',P.url,r.slice(0,4).map(function(k){return k.split(':').pop()}).join(', '))});
+  Object.keys(S.site.og||{}).forEach(function(u){var o=S.site.og[u];if(o.size>307200)o.pages.forEach(function(p){add('ogheavy',p,u.split('/').pop()+' – '+Math.round(o.size/1024)+' kB')})});
+ }
+}
