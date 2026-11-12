@@ -421,3 +421,14 @@ all internal links 200, booking buttons on one line, footer 618px at 1536x695, n
 Search Console (URL-prefix property): sitemap.xml resubmitted, indexing requested for all 9. The 10 pages from the 11 Nov list
 (sloping, under-stairs, sliding, walk-in, office fit-out, cabinet makers, alcove, Stamford, Huntingdon, Ely) are already indexed.
 Not yet done: links to the new pages from existing pages (nav/footer/areas) - needs Ish's go-ahead; town landmark photos.
+
+## Internal links + landmarks (12 Nov 2026, Ish approved)
+- `tilda_links.js` run on every page with a switched-on new-design block (live and DEV, one page at a time, published singly):
+  footer "Areas we cover" + St Neots, Corby, Kettering; Rooms + "Kitchen design"; More + "Utility & boot rooms"; Visit
+  "Showroom & workshop" now links to the showroom page; kitchens page "In detail" row + kitchen design, cabinets, supply-only,
+  bespoke-vs, showroom; storage and hallways rows + utility & boot rooms. Homepage done on the test page first, checked, then live.
+  Old block code per page: IndexedDB abj_svc_bak '<pageid>-before-links-20261112'. build.py footer updated to match.
+- Landmarks (abjLandmarks, `landmarks.json`): St Neots (Market Square, St Mary's Church, Riverside Park), Corby (Kirby Hall,
+  Rockingham Castle, Corby Cube), Kettering (Market Place, Boughton House, Wicksteed Park); Wikimedia Commons, credited with
+  author + licence. Hero 1680px, section photos 1100px, webp q0.8, uploaded with Tilda's uploader. On DEV and live.
+  Note: out-live/<town>.html in the repo is the pre-landmark version; the Tilda blocks are the current ones.
