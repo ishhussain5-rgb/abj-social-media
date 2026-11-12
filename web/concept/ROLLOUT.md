@@ -400,3 +400,24 @@ Still to do: town landmark photos later; add to linkmap.json and link from exist
   from 1101px, footer fits one screen (618px at 1536x695, was 1017; tablets 950, was 1388), menu button and legal links get bigger
   tap areas on phones. Kitchen design booking photo was a 3D render, now a real kitchen; booking photos at 1600px, cards at 1200px.
   The same footer height and wrapping buttons are on every other new-design page (live and DEV) - roll out only with Ish's approval.
+
+## 9 gap pages LIVE (12 Nov 2026, Ish approved)
+Each live page is a duplicate of its DEV page (DEV pages stay private/noindex). Block = `out-live/<slug>.html` from `golive_gap.js`
+(linkmap + abjAnchors + abjSeoFix) + the two site-footer scripts copied from the sloping-wardrobes live block. Settings from
+`gap9_settings.json` live.settings (index on, canonical to itself, social image), HEAD = breadcrumb + twitter tags.
+| Live address | Tilda page / block |
+|---|---|
+| /kitchen-design-peterborough | 381512303 / 5751775203 |
+| /kitchen-cabinets-peterborough | 381512403 / 5751776003 |
+| /supply-only-kitchens-peterborough | 381512503 / 5751776703 |
+| /utility-boot-rooms-peterborough | 381512603 / 5751777403 |
+| /kitchen-showroom-peterborough | 381512703 / 5751778103 |
+| /bespoke-vs-off-the-shelf-kitchens | 381512803 / 5751778803 |
+| /fitted-kitchens-bedrooms-st-neots | 381512903 / 5751779503 |
+| /fitted-kitchens-bedrooms-corby | 381513003 / 5751780203 |
+| /fitted-kitchens-bedrooms-kettering | 381513103 / 5751780903 |
+Checked live: 200, index allowed, canonical correct, 1 H1, no DEV links, footer scripts present, 0 broken images, 0 repeated photos,
+all internal links 200, booking buttons on one line, footer 618px at 1536x695, no sideways scroll at 390px. sitemap.xml lists all 9.
+Search Console (URL-prefix property): sitemap.xml resubmitted, indexing requested for all 9. The 10 pages from the 11 Nov list
+(sloping, under-stairs, sliding, walk-in, office fit-out, cabinet makers, alcove, Stamford, Huntingdon, Ely) are already indexed.
+Not yet done: links to the new pages from existing pages (nav/footer/areas) - needs Ish's go-ahead; town landmark photos.
