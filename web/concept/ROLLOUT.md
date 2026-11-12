@@ -634,3 +634,4 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   + 4 projects; IG/FB bios + FB cover 12-month; directory check. To-do items: directory sign-ins (Apple Business Connect,
   Yell + hours, FreeIndex, Thomson Local, Trustpilot), GSC indexing for the 2 guides, Stamford/Huntingdon real jobs,
   reviews (Houzz + Google), re-run AI prompts in 2-3 weeks (+ Copilot/Gemini by Ish), hide FB cover auto-post.
+- 12 Nov 23:55 Plaky complete: all 8 Done items (12 Nov) + 6 To do items (13 Nov; AI re-test 26 Nov) on the board, checked.
