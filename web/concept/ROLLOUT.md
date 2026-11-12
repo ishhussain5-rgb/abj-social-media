@@ -475,3 +475,4 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   1536x695, 612 at 1280x720). Tighter padding, big photo matches the text height, smaller headline/list, small photos 2:1.
   Remaining over 775px at 1707x775: "Rooms made around you" 857, long "In detail" text 956.
 - 12 Nov 14:55: Ish disliked the 2:1 crop of the two small featured-project photos. Back to full squares (original crop); their size now follows the screen height (225px at 1707x775, 327 at 1904x877, 170 at 1536x695) so the section still fits one window.
+- 12 Nov 15:05: featured project photos open in a viewer on DEV (fp_lightbox.html @a707867, inserted at the end of the fp section): click/Enter opens, arrows + keys move 1-3, Esc / x / background close, focus returns, page scroll locked while open; phone: close top-right, arrows at the bottom. Tested by real clicks at 1536 and in a 390px frame; no console errors. Backup 'homedev-350369803-before-lightbox-20261112'.
