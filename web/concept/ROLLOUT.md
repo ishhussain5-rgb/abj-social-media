@@ -504,3 +504,35 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   (403) - edits done in the dashboard form. Tested: all 10 /tpost/ cases + cutting list OK, live posts unaffected,
   all 15 town pages 200. New Tilda entries still propagating across Tilda servers at 18:10 (215/228 tries OK).
 - 12 Nov 19:07 recheck: all 30 new Tilda redirects OK on every try (150/150), no re-save needed.
+
+## Health score + Screaming Frog clean-up (12 Nov 2026 evening, Ish: "score needs to be back to high 90")
+- Site health checker (/abj-site-health-x7k2q9, page 347729303, block rec5305637903) upgraded, insert/replace only
+  (health_extra_chunk.js + sitehealth/health_patch*.json, applied @4cc21df and @7d58e7f). Old code: tilda.cc IndexedDB
+  abj_svc_bak '347729303-5305637903-before-checks-20261112'.
+  New area "Business facts & AI search": out-of-date facts (2006, 10-year guarantee, from £5,000; maker warranties ignored),
+  schema facts (phone, PE1 2AZ, 2017, hours), unexpected tel/WhatsApp/email links (Ideal4Finance 020 3617 4647 allowed),
+  NAP and booking/tap-to-call present (blog posts count the post-skin footer), tracking markers vs homepage (lead hand-off
+  only where a form exists), FAQ schema questions visible, llms.txt / llms-full.txt present, complete and current, robots.txt
+  AI crawler blocks, US spellings. New SEO checks: 46 old addresses still redirect, DEV links/canonicals, placeholders,
+  orphan and >3-click pages, near-duplicate text (5-word shingles, 50%+), footer gaps vs homepage, www/http internal links,
+  skipped heading levels, unlabelled fields/buttons/embeds (GTM noscript ignored), duplicate X card title/description,
+  second-H2 duplicates. Images: same photo twice on a page, share images over 300 kB. Accuracy: phone load time is now the
+  page's own load time (the old figure included a fixed 2.5 s wait), and a photo that didn't load in the phone check is only
+  reported if it also fails 3 fresh requests.
+- Fixes from the first run of the new checks:
+  - /fitted-kitchens-bedrooms-oakham FAQ schema (page HEAD) said "from around £5,000": now matches the visible answer
+    (£2,500 / £7,000-£9,500). Backup '204575403-head-before-pricefix-20261112'.
+  - Blog "What happens at a free kitchen design survey": same old price sentence corrected in the Feeds editor (the editor
+    ignores scripted typing; the save request was rewritten in flight, then checked live).
+  - /bespoke-wardrobes FAQ schema finance answer now gives the real terms (£6,000+, 50% deposit, Ideal4Finance);
+    visible FAQ item added to match (see below). Backup '73280437-head-before-faqfin-20261112'.
+  - /abjfeeds page HEAD: its twitter:title/description wrapped in an HTML comment (not deleted) because all 8 blog posts
+    inherited them (Screaming Frog "duplicate X title/description"); X now uses each post's own og tags.
+    Backup '72969701-head-before-xcard-20261112'.
+  - Site HEAD twitter:image (Pembridge webp, 114 kB) -> 1200x630 JPG copy, 90 kB (og-Pembridge-Ki.jpg). Backup
+    'sitehead-before-ximg-20261112'. Site HEAD now 65,494 bytes.
+  - Share images: 18 og:image files over 100 kB (up to 1.15 MB) -> 1200x630 JPG copies under 100 kB (og_fix.js @ddb5db6),
+    set in Page settings > Facebook (fb_img) on 30 pages. Previous fb_img values (where set) are in the run log; page
+    thumbnails untouched.
+  - Orphan: /kitchen-design-peterborough now links to the design-survey article ("For a step-by-step account of the day...").
+    Backup '381512303-5751775203-before-guidelink-20261112'.
