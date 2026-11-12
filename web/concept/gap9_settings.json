@@ -15,7 +15,19 @@
   "live": {
    "alias": "kitchen-design-peterborough",
    "canonical": "https://abjkitchensandbedrooms.co.uk/kitchen-design-peterborough",
-   "head": "<!-- ABJ Kitchen Design Service: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Kitchen Design Service\", \"item\": \"https://abjkitchensandbedrooms.co.uk/kitchen-design-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Kitchen Design Service in Peterborough | ABJ\">\n<meta name=\"twitter:description\" content=\"Free home design visit and 3D kitchen design from ABJ in Peterborough. We measure, design and quote, then make and fit your kitchen ourselves.\">\n"
+   "head": "<!-- ABJ Kitchen Design Service: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Kitchen Design Service\", \"item\": \"https://abjkitchensandbedrooms.co.uk/kitchen-design-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Kitchen Design Service in Peterborough | ABJ\">\n<meta name=\"twitter:description\" content=\"Free home design visit and 3D kitchen design from ABJ in Peterborough. We measure, design and quote, then make and fit your kitchen ourselves.\">\n",
+   "fb_img": "https://static.tildacdn.net/tild3231-3637-4438-a666-613162656437/abj-kitchen-navy-cop.jpg",
+   "settings": {
+    "title": "Kitchen Design Service Peterborough | Free 3D Design | ABJ",
+    "alias": "kitchen-design-peterborough",
+    "meta_title": "Kitchen Design Service Peterborough | Free 3D Design | ABJ",
+    "meta_descr": "Free home design visit and 3D kitchen design from ABJ in Peterborough. We measure, design and quote, then make and fit your kitchen ourselves.",
+    "descr": "Free home design visit and 3D kitchen design from ABJ in Peterborough. We measure, design and quote, then make and fit your kitchen ourselves.",
+    "fb_title": "Kitchen Design Service in Peterborough | ABJ",
+    "fb_descr": "Free home design visit and 3D kitchen design from ABJ in Peterborough. We measure, design and quote, then make and fit your kitchen ourselves.",
+    "fb_img": "https://static.tildacdn.net/tild3231-3637-4438-a666-613162656437/abj-kitchen-navy-cop.jpg",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/kitchen-design-peterborough"
+   }
   }
  },
  {
@@ -34,7 +46,19 @@
   "live": {
    "alias": "kitchen-cabinets-peterborough",
    "canonical": "https://abjkitchensandbedrooms.co.uk/kitchen-cabinets-peterborough",
-   "head": "<!-- ABJ Kitchen Cabinets & Units: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Kitchen Cabinets & Units\", \"item\": \"https://abjkitchensandbedrooms.co.uk/kitchen-cabinets-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Made-to-Measure Kitchen Cabinets &amp; Units | ABJ\">\n<meta name=\"twitter:description\" content=\"Made-to-measure kitchen cabinets and units, built rigid in our Peterborough workshop with soft-close hinges and drawers. Free design visit.\">\n"
+   "head": "<!-- ABJ Kitchen Cabinets & Units: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Kitchen Cabinets & Units\", \"item\": \"https://abjkitchensandbedrooms.co.uk/kitchen-cabinets-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Made-to-Measure Kitchen Cabinets &amp; Units | ABJ\">\n<meta name=\"twitter:description\" content=\"Made-to-measure kitchen cabinets and units, built rigid in our Peterborough workshop with soft-close hinges and drawers. Free design visit.\">\n",
+   "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-kr-detail-l.webp",
+   "settings": {
+    "title": "Kitchen Cabinets & Units Made in Peterborough | ABJ",
+    "alias": "kitchen-cabinets-peterborough",
+    "meta_title": "Kitchen Cabinets & Units Made in Peterborough | ABJ",
+    "meta_descr": "Made-to-measure kitchen cabinets and units, built rigid in our Peterborough workshop with soft-close hinges and drawers. Free design visit.",
+    "descr": "Made-to-measure kitchen cabinets and units, built rigid in our Peterborough workshop with soft-close hinges and drawers. Free design visit.",
+    "fb_title": "Made-to-Measure Kitchen Cabinets & Units | ABJ",
+    "fb_descr": "Made-to-measure kitchen cabinets and units, built rigid in our Peterborough workshop with soft-close hinges and drawers. Free design visit.",
+    "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-kr-detail-l.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/kitchen-cabinets-peterborough"
+   }
   }
  },
  {
@@ -53,7 +77,19 @@
   "live": {
    "alias": "supply-only-kitchens-peterborough",
    "canonical": "https://abjkitchensandbedrooms.co.uk/supply-only-kitchens-peterborough",
-   "head": "<!-- ABJ Supply-Only Kitchens: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Supply-Only Kitchens\", \"item\": \"https://abjkitchensandbedrooms.co.uk/supply-only-kitchens-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Supply-Only Bespoke Kitchens | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens made in our Peterborough workshop and supplied for you or your fitter to install. Rigid, assembled cabinets, made to your measurements.\">\n"
+   "head": "<!-- ABJ Supply-Only Kitchens: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Supply-Only Kitchens\", \"item\": \"https://abjkitchensandbedrooms.co.uk/supply-only-kitchens-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Supply-Only Bespoke Kitchens | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens made in our Peterborough workshop and supplied for you or your fitter to install. Rigid, assembled cabinets, made to your measurements.\">\n",
+   "fb_img": "https://static.tildacdn.net/tild3365-6437-4663-b134-393931626234/abj-kitchen-dark-gre.jpg",
+   "settings": {
+    "title": "Supply-Only Kitchens Peterborough | Made to Measure | ABJ",
+    "alias": "supply-only-kitchens-peterborough",
+    "meta_title": "Supply-Only Kitchens Peterborough | Made to Measure | ABJ",
+    "meta_descr": "Bespoke kitchens made in our Peterborough workshop and supplied for you or your fitter to install. Rigid, assembled cabinets, made to your measurements.",
+    "descr": "Bespoke kitchens made in our Peterborough workshop and supplied for you or your fitter to install. Rigid, assembled cabinets, made to your measurements.",
+    "fb_title": "Supply-Only Bespoke Kitchens | ABJ Peterborough",
+    "fb_descr": "Bespoke kitchens made in our Peterborough workshop and supplied for you or your fitter to install. Rigid, assembled cabinets, made to your measurements.",
+    "fb_img": "https://static.tildacdn.net/tild3365-6437-4663-b134-393931626234/abj-kitchen-dark-gre.jpg",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/supply-only-kitchens-peterborough"
+   }
   }
  },
  {
@@ -72,7 +108,19 @@
   "live": {
    "alias": "utility-boot-rooms-peterborough",
    "canonical": "https://abjkitchensandbedrooms.co.uk/utility-boot-rooms-peterborough",
-   "head": "<!-- ABJ Utility & Boot Rooms: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Utility & Boot Rooms\", \"item\": \"https://abjkitchensandbedrooms.co.uk/utility-boot-rooms-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Bespoke Utility &amp; Boot Rooms | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"Bespoke utility rooms and boot rooms made in Peterborough: laundry storage, boot benches and coat storage built to fit your space. Free design visit.\">\n"
+   "head": "<!-- ABJ Utility & Boot Rooms: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Utility & Boot Rooms\", \"item\": \"https://abjkitchensandbedrooms.co.uk/utility-boot-rooms-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Bespoke Utility &amp; Boot Rooms | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"Bespoke utility rooms and boot rooms made in Peterborough: laundry storage, boot benches and coat storage built to fit your space. Free design visit.\">\n",
+   "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@c9b6a43e8a2c02ad59b5f96be569168331082850/media/abj-hl-us-pullout.webp",
+   "settings": {
+    "title": "Utility Rooms & Boot Rooms Peterborough | Bespoke | ABJ",
+    "alias": "utility-boot-rooms-peterborough",
+    "meta_title": "Utility Rooms & Boot Rooms Peterborough | Bespoke | ABJ",
+    "meta_descr": "Bespoke utility rooms and boot rooms made in Peterborough: laundry storage, boot benches and coat storage built to fit your space. Free design visit.",
+    "descr": "Bespoke utility rooms and boot rooms made in Peterborough: laundry storage, boot benches and coat storage built to fit your space. Free design visit.",
+    "fb_title": "Bespoke Utility & Boot Rooms | ABJ Peterborough",
+    "fb_descr": "Bespoke utility rooms and boot rooms made in Peterborough: laundry storage, boot benches and coat storage built to fit your space. Free design visit.",
+    "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@c9b6a43e8a2c02ad59b5f96be569168331082850/media/abj-hl-us-pullout.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/utility-boot-rooms-peterborough"
+   }
   }
  },
  {
@@ -91,7 +139,19 @@
   "live": {
    "alias": "kitchen-showroom-peterborough",
    "canonical": "https://abjkitchensandbedrooms.co.uk/kitchen-showroom-peterborough",
-   "head": "<!-- ABJ Kitchen Showroom: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Kitchen Showroom\", \"item\": \"https://abjkitchensandbedrooms.co.uk/kitchen-showroom-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Visit Our Kitchen Showroom in Peterborough | ABJ\">\n<meta name=\"twitter:description\" content=\"Visit our kitchen and bedroom showroom at 3 Brassey Close, Peterborough PE1 2AZ. See door styles, worktops and fittings next to the workshop.\">\n"
+   "head": "<!-- ABJ Kitchen Showroom: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Kitchen Showroom\", \"item\": \"https://abjkitchensandbedrooms.co.uk/kitchen-showroom-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Visit Our Kitchen Showroom in Peterborough | ABJ\">\n<meta name=\"twitter:description\" content=\"Visit our kitchen and bedroom showroom at 3 Brassey Close, Peterborough PE1 2AZ. See door styles, worktops and fittings next to the workshop.\">\n",
+   "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/74e75bd-abj-worktops-t-wood.webp",
+   "settings": {
+    "title": "Kitchen & Bedroom Showroom Peterborough | ABJ, PE1 2AZ",
+    "alias": "kitchen-showroom-peterborough",
+    "meta_title": "Kitchen & Bedroom Showroom Peterborough | ABJ, PE1 2AZ",
+    "meta_descr": "Visit our kitchen and bedroom showroom at 3 Brassey Close, Peterborough PE1 2AZ. See door styles, worktops and fittings next to the workshop.",
+    "descr": "Visit our kitchen and bedroom showroom at 3 Brassey Close, Peterborough PE1 2AZ. See door styles, worktops and fittings next to the workshop.",
+    "fb_title": "Visit Our Kitchen Showroom in Peterborough | ABJ",
+    "fb_descr": "Visit our kitchen and bedroom showroom at 3 Brassey Close, Peterborough PE1 2AZ. See door styles, worktops and fittings next to the workshop.",
+    "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/74e75bd-abj-worktops-t-wood.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/kitchen-showroom-peterborough"
+   }
   }
  },
  {
@@ -110,7 +170,19 @@
   "live": {
    "alias": "bespoke-vs-off-the-shelf-kitchens",
    "canonical": "https://abjkitchensandbedrooms.co.uk/bespoke-vs-off-the-shelf-kitchens",
-   "head": "<!-- ABJ Bespoke vs Off-the-Shelf Guide: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Bespoke vs Off-the-Shelf Guide\", \"item\": \"https://abjkitchensandbedrooms.co.uk/bespoke-vs-off-the-shelf-kitchens\"}]}</script>\n<meta name=\"twitter:title\" content=\"Bespoke vs Off-the-Shelf Kitchens | ABJ Guide\">\n<meta name=\"twitter:description\" content=\"Bespoke or off-the-shelf kitchen? How they differ on fit, materials, price and lead time, from a Peterborough kitchen maker.\">\n"
+   "head": "<!-- ABJ Bespoke vs Off-the-Shelf Guide: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Bespoke vs Off-the-Shelf Guide\", \"item\": \"https://abjkitchensandbedrooms.co.uk/bespoke-vs-off-the-shelf-kitchens\"}]}</script>\n<meta name=\"twitter:title\" content=\"Bespoke vs Off-the-Shelf Kitchens | ABJ Guide\">\n<meta name=\"twitter:description\" content=\"Bespoke or off-the-shelf kitchen? How they differ on fit, materials, price and lead time, from a Peterborough kitchen maker.\">\n",
+   "fb_img": "https://static.tildacdn.net/tild6630-6131-4730-a162-353535353562/abj-kitchen-marble-i.jpg",
+   "settings": {
+    "title": "Bespoke vs Off-the-Shelf Kitchens: An Honest Guide | ABJ",
+    "alias": "bespoke-vs-off-the-shelf-kitchens",
+    "meta_title": "Bespoke vs Off-the-Shelf Kitchens: An Honest Guide | ABJ",
+    "meta_descr": "Bespoke or off-the-shelf kitchen? How they differ on fit, materials, price and lead time, from a Peterborough kitchen maker.",
+    "descr": "Bespoke or off-the-shelf kitchen? How they differ on fit, materials, price and lead time, from a Peterborough kitchen maker.",
+    "fb_title": "Bespoke vs Off-the-Shelf Kitchens | ABJ Guide",
+    "fb_descr": "Bespoke or off-the-shelf kitchen? How they differ on fit, materials, price and lead time, from a Peterborough kitchen maker.",
+    "fb_img": "https://static.tildacdn.net/tild6630-6131-4730-a162-353535353562/abj-kitchen-marble-i.jpg",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/bespoke-vs-off-the-shelf-kitchens"
+   }
   }
  },
  {
@@ -129,7 +201,19 @@
   "live": {
    "alias": "fitted-kitchens-bedrooms-st-neots",
    "canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-st-neots",
-   "head": "<!-- ABJ Fitted Kitchens & Bedrooms St Neots: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms St Neots\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-st-neots\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in St Neots | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in St Neots and nearby villages, made in our Peterborough workshop. Free design visit.\">\n"
+   "head": "<!-- ABJ Fitted Kitchens & Bedrooms St Neots: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms St Neots\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-st-neots\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in St Neots | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in St Neots and nearby villages, made in our Peterborough workshop. Free design visit.\">\n",
+   "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-book-l.webp",
+   "settings": {
+    "title": "Fitted Kitchens & Bedrooms St Neots | ABJ",
+    "alias": "fitted-kitchens-bedrooms-st-neots",
+    "meta_title": "Fitted Kitchens & Bedrooms St Neots | ABJ",
+    "meta_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in St Neots and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in St Neots and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_title": "Fitted Kitchens & Bedrooms in St Neots | ABJ",
+    "fb_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in St Neots and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-book-l.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-st-neots"
+   }
   }
  },
  {
@@ -148,7 +232,19 @@
   "live": {
    "alias": "fitted-kitchens-bedrooms-corby",
    "canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-corby",
-   "head": "<!-- ABJ Fitted Kitchens & Bedrooms Corby: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms Corby\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-corby\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in Corby | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in Corby and nearby villages, made in our Peterborough workshop. Free design visit.\">\n"
+   "head": "<!-- ABJ Fitted Kitchens & Bedrooms Corby: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms Corby\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-corby\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in Corby | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in Corby and nearby villages, made in our Peterborough workshop. Free design visit.\">\n",
+   "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-book-l.webp",
+   "settings": {
+    "title": "Fitted Kitchens & Bedrooms Corby | ABJ",
+    "alias": "fitted-kitchens-bedrooms-corby",
+    "meta_title": "Fitted Kitchens & Bedrooms Corby | ABJ",
+    "meta_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in Corby and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in Corby and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_title": "Fitted Kitchens & Bedrooms in Corby | ABJ",
+    "fb_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in Corby and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-book-l.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-corby"
+   }
   }
  },
  {
@@ -167,7 +263,19 @@
   "live": {
    "alias": "fitted-kitchens-bedrooms-kettering",
    "canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kettering",
-   "head": "<!-- ABJ Fitted Kitchens & Bedrooms Kettering: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms Kettering\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kettering\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in Kettering | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in Kettering and nearby villages, made in our Peterborough workshop. Free design visit.\">\n"
+   "head": "<!-- ABJ Fitted Kitchens & Bedrooms Kettering: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms Kettering\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kettering\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in Kettering | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in Kettering and nearby villages, made in our Peterborough workshop. Free design visit.\">\n",
+   "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-book-l.webp",
+   "settings": {
+    "title": "Fitted Kitchens & Bedrooms Kettering | ABJ",
+    "alias": "fitted-kitchens-bedrooms-kettering",
+    "meta_title": "Fitted Kitchens & Bedrooms Kettering | ABJ",
+    "meta_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in Kettering and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in Kettering and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_title": "Fitted Kitchens & Bedrooms in Kettering | ABJ",
+    "fb_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in Kettering and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-book-l.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kettering"
+   }
   }
  }
 ]
