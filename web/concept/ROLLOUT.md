@@ -603,3 +603,18 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   logo roundel, 10 service towns, services, typical job £1,000-£20,000 (guess, Ish to confirm), team 2-10 (guess), cost
   details + About Us (12-month guarantee, 2017, ~20 yrs, 2,500+ projects). No trial, no advertising call. Still to do (Ish):
   project photos, review requests.
+- 12 Nov late: Bing Webmaster Tools URL Submission (Ish opened it): 68 URLs (whole sitemap + 8 blog posts) - "Success".
+- Houzz projects (Ish: "add 3-4 projects with photos"). Real ABJ photos only, from the live site (Tilda CDN originals,
+  converted webp->JPEG in the browser, all >=1000px wide as Houzz needs), town only (Peterborough) as the address:
+  1. Kings Road open-plan kitchen and bar, Peterborough - 9 photos (case study), description from the case study.
+  2. Handleless gloss kitchen with marble-effect waterfall island - 10 photos (case study incl. study nook + media wall).
+  3. Bespoke media walls with lit shelving and slatted panels - 4 photos (gallery; BespokeMediaWalls15 removed: render).
+  4. Fitted wardrobes and dressing areas, Peterborough - 6 photos (gallery; abj-war92 + abj-war104 walk-in = 3D renders,
+     and the rattan-pendant shaker wardrobe = catalogue-style, all removed and deleted from unassigned photos).
+  Typical job cost now £500-£50,000 with "Our jobs range from around £500 ... to £50,000 and more" (Ish: 25 staff,
+  £500-£50,000+). Team size: no field on the profile or Pro settings (was only in sign-up; not shown publicly).
+  Review requests NOT sent: Houzz form needs client emails; waiting for Ish's list + OK on the message.
+  Leftover: an empty Ideabook "My Project" from the first attempt shows on the profile (harmless; Ish can delete).
+- Bios (Ish: "yes please"): Instagram @abjkitchensbedrooms "10-yr guarantee" -> "12-month guarantee"; Facebook page bio
+  "10-year guarantee" -> "12-month guarantee". Both checked after reload. Chrome IG was on cut_and_edge_xpress and FB on
+  Ish's own profile - switched to ABJ to edit, then switched back. Still says 10-year: the FB cover IMAGE text.
