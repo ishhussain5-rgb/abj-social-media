@@ -4,7 +4,7 @@ global.window = global; const fs = require('fs'); const D = __dirname + '/';
 require(D + 'lighten.js'); require(D + 'site_polish.js'); require(D + 'tilda_golive.js'); const P = window.abjPolishParts;
 window.__abjDims = JSON.parse(fs.readFileSync(D + 'imgdims.json', 'utf8'));
 const map = JSON.parse(fs.readFileSync(D + 'linkmap.json', 'utf8'));
-for (const s of ['kitchen-design', 'kitchen-cabinets', 'supply-only', 'utility-boot', 'showroom', 'bespoke-vs', 'st-neots', 'corby', 'kettering']) {
+for (const s of (process.argv.slice(2).length ? process.argv.slice(2) : ['kitchen-design', 'kitchen-cabinets', 'supply-only', 'utility-boot', 'showroom', 'bespoke-vs', 'st-neots', 'corby', 'kettering'])) {
   let c = fs.readFileSync(D + 'out-new/' + s + '.html', 'utf8');
   const x = window.abjLive(c, map); if (x.left.length) throw s + ' DEV links left: ' + x.left.join(', ');
   c = P.abjAnchors(x.html); c = window.abjSeoFix(c);

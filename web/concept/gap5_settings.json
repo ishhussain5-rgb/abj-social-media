@@ -14,7 +14,18 @@
   "live": {
    "alias": "shaker-kitchens-peterborough",
    "canonical": "https://abjkitchensandbedrooms.co.uk/shaker-kitchens-peterborough",
-   "head": "<!-- ABJ Shaker & In-Frame Kitchens: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Shaker & In-Frame Kitchens\", \"item\": \"https://abjkitchensandbedrooms.co.uk/shaker-kitchens-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Shaker &amp; In-Frame Kitchens | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"Bespoke Shaker and in-frame kitchens made in our Peterborough workshop and painted in any colour. Free 3D design visit, fitted by our own team.\">\n"
+   "head": "<!-- ABJ Shaker & In-Frame Kitchens: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Shaker & In-Frame Kitchens\", \"item\": \"https://abjkitchensandbedrooms.co.uk/shaker-kitchens-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Shaker &amp; In-Frame Kitchens | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"Bespoke Shaker and in-frame kitchens made in our Peterborough workshop and painted in any colour. Free 3D design visit, fitted by our own team.\">\n",
+   "settings": {
+    "title": "Shaker & In-Frame Kitchens Peterborough | Any Colour | ABJ",
+    "alias": "shaker-kitchens-peterborough",
+    "meta_title": "Shaker & In-Frame Kitchens Peterborough | Any Colour | ABJ",
+    "meta_descr": "Bespoke Shaker and in-frame kitchens made in our Peterborough workshop and painted in any colour. Free 3D design visit, fitted by our own team.",
+    "descr": "Bespoke Shaker and in-frame kitchens made in our Peterborough workshop and painted in any colour. Free 3D design visit, fitted by our own team.",
+    "fb_title": "Shaker & In-Frame Kitchens | ABJ Peterborough",
+    "fb_descr": "Bespoke Shaker and in-frame kitchens made in our Peterborough workshop and painted in any colour. Free 3D design visit, fitted by our own team.",
+    "fb_img": "https://static.tildacdn.net/tila3166-3264-4465-b136-613530326430/abj-pembridge-kitche.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/shaker-kitchens-peterborough"
+   }
   }
  },
  {
@@ -32,7 +43,18 @@
   "live": {
    "alias": "handleless-kitchens-peterborough",
    "canonical": "https://abjkitchensandbedrooms.co.uk/handleless-kitchens-peterborough",
-   "head": "<!-- ABJ Handleless Kitchens: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Handleless Kitchens\", \"item\": \"https://abjkitchensandbedrooms.co.uk/handleless-kitchens-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Handleless Kitchens | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"True handleless kitchens with recessed rails, in matt or gloss, made to measure in our Peterborough workshop. Free 3D design visit.\">\n"
+   "head": "<!-- ABJ Handleless Kitchens: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Handleless Kitchens\", \"item\": \"https://abjkitchensandbedrooms.co.uk/handleless-kitchens-peterborough\"}]}</script>\n<meta name=\"twitter:title\" content=\"Handleless Kitchens | ABJ Peterborough\">\n<meta name=\"twitter:description\" content=\"True handleless kitchens with recessed rails, in matt or gloss, made to measure in our Peterborough workshop. Free 3D design visit.\">\n",
+   "settings": {
+    "title": "Handleless Kitchens Peterborough | True Handleless | ABJ",
+    "alias": "handleless-kitchens-peterborough",
+    "meta_title": "Handleless Kitchens Peterborough | True Handleless | ABJ",
+    "meta_descr": "True handleless kitchens with recessed rails, in matt or gloss, made to measure in our Peterborough workshop. Free 3D design visit.",
+    "descr": "True handleless kitchens with recessed rails, in matt or gloss, made to measure in our Peterborough workshop. Free 3D design visit.",
+    "fb_title": "Handleless Kitchens | ABJ Peterborough",
+    "fb_descr": "True handleless kitchens with recessed rails, in matt or gloss, made to measure in our Peterborough workshop. Free 3D design visit.",
+    "fb_img": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@f58f336440de04a809f3750794a9529ad9469251/media/l/69dbc3e-kc-handleless-l.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/handleless-kitchens-peterborough"
+   }
   }
  },
  {
@@ -50,7 +72,18 @@
   "live": {
    "alias": "fitted-kitchens-bedrooms-march-whittlesey-chatteris",
    "canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-march-whittlesey-chatteris",
-   "head": "<!-- ABJ Fitted Kitchens & Bedrooms March, Whittlesey & Chatteris: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms March, Whittlesey & Chatteris\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-march-whittlesey-chatteris\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in March, Whittlesey &amp; Chatteris\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in March, Whittlesey and Chatteris, made in our Peterborough workshop. Free design visit.\">\n"
+   "head": "<!-- ABJ Fitted Kitchens & Bedrooms March, Whittlesey & Chatteris: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms March, Whittlesey & Chatteris\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-march-whittlesey-chatteris\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in March, Whittlesey &amp; Chatteris\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in March, Whittlesey and Chatteris, made in our Peterborough workshop. Free design visit.\">\n",
+   "settings": {
+    "title": "Fitted Kitchens & Bedrooms March, Whittlesey, Chatteris | ABJ",
+    "alias": "fitted-kitchens-bedrooms-march-whittlesey-chatteris",
+    "meta_title": "Fitted Kitchens & Bedrooms March, Whittlesey, Chatteris | ABJ",
+    "meta_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in March, Whittlesey and Chatteris, made in our Peterborough workshop. Free design visit.",
+    "descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in March, Whittlesey and Chatteris, made in our Peterborough workshop. Free design visit.",
+    "fb_title": "Fitted Kitchens & Bedrooms in March, Whittlesey & Chatteris",
+    "fb_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in March, Whittlesey and Chatteris, made in our Peterborough workshop. Free design visit.",
+    "fb_img": "https://static.tildacdn.net/tila6530-3463-4965-b366-623231616138/abj-fenland-1.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-march-whittlesey-chatteris"
+   }
   }
  },
  {
@@ -68,7 +101,18 @@
   "live": {
    "alias": "fitted-kitchens-bedrooms-kings-lynn",
    "canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kings-lynn",
-   "head": "<!-- ABJ Fitted Kitchens & Bedrooms King's Lynn: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms King's Lynn\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kings-lynn\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in King's Lynn | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in King's Lynn and nearby villages, made in our Peterborough workshop. Free design visit.\">\n"
+   "head": "<!-- ABJ Fitted Kitchens & Bedrooms King's Lynn: breadcrumb (Service and FAQ schema are in the page block) -->\n<script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"BreadcrumbList\", \"itemListElement\": [{\"@type\": \"ListItem\", \"position\": 1, \"name\": \"Home\", \"item\": \"https://abjkitchensandbedrooms.co.uk/\"}, {\"@type\": \"ListItem\", \"position\": 2, \"name\": \"Fitted Kitchens & Bedrooms King's Lynn\", \"item\": \"https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kings-lynn\"}]}</script>\n<meta name=\"twitter:title\" content=\"Fitted Kitchens &amp; Bedrooms in King's Lynn | ABJ\">\n<meta name=\"twitter:description\" content=\"Bespoke kitchens, fitted wardrobes and bedrooms for homes in King's Lynn and nearby villages, made in our Peterborough workshop. Free design visit.\">\n",
+   "settings": {
+    "title": "Fitted Kitchens & Bedrooms King's Lynn | ABJ",
+    "alias": "fitted-kitchens-bedrooms-kings-lynn",
+    "meta_title": "Fitted Kitchens & Bedrooms King's Lynn | ABJ",
+    "meta_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in King's Lynn and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in King's Lynn and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_title": "Fitted Kitchens & Bedrooms in King's Lynn | ABJ",
+    "fb_descr": "Bespoke kitchens, fitted wardrobes and bedrooms for homes in King's Lynn and nearby villages, made in our Peterborough workshop. Free design visit.",
+    "fb_img": "https://static.tildacdn.net/tila3930-6366-4432-b834-383730313532/abj-kingslynn-1.webp",
+    "link_canonical": "https://abjkitchensandbedrooms.co.uk/fitted-kitchens-bedrooms-kings-lynn"
+   }
   }
  }
 ]

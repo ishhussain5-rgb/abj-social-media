@@ -77,7 +77,8 @@ AREAS = [("/home-dev-r7m3k", "Peterborough")] + [("/fitted-kitchens-bedrooms-%s"
     ("bourne-dev-z1y3", "Bourne"), ("spalding-dev-w7k5", "Spalding"), ("oakham-dev-e4y6", "Oakham"),
     ("grantham-dev-d2m2", "Grantham"), ("huntingdon-dev-l6t5", "Huntingdon"), ("st-ives-dev-z1x8", "St Ives"),
     ("ely-dev-r2m2", "Ely"), ("wisbech-dev-r5u6", "Wisbech"), ("cambridge-dev-s4w2", "Cambridge"),
-    ("st-neots-dev-n3s7", "St Neots"), ("corby-dev-c9r2", "Corby"), ("kettering-dev-k4t6", "Kettering")]]
+    ("st-neots-dev-n3s7", "St Neots"), ("corby-dev-c9r2", "Corby"), ("kettering-dev-k4t6", "Kettering"),
+    ("fenland-dev-f8m3", "March &amp; Whittlesey"), ("kings-lynn-dev-k2l7", "King&rsquo;s Lynn")]]
 
 
 def footer(ft):
