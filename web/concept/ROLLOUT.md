@@ -433,3 +433,17 @@ Not yet done: links to the new pages from existing pages (nav/footer/areas) - ne
   author + licence. Hero 1680px, section photos 1100px, webp q0.8, uploaded with Tilda's uploader. On DEV and live.
   Note: out-live/<town>.html in the repo is the pre-landmark version; the Tilda blocks are the current ones.
 - 12 Nov: showroom page (DEV 381331503 + live 381512703) now shows the Google Business Profile hours: Mon-Fri 8am-6pm, Sat 10am-2pm, Sun closed (booking text + 'Do I need an appointment?' FAQ and its schema).
+
+## Missing-search batch 2 (12 Nov 2026, Ish: "please action")
+- Live pages, extra "In detail" sections (`tilda_content.js`, backups IndexedDB '<page>-before-content-20261112'): kitchens
+  (renovating, islands with seating, extensions/open-plan), media walls (TV wall units/cabinets/TV unit with fireplace, home bars),
+  alcoves (bookcases/library walls, window seats), bedrooms (children's/teens), sliding wardrobes (replacement doors), near-me
+  (wardrobes + media walls, Peterborough areas incl. Orton/Werrington/Bretton/Stanground/Yaxley/Thorney/Ramsey/Crowland/Holbeach,
+  new builds in Hampton/Cardea/Great Haddon). Grantham now names Sleaford; Oakham already named Uppingham.
+- Prices: homepage (test page first, then live), both case studies (live + DEV) and the 11 older live town pages now say
+  "compact from around £2,500, typical medium with quartz £7,000-£9,500". DEV town pages still carry their older wording.
+- New DEV pages (private, noindex; not live): Shaker & in-frame 381697803 /shaker-kitchens-peterborough-dev-s4h8,
+  handleless 381698003 /handleless-kitchens-peterborough-dev-h5d2, Fenland 381698103 /fitted-kitchens-bedrooms-fenland-dev-f8m3,
+  King's Lynn 381698203 /fitted-kitchens-bedrooms-kings-lynn-dev-k2l7 (landmarks added). Settings: gap5_settings.json; linkmap updated.
+  Style pages use real photos only (gallery has some 3D renders: navy-sha, white-sh, grey-sha - avoid them).
+- Listings + review pack: Claude Doc https://claude.ai/artifact/CCMGVGPJvmpv5XmzD93Ucs (accounts must be created by Ish).
