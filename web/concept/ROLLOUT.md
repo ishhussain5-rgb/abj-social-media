@@ -373,7 +373,7 @@ but real fitted compact kitchens come out at about £2,350-£4,000; Alex/surveyo
   £7,000 to £9,500..." so it matches the guide (Ish left the choice to me). Still saying "from around £5,000": homepage FAQ
   schema, handleless and Kings Road case studies. Rollback for a page: save the backup code into its block, publish that page.
 
-## New gap pages (12 Nov 2026) - built, not yet on Tilda
+## New gap pages (12 Nov 2026) - on Tilda DEV (private, noindex), not live
 From the AI-search gap analysis. Source: `new_pages_data.py` + `gen_new.py` (6 service pages), `towns/new_towns.py` (3 town pages), then `build.py`.
 DEV-ready block code is in `out-new/<slug>.html` (abjLight + abjMenuImgs + abjBkDedupe + abjFootFh applied; no photo repeats on any page, logo excepted).
 `abjAnchors` (link-text rewording) is NOT applied yet: it expects live URLs, so run the full `abjPolish` after the linkmap swap at go-live.
@@ -388,4 +388,11 @@ DEV-ready block code is in `out-new/<slug>.html` (abjLight + abjMenuImgs + abjBk
 | st-neots | /fitted-kitchens-bedrooms-st-neots-dev-n3s7 | /fitted-kitchens-bedrooms-st-neots |
 | corby | /fitted-kitchens-bedrooms-corby-dev-c9r2 | /fitted-kitchens-bedrooms-corby |
 | kettering | /fitted-kitchens-bedrooms-kettering-dev-k4t6 | /fitted-kitchens-bedrooms-kettering |
-To do: create private (noindex) DEV pages in Tilda, save block, publish single page, check desktop + phone; town landmark photos later; add to linkmap.json and link from existing pages at go-live (needs Ish's approval). Showroom opening hours not given yet - copy says "during our opening hours, call before you travel".
+On Tilda DEV 12 Nov: each page is a duplicate of Sloping-Ceiling Wardrobes DEV (377339703) with the block code replaced (old blocks stay off),
+settings from `gap9_settings.json` (noindex on, canonical to the nearest live page), HEAD = preview-links script only.
+Tilda page / block: kitchen-design 381329803/5747229203, kitchen-cabinets 381331203/5747233003, supply-only 381331303/5747233703,
+utility-boot 381331403/5747234503, showroom 381331503/5747235203, bespoke-vs 381331603/5747235903, st-neots 381331703/5747236703,
+corby 381331803/5747237403, kettering 381331903/5747238103. Checked: noindex, 1 H1, 0 broken images, 0 repeated photos, 0 bad links,
+no sideways scroll at 1440 and 390 px. Copy pass for natural wording (claims we can't back up removed). Hero photos 1600px except
+utility (1080 square) and showroom (1200) - replace if bigger originals turn up.
+Still to do: town landmark photos later; add to linkmap.json and link from existing pages at go-live (needs Ish's approval). Showroom opening hours not given yet - copy says "during our opening hours, call before you travel".
