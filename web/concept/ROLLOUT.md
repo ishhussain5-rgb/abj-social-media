@@ -396,3 +396,7 @@ corby 381331803/5747237403, kettering 381331903/5747238103. Checked: noindex, 1 
 no sideways scroll at 1440 and 390 px. Copy pass for natural wording (claims we can't back up removed). Hero photos 1600px except
 utility (1080 square) and showroom (1200) - replace if bigger originals turn up.
 Still to do: town landmark photos later; add to linkmap.json and link from existing pages at go-live (needs Ish's approval). Showroom opening hours not given yet - copy says "during our opening hours, call before you travel".
+- 12 Nov (later): Ish's desktop review. `desktop_compact.css` (added by `polish_gap.js`) on the 9 gap pages: booking buttons on one line
+  from 1101px, footer fits one screen (618px at 1536x695, was 1017; tablets 950, was 1388), menu button and legal links get bigger
+  tap areas on phones. Kitchen design booking photo was a 3D render, now a real kitchen; booking photos at 1600px, cards at 1200px.
+  The same footer height and wrapping buttons are on every other new-design page (live and DEV) - roll out only with Ish's approval.
