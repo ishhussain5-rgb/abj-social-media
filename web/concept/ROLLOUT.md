@@ -492,3 +492,14 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Cloudflare AI Crawl Control: no crawler blocked (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Googlebot etc. all allowed),
   Bot fight mode off, AI Labyrinth off. No change made. 4xx seen by crawlers are mostly hack probes (.env etc.) and old
   URLs that now 404 (/soham-abj, old /tpost/... posts, /shop/..., /sitemap_index.xml) - redirect candidates.
+- 12 Nov 18:10 (Ish: "action the lot"): Tilda 301s (Site Settings > SEO > 301 Redirects) 214 -> 234: +30 new (soham, stilton,
+  near-me-kettering/spalding, bespoke-sofas, blog, news, testhomepage, sitemap_index/sitemap-index.xml, 20 old
+  bespoke-<service>-<village> pages -> matching service page), 27 retargeted to the new pages (Corby, Kettering incl.
+  Wellingborough/Market Harborough/Northampton, St Neots, March-Whittlesey-Chatteris, classic/traditional -> Shaker,
+  modern/contemporary -> handleless), 10 dormant '/fitted-kitchens-bedrooms-<town> > /bespoke-kitchens' removed.
+  Old list: tilda.cc IndexedDB abj_svc_bak 'redirects301-before-20261112'. Tilda cannot redirect /tpost/ addresses.
+- Cloudflare Single Redirects (8 of 10 used): the 6 old-post rules now also match /tpost/<id> (not only /abjfeeds/tpost/<id>);
+  new 'Old blog posts (/tpost/) -> Design Journal' (https://*abjkitchensandbedrooms.co.uk/tpost/* -> /abjfeeds, last);
+  new '/calculatorcutlist*' -> https://www.cutandedgexpress.com/cutting-list-peterborough/. Dashboard API writes are blocked
+  (403) - edits done in the dashboard form. Tested: all 10 /tpost/ cases + cutting list OK, live posts unaffected,
+  all 15 town pages 200. New Tilda entries still propagating across Tilda servers at 18:10 (215/228 tries OK).
