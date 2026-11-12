@@ -564,3 +564,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   three times; (2) /terms-and-conditions lists maker warranties (10 yrs cabinets, 6 doors, lifetime Blum). (1) to fix when
   Tilda is signed in again (Chrome was signed out of Tilda 22:07); (2) is Alex's legal text - ask before changing.
 - Health checker gap: its "10-year" rule skips text near "manufacturer", and it doesn't crawl the 404 page. To tighten.
+- 22:10-22:30 fixes:
+  - 404 page /near-me-peterborough (123982426, rec5657633603): "10-year manufacturer guarantee" x4 (intro, fact strip, FAQ,
+    FAQ schema) -> 12-month wording ("Some parts, such as hinges, drawer runners and worktops, can carry longer manufacturer
+    warranties"). Backup '123982426-5657633603-before-guarantee-20261112'. Checked live: 0 x "10-year" on the page and on a
+    random missing address.
+  - /edgebanding-abj (73368891, noindex, canonical to Cut & Edge) still had an old published copy with "10-year guarantee" in
+    the old menu script + meta: republished only (no edits) - now clean. Full sweep of 61 addresses: only /terms-and-conditions
+    mentions 10 years (maker warranties - for Alex) and /flexible-finance's £5,000 finance example (correct).
+  - Fact strip on /bespoke-kitchens, /bespoke-wardrobes, /bespoke-bedrooms-abj, /media-walls: + "2,500+ projects" and
+    "20 years of joinery" (insert only; desktop wraps to 2 tidy rows of 3, phone 3 rows of 2). Backups
+    '<pageid>-<rec>-before-facts-20261112'.
+  - Health checker @e91b0e3: also checks the page-not-found page, and "10-year manufacturer guarantee" now counts as
+    out of date unless a maker/part (Blum, hinges, worktops...) is named next to it.
