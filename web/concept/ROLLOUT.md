@@ -536,3 +536,12 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     thumbnails untouched.
   - Orphan: /kitchen-design-peterborough now links to the design-survey article ("For a step-by-step account of the day...").
     Backup '381512303-5751775203-before-guidelink-20261112'.
+  - /bespoke-wardrobes: visible FAQ item "Do you offer finance for fitted wardrobes?" added (same text as the schema).
+    Backup '73280437-5657532803-before-faqfin-20261112'.
+  - /gallery: the two case-study cards used the same photos as the gallery grid; now other photos from the same projects
+    (Kings Road island hob, handleless waterfall island + gold pendant), same 1067x1600 size, new alt text.
+    Backup '74160025-5657569603-before-cardphotos-20261112'.
+- abjImgFix full run (12 Nov ~19:30-20:30): 57 live pages, no errors; pages with changes saved + published one by one.
+- 20:33-20:36: all 58 live pages republished one at a time (site HEAD X image, fb_img and /abjfeeds head changes go out).
+  Checked live: og:image = new JPG copies, 0 <img> without width/height except the photo viewer's empty placeholder,
+  blog posts have no twitter:title (X falls back to og), phone-free desktop check of supply-only page: 0 broken/stretched.
