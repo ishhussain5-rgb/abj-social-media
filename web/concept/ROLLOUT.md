@@ -432,3 +432,4 @@ Not yet done: links to the new pages from existing pages (nav/footer/areas) - ne
   Rockingham Castle, Corby Cube), Kettering (Market Place, Boughton House, Wicksteed Park); Wikimedia Commons, credited with
   author + licence. Hero 1680px, section photos 1100px, webp q0.8, uploaded with Tilda's uploader. On DEV and live.
   Note: out-live/<town>.html in the repo is the pre-landmark version; the Tilda blocks are the current ones.
+- 12 Nov: showroom page (DEV 381331503 + live 381512703) now shows the Google Business Profile hours: Mon-Fri 8am-6pm, Sat 10am-2pm, Sun closed (booking text + 'Do I need an appointment?' FAQ and its schema).
