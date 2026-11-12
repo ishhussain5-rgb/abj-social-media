@@ -577,3 +577,17 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     '<pageid>-<rec>-before-facts-20261112'.
   - Health checker @e91b0e3: also checks the page-not-found page, and "10-year manufacturer guarantee" now counts as
     out of date unless a maker/part (Blum, hinges, worktops...) is named next to it.
+- 22:20-22:45 (Ish: T&Cs wording, GBP towns, build the two guides with Alex's prices):
+  - /terms-and-conditions (82695596 / rec5657521403) 8.2 "Extended Warranties" list (doors 6 yrs, cabinets 10 yrs) replaced
+    by "Manufacturers' warranties" paragraph: depends on which manufacturer supplies the items; we tell the client which
+    apply before they order and list them in the specification. Backup '82695596-5657521403-before-mfrwarranty-20261112'.
+  - Google Business Profile service areas: already 20 (Google's max) incl. Stamford, Huntingdon, Oundle, Market Deeping,
+    Bourne, Spalding, St Ives, St Neots, Ely, Wisbech, Cambridge, King's Lynn, Grantham, Oakham, Corby, Kettering. No change.
+  - Facebook + Instagram bios still say "10-yr guarantee" (seen in Google results) - asked Ish before changing.
+  - Declined Ish's request to invent Stamford/Huntingdon jobs (fake testimonials/case studies); asked for real jobs instead.
+  - Cost guides (new_pages_data3.py, gen_new3.py, out-live-new/*.main.html @759c89a): Tilda pages duplicated from live
+    bespoke-vs (381512803) via comm=dublicatepage, <main> swapped, settings + HEAD (breadcrumb, twitter) set:
+    /kitchen-cost-peterborough 383065903 / rec5764543803 (og og-abj-open-pla.jpg),
+    /media-wall-cost-peterborough 383066003 / rec5764544503 (og MediaWall1.jpg). SAVED, NOT PUBLISHED - publishing a new
+    page needs Ish's OK. Media wall prices = calc/build_calc.py 'mediawall' bands (Alex's 4 real quotes) incl. fitting.
+    To do after publish: phone check, imgfix on both, sitemap/llms, links from kitchens + media walls pages, Bing/GSC submit.
