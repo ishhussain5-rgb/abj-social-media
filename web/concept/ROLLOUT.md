@@ -618,3 +618,7 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Bios (Ish: "yes please"): Instagram @abjkitchensbedrooms "10-yr guarantee" -> "12-month guarantee"; Facebook page bio
   "10-year guarantee" -> "12-month guarantee". Both checked after reload. Chrome IG was on cut_and_edge_xpress and FB on
   Ish's own profile - switched to ABJ to edit, then switched back. Still says 10-year: the FB cover IMAGE text.
+- 12 Nov 23:30 Facebook cover (Ish asked): same 2 Nov cover (1536x639 from FB) with only the line changed to
+  "20 years of joinery experience · 12-month guarantee" (old line painted out with the surrounding gradient, redrawn in
+  DM Sans 19px, same colour/position), uploaded as the Page, same framing as before, checked live. Switched FB back to Ish.
+- Houzz: empty Ideabook "My Project" deleted (Ish asked). Public profile checked logged-out: live, 4 projects, £500-£50,000.
