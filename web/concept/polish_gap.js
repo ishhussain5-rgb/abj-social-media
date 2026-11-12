@@ -4,7 +4,7 @@
 global.window = global; const fs = require('fs'); const D = __dirname + '/';
 require(D + 'lighten.js'); require(D + 'site_polish.js'); const P = window.abjPolishParts;
 const CSS = fs.readFileSync(D + 'desktop_compact.css', 'utf8').trim();
-for (const s of ['kitchen-design', 'kitchen-cabinets', 'supply-only', 'utility-boot', 'showroom', 'bespoke-vs', 'st-neots', 'corby', 'kettering']) {
+for (const s of (process.argv.slice(2).length ? process.argv.slice(2) : ['kitchen-design', 'kitchen-cabinets', 'supply-only', 'utility-boot', 'showroom', 'bespoke-vs', 'st-neots', 'corby', 'kettering'])) {
   let c = fs.readFileSync(D + 'out/' + s + '.html', 'utf8');
   c = window.abjLight(c); c = P.abjMenuImgs(c); const mi = P.abjMenuImgs.changed; c = P.abjBkDedupe(c); c = P.abjFootFh(c);
   if (!c.includes('desktop: booking buttons on one line')) { const i = c.indexOf('</style>'); if (i < 0) throw s + ' no style'; c = c.slice(0, i) + '\n' + CSS + '\n' + c.slice(i); }
