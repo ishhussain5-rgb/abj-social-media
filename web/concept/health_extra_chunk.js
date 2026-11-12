@@ -30,7 +30,7 @@ Object.assign(DEF,{
 var FACTS={phones:['01733686767','441733686767','07479219421','447479219421','02036174647','442036174647'],email:'info@abjkitchensandbedrooms.co.uk',founding:'2017'};
 var WRONG=[[/\b(10|ten)[\s-]*years?[\s-]+(guarantee|warranty)\b/i,'10-year guarantee (it is 12 months)'],[/\b(since|established|founded|est\.?)(\s+in)?\s+2006\b/i,'2006 founding date (company incorporated 2017)'],[/\b(start(s|ing)?\s+(from\s+)?|from\s+)(around\s+|about\s+|just\s+)?£\s?5,?000\b/i,'"from £5,000" price (now from around £2,500)']];
 var LEGAL=/privacy|terms|payment|policy|cookie|finance/i;
-var MAKERS=/blum|egger|hettich|grass|silestone|dekton|caesarstone|quartz|manufacturer|maker|supplier|brand|hinge|runner|drawer|appliance|neff|bosch|siemens|samsung|worktop|sink|tap/i;
+var MAKERS=/blum|egger|hettich|grass|silestone|dekton|caesarstone|quartz|hinge|runner|drawer|appliance|neff|bosch|siemens|samsung|worktop|sink|\btap\b|cabinets: |doors: /i;
 function factHit(txt,re){var g=new RegExp(re.source,'gi'),m;while((m=g.exec(txt))){var ctx=txt.slice(Math.max(0,m.index-60),m.index+m[0].length+40);if(!/guarantee|warranty/i.test(m[0])||!MAKERS.test(ctx))return m[0]}return null}
 var USMAP={color:'colour',colors:'colours',colored:'coloured',favorite:'favourite',favorites:'favourites',organize:'organise',organized:'organised',organizer:'organiser',customize:'customise',customized:'customised',optimize:'optimise',optimized:'optimised',center:'centre',centers:'centres',gray:'grey',aluminum:'aluminium',catalog:'catalogue',jewelry:'jewellery',cozy:'cosy',modeling:'modelling',traveling:'travelling',labeled:'labelled',personalized:'personalised',specialize:'specialise',specialized:'specialised',analyze:'analyse',realize:'realise',minimize:'minimise',maximize:'maximise',utilize:'utilise'};
 var USRE=new RegExp('\\b('+Object.keys(USMAP).join('|')+')\\b','gi');
@@ -79,6 +79,7 @@ function crawlExtra(P,d,html,url){
 async function extraChecks(){
  S.site.llms={};var fs=['/llms.txt','/llms-full.txt'];
  for(var i=0;i<fs.length;i++){try{var r=await fetch(fs[i],{cache:'no-store'});S.site.llms[fs[i]]={status:r.status,text:r.ok?await r.text():''}}catch(e){S.site.llms[fs[i]]={status:0,text:''}}}
+ try{var nf=await fetch('/abj-missing-page-check-'+Date.now(),{cache:'no-store'});var nd=new DOMParser().parseFromString(await nf.text(),'text/html');[].slice.call(nd.querySelectorAll('script,style,noscript')).forEach(function(n){n.remove()});S.site.notFoundText=nd.body?nd.body.textContent.replace(/\s+/g,' '):''}catch(e){}
  try{var rr=await fetch('/robots.txt',{cache:'no-store'});if(rr.ok)S.site.aiBlocked=aiBlocked(await rr.text())}catch(e){}
  S.site.old={};
  for(var j=0;j<OLDURLS.length;j+=6){await waitIfPaused();if(stopped)break;await Promise.all(OLDURLS.slice(j,j+6).map(async function(p){try{var r=await fetch(p,{cache:'no-store'});S.site.old[p]={status:r.status,final:r.url}}catch(e){S.site.old[p]={status:0}}}))}
@@ -114,6 +115,7 @@ function analyseExtra(pages,ok,idx){
    if(P.faqQ&&P.faqQ.length){var vt=normT(P.visText||'');var hid=P.faqQ.filter(function(q){return vt.indexOf(normT(q))<0});if(hid.length)add('faqhidden',P.url,hid.length+' of '+P.faqQ.length+': '+hid.slice(0,2).join(' | '))}
    var us={};(P.mainText||'').replace(USRE,function(w){us[w.toLowerCase()]=1;return w});var uk=Object.keys(us);if(uk.length)add('usspelling',P.url,uk.map(function(w){return w+' → '+USMAP[w]}).join(', '));
   });
+  if(S.site.notFoundText)WRONG.forEach(function(w){var m=factHit(S.site.notFoundText,w[0]);if(m)add('wrongfact',ORIGIN+'/(page-not-found page)',w[1]+': "'+m+'" (shown on every missing address)')});
   var L=S.site.llms||{};
   ['/llms.txt','/llms-full.txt'].forEach(function(f){var o=L[f];if(!o||o.status!==200)add('llmsmissing',null,f+' returned '+(o?o.status:'nothing'));else WRONG.forEach(function(w){var m=factHit(o.text,w[0]);if(m)add('llmsstale',null,f+': '+w[1]+' – "'+m+'"')})});
   if(L['/llms.txt']&&L['/llms.txt'].status===200){var lt=L['/llms.txt'].text;idx.forEach(function(P){if(!P.inSitemap)return;var full=ORIGIN+(P.path==='/'?'/':P.path);if(lt.indexOf('('+full+')')<0&&lt.indexOf('('+full+'/)')<0&&!(P.path==='/'&&lt.indexOf('('+ORIGIN+')')>=0))add('llmsgap',P.url)})}
