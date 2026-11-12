@@ -474,3 +474,4 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 12 Nov 14:50: featured project section (fp) fits one screen on DEV: 1138 -> 694px at 1707x775 (711 at 1904x877, 660 at
   1536x695, 612 at 1280x720). Tighter padding, big photo matches the text height, smaller headline/list, small photos 2:1.
   Remaining over 775px at 1707x775: "Rooms made around you" 857, long "In detail" text 956.
+- 12 Nov 14:55: Ish disliked the 2:1 crop of the two small featured-project photos. Back to full squares (original crop); their size now follows the screen height (225px at 1707x775, 327 at 1904x877, 170 at 1536x695) so the section still fits one window.

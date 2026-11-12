@@ -32,6 +32,6 @@
 #kc .fp p{margin-bottom:12px}
 #kc .fp ul{gap:4px;margin:0 0 18px}
 #kc .fp li{padding-top:6px}
-#kc .fp .sm2 figure{aspect-ratio:2/1}
+#kc .fp .sm2{grid-template-columns:repeat(2,minmax(0,clamp(170px,calc(100vh - 550px),340px)));justify-content:start}
 #kc .fp figcaption{margin-top:8px}
 }
