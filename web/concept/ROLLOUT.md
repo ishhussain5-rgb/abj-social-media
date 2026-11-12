@@ -447,3 +447,16 @@ Not yet done: links to the new pages from existing pages (nav/footer/areas) - ne
   King's Lynn 381698203 /fitted-kitchens-bedrooms-kings-lynn-dev-k2l7 (landmarks added). Settings: gap5_settings.json; linkmap updated.
   Style pages use real photos only (gallery has some 3D renders: navy-sha, white-sh, grey-sha - avoid them).
 - Listings + review pack: Claude Doc https://claude.ai/artifact/CCMGVGPJvmpv5XmzD93Ucs (accounts must be created by Ish).
+
+## 4 more pages LIVE (12 Nov 2026, Ish approved: "go live on the four pages")
+| Live address | Tilda page / block |
+|---|---|
+| /shaker-kitchens-peterborough | 381737303 / 5752262103 |
+| /handleless-kitchens-peterborough | 381737403 / 5752262803 |
+| /fitted-kitchens-bedrooms-march-whittlesey-chatteris | 381737503 / 5752263503 (+ landmarks) |
+| /fitted-kitchens-bedrooms-kings-lynn | 381738003 / 5752264203 (+ landmarks) |
+Same method as the 9 (golive_gap.js, gap5_settings.json, footer scripts copied from a live block). Checked live: index on,
+canonical, 1 H1, no DEV links, footer scripts, 0 broken/repeated photos, links 200, buttons one line, footer 618px, no phone scroll.
+Sitemap resubmitted (54 pages). Indexing requested: Shaker, handleless, Fenland; King's Lynn hit the daily quota (follow-up 13 Nov).
+`tilda_links2.js` on every page: footer areas + "March & Whittlesey", "King's Lynn"; kitchens page row + Shaker / handleless.
+Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
