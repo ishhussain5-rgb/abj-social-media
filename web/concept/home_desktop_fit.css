@@ -23,3 +23,15 @@
 #kc .bk .acts{margin-top:30px}
 #kc .bk .fin{margin-top:30px;padding-top:18px}
 }
+/* homepage desktop: featured project fits one screen (12 Nov 2026) */
+@media (min-width:1101px){
+#kc .fp{padding:clamp(32px,2.4vw,46px) 0}
+#kc .fp .big{min-height:0}
+#kc .fp .tx{gap:20px;justify-content:center}
+#kc .fp h2{font-size:clamp(32px,2.6vw,46px);margin:12px 0 14px}
+#kc .fp p{margin-bottom:12px}
+#kc .fp ul{gap:4px;margin:0 0 18px}
+#kc .fp li{padding-top:6px}
+#kc .fp .sm2 figure{aspect-ratio:2/1}
+#kc .fp figcaption{margin-top:8px}
+}

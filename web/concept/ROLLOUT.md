@@ -471,3 +471,6 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 12 Nov 14:40: Ish: workshop section "still not fitting" (his Chrome is 1707x~775 CSS px at 112.5% scaling, and he counts the
   4 steps row as part of it). Whole workshop section (photo block + steps) now 696px at 1707x775, 718 at 1904x877, 662 at
   1536x695, 643 at 1280x720: stats in one row of 4, smaller headline/stats, tighter padding, compact steps. DEV only.
+- 12 Nov 14:50: featured project section (fp) fits one screen on DEV: 1138 -> 694px at 1707x775 (711 at 1904x877, 660 at
+  1536x695, 612 at 1280x720). Tighter padding, big photo matches the text height, smaller headline/list, small photos 2:1.
+  Remaining over 775px at 1707x775: "Rooms made around you" 857, long "In detail" text 956.
