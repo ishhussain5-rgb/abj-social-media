@@ -464,3 +464,7 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   `desktop_compact.css` @129c015 inserted before the first `</style>` of live home block 5657646303 (page 30601906), insert only.
   Footer 944px -> 616px at 1536x639 (656px at 1280); areas one line; booking buttons one row on desktop; no sideways scroll at
   390/900/1280. Old block code: IndexedDB abj_svc_bak 'home-30601906-before-footer-20261112'. Home test page not yet updated.
+- 12 Nov 13:40: homepage DEV only (350369803 / 5643988903), Ish's desktop screenshots: `home_desktop_fit.css` + intro photo
+  (figure.ix, kc-kr-detail, caption "Made in our Peterborough workshop", desktop only, hidden under 1101px) in the empty left
+  column; workshop section 808 -> 635px and booking 796 -> 653px at 1904 wide (buttons one row). Phone unchanged.
+  Backup 'homedev-350369803-before-fit-20261112'. Waiting for Ish to check before live.
