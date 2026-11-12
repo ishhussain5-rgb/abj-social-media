@@ -28,7 +28,7 @@ Object.assign(DEF,{
  imgdupe:['Same photo used twice on one page','img','Medium','Repeated photos look amateurish.','Swap one of the repeats for a different project photo.']
 });
 var FACTS={phones:['01733686767','441733686767','07479219421','447479219421','02036174647','442036174647'],email:'info@abjkitchensandbedrooms.co.uk',founding:'2017'};
-var WRONG=[[/\b(10|ten)[\s-]*years?[\s-]+(guarantee|warranty)\b/i,'10-year guarantee (it is 12 months)'],[/\b(since|established|founded|est\.?)(\s+in)?\s+2006\b/i,'2006 founding date (company incorporated 2017)'],[/\b(start(s|ing)?\s+(from\s+)?|from\s+)(around\s+|about\s+|just\s+)?£\s?5,?000\b/i,'"from £5,000" price (now from around £2,500)']];
+var WRONG=[[/\b(10|ten)[\s-]*years?[\s-]+(manufacturer'?s?\s+|furniture\s+)?(guarantee|warranty)\b/i,'10-year guarantee (it is 12 months)'],[/\b(since|established|founded|est\.?)(\s+in)?\s+2006\b/i,'2006 founding date (company incorporated 2017)'],[/\b(start(s|ing)?\s+(from\s+)?|from\s+)(around\s+|about\s+|just\s+)?£\s?5,?000\b/i,'"from £5,000" price (now from around £2,500)']];
 var LEGAL=/privacy|terms|payment|policy|cookie|finance/i;
 var MAKERS=/blum|egger|hettich|grass|silestone|dekton|caesarstone|quartz|hinge|runner|drawer|appliance|neff|bosch|siemens|samsung|worktop|sink|\btap\b|cabinets: |doors: /i;
 function factHit(txt,re){var g=new RegExp(re.source,'gi'),m;while((m=g.exec(txt))){var ctx=txt.slice(Math.max(0,m.index-60),m.index+m[0].length+40);if(!/guarantee|warranty/i.test(m[0])||!MAKERS.test(ctx))return m[0]}return null}
