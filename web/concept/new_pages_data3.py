@@ -49,7 +49,7 @@ PAGES = [
  "feature": {"kick": "What the price includes", "h": "What you are paying for",
              "p": "Our guide prices cover the kitchen itself, made to measure in our own workshop, delivered and fitted by our own team. Appliances, plumbing and electrics, building work, plastering and flooring are not included unless they are listed on your quote. That way you can compare our quote line by line with any other.",
              "points": ["Cabinets made to your room, assembled in our workshop", "Doors, handles, plinths and end panels", "Worktops, as listed on your quote", "Delivery and fitting by our own team", "Covered by our 12-month guarantee"],
-             "big": (U("74e75bd-abj-kitchens-t-handleless.webp"), "Handleless kitchen made and fitted by ABJ", "50% 50%"),
+             "big": (U("kc-kr-island-s.webp"), "Kitchen island with seating, made and fitted by ABJ in Peterborough", "50% 50%"),
              "small": [(U("kc-detail-s.webp"), "Kitchen cabinet and drawer detail made in the ABJ workshop", "Made in our workshop"),
                        (U("abj-kitchen-cream-is.webp"), "Cream kitchen island with a quartz worktop and brushed brass tap", "Quartz worktop and island")],
              "link": ("/bespoke-kitchens#kc-cost", "Try our kitchen cost guide")},
