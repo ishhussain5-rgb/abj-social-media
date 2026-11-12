@@ -627,6 +627,9 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 @media (min-width:1101px){
 #kc .bk .acts{flex-wrap:nowrap;gap:10px}
 #kc .bk .acts .bt{padding:0 22px;letter-spacing:.18em;white-space:nowrap;flex:0 0 auto}
+}
+/* footer: compact on tablets and desktops too */
+@media (min-width:761px){
 #kc .ft{padding:clamp(40px,3.2vw,56px) 0 24px}
 #kc .ft-top{align-items:center;padding-bottom:clamp(26px,2.2vw,36px)}
 #kc .ft-top h2{font-size:clamp(40px,3.4vw,58px);max-width:none}
@@ -650,9 +653,21 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 @media (min-width:1101px) and (max-width:1199px){
 #kc .bk .acts .bt{padding:0 11px;letter-spacing:.07em}
 }
+@media (min-width:761px) and (max-width:1100px){
+#kc .ft-top{flex-direction:column;align-items:flex-start;gap:20px}
+#kc .ft-top .ph,#kc .ft-top .bt{white-space:nowrap}
+#kc .ft-g{grid-template-columns:repeat(4,minmax(0,1fr));gap:28px 24px}
+#kc .ft-b,#kc .ft-ar{grid-column:1/-1}
+#kc .ft-v{grid-column:auto}
+#kc .ft-l nav a{padding:12px 0}
+}
+/* menu button: larger invisible tap area on phones and tablets, same look */
+@media (max-width:1100px){
+#kc .mb{position:relative}
+#kc .mb:after{content:"";position:absolute;left:-12px;right:-12px;top:-12px;bottom:-12px}
+}
 /* ===== phone: bigger tap areas for the menu button and legal links, slightly tighter footer (12 Nov 2026) ===== */
 @media (max-width:760px){
-#kc .mb{padding:17px 0;margin:-9px 0}
 #kc .ft-l nav a,#kc .ft-l span a{padding:13px 0}
 #kc .ft-top h2{font-size:31px}
 #kc .ft-top{padding-bottom:26px}
