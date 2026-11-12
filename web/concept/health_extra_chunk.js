@@ -27,7 +27,7 @@ Object.assign(DEF,{
  ogheavy:['Social share image over 300 kB','img','Low','Facebook, WhatsApp and X previews load slowly or not at all.','Upload a 1200×630 JPG under 300 kB in Page Settings → Facebook and social networks.'],
  imgdupe:['Same photo used twice on one page','img','Medium','Repeated photos look amateurish.','Swap one of the repeats for a different project photo.']
 });
-var FACTS={phones:['01733686767','441733686767','07479219421','447479219421'],email:'info@abjkitchensandbedrooms.co.uk',founding:'2017'};
+var FACTS={phones:['01733686767','441733686767','07479219421','447479219421','02036174647','442036174647'],email:'info@abjkitchensandbedrooms.co.uk',founding:'2017'};
 var WRONG=[[/\b(10|ten)[\s-]*years?[\s-]+(guarantee|warranty)\b/i,'10-year guarantee (it is 12 months)'],[/\b(since|established|founded|est\.?)(\s+in)?\s+2006\b/i,'2006 founding date (company incorporated 2017)'],[/\b(start(s|ing)?\s+(from\s+)?|from\s+)(around\s+|about\s+|just\s+)?£\s?5,?000\b/i,'"from £5,000" price (now from around £2,500)']];
 var LEGAL=/privacy|terms|payment|policy|cookie|finance/i;
 var MAKERS=/blum|egger|hettich|grass|silestone|dekton|caesarstone|quartz|manufacturer|maker|supplier|brand|hinge|runner|drawer|appliance|neff|bosch|siemens|samsung|worktop|sink|tap/i;
@@ -56,6 +56,8 @@ function crawlExtra(P,d,html,url){
    if(/^(https?:)?\/\/(www\.)?abjkitchensandbedrooms\.co\.uk/i.test(h)&&(/^http:/i.test(h)||/\/\/www\./i.test(h)))P.hostLinks.push(h);
    if(/-dev-[a-z0-9]{4}\b/i.test(h))P.devRefs.push('link → '+h)});
   P.booking=!!d.querySelector('a[href*="/bookingform"]');
+  P.hasForm=!!d.querySelector('form,.t-form,.js-form-proccess');
+  P.skin=/\/tpost\//.test(url)&&html.indexOf('post-skin.js')>=0;
   [].slice.call(d.querySelectorAll('link[rel="canonical" i],meta[property="og:url"]')).forEach(function(l){var v=l.getAttribute('href')||l.getAttribute('content')||'';if(/-dev-[a-z0-9]{4}\b/i.test(v))P.devRefs.push((l.tagName==='LINK'?'canonical':'og:url')+' → '+v)});
   var lds=[].slice.call(d.querySelectorAll('script[type="application/ld+json"]'));P.schemaRaw=lds.map(function(s){return s.textContent}).join('\n');
   if(/-dev-[a-z0-9]{4}\b/i.test(P.schemaRaw))P.devRefs.push('schema mentions a DEV page');
@@ -65,7 +67,7 @@ function crawlExtra(P,d,html,url){
   P.a11y=[];
   [].slice.call(d.querySelectorAll('input:not([type=hidden]):not([type=submit]):not([type=button]):not([type=checkbox]):not([type=radio]),select,textarea')).forEach(function(i){var id=i.getAttribute('id');if(!(i.getAttribute('aria-label')||i.getAttribute('aria-labelledby')||i.getAttribute('title')||i.getAttribute('placeholder')||(id&&d.querySelector('label[for="'+id+'"]'))||i.closest('label')))P.a11y.push('form field "'+(i.getAttribute('name')||i.type||i.tagName.toLowerCase())+'" has no label')});
   [].slice.call(d.querySelectorAll('button')).forEach(function(b){if(!(b.textContent.trim()||b.getAttribute('aria-label')||b.getAttribute('title')||b.querySelector('img[alt]:not([alt=""])')))P.a11y.push('button with no name')});
-  [].slice.call(d.querySelectorAll('iframe')).forEach(function(f){if(!f.getAttribute('title'))P.a11y.push('embed with no title: '+(f.getAttribute('src')||'').slice(0,60))});
+  [].slice.call(d.querySelectorAll('iframe')).forEach(function(f){if(!f.getAttribute('title')&&!f.closest('noscript')&&!/googletagmanager\.com\/ns\.html/.test(f.getAttribute('src')||''))P.a11y.push('embed with no title: '+(f.getAttribute('src')||'').slice(0,60))});
   var ft=d.querySelector('.ft,footer,[role=contentinfo]');P.footerLinks=ft?[].slice.call(ft.querySelectorAll('a[href]')).map(function(a){return norm(a.getAttribute('href'))}).filter(Boolean):null;
   P.markers={};MARKERS.forEach(function(m){P.markers[m[0]]=html.indexOf(m[1])>=0});
   var tw=[].slice.call(d.querySelectorAll('meta[name="twitter:title"]')),twd=[].slice.call(d.querySelectorAll('meta[name="twitter:description"]'));
@@ -106,9 +108,9 @@ function analyseExtra(pages,ok,idx){
    (P.was||[]).forEach(function(w){var m=w.match(/(\d{10,13})/);if(!m||m[1]!=='447479219421')bad.push('WhatsApp '+w.slice(0,60))});
    (P.mails||[]).forEach(function(m){if(m!==FACTS.email)bad.push('email '+m)});
    bad=bad.filter(function(v,i,a){return a.indexOf(v)===i});if(bad.length)add('wrongcontact',P.url,bad.slice(0,4).join(' , '));
-   if(!P.noindex){var miss=[];if((P.visText||'').indexOf('686767')<0&&!(P.tels||[]).length)miss.push('phone');if(!/PE1\s?2AZ/i.test(P.visText||''))miss.push('postcode');if(miss.length)add('napmissing',P.url,miss.join(' and ')+' not found')}
-   if(!legal&&!/bookingform/.test(P.path)&&!P.noindex){var c=[];if(!P.booking)c.push('no link to /bookingform');if(!(P.tels||[]).length)c.push('no tap-to-call link');if(c.length)add('nocta',P.url,c.join(', '))}
-   if(home&&home.markers&&P!==home&&P.markers){var mm=MARKERS.filter(function(m){return home.markers[m[0]]&&!P.markers[m[0]]}).map(function(m){return m[0]});if(mm.length)add('notracking',P.url,mm.join(', ')+' missing')}
+   if(!P.noindex&&!P.skin){var miss=[];if((P.visText||'').indexOf('686767')<0&&!(P.tels||[]).length)miss.push('phone');if(!/PE1\s?2AZ/i.test(P.visText||''))miss.push('postcode');if(miss.length)add('napmissing',P.url,miss.join(' and ')+' not found')}
+   if(!legal&&!/bookingform/.test(P.path)&&!P.noindex&&!P.skin){var c=[];if(!P.booking)c.push('no link to /bookingform');if(!(P.tels||[]).length)c.push('no tap-to-call link');if(c.length)add('nocta',P.url,c.join(', '))}
+   if(home&&home.markers&&P!==home&&P.markers){var mm=MARKERS.filter(function(m){return home.markers[m[0]]&&!P.markers[m[0]]&&(m[1]!=='functions/v1/sales'||P.hasForm)}).map(function(m){return m[0]});if(mm.length)add('notracking',P.url,mm.join(', ')+' missing')}
    if(P.faqQ&&P.faqQ.length){var vt=normT(P.visText||'');var hid=P.faqQ.filter(function(q){return vt.indexOf(normT(q))<0});if(hid.length)add('faqhidden',P.url,hid.length+' of '+P.faqQ.length+': '+hid.slice(0,2).join(' | '))}
    var us={};(P.mainText||'').replace(USRE,function(w){us[w.toLowerCase()]=1;return w});var uk=Object.keys(us);if(uk.length)add('usspelling',P.url,uk.map(function(w){return w+' → '+USMAP[w]}).join(', '));
   });
