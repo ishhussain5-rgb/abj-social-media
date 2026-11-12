@@ -479,3 +479,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 12 Nov 15:00: LIVE homepage (30601906 / 5657646303), Ish: "that's perfect, please make live". Same three inserts as DEV @bf21f41 (intro photo, home_desktop_fit.css, fp_lightbox.html); insert only (+7,264 chars, matches expected). Checked live at 1707x775, 1904x877, 1536x695, 1280x720, 390: same heights as DEV, 1 H1, footer scripts present, viewer tested by real clicks, no console errors. Backup 'home-30601906-before-homefit-20261112'.
 - 12 Nov 17:10: DEV only: 'Rooms made around you' panels fit one screen (panel height follows screen height): 857 -> 731px at 1707x775, 942 -> 838 at 1904x877, 777 -> 636 at 1536x695. Hover-to-open panels unchanged; 'Everywhere else' section and phone untouched. Backup 'homedev-350369803-before-rooms-20261112'. Waiting for Ish before live.
 - 12 Nov 17:15: LIVE homepage: room panels rule (Ish: "sublime, please make live"), insert only (+387). Live matches DEV at all five sizes; hover panels checked; 1 H1. Backup 'home-30601906-before-rooms-20261112'.
+
+## AI files + structure check (12 Nov 2026, Ish: "sort the whole lot out")
+- Audit of all 58 live pages: 1 H1 each, titles/descriptions in range, canonical correct, no noindex, main/nav landmarks,
+  schema on every page (LocalBusiness 58, Service 55, FAQPage 46, BreadcrumbList 44), robots.txt open, sitemap 58 pages.
+- llms.txt / llms-full.txt (Tilda: Site Settings > SEO > Manage llms.txt, /projects/llms-txt/?projectid=6121364) rewritten:
+  removed "established 2006", "10-year guarantee", "from £5,000"; now 2017 incorporation + ~20 years' team experience,
+  12-month guarantee, £2,500 / £7,000-£9,500 price guide, finance £6,000 + 50% deposit, all 58 pages + 8 guides (67 links,
+  all 200). Source: web/concept/llms/. Old text: tilda.cc IndexedDB abj_svc_bak 'llms-before-20261112'.
+- Photo viewer placeholder <img alt=""> -> alt="Enlarged project photo" (script still sets the real alt on open) on /gallery,
+  both case studies and their DEV copies. Re-crawl: 0 images without alt on 58 pages. Backups '<pageid>-before-lbalt-20261112'.
+- Cloudflare AI Crawl Control: no crawler blocked (GPTBot, ClaudeBot, PerplexityBot, OAI-SearchBot, Googlebot etc. all allowed),
+  Bot fight mode off, AI Labyrinth off. No change made. 4xx seen by crawlers are mostly hack probes (.env etc.) and old
+  URLs that now 404 (/soham-abj, old /tpost/... posts, /shop/..., /sitemap_index.xml) - redirect candidates.
