@@ -622,3 +622,10 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   "20 years of joinery experience · 12-month guarantee" (old line painted out with the surrounding gradient, redrawn in
   DM Sans 19px, same colour/position), uploaded as the Page, same framing as before, checked live. Switched FB back to Ish.
 - Houzz: empty Ideabook "My Project" deleted (Ish asked). Public profile checked logged-out: live, 4 projects, £500-£50,000.
+- 12 Nov 23:40 Free directory check (Ish asked; no logins used):
+  Listed: Bing Maps (verified tick, correct name/address/phone/site, 5/5 2 reviews), Yell /biz/abj-kitchens-and-bedrooms-
+  peterborough-9052833 (5.0 x2; hours show Mon-SUN 08:00-17:00 - check), FreeIndex profile 846312 (last updated Feb 2025,
+  "Unit 3", no media walls/towns, 0 reviews), Thomson Local (as "AB Joinery Kitchens & Bedrooms LTD"), Cylex 27553104 and
+  find-open 3234805 (old company name + "Unit 3"; both behind bot checks, not viewed), Houzz (done today).
+  Not listed: Apple Maps (search lands on PPM Kitchens - ABJ missing), Trustpilot, Yelp, Bark. Foursquare/Hotfrog/Nextdoor
+  need sign-in or block the extension - not checked. Editing any of these needs Ish signed in (claim/login).
