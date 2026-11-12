@@ -629,3 +629,8 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   find-open 3234805 (old company name + "Unit 3"; both behind bot checks, not viewed), Houzz (done today).
   Not listed: Apple Maps (search lands on PPM Kitchens - ABJ missing), Trustpilot, Yelp, Bark. Foursquare/Hotfrog/Nextdoor
   need sign-in or block the extension - not checked. Editing any of these needs Ish signed in (claim/login).
+- 12 Nov 23:45 Plaky (ABJ Kitchens & Bedrooms board, Website group, Done, Nov 12, Ish): logged AI search test, guarantee fix,
+  T&Cs 8.2, cost guides. Chrome tab group closed before the rest - STILL TO LOG: Crawler Hints + Bing 68 URLs; Houzz profile
+  + 4 projects; IG/FB bios + FB cover 12-month; directory check. To-do items: directory sign-ins (Apple Business Connect,
+  Yell + hours, FreeIndex, Thomson Local, Trustpilot), GSC indexing for the 2 guides, Stamford/Huntingdon real jobs,
+  reviews (Houzz + Google), re-run AI prompts in 2-3 weeks (+ Copilot/Gemini by Ish), hide FB cover auto-post.
