@@ -388,5 +388,57 @@
    "licurl": "https://creativecommons.org/licenses/by-sa/4.0",
    "page": "https://commons.wikimedia.org/wiki/File:%22Merlin%22_on_the_Wicksteed_Park_railway.jpg"
   }
+ ],
+ "fenland": [
+  {
+   "cap": "Whittlesey Buttercross",
+   "url": "https://static.tildacdn.net/tila6530-3463-4965-b366-623231616138/abj-fenland-1.webp",
+   "by": "Chalkietom",
+   "lic": "CC BY-SA 3.0",
+   "licurl": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Whittlesy_buttercross.jpg"
+  },
+  {
+   "cap": "St Wendreda&rsquo;s Church, March",
+   "url": "https://static.tildacdn.net/tila3733-3735-4333-b838-643131626665/abj-fenland-2.webp",
+   "by": "Colin Park",
+   "lic": "CC BY-SA 2.0",
+   "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:March_-_St_Wendreda_Church_-_geograph.org.uk_-_6014535.jpg"
+  },
+  {
+   "cap": "The River Nene in March",
+   "url": "https://static.tildacdn.net/tila3339-6636-4161-b838-656466313866/abj-fenland-3.webp",
+   "by": "Richard Humphrey",
+   "lic": "CC BY-SA 2.0",
+   "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Boats_moored_on_The_River_Nene_(old_course)_in_March,_Cambridgeshire_-_geograph.org.uk_-_6427688.jpg"
+  }
+ ],
+ "kings-lynn": [
+  {
+   "cap": "Purfleet Quay and the Custom House",
+   "url": "https://static.tildacdn.net/tila3930-6366-4432-b834-383730313532/abj-kingslynn-1.webp",
+   "by": "Nigel Thompson",
+   "lic": "CC BY-SA 2.0",
+   "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Purfleet_Quay_and_Custom_House,_King%27s_Lynn_-_geograph.org.uk_-_6930801.jpg"
+  },
+  {
+   "cap": "Tuesday Market Place",
+   "url": "https://static.tildacdn.net/tila3233-3362-4637-b061-663331353531/abj-kingslynn-2.webp",
+   "by": "Richard Humphrey",
+   "lic": "CC BY-SA 2.0",
+   "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Georgian_architecture_on_the_Tuesday_Market_Place,_King%27s_Lynn_-_geograph.org.uk_-_6892943.jpg"
+  },
+  {
+   "cap": "King&rsquo;s Lynn Minster",
+   "url": "https://static.tildacdn.net/tila3839-3166-4966-b136-343839663131/abj-kingslynn-3.webp",
+   "by": "Mat Fascione",
+   "lic": "CC BY-SA 2.0",
+   "licurl": "https://creativecommons.org/licenses/by-sa/2.0",
+   "page": "https://commons.wikimedia.org/wiki/File:King%27s_Lynn_Minster_-_geograph.org.uk_-_3638594.jpg"
+  }
  ]
 }
