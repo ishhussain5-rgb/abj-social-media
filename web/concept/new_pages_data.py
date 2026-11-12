@@ -17,8 +17,8 @@ PAGES = [
 {
  "slug": "kitchen-design", "name": "Kitchen design", "url": "/kitchen-design-peterborough-dev-d4k8",
  "footer": "Let&rsquo;s design your kitchen",
- "videos": [], "hero_img": (U("abj-kitchen-cashmere.webp"), "White and cashmere handleless kitchen with an island under a skylight"),
- "hero_cap": "Handleless kitchen designed around a skylight",
+ "videos": [], "hero_img": ("https://thb.tildacdn.com/tild3231-3637-4438-a666-613162656437/-/resize/1600x/-/format/webp/abj-kitchen-navy-cop.jpg", "Navy handleless kitchen with an island, copper pendants and bar stools"),
+ "hero_cap": "Navy handleless kitchen with copper pendants",
  "kicker": "Kitchen design &middot; Peterborough",
  "h1": "Kitchen design in Peterborough, drawn around the way you cook",
  "lead": "A free design visit at home, a 3D design of your new kitchen and an itemised quote, from the people who will make and fit it.",
@@ -117,8 +117,8 @@ PAGES = [
 {
  "slug": "supply-only", "name": "Supply-only kitchens", "url": "/supply-only-kitchens-dev-s7q3",
  "footer": "Let&rsquo;s price your supply-only kitchen",
- "videos": [], "hero_img": (U("abj-kitchen-sage-sha.webp"), "Sage green Shaker kitchen with an island, bar stools and garden doors"),
- "hero_cap": "Sage green Shaker kitchen",
+ "videos": [], "hero_img": ("https://thb.tildacdn.com/tild3365-6437-4663-b134-393931626234/-/resize/1600x/-/format/webp/abj-kitchen-dark-gre.jpg", "Dark grey handleless kitchen with a marble-effect breakfast bar"),
+ "hero_cap": "Dark grey handleless kitchen",
  "kicker": "Supply-only kitchens &middot; Peterborough",
  "h1": "Supply-only bespoke kitchens in Peterborough",
  "lead": "Made-to-measure cabinets, doors, panels and worktops, built in our Peterborough workshop for your own fitter, builder or project.",
@@ -264,8 +264,8 @@ PAGES = [
 {
  "slug": "bespoke-vs", "name": "Bespoke vs off-the-shelf", "url": "/bespoke-vs-off-the-shelf-kitchens-dev-v6g2",
  "footer": "Compare it with your own quote",
- "videos": [], "hero_img": (U("abj-handleless-islan.webp"), "Handleless gloss kitchen with a marble-effect waterfall island"),
- "hero_cap": "Made-to-measure handleless kitchen",
+ "videos": [], "hero_img": ("https://thb.tildacdn.com/tild6630-6131-4730-a162-353535353562/-/resize/1600x/-/format/webp/abj-kitchen-marble-i.jpg", "Kitchen with a marble-effect waterfall island and green velvet bar stools"),
+ "hero_cap": "Made-to-measure waterfall island",
  "kicker": "Buying guide &middot; Kitchens",
  "h1": "Bespoke vs off-the-shelf kitchens: what is the real difference?",
  "lead": "An honest guide to how a made-to-measure kitchen compares with a standard-size kitchen from a showroom or trade counter, including price.",
