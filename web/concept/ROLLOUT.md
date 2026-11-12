@@ -545,3 +545,7 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 20:33-20:36: all 58 live pages republished one at a time (site HEAD X image, fb_img and /abjfeeds head changes go out).
   Checked live: og:image = new JPG copies, 0 <img> without width/height except the photo viewer's empty placeholder,
   blog posts have no twitter:title (X falls back to og), phone-free desktop check of supply-only page: 0 broken/stretched.
+- 20:41-20:46 full health check (all 5 areas incl. phone layout, 66 URLs): **99/100** (was 56 earlier this evening with the new
+  checks, 71 in Ish's run). Only item left: 4 homepage room-panel video posters (1656-1920px) shown at 219px on phones
+  (Low). Homepage rule = DEV first, so left for Ish to OK. Images under 100 kB: 100% of 339; phone-friendly 100%.
+  Normal/Tilda only: several H2s per page, external links in the footer, Tilda's blog back-button with no text.
