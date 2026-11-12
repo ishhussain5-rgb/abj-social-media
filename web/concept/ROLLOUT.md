@@ -591,3 +591,15 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     /media-wall-cost-peterborough 383066003 / rec5764544503 (og MediaWall1.jpg). SAVED, NOT PUBLISHED - publishing a new
     page needs Ish's OK. Media wall prices = calc/build_calc.py 'mediawall' bands (Alex's 4 real quotes) incl. fitting.
     To do after publish: phone check, imgfix on both, sitemap/llms, links from kitchens + media walls pages, Bing/GSC submit.
+- 22:30 cost guides PUBLISHED (Ish: "Publish the two guides"). Photos shared with the menu swapped (no photo twice on the page,
+  menu included) @6dacba0; abjImgFix on both (heavy 1, sizes 11 each). Checked live: 200, index, canonical, 1 H1, 0 DEV links,
+  lead hand-off + GA present, schema valid, all internal links 200, phone 390px no sideways scroll, 0 broken/stretched,
+  all images <100 kB. Linked from the "In detail" rows of /bespoke-kitchens, /bespoke-vs-off-the-shelf-kitchens (kitchen
+  guide) and /media-walls (media wall guide); backups '<pageid>-<rec>-before-costlink-20261112'. Both in sitemap.xml and
+  added to llms.txt + llms-full.txt (Tilda + repo @c996c21). Bing URL submission not possible from the extension (bing.com
+  blocked) - Crawler Hints/IndexNow covers it; Ish can paste the 2 URLs in Bing Webmaster Tools > URL Submission.
+- Houzz (Ish created the account, asked me to fill it in): free basic profile on houzz.co.uk - ABJ Kitchens & Bedrooms,
+  Kitchen Designers, 01733 686767, 3 Brassey Close Peterborough PE1 2AZ (Cambridgeshire), website, contact Alex Belajevs,
+  logo roundel, 10 service towns, services, typical job £1,000-£20,000 (guess, Ish to confirm), team 2-10 (guess), cost
+  details + About Us (12-month guarantee, 2017, ~20 yrs, 2,500+ projects). No trial, no advertising call. Still to do (Ish):
+  project photos, review requests.
