@@ -653,3 +653,23 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Kings Road case study has one). Checked: plays, 1 H1, noindex kept, JSON-LD parses, 390px no sideways scroll.
   Rollback: delete everything between the two markers in the block and publish the DEV page. NOT on the live page.
   Project names by style AND town: not done - gallery captions have style only; real towns needed from Ish (no guessing).
+- 13 Nov 19:00-20:15 FILM SECTIONS ON TEST PAGES (Ish: use the pro reels in Drive "Edited Reels", slow the film a little, make
+  the video bigger on desktop, try the homepage). Nothing on live pages.
+  Source: 18 pro reels (1080x1920, 25-60 fps, 15-19 Mbps) brought over through the desktop link. Generator in
+  `web/concept/films/`: `specs.py` (shots + labels per film), `build.py` (cuts, slows 0.72x for 50/60 fps sources and 0.85x
+  with frame blending for 25/30 fps, 0.4 s dissolves, numbered label overlays, hook title, end card; master + silent 1080p web
+  copy + posters), `section.py` (page section HTML/CSS/JS + VideoObject), `base.json` (media commit per film), `<page>.html`.
+  Films (all silent web copies): kitchens 23 s (rebuilt from the 60 fps master, ~13% slower than the first cut), wardrobes 17 s,
+  bedrooms 17 s, media walls 18 s -> branch web-media-q @d72512b; storage 23 s, home office 18 s, worktops 18 s,
+  wall panelling 21 s -> branch web-media-r @eae352f. Keep both branches (pages point at them by commit).
+  Section (#kc-film, markers ABJ FILM ... /ABJ FILM): 3 columns on desktop (text | video clamp(380px,27vw,460px) | chapter list),
+  chapters are buttons that jump the film and light up as it plays; single column on phones. Classes vt/vl/vh (NOT ft: that is
+  the footer). Inserted after the featured project on: kitchens 352648603, wardrobes 352674603, bedrooms 352674703, media walls
+  352685103, worktops 352693403, wall panelling 352693503, storage 352693303, home offices 352693703 (each with VideoObject).
+  Test homepage 350369803: one player with 6 tabs (Kitchens, Wardrobes, Bedrooms, Media walls, Storage, Home offices), intro
+  "See the work in motion", placed before the featured project, no VideoObject (kept for the service pages).
+  Checked on all 9: 1 H1, noindex kept, VideoObject parses, mp4 + poster 200, plays, chapters sync, 390px no sideways scroll.
+  Patch helper: fetch films/<page>.html from jsDelivr @commit in the page editor, replace between markers, saverecord, publish
+  that DEV page. ALWAYS reload the editor first (its code view is stale after a save).
+  Rollback: delete between the markers and publish the DEV page.
+  No film (no real footage): hallways, bathroom cabinetry, upholstery, HMO. Project names by town still waiting for real towns.
