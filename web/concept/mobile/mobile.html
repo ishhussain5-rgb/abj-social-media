@@ -136,7 +136,7 @@
 #kc .facts:not(:has(>span:nth-child(5)))>span>:is(b,.fk){font-size:clamp(22px,1.75vw,30px)!important}
 
 /* 2. the review quote gets its own panel instead of sitting on top of a photo */
-#kc .qt{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:stretch;min-height:0!important;background:var(--g);color:var(--lin)}
+#kc .qt{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:stretch;min-height:0!important;background:var(--g);color:var(--lin);border-bottom:1px solid rgba(243,238,230,.1)}
 #kc .qt:after{display:none!important}
 #kc .qt img{position:relative!important;inset:auto!important;display:block;width:100%;height:100%;min-height:clamp(420px,62vh,640px);object-fit:cover}
 #kc .qt .w{display:flex;flex-direction:column;justify-content:center;width:auto!important;max-width:none!important;margin:0!important;padding:clamp(48px,6vw,112px)!important}
@@ -165,11 +165,12 @@
  #kc .qt cite{margin-top:20px!important;font-size:11px!important;letter-spacing:.18em!important;line-height:1.7!important}
  /* 1. phone: two tiles across */
  #kc .facts,#kc .facts:not(:has(>span:nth-child(5))){grid-template-columns:repeat(2,minmax(0,1fr))}
- #kc .facts{margin-top:30px;font-size:10.5px;letter-spacing:.14em}
+ #kc .facts{margin-top:30px;font-size:11px;letter-spacing:.13em}
  #kc .facts>span{padding:16px 14px 16px;gap:8px}
  #kc .facts>span>:is(b,.fk),#kc .facts:not(:has(>span:nth-child(5)))>span>:is(b,.fk){font-size:23px!important}
  /* 8. small text */
  #kc .lg .lgt span{font-size:11px;letter-spacing:.2em}
+ #kc .ft .fh{font-size:11.5px!important}
  #kc .calc .ai-ex span{font-size:11.5px}
  #kc .pg figcaption{font-size:11px}
  /* 11. finance small print */
