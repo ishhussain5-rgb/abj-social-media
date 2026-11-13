@@ -1,6 +1,6 @@
 <!-- ABJ MOBILE (phone layer, 13 Nov 2026). Source: web/concept/mobile/mobile.html. Phones only (max-width 760px). -->
 <style>
-#kc .det .mmore{display:none}
+#kc .mmore,#kc .mcount{display:none}
 @media (max-width:760px){
  /* rhythm: one consistent, tighter section spacing */
  #kc .intro,#kc .fp,#kc .rvw,#kc .det,#kc .proc,#kc .sec,#kc .lmk2,#kc .pbw,#kc .gd{padding-top:44px;padding-bottom:44px}
@@ -37,13 +37,22 @@
  #kc .calc .res .acts{display:grid;grid-template-columns:1fr;gap:10px}#kc .calc .res .acts .bt{width:100%}
 
  /* in detail: first paragraph with Read more, related links on one swipeable line */
- #kc .det .copy.mclip>p{display:none}
- #kc .det .copy.mclip>p:first-of-type{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
- #kc .det .mmore{display:inline-flex;align-items:center;gap:10px;margin:2px 0 4px;padding:6px 0;border:0;background:none;color:var(--ink);font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--go);cursor:pointer}
+ #kc .copy.mclip>p{display:none}
+ #kc .copy.mclip>p:first-of-type{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+ #kc .mmore{display:inline-flex;align-items:center;gap:10px;margin:2px 0 4px;padding:6px 0;border:0;background:none;color:inherit;font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--go);cursor:pointer}
  #kc .det .rel{flex-wrap:nowrap;overflow-x:auto;gap:22px;margin:22px calc(-1*var(--pad)) 0;padding:0 var(--pad) 6px;scrollbar-width:none;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
  #kc .det .rel::-webkit-scrollbar{display:none}
  #kc .det .rel a{flex:0 0 auto}#kc .det .rel a:last-child{margin-right:32px}
  #kc .det .w{gap:28px}
+
+ /* long card lists (areas, team, home types) become one swipeable row with a counter */
+ #kc .mrail{display:flex!important;gap:14px!important;overflow-x:auto;scroll-snap-type:x mandatory;margin-left:calc(-1*var(--pad))!important;margin-right:calc(-1*var(--pad))!important;padding:0 var(--pad) 4px!important;scroll-padding-left:var(--pad);scrollbar-width:none;-webkit-overflow-scrolling:touch}
+ #kc .mrail::-webkit-scrollbar{display:none}
+ #kc .mrail>*{flex:0 0 84%;min-width:0;scroll-snap-align:start;margin:0!important}
+ #kc .mrail:after{content:"";flex:0 0 1px}
+ #kc.js .mrail>.rv{opacity:1;transform:none}
+ #kc .mcount{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font:500 10.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:.6}
+ #kc .mcount i{font-style:normal;letter-spacing:.12em}
 
  /* footer: the booking block above already invites a visit, so the big footer call to action goes */
  #kc.mhasbk .ft-top{display:none}
@@ -74,7 +83,9 @@
 if(k.querySelector(".bk"))k.classList.add("mhasbk");
 /* footer groups fold on phones (pages whose footer already folds are left alone) */
 var g=k.querySelectorAll(".ft .ft-g>div:not(.ft-b),.ft .ft-ar");for(var i=0;i<g.length;i++){(function(d){var h=d.firstElementChild;if(!h||h.getAttribute("data-acc")||d.classList.contains("mf"))return;d.classList.add("mf");h.classList.add("mh");h.setAttribute("role","button");h.setAttribute("tabindex","0");h.setAttribute("aria-expanded","false");var t=function(){var o=d.classList.toggle("mo");h.setAttribute("aria-expanded",o?"true":"false")};h.addEventListener("click",t);h.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t()}})})(g[i])}
-/* in detail: Read more */
-var c=k.querySelector(".det .copy");if(c){var ps=c.querySelectorAll(":scope>p");var n=0;for(var j=0;j<ps.length;j++)n+=ps[j].textContent.length;if(ps.length>1||n>420){c.classList.add("mclip");var b=document.createElement("button");b.type="button";b.className="mmore";b.textContent="Read more";b.setAttribute("aria-expanded","false");var last=ps[ps.length-1];last.parentNode.insertBefore(b,last.nextSibling);b.addEventListener("click",function(){var o=c.classList.toggle("mclip");b.textContent=o?"Read more":"Read less";b.setAttribute("aria-expanded",o?"false":"true")})}}
+/* long text blocks: Read more (phones only show the first paragraph) */
+var cs=k.querySelectorAll(".det .copy,.sec .copy");for(var q=0;q<cs.length;q++)(function(c){var ps=c.querySelectorAll(":scope>p");var n=0;for(var j=0;j<ps.length;j++)n+=ps[j].textContent.length;if(c.closest(".det")?(ps.length>1||n>420):(ps.length>2&&n>900)){c.classList.add("mclip");var b=document.createElement("button");b.type="button";b.className="mmore";b.textContent="Read more";b.setAttribute("aria-expanded","false");var last=ps[ps.length-1];last.parentNode.insertBefore(b,last.nextSibling);b.addEventListener("click",function(){var o=c.classList.toggle("mclip");b.textContent=o?"Read more":"Read less";b.setAttribute("aria-expanded",o?"false":"true")})}})(cs[q]);
+/* long card lists: swipe rail on phones */
+if(window.matchMedia&&matchMedia("(max-width:760px)").matches){var R=k.querySelectorAll(".three,.tmg,.why");for(var x=0;x<R.length;x++)(function(e){var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(ch.length<3)return;var H=0;ch.forEach(function(z){H+=z.offsetHeight});if(H<innerHeight*1.15)return;e.classList.add("mrail");var m=document.createElement("div");m.className="mcount";m.innerHTML="<span>Swipe</span><i>1 / "+ch.length+"</i>";e.parentNode.insertBefore(m,e.nextSibling);var I=m.querySelector("i");e.addEventListener("scroll",function(){var w=ch[0].offsetWidth+14;I.textContent=Math.min(ch.length,Math.round(e.scrollLeft/w)+1)+" / "+ch.length},{passive:true})})(R[x])}
 })();</script>
 <!-- /ABJ MOBILE -->
