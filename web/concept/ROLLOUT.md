@@ -685,3 +685,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   unchanged (Read more hidden, footer grid and big footer CTA as before). Phone page length, examples (screens of 844px):
   kitchens 13.6 -> 10.6, home 14.0 -> 12.2, Cambridge 14.8 -> 10.9, about 12.8 -> 9.9.
   Skipped: /edgebanding-abj-dev-e5c9 (unpublished Cut & Edge copy). Not yet on live pages: same snippet, same helper, needs Ish's OK.
+- 13 Nov 21:30-22:45 (Ish: process steps "boring, make it a journey" on phone and desktop; film section 1.5 windows tall on
+  desktop; desktop footer badly spaced; "across the board"). Same layer, now phone + desktop (`mobile/mobile.html` @55b84db
+  on the homepage, @3101bda on the other 51 test pages; the only difference is the homepage film height).
+  Journey: every `.ps` step list with numbered stops (process on all room/town/info pages, workshop steps on the homepage).
+  Film: 825px tall at 1920x911 (window minus header). Footer at 1920 wide: ~654-666px (was ~1,100).
+  Checked on all 52 at 1920x911 and 390x844: no sideways scroll, one journey per page, footer folds on phones.

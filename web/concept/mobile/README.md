@@ -1,4 +1,4 @@
-# Phone layer (`mobile.html`)
+# Phone layer + desktop polish (`mobile.html`)
 
 One self-contained snippet (styles + one small script) appended to the end of each page's main new-standard block,
 between `<!-- ABJ MOBILE (phone layer ...` and `<!-- /ABJ MOBILE -->`. Phones only (max-width 760px); desktop is unchanged.
@@ -11,6 +11,12 @@ What it does on phones:
 - "In detail" (and long `.sec .copy` text): first paragraph with Read more; related links on one swipeable line.
 - Long card lists (`.three`, `.tmg` team, `.why` home types) taller than ~1 screen become one swipeable row with a counter.
 - Tighter, consistent section spacing; grids can never grow wider than the screen.
+
+Also (13 Nov, later):
+- "How it works" steps (`.ps` with numbered `<i>`, in `.proc` and the homepage `.ws`) become a journey: numbered stops on a
+  line that fills gold as you scroll and lights each stop in turn (horizontal on desktop, vertical on phones).
+- Desktop: film sections fit one window under the 86px header (frame height from the window height, same video file);
+  footer compacted (one-line heading with phone + button, consistent gold column headings, tighter spacing).
 
 Handlers are delegated from `#kc` and set-up runs again after `load`, because older site-head scripts re-render the
 footer (which dropped directly attached listeners).
