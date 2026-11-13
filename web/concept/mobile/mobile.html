@@ -1,4 +1,4 @@
-<!-- ABJ MOBILE (phone layer + desktop polish, 13 Nov 2026). Source: web/concept/mobile/mobile.html. Phone rules: max-width 760px; desktop rules: min-width 761px. -->
+<!-- ABJ MOBILE (phone layer + desktop polish, 14 Nov 2026). Source: web/concept/mobile/mobile.html. Phone rules: max-width 760px; desktop rules: min-width 761px. -->
 <style>
 #kc .mmore,#kc .mcount{display:none}
 @media (max-width:760px){
@@ -19,9 +19,9 @@
  #kc .bk .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
  #kc .bk .acts .bt{width:100%;min-width:0;height:52px;padding:0 8px;white-space:nowrap}
  #kc .bk .acts .bt:first-child,#kc .bk .acts .bt:nth-child(2):last-child{grid-column:1/-1}
- #kc .bk .acts .bt.o{font-size:10.5px;letter-spacing:.12em}
+ #kc .bk .acts .bt.o{font-size:11.5px;letter-spacing:.08em}
  #kc .bk .fin{margin-top:24px;padding-top:18px;font-size:12.5px}
- #kc .bk .fin small{font-size:10.5px}
+ #kc .bk .fin small{font-size:11.5px}
 
  /* cost guide: full-width button, examples on one swipeable line */
  #kc .calc .ai-in{padding:16px 16px 16px}
@@ -38,8 +38,9 @@
 
  /* in detail: first paragraph with Read more, related links on one swipeable line */
  #kc .copy.mclip>p{display:none}
+ #kc .copy.mclip>p:first-of-type~:not(.mmore):not(.rel){display:none}
  #kc .copy.mclip>p:first-of-type{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
- #kc .mmore{display:inline-flex;align-items:center;gap:10px;margin:2px 0 4px;padding:6px 0;border:0;background:none;color:inherit;font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--go);cursor:pointer}
+ #kc .mmore{display:inline-flex}
  #kc .det .rel{flex-wrap:nowrap;overflow-x:auto;gap:22px;margin:22px calc(-1*var(--pad)) 0;padding:0 var(--pad) 6px;scrollbar-width:none;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
  #kc .det .rel::-webkit-scrollbar{display:none}
  #kc .det .rel a{flex:0 0 auto}#kc .det .rel a:last-child{margin-right:32px}
@@ -51,7 +52,7 @@
  #kc .mrail>*{flex:0 0 84%;min-width:0;scroll-snap-align:start;margin:0!important}
  #kc .mrail:after{content:"";flex:0 0 1px}
  #kc.js .mrail>.rv{opacity:1;transform:none}
- #kc .mcount{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font:500 10.5px/1 var(--sans);letter-spacing:.24em;text-transform:uppercase;opacity:.6}
+ #kc .mcount{display:flex;justify-content:space-between;align-items:center;margin-top:16px;font:500 11.5px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;opacity:.6}
  #kc .mcount i{font-style:normal;letter-spacing:.12em}
 
  /* footer: the booking block above already invites a visit, so the big footer call to action goes */
@@ -63,7 +64,7 @@
  #kc .ft .mf{border-top:1px solid rgba(243,238,230,.12)}
  #kc .ft .mf:last-child,#kc .ft .ft-ar.mf{border-bottom:1px solid rgba(243,238,230,.12)}
  #kc .ft .ft-ar.mf{margin-top:-1px}
- #kc .ft .mf>.mh{position:relative;display:block;margin:0!important;padding:17px 36px 17px 0!important;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;font:500 10.5px/1.4 var(--sans)!important;letter-spacing:.3em!important;text-transform:uppercase;color:var(--go)!important}
+ #kc .ft .mf>.mh{position:relative;display:block;margin:0!important;padding:17px 36px 17px 0!important;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;font:500 11.5px/1.4 var(--sans)!important;letter-spacing:.26em!important;text-transform:uppercase;color:var(--go)!important}
  #kc .ft .mf>.mh:after{content:"";position:absolute;right:4px;top:50%;width:12px;height:12px;margin-top:-6px;background:linear-gradient(var(--go),var(--go)) center/12px 1.5px no-repeat,linear-gradient(var(--go),var(--go)) center/1.5px 12px no-repeat;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
  #kc .ft .mf.mo>.mh:after{transform:rotate(45deg)}
  #kc .ft .mf:not(.mo)>:not(.mh){display:none!important}
@@ -71,7 +72,8 @@
  #kc .ft .mf.mo>:not(.mh){animation:kcmf .4s cubic-bezier(.2,.7,.2,1) both}
  #kc .ft .mf.mo ul{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
  #kc .ft .ft-ar{padding-bottom:0}
- #kc .ft-s{gap:10px 20px;padding-top:22px;font-size:10.5px;border-top:0}
+ #kc .ft-s{gap:0 22px;padding-top:14px;font-size:11.5px;border-top:0}
+ #kc .ft-s a{padding:12px 0}
  #kc .ft-l{margin-top:16px;gap:10px;font-size:11.5px}#kc .ft-l nav{gap:2px 18px;font-size:11.5px}#kc .ft-l nav a,#kc .ft-l span a{display:inline-block;padding:9px 0}
 
  /* preview badge (test pages only): out of the way of headings */
@@ -82,7 +84,7 @@
 #kc .ps.jr>div{border-top:0!important;padding-top:66px!important;position:relative}
 #kc .ps.jr>div>i{position:absolute;top:0;left:0;z-index:1;display:flex;align-items:center;justify-content:center;width:44px;height:44px;margin:0;border-radius:50%;background:var(--jbg,var(--lin));box-shadow:inset 0 0 0 1px var(--jline,rgba(27,35,33,.22));font:italic 400 19px/1 var(--serif);color:var(--gd);transition:background .9s ease,box-shadow .9s ease,color .9s ease,transform .9s cubic-bezier(.2,.7,.2,1)}
 #kc .ps.jr>div>h3,#kc .ps.jr>div>p{transition:opacity 1.1s ease,transform 1.1s cubic-bezier(.2,.7,.2,1)}
-#kc .ps.jr.jgo>div:not(.on)>h3,#kc .ps.jr.jgo>div:not(.on)>p{opacity:.28;transform:translateY(8px)}
+#kc .ps.jr.jgo>div:not(.on)>h3,#kc .ps.jr.jgo>div:not(.on)>p{opacity:.5;transform:translateY(6px)}
 #kc .ps.jr>div.on>i{background:var(--go);box-shadow:inset 0 0 0 1px var(--go),0 0 0 7px rgba(201,169,110,.16);color:var(--jon,#fff);transform:scale(1.04)}
 #kc .ps.jr>.jr-t{position:absolute;z-index:0;top:21px;height:2px;background:var(--jline,rgba(27,35,33,.22));pointer-events:none}
 #kc .ps.jr>.jr-t>b{position:absolute;inset:0;background:var(--go);transform-origin:left center;transform:scaleX(var(--p,0));transition:transform .9s cubic-bezier(.2,.7,.2,1)}
@@ -121,6 +123,99 @@
  #kc .ft-s{padding-top:20px}
  #kc .ft-l{margin-top:16px}
 }
+
+/* ===== 14 Nov design pass (all widths unless marked) ===== */
+#kc .mfqb{display:inline-flex}
+#kc .mmore,#kc .mfqb{align-items:center;gap:10px;margin:2px 0 4px;padding:6px 0;border:0;background:none;color:inherit;font:500 11.5px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--go);cursor:pointer}
+
+/* 1. the facts line becomes a set of proof tiles: big serif value, small caption */
+#kc .facts{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr));gap:0!important;margin-top:clamp(32px,3.6vw,52px);padding:0!important;border:0!important;border-top:1px solid var(--hair)!important;border-left:1px solid var(--hair)!important;font:500 10.5px/1.5 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--mut)}
+#kc .facts:not(:has(>span:nth-child(5))){grid-template-columns:repeat(4,minmax(0,1fr))}
+#kc .facts>span{display:flex;flex-direction:column;justify-content:flex-start;gap:10px;min-width:0;padding:clamp(18px,1.7vw,26px) clamp(16px,1.5vw,24px) clamp(18px,1.6vw,24px);border-right:1px solid var(--hair);border-bottom:1px solid var(--hair);background:rgba(255,255,255,.34)}
+#kc .facts>span>:is(b,.fk){order:-1;display:block;font:400 clamp(26px,2.3vw,38px)/1.05 var(--serif)!important;letter-spacing:0;text-transform:none;color:var(--ink)!important;overflow-wrap:break-word}
+#kc .facts:not(:has(>span:nth-child(5)))>span>:is(b,.fk){font-size:clamp(22px,1.75vw,30px)!important}
+
+/* 2. the review quote gets its own panel instead of sitting on top of a photo */
+#kc .qt{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:stretch;min-height:0!important;background:var(--g);color:var(--lin)}
+#kc .qt:after{display:none!important}
+#kc .qt img{position:relative!important;inset:auto!important;display:block;width:100%;height:100%;min-height:clamp(420px,62vh,640px);object-fit:cover}
+#kc .qt .w{display:flex;flex-direction:column;justify-content:center;width:auto!important;max-width:none!important;margin:0!important;padding:clamp(48px,6vw,112px)!important}
+#kc .qt .w:before{content:"Client review";display:block;margin-bottom:26px;padding-bottom:18px;border-bottom:1px solid rgba(201,169,110,.45);width:max-content;font:500 11px/1.4 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--go)}
+#kc .qt blockquote{font-size:clamp(26px,2.3vw,40px)!important;line-height:1.24;max-width:18em}
+#kc .qt cite{color:rgba(243,238,230,.72)!important}
+
+/* 4. featured project: the two smaller photos are the same size; caption sits under each */
+#kc .proj .pg figure{aspect-ratio:auto!important;overflow:visible!important;margin-top:0!important}
+#kc .proj .pg figure img{display:block;width:100%;height:auto!important;aspect-ratio:4/5;object-fit:cover}
+
+/* 7. bigger tap areas without changing the look */
+#kc .lnk,#kc .det .rel a,#kc .mb,#kc .mmore,#kc .mfqb,#kc .ft-l nav a{position:relative}
+#kc .lnk:before,#kc .det .rel a:before,#kc .mb:before,#kc .mmore:before,#kc .mfqb:before{content:"";position:absolute;left:-6px;right:-6px;top:50%;height:44px;transform:translateY(-50%)}
+
+/* 10. swipe rows: the next card fades out at the edge instead of being cut mid-word */
+@media (max-width:760px){
+ #kc .rail{-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 56px),transparent)}
+ #kc .rail+.mcount{padding:0 var(--pad)}
+ /* 2. phone: photo on top, quote underneath */
+ #kc .qt{display:block}
+ #kc .qt img{height:auto;min-height:0;aspect-ratio:4/3}
+ #kc .qt .w{padding:38px var(--pad) 44px!important}
+ #kc .qt .w:before{margin-bottom:20px;padding-bottom:14px}
+ #kc .qt blockquote{font-size:24px!important;line-height:1.3}
+ #kc .qt cite{margin-top:20px!important;font-size:11px!important;letter-spacing:.18em!important;line-height:1.7!important}
+ /* 1. phone: two tiles across */
+ #kc .facts,#kc .facts:not(:has(>span:nth-child(5))){grid-template-columns:repeat(2,minmax(0,1fr))}
+ #kc .facts{margin-top:30px;font-size:10.5px;letter-spacing:.14em}
+ #kc .facts>span{padding:16px 14px 16px;gap:8px}
+ #kc .facts>span>:is(b,.fk),#kc .facts:not(:has(>span:nth-child(5)))>span>:is(b,.fk){font-size:23px!important}
+ /* 8. small text */
+ #kc .lg .lgt span{font-size:11px;letter-spacing:.2em}
+ #kc .calc .ai-ex span{font-size:11.5px}
+ #kc .pg figcaption{font-size:11px}
+ /* 11. finance small print */
+ #kc .bk .fin{font-size:13px;line-height:1.6}
+}
+
+/* 11. finance small print: same words, laid out so it reads as a tidy note */
+#kc .bk .fin{max-width:46em}
+#kc .bk .fin small{margin-top:14px!important;padding-top:14px;border-top:1px solid rgba(243,238,230,.12);font-size:11.5px;line-height:1.65!important;max-width:64ch;opacity:.78}
+
+/* 9. long FAQ lists show five, then "More questions" */
+#kc details.mfq{display:none}
+#kc .mfqb{margin-top:22px}
+
+/* 12. cost guide photo: crop onto the kitchen, not the ceiling */
+#kc img[src*="74e75bd-abj-kitchens-t-kingsroad"]{object-position:50% 74%}
+
+/* 13. on a page, buttons never point to the page you are already on */
+#kc .mbar.mself{grid-template-columns:1fr 1fr!important}
+#kc .mbar.mself>.mselfa{display:none!important}
+
+@media (min-width:761px){
+ /* 3 + 5. long text: two paragraphs, then Read more */
+ #kc .mmore{display:none}
+ #kc .copy.mclip.mx2>.mmore{display:inline-flex;margin-top:6px}
+ #kc .copy.mclip.mx2>p:nth-of-type(2)~:not(.mmore):not(.rel){display:none}
+ #kc .copy.mx2 .rel{margin-top:30px}
+ /* 5. sections fit one window */
+ #kc .calc{padding-top:clamp(56px,7vh,96px)!important;padding-bottom:clamp(56px,7vh,96px)!important}
+ #kc .sty{padding-bottom:clamp(56px,7vh,96px)!important}
+ #kc .sty .rail .card:not(.sm) figure,#kc .sty .rail .card.cta{aspect-ratio:1/1}
+ #kc .det{padding-top:clamp(64px,8vh,110px)!important;padding-bottom:clamp(64px,8vh,110px)!important}
+ #kc .proj .pimg{height:clamp(380px,56vh,620px)}
+ #kc .proj .pg{margin-top:clamp(40px,4vw,64px)}
+}
+@media (min-width:1101px){
+ /* 4 + 5. featured project: large photo left, story and two photos right, in one window */
+ #kc .proj{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:stretch;padding:0!important}
+ #kc .proj .pimg{height:auto;min-height:min(700px,calc(100svh - 86px))}
+ #kc .proj .pimg img{position:absolute;inset:0}
+ #kc .proj .pg{margin:0!important;width:auto!important;max-width:none!important;padding:clamp(48px,4.4vw,84px) clamp(36px,3.4vw,68px)!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:20px!important;align-content:center}
+ #kc .proj .pg .tx{grid-column:1/-1;margin-bottom:10px}
+ #kc .proj .pg h2{font-size:clamp(30px,2.5vw,44px)!important;margin:16px 0 18px!important}
+ #kc .proj .pg p{margin-bottom:22px!important}
+ #kc .proj .pg figure img{aspect-ratio:1/1}
+}
 @keyframes kcmf{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 </style>
 <script>(function(){var k=document.getElementById("kc");if(!k||k.getAttribute("data-mob"))return;k.setAttribute("data-mob","1");
@@ -132,8 +227,15 @@ if(k.querySelector(".bk"))k.classList.add("mhasbk");
 var g=k.querySelectorAll(".ft .ft-g>div:not(.ft-b),.ft .ft-ar");for(var i=0;i<g.length;i++){var d=g[i],h=d.firstElementChild;if(!h||h.getAttribute("data-acc"))continue;d.classList.add("mf");if(!h.classList.contains("mh")){h.classList.add("mh");h.setAttribute("role","button");h.setAttribute("tabindex","0")}h.setAttribute("aria-expanded",d.classList.contains("mo")?"true":"false")}
 /* long text blocks: Read more */
 var cs=k.querySelectorAll(".det .copy,.sec .copy");for(var q=0;q<cs.length;q++){var c=cs[q];if(c.querySelector(":scope>.mmore"))continue;var ps=c.querySelectorAll(":scope>p");if(!ps.length)continue;var n=0;for(var j=0;j<ps.length;j++)n+=ps[j].textContent.length;if(!(c.closest(".det")?(ps.length>1||n>420):(ps.length>2&&n>900)))continue;c.classList.add("mclip");var b=document.createElement("button");b.type="button";b.className="mmore";b.textContent="Read more";b.setAttribute("aria-expanded","false");var last=ps[ps.length-1];last.parentNode.insertBefore(b,last.nextSibling)}
+/* desktop: long text keeps two paragraphs before Read more */
+var mc=k.querySelectorAll(".copy.mclip");for(var q2=0;q2<mc.length;q2++){var c2=mc[q2],p2=c2.querySelectorAll(":scope>p");if(p2.length<2)continue;var x2=p2[1].nextElementSibling,more=false;while(x2){if(!x2.classList.contains("mmore")&&!x2.classList.contains("rel")){more=true;break}x2=x2.nextElementSibling}c2.classList.toggle("mx2",more)}
+/* long FAQ lists: five questions, then "More questions" */
+var dl=k.querySelectorAll("details"),seen=[];for(var f=0;f<dl.length;f++){var pa=dl[f].parentNode;if(seen.indexOf(pa)>-1||pa.closest(".fqw"))continue;seen.push(pa);if(pa.querySelector(":scope>.mfqb"))continue;var qs=[].filter.call(pa.children,function(z){return z.tagName==="DETAILS"});if(qs.length<7)continue;for(var u=5;u<qs.length;u++)qs[u].classList.add("mfq");var fb=document.createElement("button");fb.type="button";fb.className="mfqb";fb.textContent="More questions ("+(qs.length-5)+")";qs[qs.length-1].parentNode.insertBefore(fb,qs[qs.length-1].nextSibling)}
+/* buttons that point to the page you are on: the bar drops it, the footer offers WhatsApp instead */
+var here=location.pathname.replace(/\/$/,"");var sl=k.querySelectorAll(".mbar a,.ft-top a.bt");for(var y=0;y<sl.length;y++){var a=sl[y];if(a.getAttribute("data-self"))continue;var ap=(a.pathname||"").replace(/\/$/,"");if(!a.hash&&a.host===location.host&&ap===here){a.setAttribute("data-self","1");if(a.closest(".mbar")){a.classList.add("mselfa");a.closest(".mbar").classList.add("mself")}else{a.href="https://wa.me/447479219421";a.textContent="WhatsApp photos";a.target="_blank";a.rel="noopener"}}}
 /* long card lists: one swipeable row with a counter, phones only */
-if(PH){var R=k.querySelectorAll(".three,.tmg,.why");for(var x=0;x<R.length;x++){var e=R[x];if(e.classList.contains("mrail"))continue;var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(ch.length<3)continue;var H=0;ch.forEach(function(z){H+=z.offsetHeight});if(H<innerHeight*1.15)continue;e.classList.add("mrail");var m=document.createElement("div");m.className="mcount";m.innerHTML="<span>Swipe</span><i>1 / "+ch.length+"</i>";e.parentNode.insertBefore(m,e.nextSibling)}}
+if(PH){var R=k.querySelectorAll(".three,.tmg,.why");for(var x=0;x<R.length;x++){var e=R[x];if(e.classList.contains("mrail"))continue;var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(ch.length<3)continue;var H=0;ch.forEach(function(z){H+=z.offsetHeight});if(H<innerHeight*1.15)continue;e.classList.add("mrail");var m=document.createElement("div");m.className="mcount";m.innerHTML="<span>Swipe</span><i>1 / "+ch.length+"</i>";e.parentNode.insertBefore(m,e.nextSibling)}
+var RL=k.querySelectorAll(".rail");for(var r2=0;r2<RL.length;r2++){var e3=RL[r2];if(e3.nextElementSibling&&e3.nextElementSibling.classList.contains("mcount"))continue;var c3=[].filter.call(e3.children,function(z){return z.offsetHeight>60});if(c3.length<3)continue;var m3=document.createElement("div");m3.className="mcount";m3.innerHTML="<span>Swipe</span><i>1 / "+c3.length+"</i>";e3.parentNode.insertBefore(m3,e3.nextSibling)}}
 }
 S();window.addEventListener("load",function(){setTimeout(S,300)});
 /* "How it works" journey */
@@ -147,8 +249,8 @@ jset();window.addEventListener("load",function(){setTimeout(function(){jset();jl
 
 /* one delegated handler, so it keeps working if a section is re-rendered */
 function tog(h){var d=h.parentNode,o=d.classList.toggle("mo");h.setAttribute("aria-expanded",o?"true":"false")}
-k.addEventListener("click",function(ev){var h=ev.target.closest(".ft .mf>.mh");if(h){tog(h);return}var b=ev.target.closest(".mmore");if(b){var c=b.parentNode,o=c.classList.toggle("mclip");b.textContent=o?"Read more":"Read less";b.setAttribute("aria-expanded",o?"false":"true")}});
+k.addEventListener("click",function(ev){var h=ev.target.closest(".ft .mf>.mh");if(h){tog(h);return}var fq=ev.target.closest(".mfqb");if(fq){var pp=fq.parentNode;[].forEach.call(pp.querySelectorAll(":scope>details.mfq"),function(z){z.classList.remove("mfq")});fq.remove();return}var b=ev.target.closest(".mmore");if(b){var c=b.parentNode,o=c.classList.toggle("mclip");b.textContent=o?"Read more":"Read less";b.setAttribute("aria-expanded",o?"false":"true")}});
 k.addEventListener("keydown",function(ev){var h=ev.target.closest&&ev.target.closest(".ft .mf>.mh");if(h&&(ev.key==="Enter"||ev.key===" ")){ev.preventDefault();tog(h)}});
-k.addEventListener("scroll",function(ev){var e=ev.target;if(!e.classList||!e.classList.contains("mrail"))return;var m=e.nextElementSibling;if(!m||!m.classList.contains("mcount"))return;var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(!ch.length)return;var w=ch[0].offsetWidth+14;m.querySelector("i").textContent=Math.min(ch.length,Math.round(e.scrollLeft/w)+1)+" / "+ch.length},true);
+k.addEventListener("scroll",function(ev){var e=ev.target;if(!e.classList||!(e.classList.contains("mrail")||e.classList.contains("rail")))return;var m=e.nextElementSibling;if(!m||!m.classList.contains("mcount"))return;var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(!ch.length)return;var w=ch[0].offsetWidth+(parseFloat(getComputedStyle(e).columnGap)||14);m.querySelector("i").textContent=Math.min(ch.length,Math.round(e.scrollLeft/w)+1)+" / "+ch.length},true);
 })();</script>
 <!-- /ABJ MOBILE -->
