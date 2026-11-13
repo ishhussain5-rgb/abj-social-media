@@ -1,0 +1,19 @@
+<!-- ABJ CHAT (tawk.to, click-to-load). Source: web/concept/chat/chat.html. Nothing from tawk.to loads until a visitor taps "Chat". -->
+<style>
+#kc .kcchat{position:fixed;right:22px;bottom:22px;z-index:60;display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 20px 0 16px;border:0;border-radius:26px;background:var(--g,#0E1B1A);color:var(--lin,#F3EEE6);box-shadow:0 10px 30px -10px rgba(0,0,0,.45),inset 0 0 0 1px rgba(201,169,110,.45);font:500 11px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+#kc .kcchat:hover{transform:translateY(-2px);box-shadow:0 14px 34px -10px rgba(0,0,0,.5),inset 0 0 0 1px var(--go,#C9A96E)}
+#kc .kcchat svg{width:20px;height:20px;fill:none;stroke:var(--go,#C9A96E);stroke-width:1.6}
+#kc .kcchat i{position:absolute;top:10px;left:30px;width:8px;height:8px;border-radius:50%;background:#5BBF7A;box-shadow:0 0 0 2px var(--g,#0E1B1A)}
+#kc .kcchat.ld{opacity:.7;pointer-events:none}
+#kc .kcchat.gone{display:none}
+@media (max-width:760px){#kc .kcchat{right:14px;bottom:76px;height:46px;padding:0 16px 0 13px;font-size:10px}}
+</style>
+<button type="button" class="kcchat" id="kc-chat" aria-label="Chat with ABJ Kitchens &amp; Bedrooms"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg><i></i>Chat with us</button>
+<script>(function(){var P="%%TAWK_PROPERTY%%",W="%%TAWK_WIDGET%%";var b=document.getElementById("kc-chat");if(!b||/%%/.test(P+W)){if(b)b.classList.add("gone");return}
+function go(){if(window.Tawk_API&&Tawk_API.maximize){Tawk_API.maximize();return}b.classList.add("ld");window.Tawk_API=window.Tawk_API||{};window.Tawk_LoadStart=new Date();
+Tawk_API.customStyle={visibility:{desktop:{position:"br",xOffset:22,yOffset:22},mobile:{position:"br",xOffset:14,yOffset:76}}};
+Tawk_API.onLoad=function(){b.classList.add("gone");Tawk_API.maximize()};
+Tawk_API.onChatMinimized=function(){};
+var s=document.createElement("script");s.async=true;s.src="https://embed.tawk.to/"+P+"/"+W;s.charset="UTF-8";s.setAttribute("crossorigin","*");s.onerror=function(){b.classList.remove("ld");location.href="https://wa.me/447479219421"};document.head.appendChild(s)}
+b.addEventListener("click",go)})();</script>
+<!-- /ABJ CHAT -->
