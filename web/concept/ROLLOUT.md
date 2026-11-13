@@ -691,3 +691,14 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Journey: every `.ps` step list with numbered stops (process on all room/town/info pages, workshop steps on the homepage).
   Film: 825px tall at 1920x911 (window minus header). Footer at 1920 wide: ~654-666px (was ~1,100).
   Checked on all 52 at 1920x911 and 390x844: no sideways scroll, one journey per page, footer folds on phones.
+- 13 Nov 22:00-22:40 LIVE (Ish: "put it live. Yes please"): phone + desktop polish layer (`mobile/mobile.html` @d1363ef)
+  appended to the main new-standard block of all 61 live pages and each page published on its own (single-page publish).
+  Film sections added live on 9 pages using the live copies (`films/<name>-live.html`, homepage tabs link to live URLs):
+  / 30601906 (before the featured project), /bespoke-kitchens 73297273 (before the review), /bespoke-wardrobes 73280437,
+  /bespoke-bedrooms-abj 73297487, /media-walls 73279037, /bespoke-storage-solutions 73372439, /luxury-worktops-abj 73545333,
+  /bespoke-decors-peterborough 73195791, /bespoke-office-renovations 73279381.
+  Not touched: /edgebanding-abj (Cut & Edge, noindex), footer page 346585603, /abj-site-health-x7k2q9.
+  Undo for any page: delete between the ABJ MOBILE (and ABJ FILM) markers in its block, publish that page.
+- Chat: tawk.to click-to-load button ready in `chat/chat.html` (nothing loads until tapped; WhatsApp fallback). NOT deployed:
+  Ish raised tawk.to's Trustpilot score (2.1/5, 109 reviews, mostly business users about support and app bugs). Waiting on
+  his choice of provider.
