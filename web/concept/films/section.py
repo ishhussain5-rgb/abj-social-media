@@ -29,9 +29,10 @@ CSS="""#kc .csv.vf{padding:clamp(64px,6vw,120px) 0}
 #kc .csv.vf .tabs button:hover{border-color:var(--go);color:var(--lin)}
 #kc .csv.vf .tabs button[aria-selected=true]{background:var(--lin);border-color:var(--lin);color:var(--g)}
 #kc .csv.vf .tabs button:focus-visible{outline:2px solid var(--go);outline-offset:2px}
-#kc .csv.vf .vh{grid-column:1/-1;text-align:center}
+#kc .csv.vf .vh{grid-column:1/-1;text-align:center;margin-bottom:calc(26px - clamp(36px,4.6vw,96px))}
+#kc .csv.vf .vh p{max-width:none;margin-bottom:0}
 #kc .csv.vf .vhd{font:300 clamp(26px,2.1vw,38px)/1.15 var(--serif);color:var(--lin);margin:14px 0 0;max-width:none}
-@media (max-width:1100px){#kc .csv.vf .w{grid-template-columns:minmax(0,1fr);justify-items:start;gap:32px}#kc .csv.vf .vh{text-align:left}#kc .csv.vf .pl{width:100%;max-width:400px}#kc .csv.vf .vl{max-width:400px}#kc .csv.vf .tabs{justify-content:flex-start}}
+@media (max-width:1100px){#kc .csv.vf .w{grid-template-columns:minmax(0,1fr);justify-items:start;gap:32px}#kc .csv.vf .vh{text-align:left;margin-bottom:-8px}#kc .csv.vf .pl{width:100%;max-width:400px}#kc .csv.vf .vl{max-width:400px}#kc .csv.vf .tabs{justify-content:flex-start}}
 @media (max-width:760px){#kc .csv.vf .pl,#kc .csv.vf .vl{max-width:none}#kc .csv.vf .tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(-1*var(--pad));padding:0 var(--pad) 4px;scrollbar-width:none;width:calc(100% + 2*var(--pad));box-sizing:border-box}#kc .csv.vf .tabs::-webkit-scrollbar{display:none}#kc .csv.vf .tabs button{flex:0 0 auto;padding:11px 14px}}"""
 JS="""(function(){var s=document.getElementById('kc-film');if(!s||s.dataset.on)return;s.dataset.on=1;var v=s.querySelector('video'),ol=s.querySelector('ol'),F=null;try{F=JSON.parse(s.querySelector('script[type="application/json"]').textContent)}catch(e){}
 function bs(){return [].slice.call(ol.querySelectorAll('button'))}
