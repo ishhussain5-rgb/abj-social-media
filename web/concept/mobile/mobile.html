@@ -1,0 +1,77 @@
+<!-- ABJ MOBILE (phone layer, 13 Nov 2026). Source: web/concept/mobile/mobile.html. Phones only (max-width 760px). -->
+<style>
+#kc .det .mmore{display:none}
+@media (max-width:760px){
+ /* rhythm: one consistent, tighter section spacing */
+ #kc .intro,#kc .fp,#kc .rvw,#kc .det,#kc .proc,#kc .sec,#kc .lmk2,#kc .pbw,#kc .gd{padding-top:44px;padding-bottom:44px}
+ #kc .sty,#kc .proj,#kc .rooms,#kc .ws .ps{padding-bottom:44px}#kc .ih{padding-bottom:44px}
+ #kc h2{text-wrap:balance}
+
+ /* booking block: short photo, one primary button, two equal secondary buttons on one line */
+ #kc .bk{min-height:0}
+ #kc .bk figure{height:190px}
+ #kc .bk .t{padding:34px var(--pad) 38px}
+ #kc .bk h2{font-size:30px;margin:12px 0 12px}
+ #kc .bk p{font-size:15px}
+ #kc .bk .acts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}
+ #kc .bk .acts .bt{width:100%;min-width:0;height:52px;padding:0 8px;white-space:nowrap}
+ #kc .bk .acts .bt:first-child,#kc .bk .acts .bt:nth-child(2):last-child{grid-column:1/-1}
+ #kc .bk .acts .bt.o{font-size:10.5px;letter-spacing:.12em}
+ #kc .bk .fin{margin-top:24px;padding-top:18px;font-size:12.5px}
+ #kc .bk .fin small{font-size:10.5px}
+
+ /* cost guide: full-width button, examples on one swipeable line */
+ #kc .calc .ai-in{padding:16px 16px 16px}
+ #kc .calc .ai-in textarea{font-size:17px}
+ #kc .calc .ai-go{margin-top:14px}
+ #kc .calc .ai-go .bt{width:100%;height:52px;padding:0 16px}
+ #kc .calc .ai-ex{flex-wrap:nowrap;overflow-x:auto;gap:8px;margin:16px calc(-1*var(--pad)) 0;padding:0 var(--pad) 2px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+ #kc .calc .ai-ex::-webkit-scrollbar{display:none}
+ #kc .calc .ai-ex span{flex:0 0 auto;margin-right:2px}
+ #kc .calc .ai-ex button{flex:0 0 auto;white-space:nowrap;height:42px;padding:0 15px}
+ #kc .calc .ai-ex button:last-child{margin-right:32px}
+ #kc .calc .ai-skip{display:block;margin:18px auto 0}
+ #kc .calc .res .acts{display:grid;grid-template-columns:1fr;gap:10px}#kc .calc .res .acts .bt{width:100%}
+
+ /* in detail: first paragraph with Read more, related links on one swipeable line */
+ #kc .det .copy.mclip>p{display:none}
+ #kc .det .copy.mclip>p:first-of-type{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+ #kc .det .mmore{display:inline-flex;align-items:center;gap:10px;margin:2px 0 4px;padding:6px 0;border:0;background:none;color:var(--ink);font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;border-bottom:1px solid var(--go);cursor:pointer}
+ #kc .det .rel{flex-wrap:nowrap;overflow-x:auto;gap:22px;margin:22px calc(-1*var(--pad)) 0;padding:0 var(--pad) 6px;scrollbar-width:none;white-space:nowrap;-webkit-mask-image:linear-gradient(90deg,#000 85%,transparent);mask-image:linear-gradient(90deg,#000 85%,transparent)}
+ #kc .det .rel::-webkit-scrollbar{display:none}
+ #kc .det .rel a{flex:0 0 auto}#kc .det .rel a:last-child{margin-right:32px}
+ #kc .det .w{gap:28px}
+
+ /* footer: the booking block above already invites a visit, so the big footer call to action goes */
+ #kc.mhasbk .ft-top{display:none}
+ #kc .ft{padding-top:40px;padding-bottom:92px}
+ #kc .ft-top{padding-bottom:28px;gap:18px}#kc .ft-top h2{font-size:30px}
+ #kc .ft-g{display:block;padding:24px 0 0}
+ #kc .ft-b{padding-bottom:20px}#kc .ft-b .lg{margin-bottom:12px}#kc .ft-b p{font-size:13.5px;max-width:none}#kc .ft-b .rt{margin-top:12px}
+ #kc .ft .mf{border-top:1px solid rgba(243,238,230,.12)}
+ #kc .ft .mf:last-child,#kc .ft .ft-ar.mf{border-bottom:1px solid rgba(243,238,230,.12)}
+ #kc .ft .ft-ar.mf{margin-top:-1px}
+ #kc .ft .mf>.mh{position:relative;display:block;margin:0!important;padding:17px 36px 17px 0!important;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;font:500 10.5px/1.4 var(--sans)!important;letter-spacing:.3em!important;text-transform:uppercase;color:var(--go)!important}
+ #kc .ft .mf>.mh:after{content:"";position:absolute;right:4px;top:50%;width:12px;height:12px;margin-top:-6px;background:linear-gradient(var(--go),var(--go)) center/12px 1.5px no-repeat,linear-gradient(var(--go),var(--go)) center/1.5px 12px no-repeat;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+ #kc .ft .mf.mo>.mh:after{transform:rotate(45deg)}
+ #kc .ft .mf:not(.mo)>:not(.mh){display:none!important}
+ #kc .ft .mf.mo{padding-bottom:18px}
+ #kc .ft .mf.mo>:not(.mh){animation:kcmf .4s cubic-bezier(.2,.7,.2,1) both}
+ #kc .ft .mf.mo ul{display:grid;grid-template-columns:1fr 1fr;gap:12px 16px}
+ #kc .ft .ft-ar{padding-bottom:0}
+ #kc .ft-s{gap:10px 20px;padding-top:22px;font-size:10.5px;border-top:0}
+ #kc .ft-l{margin-top:16px;gap:10px;font-size:11.5px}#kc .ft-l nav{gap:2px 18px;font-size:11.5px}#kc .ft-l nav a,#kc .ft-l span a{display:inline-block;padding:9px 0}
+
+ /* preview badge (test pages only): out of the way of headings */
+ #abj-preview-badge{top:auto!important;bottom:76px!important;left:8px!important;transform:scale(.82);transform-origin:left bottom;opacity:.8}
+}
+@keyframes kcmf{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+</style>
+<script>(function(){var k=document.getElementById("kc");if(!k||k.getAttribute("data-mob"))return;k.setAttribute("data-mob","1");
+if(k.querySelector(".bk"))k.classList.add("mhasbk");
+/* footer groups fold on phones (pages whose footer already folds are left alone) */
+var g=k.querySelectorAll(".ft .ft-g>div:not(.ft-b),.ft .ft-ar");for(var i=0;i<g.length;i++){(function(d){var h=d.firstElementChild;if(!h||h.getAttribute("data-acc")||d.classList.contains("mf"))return;d.classList.add("mf");h.classList.add("mh");h.setAttribute("role","button");h.setAttribute("tabindex","0");h.setAttribute("aria-expanded","false");var t=function(){var o=d.classList.toggle("mo");h.setAttribute("aria-expanded",o?"true":"false")};h.addEventListener("click",t);h.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t()}})})(g[i])}
+/* in detail: Read more */
+var c=k.querySelector(".det .copy");if(c){var ps=c.querySelectorAll(":scope>p");var n=0;for(var j=0;j<ps.length;j++)n+=ps[j].textContent.length;if(ps.length>1||n>420){c.classList.add("mclip");var b=document.createElement("button");b.type="button";b.className="mmore";b.textContent="Read more";b.setAttribute("aria-expanded","false");var last=ps[ps.length-1];last.parentNode.insertBefore(b,last.nextSibling);b.addEventListener("click",function(){var o=c.classList.toggle("mclip");b.textContent=o?"Read more":"Read less";b.setAttribute("aria-expanded",o?"false":"true")})}}
+})();</script>
+<!-- /ABJ MOBILE -->
