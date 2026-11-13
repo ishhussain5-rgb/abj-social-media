@@ -673,3 +673,15 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   that DEV page. ALWAYS reload the editor first (its code view is stale after a save).
   Rollback: delete between the markers and publish the DEV page.
   No film (no real footage): hallways, bathroom cabinetry, upholstery, HMO. Project names by town still waiting for real towns.
+- 13 Nov 20:35-22:10 PHONE PASS ON ALL 52 TEST PAGES (Ish: footer, film section scrolling, cost-guide buttons, stacked
+  booking buttons; "mobile first, optimise fully"). Nothing on live pages.
+  Root cause: most DEV service pages still carried the pre-10-Nov theme (no folding footer, no tighter phone spacing) and
+  several sections had no phone layout of their own. Fix = `mobile/mobile.html` phone layer (see mobile/README.md), appended
+  to every DEV page block with `mobile/patch.js` (@4d4a3c2), plus a phone layout for the film sections (3:4 video, chapters as
+  a swipeable chip row that follows the film, film goes back to its poster at the end).
+  Same pass replaced the leftover "10-year guarantee" wording inside the DEV blocks (guarantee.js); DEV *page settings*
+  (meta description etc.) still say 10-year on ~20 DEV pages (live settings were fixed 11-12 Nov).
+  Checked on all 52 at 390 wide: one phone layer each, no sideways scroll, footer opens and closes, 1 H1; desktop 1440
+  unchanged (Read more hidden, footer grid and big footer CTA as before). Phone page length, examples (screens of 844px):
+  kitchens 13.6 -> 10.6, home 14.0 -> 12.2, Cambridge 14.8 -> 10.9, about 12.8 -> 9.9.
+  Skipped: /edgebanding-abj-dev-e5c9 (unpublished Cut & Edge copy). Not yet on live pages: same snippet, same helper, needs Ish's OK.
