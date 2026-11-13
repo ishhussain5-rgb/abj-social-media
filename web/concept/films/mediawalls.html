@@ -2,11 +2,11 @@
 <style>#kc .csv.vf{padding:clamp(64px,6vw,120px) 0}
 #kc .csv.vf .w{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:clamp(36px,4.6vw,96px);align-items:center}
 #kc .csv.vf h2{font-size:clamp(32px,2.9vw,52px);margin:18px 0 20px}
-#kc .csv.vf .ft p{max-width:24em}
+#kc .csv.vf .vt p{max-width:24em}
 #kc .csv.vf .pl{aspect-ratio:9/16;width:clamp(380px,27vw,460px);cursor:default;box-shadow:0 30px 80px -30px rgba(0,0,0,.75)}
 #kc .csv.vf .pl video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#000}
-#kc .csv.vf .fl{max-width:23em;width:100%}
-#kc .csv.vf .fl .kick{margin:0 0 16px}
+#kc .csv.vf .vl{max-width:23em;width:100%}
+#kc .csv.vf .vl .kick{margin:0 0 16px}
 #kc .csv.vf ol{list-style:none;margin:0;padding:0;border-bottom:1px solid rgba(243,238,230,.16)}
 #kc .csv.vf li{border-top:1px solid rgba(243,238,230,.16);margin:0}
 #kc .csv.vf li button{all:unset;box-sizing:border-box;display:flex;gap:16px;align-items:baseline;width:100%;padding:13px 0;cursor:pointer;font:400 clamp(14px,1.02vw,16.5px)/1.35 var(--sans);color:rgba(243,238,230,.68);transition:color .3s,padding .3s,box-shadow .3s}
@@ -19,15 +19,17 @@
 #kc .csv.vf .tabs button:hover{border-color:var(--go);color:var(--lin)}
 #kc .csv.vf .tabs button[aria-selected=true]{background:var(--lin);border-color:var(--lin);color:var(--g)}
 #kc .csv.vf .tabs button:focus-visible{outline:2px solid var(--go);outline-offset:2px}
-@media (max-width:1100px){#kc .csv.vf .w{grid-template-columns:minmax(0,1fr);justify-items:start}#kc .csv.vf .pl{width:100%;max-width:400px}#kc .csv.vf .fl{max-width:400px}#kc .csv.vf .tabs{justify-content:flex-start}}
-@media (max-width:760px){#kc .csv.vf .pl,#kc .csv.vf .fl{max-width:none}#kc .csv.vf .tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(-1*var(--pad));padding:0 var(--pad) 4px;scrollbar-width:none;width:calc(100% + 2*var(--pad));box-sizing:border-box}#kc .csv.vf .tabs::-webkit-scrollbar{display:none}#kc .csv.vf .tabs button{flex:0 0 auto;padding:11px 14px}}</style>
+#kc .csv.vf .vh{grid-column:1/-1;text-align:center}
+#kc .csv.vf .vhd{font:300 clamp(26px,2.1vw,38px)/1.15 var(--serif);color:var(--lin);margin:14px 0 0;max-width:none}
+@media (max-width:1100px){#kc .csv.vf .w{grid-template-columns:minmax(0,1fr);justify-items:start;gap:32px}#kc .csv.vf .vh{text-align:left}#kc .csv.vf .pl{width:100%;max-width:400px}#kc .csv.vf .vl{max-width:400px}#kc .csv.vf .tabs{justify-content:flex-start}}
+@media (max-width:760px){#kc .csv.vf .pl,#kc .csv.vf .vl{max-width:none}#kc .csv.vf .tabs{flex-wrap:nowrap;overflow-x:auto;margin:0 calc(-1*var(--pad));padding:0 var(--pad) 4px;scrollbar-width:none;width:calc(100% + 2*var(--pad));box-sizing:border-box}#kc .csv.vf .tabs::-webkit-scrollbar{display:none}#kc .csv.vf .tabs button{flex:0 0 auto;padding:11px 14px}}</style>
 <section class="csv vf" id="kc-film" aria-label="Media walls film"><div class="w">
-<div class="ft"><p class="kick">Watch &middot; 18 seconds</p>
+<div class="vt"><p class="kick">Watch &middot; 18 seconds</p>
 <h2>Two media walls, two moods</h2>
 <p>One warm and built in around the fire, one light with marble-effect panels and oak slats. Both made to the wall they sit on.</p>
 <a class="lnk" href="#kc-book">Book a free design visit</a></div>
 <div class="pl"><video controls muted playsinline preload="none" width="1080" height="1920" poster="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@d72512baac1b1af2d15cac26998f3dbda23c35e6/media/abj-mediawalls-film-poster.webp" aria-label="Two media walls, two moods: short film" src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@d72512baac1b1af2d15cac26998f3dbda23c35e6/media/abj-mediawalls-film.mp4"></video></div>
-<div class="fl"><p class="kick">In this film</p><ol><li><button type="button" data-t="0"><b>01</b><span>Recessed TV above a long fire</span></button></li><li><button type="button" data-t="2.86"><b>02</b><span>Storage either side</span></button></li><li><button type="button" data-t="4.05"><b>03</b><span>Fluted doors</span></button></li><li><button type="button" data-t="6.66"><b>04</b><span>Marble-effect panel, oak slats</span></button></li><li><button type="button" data-t="9.02"><b>05</b><span>Floating unit with a long fire</span></button></li><li><button type="button" data-t="12.27"><b>06</b><span>Oak slat detail</span></button></li></ol></div>
+<div class="vl"><p class="kick">In this film</p><ol><li><button type="button" data-t="0"><b>01</b><span>Recessed TV above a long fire</span></button></li><li><button type="button" data-t="2.86"><b>02</b><span>Storage either side</span></button></li><li><button type="button" data-t="4.05"><b>03</b><span>Fluted doors</span></button></li><li><button type="button" data-t="6.66"><b>04</b><span>Marble-effect panel, oak slats</span></button></li><li><button type="button" data-t="9.02"><b>05</b><span>Floating unit with a long fire</span></button></li><li><button type="button" data-t="12.27"><b>06</b><span>Oak slat detail</span></button></li></ol></div>
 </div></section>
 <script>(function(){var s=document.getElementById('kc-film');if(!s||s.dataset.on)return;s.dataset.on=1;var v=s.querySelector('video'),ol=s.querySelector('ol'),F=null;try{F=JSON.parse(s.querySelector('script[type="application/json"]').textContent)}catch(e){}
 function bs(){return [].slice.call(ol.querySelectorAll('button'))}
@@ -35,6 +37,6 @@ function act(){var t=v.currentTime,k=-1,b=bs();b.forEach(function(x,i){if(t>=+x.
 function go(t){function f(){try{v.currentTime=t}catch(e){}var p=v.play();if(p&&p.catch)p.catch(function(){})}if(v.readyState>0)f();else{v.addEventListener('loadedmetadata',f,{once:true});v.load()}}
 ol.addEventListener('click',function(e){var x=e.target.closest('button');if(x)go(+x.dataset.t?+x.dataset.t+.25:0)});
 v.addEventListener('timeupdate',act);v.addEventListener('seeked',act);v.addEventListener('ended',act);
-if(F){var tb=[].slice.call(s.querySelectorAll('.tabs button'));tb.forEach(function(x,i){x.addEventListener('click',function(){var f=F[i];tb.forEach(function(y,j){y.setAttribute('aria-selected',j===i?'true':'false')});v.pause();s.querySelector('h2').textContent=f.h;s.querySelector('.ft p:not(.kick)').textContent=f.p;s.querySelector('.ft .kick').textContent='Watch \u00b7 '+f.s+' seconds';var l=s.querySelector('.ft .lnk');if(l&&f.u){l.href=f.u;l.textContent=f.l}v.poster=f.o;v.src=f.v;v.setAttribute('aria-label',f.h+': short film');v.load();ol.innerHTML=f.c.map(function(c,n){return '<li><button type="button" data-t="'+c[0]+'"><b>'+('0'+(n+1)).slice(-2)+'</b><span>'+c[1]+'</span></button></li>'}).join('')})})}})();</script>
+if(F){var tb=[].slice.call(s.querySelectorAll('.tabs button'));tb.forEach(function(x,i){x.addEventListener('click',function(){var f=F[i];tb.forEach(function(y,j){y.setAttribute('aria-selected',j===i?'true':'false')});v.pause();s.querySelector('.vt h2').textContent=f.h;s.querySelector('.vt p:not(.kick)').textContent=f.p;s.querySelector('.vt .kick').textContent='Watch \u00b7 '+f.s+' seconds';var l=s.querySelector('.vt .lnk');if(l&&f.u){l.href=f.u;l.textContent=f.l}v.poster=f.o;v.src=f.v;v.setAttribute('aria-label',f.h+': short film');v.load();ol.innerHTML=f.c.map(function(c,n){return '<li><button type="button" data-t="'+c[0]+'"><b>'+('0'+(n+1)).slice(-2)+'</b><span>'+c[1]+'</span></button></li>'}).join('')})})}})();</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "VideoObject", "name": "Two bespoke media walls by ABJ Kitchens & Bedrooms, Peterborough", "description": "A 18-second film of two bespoke TV media walls made and fitted by ABJ Kitchens & Bedrooms in Peterborough: recessed TV above a long fire, storage either side, fluted doors, marble-effect panel, oak slats, floating unit with a long fire, oak slat detail.", "thumbnailUrl": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@d72512baac1b1af2d15cac26998f3dbda23c35e6/media/abj-mediawalls-film-poster.jpg", "uploadDate": "2026-11-13T19:00:00+00:00", "duration": "PT18S", "contentUrl": "https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@d72512baac1b1af2d15cac26998f3dbda23c35e6/media/abj-mediawalls-film.mp4", "publisher": {"@type": "Organization", "name": "ABJ Kitchens & Bedrooms"}}</script>
 <!-- /ABJ FILM -->
