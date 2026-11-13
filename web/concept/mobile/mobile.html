@@ -175,6 +175,9 @@
  #kc .pg figcaption{font-size:11px}
  /* 11. finance small print */
  #kc .bk .fin{font-size:13px;line-height:1.6}
+ /* 12. cost guide photo: landscape crop on phones so the kitchen fills it */
+ #kc .fp .big:has(>img[src*="74e75bd-abj-kitchens-t-kingsroad"]){height:auto!important;min-height:0!important;aspect-ratio:4/3}
+ #kc .fp .big>img[src*="74e75bd-abj-kitchens-t-kingsroad"]{height:100%!important;object-position:50% 78%}
 }
 
 /* 11. finance small print: same words, laid out so it reads as a tidy note */
@@ -183,6 +186,7 @@
 
 /* 9. long FAQ lists show five, then "More questions" */
 #kc details.mfq{display:none}
+#kc details:not(.mfq):has(+details.mfq){border-bottom:1px solid var(--hair)}
 #kc .mfqb{margin-top:22px}
 
 /* 12. cost guide photo: crop onto the kitchen, not the ceiling */
