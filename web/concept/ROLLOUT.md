@@ -635,3 +635,21 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Yell + hours, FreeIndex, Thomson Local, Trustpilot), GSC indexing for the 2 guides, Stamford/Huntingdon real jobs,
   reviews (Houzz + Google), re-run AI prompts in 2-3 weeks (+ Copilot/Gemini by Ish), hide FB cover auto-post.
 - 12 Nov 23:55 Plaky complete: all 8 Done items (12 Nov) + 6 To do items (13 Nov; AI re-test 26 Nov) on the board, checked.
+- 13 Nov (Ish asked; not logged earlier): TikTok re-cuts of Drive reel r17 "7 kitchen features" (v1 too fast, v2 slowed 0.8x with
+  dissolves + original soundtrack = the one Ish liked, v3 trend cut) - scratchpad only, nothing scheduled; captions sent in chat.
+  Apple Business: new unverified account under ish@ (org name = Companies House name); Ish recovering the old account Sat 14 Nov.
+  Search Console 3-month review + competitor check. Meta descriptions (price anchor + 4.9 rating; titles untouched) on
+  /bespoke-kitchens 73297273, /bespoke-wardrobes 73280437, /media-walls 73279037 - PUBLISHED with Ish's OK, checked live.
+  GSC indexing of the two cost guides: do NOT force/retry (Ish); next normal session only.
+- 13 Nov 18:45 Google Business Profile check (Ish: add kitchen services + photos, carefully): NO CHANGES MADE. Services already
+  full: Kitchen Renovator (primary) has ~24 incl. kitchen design/installation/bespoke kitchen/units/worktops; Joiner, Carpenter,
+  Cabinet maker, Furniture maker categories each filled too. Photos: ~1,730 owner photos/videos already. Nothing missing to add.
+  For Ish to confirm (not touched): services we may not offer (granite worktop installation, cabinet refacing/refinishing,
+  pre-made cabinets, tables) and odd "from" prices (Kitchen Installation from £100, Bespoke Kitchen from £5,000 vs site £2,500).
+- 13 Nov 19:00 TEST PAGE ONLY /bespoke-kitchens-dev-k7q2 (352648603 / rec5644015603): new "Seven details our clients ask for"
+  film section (#kc-film, between the featured project and the review; markers ABJ KITCHEN FILM ... /ABJ KITCHEN FILM) with a
+  watchable 20 s vertical film (v2 cut, silent copy, controls, preload none) + VideoObject JSON-LD. Media: branch web-media-q
+  @b9c55d0 (mp4 2.4 MB, poster webp/jpg). Live pages today only have silent background loops and no VideoObject (only the
+  Kings Road case study has one). Checked: plays, 1 H1, noindex kept, JSON-LD parses, 390px no sideways scroll.
+  Rollback: delete everything between the two markers in the block and publish the DEV page. NOT on the live page.
+  Project names by style AND town: not done - gallery captions have style only; real towns needed from Ish (no guessing).
