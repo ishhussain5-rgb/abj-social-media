@@ -80,12 +80,22 @@
 @keyframes kcmf{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 </style>
 <script>(function(){var k=document.getElementById("kc");if(!k||k.getAttribute("data-mob"))return;k.setAttribute("data-mob","1");
+var PH=window.matchMedia&&matchMedia("(max-width:760px)").matches;
+/* set-up is idempotent and runs again after load, because older site scripts re-render parts of the footer */
+function S(){
 if(k.querySelector(".bk"))k.classList.add("mhasbk");
-/* footer groups fold on phones (pages whose footer already folds are left alone) */
-var g=k.querySelectorAll(".ft .ft-g>div:not(.ft-b),.ft .ft-ar");for(var i=0;i<g.length;i++){(function(d){var h=d.firstElementChild;if(!h||h.getAttribute("data-acc")||d.classList.contains("mf"))return;d.classList.add("mf");h.classList.add("mh");h.setAttribute("role","button");h.setAttribute("tabindex","0");h.setAttribute("aria-expanded","false");var t=function(){var o=d.classList.toggle("mo");h.setAttribute("aria-expanded",o?"true":"false")};h.addEventListener("click",t);h.addEventListener("keydown",function(e){if(e.key==="Enter"||e.key===" "){e.preventDefault();t()}})})(g[i])}
-/* long text blocks: Read more (phones only show the first paragraph) */
-var cs=k.querySelectorAll(".det .copy,.sec .copy");for(var q=0;q<cs.length;q++)(function(c){var ps=c.querySelectorAll(":scope>p");var n=0;for(var j=0;j<ps.length;j++)n+=ps[j].textContent.length;if(c.closest(".det")?(ps.length>1||n>420):(ps.length>2&&n>900)){c.classList.add("mclip");var b=document.createElement("button");b.type="button";b.className="mmore";b.textContent="Read more";b.setAttribute("aria-expanded","false");var last=ps[ps.length-1];last.parentNode.insertBefore(b,last.nextSibling);b.addEventListener("click",function(){var o=c.classList.toggle("mclip");b.textContent=o?"Read more":"Read less";b.setAttribute("aria-expanded",o?"false":"true")})}})(cs[q]);
-/* long card lists: swipe rail on phones */
-if(window.matchMedia&&matchMedia("(max-width:760px)").matches){var R=k.querySelectorAll(".three,.tmg,.why");for(var x=0;x<R.length;x++)(function(e){var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(ch.length<3)return;var H=0;ch.forEach(function(z){H+=z.offsetHeight});if(H<innerHeight*1.15)return;e.classList.add("mrail");var m=document.createElement("div");m.className="mcount";m.innerHTML="<span>Swipe</span><i>1 / "+ch.length+"</i>";e.parentNode.insertBefore(m,e.nextSibling);var I=m.querySelector("i");e.addEventListener("scroll",function(){var w=ch[0].offsetWidth+14;I.textContent=Math.min(ch.length,Math.round(e.scrollLeft/w)+1)+" / "+ch.length},{passive:true})})(R[x])}
+/* footer groups fold on phones (footers that already fold are left alone) */
+var g=k.querySelectorAll(".ft .ft-g>div:not(.ft-b),.ft .ft-ar");for(var i=0;i<g.length;i++){var d=g[i],h=d.firstElementChild;if(!h||h.getAttribute("data-acc"))continue;d.classList.add("mf");if(!h.classList.contains("mh")){h.classList.add("mh");h.setAttribute("role","button");h.setAttribute("tabindex","0")}h.setAttribute("aria-expanded",d.classList.contains("mo")?"true":"false")}
+/* long text blocks: Read more */
+var cs=k.querySelectorAll(".det .copy,.sec .copy");for(var q=0;q<cs.length;q++){var c=cs[q];if(c.querySelector(":scope>.mmore"))continue;var ps=c.querySelectorAll(":scope>p");if(!ps.length)continue;var n=0;for(var j=0;j<ps.length;j++)n+=ps[j].textContent.length;if(!(c.closest(".det")?(ps.length>1||n>420):(ps.length>2&&n>900)))continue;c.classList.add("mclip");var b=document.createElement("button");b.type="button";b.className="mmore";b.textContent="Read more";b.setAttribute("aria-expanded","false");var last=ps[ps.length-1];last.parentNode.insertBefore(b,last.nextSibling)}
+/* long card lists: one swipeable row with a counter, phones only */
+if(PH){var R=k.querySelectorAll(".three,.tmg,.why");for(var x=0;x<R.length;x++){var e=R[x];if(e.classList.contains("mrail"))continue;var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(ch.length<3)continue;var H=0;ch.forEach(function(z){H+=z.offsetHeight});if(H<innerHeight*1.15)continue;e.classList.add("mrail");var m=document.createElement("div");m.className="mcount";m.innerHTML="<span>Swipe</span><i>1 / "+ch.length+"</i>";e.parentNode.insertBefore(m,e.nextSibling)}}
+}
+S();window.addEventListener("load",function(){setTimeout(S,300)});
+/* one delegated handler, so it keeps working if a section is re-rendered */
+function tog(h){var d=h.parentNode,o=d.classList.toggle("mo");h.setAttribute("aria-expanded",o?"true":"false")}
+k.addEventListener("click",function(ev){var h=ev.target.closest(".ft .mf>.mh");if(h){tog(h);return}var b=ev.target.closest(".mmore");if(b){var c=b.parentNode,o=c.classList.toggle("mclip");b.textContent=o?"Read more":"Read less";b.setAttribute("aria-expanded",o?"false":"true")}});
+k.addEventListener("keydown",function(ev){var h=ev.target.closest&&ev.target.closest(".ft .mf>.mh");if(h&&(ev.key==="Enter"||ev.key===" ")){ev.preventDefault();tog(h)}});
+k.addEventListener("scroll",function(ev){var e=ev.target;if(!e.classList||!e.classList.contains("mrail"))return;var m=e.nextElementSibling;if(!m||!m.classList.contains("mcount"))return;var ch=[].filter.call(e.children,function(z){return z.offsetHeight>60});if(!ch.length)return;var w=ch[0].offsetWidth+14;m.querySelector("i").textContent=Math.min(ch.length,Math.round(e.scrollLeft/w)+1)+" / "+ch.length},true);
 })();</script>
 <!-- /ABJ MOBILE -->
