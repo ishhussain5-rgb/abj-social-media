@@ -6,6 +6,9 @@
  #kc .intro,#kc .fp,#kc .rvw,#kc .det,#kc .proc,#kc .sec,#kc .lmk2,#kc .pbw,#kc .gd{padding-top:44px;padding-bottom:44px}
  #kc .sty,#kc .proj,#kc .rooms,#kc .ws .ps{padding-bottom:44px}#kc .ih{padding-bottom:44px}
  #kc h2{text-wrap:balance}
+ /* grids never grow wider than the screen (swipe rows inside them stay inside) */
+ #kc .calc .ch,#kc .det .w,#kc .csv .w{grid-template-columns:minmax(0,1fr)}
+ #kc .calc .ch>*,#kc .calc .ai,#kc .calc .ai-in,#kc .det .w>*,#kc .csv .w>*{min-width:0}
 
  /* booking block: short photo, one primary button, two equal secondary buttons on one line */
  #kc .bk{min-height:0}
