@@ -40,7 +40,7 @@ v.addEventListener('timeupdate',act);v.addEventListener('seeked',act);v.addEvent
 if(F){var tb=[].slice.call(s.querySelectorAll('.tabs button'));tb.forEach(function(x,i){x.addEventListener('click',function(){var f=F[i];tb.forEach(function(y,j){y.setAttribute('aria-selected',j===i?'true':'false')});v.pause();s.querySelector('h2').textContent=f.h;s.querySelector('.ft p:not(.kick)').textContent=f.p;s.querySelector('.ft .kick').textContent='Watch \\u00b7 '+f.s+' seconds';var l=s.querySelector('.ft .lnk');if(l&&f.u){l.href=f.u;l.textContent=f.l}v.poster=f.o;v.src=f.v;v.setAttribute('aria-label',f.h+': short film');v.load();ol.innerHTML=f.c.map(function(c,n){return '<li><button type="button" data-t="'+c[0]+'"><b>'+('0'+(n+1)).slice(-2)+'</b><span>'+c[1]+'</span></button></li>'}).join('')})})}})();"""
 def lis(m):
     return ''.join(f'<li><button type="button" data-t="{t}"><b>{i+1:02d}</b><span>{html.escape(l)}</span></button></li>' for i,(t,l) in enumerate(zip(m['starts'],m['labels'])))
-def secs(m): return int(round(m['total']/5.0)*5)
+def secs(m): return int(round(m["total"]))
 def section(names,base,single_cta=('#kc-book','Book a free design visit'),links=None,ld=True,kick_list='In this film'):
     ms=[json.load(open(f'out/{n}.json')) for n in names];n0=names[0];m=ms[0];c=COPY[n0]
     for mm in ms: mm['labels']=[l.replace('The drawer within','A drawer within') for l in mm['labels']]
