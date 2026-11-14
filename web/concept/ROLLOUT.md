@@ -737,3 +737,7 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   fact tiles keep the label-first word order ("MADE IN / Peterborough"). `mobile/mobile.html` @4383e8e on 51 DEV pages,
   @6a1ee7a on DEV home (homepage film label stays hidden). Checked 48 DEV pages at 390 + 1920x869: all tiles clickable,
   links on one line everywhere they exist, no sideways scroll, phones unchanged. NOT LIVE YET.
+- 14 Nov 13:45-14:15 LIVE (Ish: "centre them ... do that for the rest ... and make them all live please", "submit new
+  sitemap"). `mobile/mobile.html` @9a1f715 (desktop fit pass + desktop details + homepage film + journey fix + short
+  related-link sets centred 64px apart) on all 61 live pages, single-page publish each, 0 errors; then the 52 DEV pages.
+  Search Console: sitemap.xml resubmitted 14 Nov ("Sitemap submitted successfully", 60 pages discovered).
