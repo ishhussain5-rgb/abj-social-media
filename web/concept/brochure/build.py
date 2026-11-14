@@ -30,6 +30,17 @@ def face(fam, file, weight, style='normal'):
 
 E = html.escape
 
+# Guide "from" prices. Kitchens and media walls: ABJ's own published figures. The rest: UK market averages
+# (Which? Aug 2026, Checkatrade, Hammonds price guide), to be confirmed by ABJ before publishing.
+PRICES = [
+    ('Kitchens', 'From around £2,500', 'Compact kitchen. Typical medium kitchen with quartz: £7,000 to £9,500.'),
+    ('Fitted wardrobes', 'From around £1,500', 'Typical three-door fitted wardrobe: around £2,900.'),
+    ('Fitted bedrooms', 'From around £3,000', 'Wardrobes and bedside units for a small room.'),
+    ('Media walls', 'From around £1,000', 'TV unit with shelves. Wall-to-wall designs: £3,200 to £4,500.'),
+    ('Storage', 'From around £1,000', 'Under-stairs storage. Alcove units: around £1,900 to £2,800.'),
+    ('Home offices', 'Priced at your visit', 'Fitted desks and shelving, quoted after a free design visit.'),
+]
+
 CSS = '''
 @page{size:210mm 297mm;margin:0}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -94,11 +105,14 @@ a{color:inherit;text-decoration:none}
 .steps:before{content:"";position:absolute;left:5.5mm;right:20mm;top:5.5mm;height:.3mm;background:rgba(201,169,110,.5)}
 .steps div i{position:relative;display:flex;align-items:center;justify-content:center;width:11mm;height:11mm;border-radius:50%;background:var(--go);color:var(--g);font:italic 400 13.6pt/1 'Cormorant Garamond',serif}
 .steps h3{margin:5mm 0 2mm;font-size:16.9pt}.steps p{font-size:10.2pt;line-height:1.55}
-.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:.25mm solid var(--hair);margin-top:7mm;background:rgba(255,255,255,.45)}
-.pr div{padding:5.4mm 5mm}.pr div+div{border-left:.25mm solid var(--hair)}
+.pr{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:.25mm solid var(--hair);border-left:.25mm solid var(--hair);margin-top:6mm;background:rgba(255,255,255,.45)}
+.pr div{padding:3.6mm 4.4mm 3.4mm;border-right:.25mm solid var(--hair);border-bottom:.25mm solid var(--hair)}
 .pr span{font:600 7.7pt/1.4 'DM Sans';letter-spacing:.24em;text-transform:uppercase;color:var(--gd)}
-.pr b{display:block;font:400 21.5pt/1.1 'Cormorant Garamond',serif;margin:1.8mm 0 1.4mm}
-.pr p{font-size:9.7pt;line-height:1.5}
+.pr b{display:block;font:400 17pt/1.1 'Cormorant Garamond',serif;margin:1.2mm 0 .8mm}
+.pr p{font-size:8.3pt;line-height:1.4}
+.tag{display:inline-block;margin-top:5mm;padding:2.2mm 4mm;border:.25mm solid var(--go);font:600 7.6pt/1 'DM Sans';letter-spacing:.2em;text-transform:uppercase;color:var(--gd)}
+.dk .tag{color:var(--go)}
+.fr{display:block;margin-top:1.4mm;font:600 7.4pt/1.3 'DM Sans';letter-spacing:.18em;text-transform:uppercase;color:var(--gd)}
 .fine{font-size:8.2pt;line-height:1.5;color:var(--mut);margin-top:4mm}
 .qs{display:grid;grid-template-columns:repeat(3,1fr);gap:7mm;margin-top:8mm}
 .qs blockquote{padding-top:5mm;border-top:.3mm solid var(--go);font:300 14.7pt/1.34 'Cormorant Garamond',serif;color:var(--lin)}
@@ -153,7 +167,7 @@ def build(s):
     # 4 kitchens
     P.append(page('''<div style="height:128mm"><img src="%s" style="object-position:50%% 60%%"></div>
 <div class="pad" style="padding-top:12mm"><div class="k">Bespoke kitchens</div><div class="hd2"><h2>Kitchens made for<br>the way <em>you</em> live</h2><p>%s</p></div>
-<div class="g3">%s</div></div>'''
+<div class="g3">%s</div><span class="tag">Kitchens from around £2,500</span></div>'''
         % (img('kc-handleless-l', 1700, 82), E(s['kitchen_text']),
            ''.join('<figure><div style="height:44mm"><img src="%s" style="object-position:%s"></div><h3>%s</h3><p>%s</p></figure>' % (img(i, 800), pos, E(t), E(p)) for i, pos, t, p in [
                ('kc-kr-light-l', '50% 70%', 'Handleless', 'Clean lines and integrated rails, made for open-plan living.'),
@@ -169,7 +183,7 @@ def build(s):
         % (fig('kc-kr-bar-l', 46, 'The bar wall', 700), fig('kc-kr-detail-l', 46, 'Lit breakfast bar', 700), img('kc-kr-island-l', 1100)), 'dk', 5, L))
     # 6 wardrobes
     P.append(page('''<div class="split"><div><img src="%s"></div><div class="tx"><div class="k">Fitted wardrobes</div><h2>Wardrobes that use <em>every</em> centimetre</h2>
-<p style="margin-top:6mm">%s</p>
+<p style="margin-top:6mm">%s</p><span class="tag" style="align-self:flex-start">Wardrobes from around £1,500</span>
 <ul class="ul"><li><i>01</i><div>Sliding wardrobes<span>Mirrored, glass or woodgrain doors on smooth, quiet runners</span></div></li>
 <li><i>02</i><div>Hinged wardrobes<span>Full-height doors scribed to walls, ceilings and slopes</span></div></li>
 <li><i>03</i><div>Walk-in wardrobes<span>Open hanging, drawers and shelving planned around what you own</span></div></li>
@@ -181,25 +195,25 @@ def build(s):
 <div class="g2">%s%s</div>
 <div class="g3" style="margin-top:8mm">%s</div></div>'''
         % (E(s['bedroom_text']),
-           '<figure><div style="height:92mm"><img src="%s"></div><h3>Fitted bedrooms</h3><p>Wardrobes, headboard walls, bedside units and dressing tables in one matching design.</p></figure>' % img('abj-b-white-oak', 1000),
-           '<figure><div style="height:92mm"><img src="%s"></div><h3>Media walls</h3><p>Recessed screens, electric fires, hidden cables and lit shelving, built around your room.</p></figure>' % img('abj-mediawalls-t-fire', 1000),
+           '<figure><div style="height:92mm"><img src="%s"></div><h3>Fitted bedrooms</h3><span class="fr">From around £3,000</span><p>Wardrobes, headboard walls, bedside units and dressing tables in one matching design.</p></figure>' % img('abj-b-white-oak', 1000),
+           '<figure><div style="height:92mm"><img src="%s"></div><h3>Media walls</h3><span class="fr">From around £1,000</span><p>Recessed screens, electric fires, hidden cables and lit shelving, built around your room.</p></figure>' % img('abj-mediawalls-t-fire', 1000),
            ''.join('<figure><div style="height:54mm"><img src="%s"></div><h3>%s</h3><p>%s</p></figure>' % (img(i, 700), E(t), E(p)) for i, t, p in [
                ('abj-b-study-nook', 'Home offices', 'Fitted desks and shelving for box rooms and alcoves.'),
                ('abj-storage-t-pantry', 'Storage', 'Under-stairs, alcove, pantry and utility storage.'),
                ('abj-mediawalls-t-minimal', 'Wall panelling', 'Slatted and fluted panels with built-in lighting.')])), '', 7, L))
     # 8 process + prices
-    P.append(page('''<div class="pad dk" style="height:132mm"><div class="k">How it works</div><h2>From first visit to final fitting</h2>
+    P.append(page('''<div class="pad dk" style="height:118mm"><div class="k">How it works</div><h2>From first visit to final fitting</h2>
 <div class="steps">%s</div></div>
 <div class="pad" style="padding-top:12mm"><div class="k">Guide prices</div><div class="hd2" style="margin-bottom:0"><h2>What to budget</h2><p>Every room is priced individually. After your free design visit you receive an itemised quote, so you can see exactly where the money goes.</p></div>
-<div class="pr"><div><span>Compact kitchen</span><b>From around £2,500</b><p>Made in our workshop and fitted by our own team.</p></div>
-<div><span>Medium kitchen</span><b>£7,000 to £9,500</b><p>A typical medium kitchen with quartz worktops.</p></div>
-<div><span>Spread the cost</span><b>Interest-free finance</b><p>On projects over £6,000 with a 50%% deposit, subject to status.</p></div></div>
-<p class="fine">Guide prices are from our own recent quotes; bigger rooms, islands, premium worktops and appliances add to them. AB Joinery Kitchens and Bedrooms Ltd t/a ABJ Kitchens and Bedrooms is an introducer appointed representative of Ideal Sales Solutions Ltd T/A Ideal4Finance. Ideal Sales Solutions is a credit broker and not a lender (FRN 703401). Finance is available subject to status. The rate offered is provisional and will depend upon personal circumstances, the loan amount and term.</p></div>'''
-        % ''.join('<div><i>%02d</i><h3 style="color:#F3EEE6">%s</h3><p>%s</p></div>' % (i + 1, E(t), E(p)) for i, (t, p) in enumerate([
+<div class="pr">%s</div>
+<p style="margin-top:4mm;font-size:9.6pt;color:#1b2321"><b style="font-weight:600">Interest-free finance</b> is available on projects over £6,000 with a 50%% deposit, subject to status.</p>
+<p class="fine">Guide prices are for made-to-measure furniture, fitted; larger rooms, premium finishes, worktops and appliances add to them. AB Joinery Kitchens and Bedrooms Ltd t/a ABJ Kitchens and Bedrooms is an introducer appointed representative of Ideal Sales Solutions Ltd T/A Ideal4Finance. Ideal Sales Solutions is a credit broker and not a lender (FRN 703401). Finance is available subject to status. The rate offered is provisional and will depend upon personal circumstances, the loan amount and term.</p></div>'''
+        % (''.join('<div><i>%02d</i><h3 style="color:#F3EEE6">%s</h3><p>%s</p></div>' % (i + 1, E(t), E(p)) for i, (t, p) in enumerate([
             ('Design visit', 'We measure your room and talk through how you live and what you need to store. Free and without obligation.'),
             ('3D design & quote', 'You see your room in 3D before anything is made, with a clear, itemised quotation.'),
             ('Made in Peterborough', 'Every piece is built to order in our own workshop, usually in four to six weeks.'),
-            ('Fitted by our team', s['fit_text'])])), '', 8, L))
+            ('Fitted by our team', s['fit_text'])])),
+           ''.join('<div><span>%s</span><b>%s</b><p>%s</p></div>' % (E(a), E(b), E(c)) for a, b, c in PRICES)), '', 8, L))
     # 9 reviews + local FAQ
     P.append(page('''<div class="pad dk" style="height:128mm"><div class="k">Reviews</div><h2>Rated 4.9 on Google, from 100+ reviews</h2>
 <div class="qs">%s</div></div>
