@@ -200,7 +200,7 @@
  /* 3 + 5. long text: two paragraphs, then Read more */
  #kc .mmore{display:none}
  #kc .copy.mclip.mx2>.mmore{display:inline-flex;margin-top:6px}
- #kc .copy.mclip.mx2>p:nth-of-type(2)~:not(.mmore):not(.rel){display:none}
+ #kc .copy.mclip.mx2>p:first-of-type~:not(.mmore):not(.rel){display:none}
  #kc .copy.mx2 .rel{margin-top:30px}
  /* 5. sections fit one window */
  #kc .calc{padding-top:clamp(56px,7vh,96px)!important;padding-bottom:clamp(56px,7vh,96px)!important}
@@ -298,7 +298,12 @@
  #kc details.dfq{display:none}
  #kc .dhide{display:none!important}
  #kc .dmore{margin-top:28px}
- #kc:not(:has(.intro .ix)) .fp .sm2{grid-template-columns:repeat(2,minmax(0,clamp(120px,calc(100svh - 660px),220px)))}
+ #kc [data-dm]{grid-template-rows:none!important;grid-auto-rows:auto!important}
+ #kc [data-dm]>*{grid-row:auto!important}
+ #kc .det h2{font-size:clamp(30px,2.5vw,46px)}
+ #kc:not(:has(.intro .ix)) .fp{padding-top:clamp(32px,4.5vh,64px)!important;padding-bottom:clamp(32px,4.5vh,64px)!important}
+ #kc:not(:has(.intro .ix)) .fp .big{min-height:min(700px,calc(100svh - 86px - 2*clamp(32px,4.5vh,64px)))}
+ #kc:not(:has(.intro .ix)) .fp .sm2{grid-template-columns:repeat(2,minmax(0,clamp(110px,calc(100svh - 700px),190px)))}
  /* in detail: related links on one line across the full width, under both columns */
  #kc .det{padding-top:clamp(48px,6.5vh,96px)!important;padding-bottom:clamp(48px,6.5vh,96px)!important}
  #kc .det .w>.rel{grid-column:1/-1;display:flex;flex-wrap:nowrap;gap:30px;margin:6px 0 0;padding:22px 0 4px;border-top:1px solid var(--hair);overflow-x:auto;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 calc(100% - 60px),transparent);mask-image:linear-gradient(90deg,#000 calc(100% - 60px),transparent)}
@@ -318,7 +323,7 @@ var g=k.querySelectorAll(".ft .ft-g>div:not(.ft-b),.ft .ft-ar");for(var i=0;i<g.
 /* long text blocks: Read more */
 var cs=k.querySelectorAll(".det .copy,.sec .copy");for(var q=0;q<cs.length;q++){var c=cs[q];if(c.querySelector(":scope>.mmore"))continue;var ps=c.querySelectorAll(":scope>p");if(!ps.length)continue;var n=0;for(var j=0;j<ps.length;j++)n+=ps[j].textContent.length;if(!(c.closest(".det")?(ps.length>1||n>420):(ps.length>2&&n>900)))continue;c.classList.add("mclip");var b=document.createElement("button");b.type="button";b.className="mmore";b.textContent="Read more";b.setAttribute("aria-expanded","false");var last=ps[ps.length-1];last.parentNode.insertBefore(b,last.nextSibling)}
 /* desktop: long text keeps two paragraphs before Read more */
-var mc=k.querySelectorAll(".copy.mclip");for(var q2=0;q2<mc.length;q2++){var c2=mc[q2],p2=c2.querySelectorAll(":scope>p");if(p2.length<2)continue;var x2=p2[1].nextElementSibling,more=false;while(x2){if(!x2.classList.contains("mmore")&&!x2.classList.contains("rel")){more=true;break}x2=x2.nextElementSibling}c2.classList.toggle("mx2",more)}
+var mc=k.querySelectorAll(".copy.mclip");for(var q2=0;q2<mc.length;q2++){var c2=mc[q2],p2=c2.querySelectorAll(":scope>p");if(p2.length<1)continue;var x2=p2[0].nextElementSibling,more=false;while(x2){if(!x2.classList.contains("mmore")&&!x2.classList.contains("rel")){more=true;break}x2=x2.nextElementSibling}c2.classList.toggle("mx2",more)}
 /* long FAQ lists: five questions, then "More questions" */
 var dl=k.querySelectorAll("details"),seen=[];for(var f=0;f<dl.length;f++){var pa=dl[f].parentNode;if(seen.indexOf(pa)>-1||pa.closest(".fqw"))continue;seen.push(pa);if(pa.querySelector(":scope>.mfqb"))continue;var qs=[].filter.call(pa.children,function(z){return z.tagName==="DETAILS"});if(qs.length<7)continue;for(var u=5;u<qs.length;u++)qs[u].classList.add("mfq");var fb=document.createElement("button");fb.type="button";fb.className="mfqb";fb.textContent="More questions ("+(qs.length-5)+")";qs[qs.length-1].parentNode.insertBefore(fb,qs[qs.length-1].nextSibling)}
 /* buttons that point to the page you are on: the bar drops it, the footer offers WhatsApp instead */
