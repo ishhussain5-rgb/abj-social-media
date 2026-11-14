@@ -716,3 +716,10 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   NOT YET ON TILDA: Chrome's Tilda session had signed out (editor showed "Page is not published / Log in").
   Next: Ish signs in -> abjPatch on the 52 DEV pages (ids: data-tilda-page-id of the linkmap DEV pages that already carry
   the layer) -> check -> live after Ish's OK.
+- 14 Nov 11:00-11:40 LIVE (Ish: "This is excellent, please publish all pages to live", Tilda signed back in).
+  `mobile/mobile.html` @3ec0c8d (= @15f3b12 design pass + phones lift any text under 11px to 11px) applied with
+  `abjPatch` to all 52 DEV pages and all 61 live pages (60 in the sitemap + /near-me-peterborough), each page saved and
+  published on its own (single-page publish). Runner: same-origin editor iframes inside one tilda.cc tab (window.RUN),
+  one page at a time. 0 errors. Live ids: data-tilda-page-id of each sitemap page carrying the layer.
+  DEV check (before live): 52 pages x 390 + 1440: one layer each, no sideways scroll, 1 H1, script ran, facts tiles grid;
+  3 pages use the older footer accordion (h4 data-acc), which folds on its own (checked).
