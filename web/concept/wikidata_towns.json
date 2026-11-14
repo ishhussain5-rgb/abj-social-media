@@ -1,0 +1,23 @@
+{
+ "_note": "Wikidata items for the towns on the location pages (looked up 14 Nov 2026 via the English Wikipedia API, pageprops.wikibase_item).",
+ "stamford": ["Stamford, Lincolnshire", "Q1000662"],
+ "oundle": ["Oundle", "Q263497"],
+ "market-deeping": ["Market Deeping", "Q1850360"],
+ "bourne": ["Bourne, Lincolnshire", "Q2223229"],
+ "spalding": ["Spalding, Lincolnshire", "Q1185203"],
+ "huntingdon": ["Huntingdon", "Q685640"],
+ "st-ives": ["St Ives, Cambridgeshire", "Q2569095"],
+ "ely": ["Ely, Cambridgeshire", "Q209176"],
+ "wisbech": ["Wisbech", "Q1012031"],
+ "grantham": ["Grantham", "Q846683"],
+ "oakham": ["Oakham", "Q1001942"],
+ "cambridge": ["Cambridge", "Q350"],
+ "st-neots": ["St Neots", "Q1018225"],
+ "corby": ["Corby", "Q994925"],
+ "kettering": ["Kettering", "Q984613"],
+ "march": ["March, Cambridgeshire", "Q2569076"],
+ "whittlesey": ["Whittlesey", "Q2335054"],
+ "chatteris": ["Chatteris", "Q2636013"],
+ "kings-lynn": ["King's Lynn", "Q157341"],
+ "peterborough": ["Peterborough", "Q172438"]
+}

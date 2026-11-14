@@ -5,8 +5,8 @@ cost guides). Wardrobe and bedroom prices are UK market averages, as in build.PR
 from build import *
 import build as B
 
-FACTS = [('Free', '3D design visit'), ('12-month', 'Guarantee'), ('4.9', 'On Google · 100+ reviews'), ('Made in', 'Peterborough')]
-ROW = [('Made in', 'Peterborough'), ('4.9', 'On Google · 100+ reviews'), ('12-month', 'Guarantee'), ('Free', '3D design visit')]
+FACTS = [('Free', '3D design visit'), ('12-month+', 'Guarantee'), ('4.9', 'On Google · 100+ reviews'), ('Made in', 'Peterborough')]
+ROW = [('Made in', 'Peterborough'), ('4.9', 'On Google · 100+ reviews'), ('12-month+', 'Guarantee'), ('Free', '3D design visit')]
 
 def kitchens():
     del B.USED[:]; L = 'Kitchens'; P = []
@@ -45,7 +45,7 @@ def kitchens():
     P.append(p_process([('Design visit', 'We measure your room and talk through how you cook, store and live. Free and without obligation.'),
         ('3D design & quote', 'You see your kitchen in photorealistic 3D, with a clear, itemised quotation.'),
         ('Made in Peterborough', 'Every cabinet is built to order in our own workshop, to the millimetre.'),
-        ('Fitted by our team', 'The same team that made it fits it, and backs it with a 12-month guarantee.')],
+        ('Fitted by our team', 'The team that made it fits it, backed by a minimum 12-month guarantee.')],
         [('Compact kitchens', 'From around £2,500', 'Made in our Peterborough workshop and fitted by our own team.'),
          ('Medium kitchens', '£7,000 to £9,500', 'A typical medium kitchen with quartz worktops.'),
          ('Larger kitchens', 'Priced at your visit', 'Bigger rooms, premium worktops and appliances add to the price.'),
@@ -108,7 +108,7 @@ def bedrooms():
     P.append(p_process([('Design visit', 'We measure the whole room, including slopes, chimney breasts and box sections, and talk through how you use it.'),
         ('3D design & quote', 'You see wardrobes, bedside units and any dressing table together in 3D, with a quote that lists each piece.'),
         ('Made in Peterborough', 'Every piece is made to your room’s measurements in our workshop, so the finishes match across the room.'),
-        ('Fitted by our team', 'Our fitters install the whole room and finish it to the walls and ceiling, backed by our 12-month guarantee.')],
+        ('Fitted by our team', 'Our fitters install the whole room and finish it to the walls and ceiling, backed by our minimum 12-month guarantee.')],
         [('Fitted wardrobes', 'From around £1,500', 'Typical three-door fitted wardrobe: around £2,900.'),
          ('Fitted bedrooms', 'From around £3,000', 'Wardrobes and bedside units for a small room.'),
          ('Walk-in wardrobes', 'Priced at your visit', 'Depends on the room and the interior you choose.'),
@@ -164,7 +164,7 @@ def mediawalls():
     P.append(p_process([('Design visit', 'We measure the wall and check your TV size, sockets, aerial point and where the cables need to go.'),
         ('3D design & quote', 'You see the wall in 3D, with any fire, lighting and storage in place, and a quote that lists every part.'),
         ('Made in Peterborough', 'The frame, panels and cabinets are made to your wall in our workshop, with cable routes planned in.'),
-        ('Fitted by our team', 'We install the wall and leave it ready for your TV, covered by our 12-month guarantee.')],
+        ('Fitted by our team', 'We install the wall and leave it ready for your TV, covered by our minimum 12-month guarantee.')],
         [('TV unit & shelves', '£1,000 to £1,550', 'A compact unit with shelving.'),
          ('Alcove units', '£1,900 to £2,800', 'Cupboards and shelves either side.'),
          ('Full wall', '£2,500 to £3,500', 'Floor to ceiling on one wall.'),

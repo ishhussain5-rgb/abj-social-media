@@ -199,7 +199,7 @@ def cards(items, h, cols=3, style=''):
     return '<div class="g%d"%s>%s</div>' % (cols, ' style="%s"' % style if style else '', ''.join(out))
 
 def p_cover(photo, pos, edition, kick, title, sub, row=None):
-    row = row or [('2,500+', 'Bespoke projects'), ('4.9', 'On Google · 100+ reviews'), ('12-month', 'Guarantee'), ('Free', '3D design visit')]
+    row = row or [('2,500+', 'Bespoke projects'), ('4.9', 'On Google · 100+ reviews'), ('12-month+', 'Guarantee'), ('Free', '3D design visit')]
     return page('''<div class="ph"><img src="%s"></div>
 <div class="top"><div class="lg"><img src="%s"><div><b>ABJ Kitchens</b><span>&amp; Bedrooms</span></div></div><div class="ed">%s<br>2026 / 27</div></div>
 <div class="bt"><div class="k">%s</div><h1>%s</h1><p class="sub">%s</p>
@@ -326,7 +326,7 @@ def town_spec(slug, t, idx):
         'welcome_title': 'Designed, made and fitted by <em>one</em> team' if gen else 'Made to measure for %s homes' % E(short).replace(' ', '&nbsp;'),
         'welcome_lead': t['big'],
         'welcome_body': 'Every kitchen, wardrobe and bedroom is made to your room’s exact sizes, so chimney breasts, sloping ceilings and awkward corners are no problem. We’re a Peterborough workshop, not a national chain: the same team designs your room, makes it at Brassey Close and fits it.',
-        'facts': [('2,500+', 'Bespoke projects'), ('4.9', 'On Google · 100+ reviews'), ('12-month', 'Guarantee'), dist],
+        'facts': [('2,500+', 'Bespoke projects'), ('4.9', 'On Google · 100+ reviews'), ('12-month+', 'Guarantee'), dist],
         'local_kick': 'About ABJ' if gen else 'Local know-how',
         'local_title': 'Made here, <em>not</em> ordered in' if gen else 'Planning a kitchen or wardrobe in %s' % E(t.get('in', short)).replace(' ', '&nbsp;'),
         'local_intro': 'Every room is measured, drawn in 3D and made to order, so the furniture fits the house rather than the other way round.',
