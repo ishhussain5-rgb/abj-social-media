@@ -1,0 +1,86 @@
+{
+ "abj-stamford-brochure": {
+  "pages": 10,
+  "mb": 1.33
+ },
+ "abj-oundle-brochure": {
+  "pages": 10,
+  "mb": 1.49
+ },
+ "abj-market-deeping-brochure": {
+  "pages": 10,
+  "mb": 1.45
+ },
+ "abj-bourne-brochure": {
+  "pages": 10,
+  "mb": 1.37
+ },
+ "abj-spalding-brochure": {
+  "pages": 10,
+  "mb": 1.33
+ },
+ "abj-huntingdon-brochure": {
+  "pages": 10,
+  "mb": 1.49
+ },
+ "abj-st-ives-brochure": {
+  "pages": 10,
+  "mb": 1.46
+ },
+ "abj-ely-brochure": {
+  "pages": 10,
+  "mb": 1.37
+ },
+ "abj-wisbech-brochure": {
+  "pages": 10,
+  "mb": 1.31
+ },
+ "abj-grantham-brochure": {
+  "pages": 10,
+  "mb": 1.5
+ },
+ "abj-oakham-brochure": {
+  "pages": 10,
+  "mb": 1.44
+ },
+ "abj-cambridge-brochure": {
+  "pages": 10,
+  "mb": 1.38
+ },
+ "abj-st-neots-brochure": {
+  "pages": 10,
+  "mb": 1.32
+ },
+ "abj-corby-brochure": {
+  "pages": 10,
+  "mb": 1.51
+ },
+ "abj-kettering-brochure": {
+  "pages": 10,
+  "mb": 1.44
+ },
+ "abj-fenland-brochure": {
+  "pages": 10,
+  "mb": 1.4
+ },
+ "abj-kings-lynn-brochure": {
+  "pages": 10,
+  "mb": 1.32
+ },
+ "abj-brochure": {
+  "pages": 10,
+  "mb": 1.48
+ },
+ "abj-kitchens-catalogue": {
+  "pages": 9,
+  "mb": 1.37
+ },
+ "abj-bedrooms-catalogue": {
+  "pages": 10,
+  "mb": 1.36
+ },
+ "abj-media-walls-catalogue": {
+  "pages": 9,
+  "mb": 1.15
+ }
+}
