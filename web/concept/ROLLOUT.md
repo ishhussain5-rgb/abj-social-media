@@ -741,3 +741,13 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   sitemap"). `mobile/mobile.html` @9a1f715 (desktop fit pass + desktop details + homepage film + journey fix + short
   related-link sets centred 64px apart) on all 61 live pages, single-page publish each, 0 errors; then the 52 DEV pages.
   Search Console: sitemap.xml resubmitted 14 Nov ("Sitemap submitted successfully", 60 pages discovered).
+- 14 Nov 14:45-16:30 BROCHURES (Ish: "design all of them and place them on each and every page"). 21 PDFs built with
+  `brochure/make_all.py` (17 town brochures, the main ABJ brochure, kitchen / bedroom / media wall collections; about
+  1.3 MB each, 29 MB in all) and published on the new `web-media-s` branch @50b94f1 (`brochures/`, cover thumbnails in
+  `brochures/covers/`). jsDelivr serves them as application/pdf, so they open in the browser. Page layer
+  `mobile/mobile.html` @c644ea4: brochure band before the "Free design visit" block + "PDF Open the ... brochure" link
+  under the intro fact tiles; file chosen from the page path. On the 52 DEV pages first (0 errors, checked), then all 61
+  live pages, single-page publish each, 0 errors. No band on terms, privacy, payment terms and the booking form.
+  Prices in the PDFs: kitchens and media walls are ABJ's published guide prices; wardrobes, bedrooms and storage are UK
+  market averages and still need ABJ's sign-off. The 7 newest DEV drafts (St Neots, Corby, Kettering, Fenland, King's
+  Lynn, Shaker, handleless) never carried the layer and are unchanged.
