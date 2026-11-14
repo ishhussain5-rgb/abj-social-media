@@ -363,6 +363,11 @@
 #kc .brl i{font:600 11px/1 var(--sans);font-style:normal;letter-spacing:.14em;padding:6px 8px;border:1px solid var(--go);color:var(--gd)}
 #kc .brl span{border-bottom:1px solid var(--go);padding-bottom:2px}
 #kc .brl a:hover span{border-color:var(--ink)}
+@media (min-width:1101px){
+ #kc .brl{margin-top:clamp(8px,1.4vh,18px)}
+ #kc .brl a{min-height:36px}
+ #kc .brc{padding:clamp(22px,3.4vh,40px) 0}
+}
 @media (max-width:1100px){
  #kc .brb{grid-template-columns:auto minmax(0,1fr)}
  #kc .bra{grid-column:2}

@@ -25,3 +25,13 @@ Applying it: in a Tilda page editor (Claude in Chrome) run `abjPatch({pid, sha, 
 (optionally `film:'<name>', filmAnchors:[...]` and `guarantee:true`). It picks the longest switched-on block containing
 `id="kc"`, removes any previous copy, appends the new one, saves and publishes that one page.
 Rollback: delete everything between the two markers and publish the page.
+
+Also (14 Nov, brochures):
+- Every page offers a PDF brochure: a band before the "Free design visit" block (cover thumbnail, "Open the brochure",
+  "Download PDF") and a small "PDF Open the ... brochure" link under the intro's fact tiles. `BR()` picks the file from the
+  page path: town pages get their own town brochure, kitchen / worktop pages the kitchen collection, bedroom / wardrobe
+  pages the bedroom collection, media wall / alcove / wall panelling pages the media wall collection, everything else the
+  main ABJ brochure. Terms, privacy, payment terms and the booking form have none.
+- The PDFs and cover thumbnails live on the `web-media-s` branch (`brochures/`), served through jsDelivr pinned to a
+  commit (`BRB` in the script). They are built by `web/concept/brochure/make_all.py`; after a rebuild, push the branch and
+  update the commit in `BRB`.
