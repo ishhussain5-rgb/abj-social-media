@@ -702,3 +702,17 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Chat: tawk.to click-to-load button ready in `chat/chat.html` (nothing loads until tapped; WhatsApp fallback). NOT deployed:
   Ish raised tawk.to's Trustpilot score (2.1/5, 109 reviews, mostly business users about support and app bugs). Waiting on
   his choice of provider.
+- 14 Nov 00:00 DESIGN PASS (Ish: "Please fix all 13", after the phone + desktop audit). Built into `mobile/mobile.html`
+  @15f3b12 (same layer, same markers): facts line -> proof tiles (2 across on phones, 3 or 4 on desktop); review quote
+  (`.qt`) -> photo + dark panel ("Client review"), split on desktop; featured project (`.proj`) equal photos, split layout
+  >=1101px (700px at 1440x900, was 1,378); room-page feature (`.fp`) fits one window (817 at 1440x900, was 1,004; homepage
+  keeps its own fit); Read more bug fixed (subheadings hidden with their text) and desktop Read more after 2 paragraphs
+  (det 836 at 1440x900, was 1,557); styles rail 730 (was 879), cost section 766 (was 841); journey dims to .5 not .28;
+  44px tap areas (links, Menu, Read more); phone text >= 11px; FAQ lists of 7+ show 5 + "More questions (n)"; phone rails
+  get the Swipe counter + edge fade; finance small print set as a tidy note (same words); cost-guide King's Road photo
+  cropped onto the kitchen on phones; buttons that point to the page you are on: bar drops it, footer offers WhatsApp.
+  Tested in a preview of the live pages with the new layer (390x844, 1280x720, 1440x900, 1920x911): kitchens, home,
+  media walls, wardrobes, bedrooms, cost guide, case study, booking form. No sideways scroll.
+  NOT YET ON TILDA: Chrome's Tilda session had signed out (editor showed "Page is not published / Log in").
+  Next: Ish signs in -> abjPatch on the 52 DEV pages (ids: data-tilda-page-id of the linkmap DEV pages that already carry
+  the layer) -> check -> live after Ish's OK.
