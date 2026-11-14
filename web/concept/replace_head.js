@@ -13,9 +13,10 @@ window.HEADX = async function (ids, o) {
   const put = (k, v) => new Promise((res, rej) => { const t = db.transaction('b', 'readwrite'); t.objectStore('b').put(v, k); t.oncomplete = res; t.onerror = () => rej(t.error); });
   for (const id of ids) {
     try {
-      const h = await (await fetch('/projects/editheadcode/?projectid=6121364&pageid=' + id, { credentials: 'include', cache: 'no-store' })).text();
-      const ta = new DOMParser().parseFromString(h, 'text/html').querySelector('textarea[name="headcode"]');
-      if (!ta) throw new Error('no headcode field');
+      // same call the head-code editor makes; the stored code comes back HTML-escaped, decoded once like the editor does
+      const j = JSON.parse(await post('/projects/get/getheadcode/', { comm: 'getheadcode', projectid: '6121364', pageid: String(id), csrf: getCSRF() }));
+      if (!j.page || typeof j.page.headcode !== 'string') throw new Error('no headcode');
+      const ta = document.createElement('textarea'); ta.innerHTML = j.page.headcode;
       const old = ta.value;
       const { code, hits } = abjApplyRules(old, ABJ_RULES);
       if (code === old) { RESH.push({ id, saved: 0 }); continue; }
