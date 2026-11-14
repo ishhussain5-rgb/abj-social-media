@@ -758,12 +758,18 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     `replace.js` RUNX: rules applied to every switched-on block (phone layer masked out), layer swapped for
     `mobile.html`@6842071 (brochure PDFs @218c78f with the minimum-guarantee wording). DEV run 1: all 52 DEV pages,
     0 errors, single-page publish each. DEV run 2 (rules @c7ec2a0, no layer swap) stopped at 21/52 when Tilda signed
-    the session out (no saves after that point; restart on the remaining ids).
+    the session out; Ish signed back in and it was finished on the other 32 (0 errors).
+  - LIVE 14 Nov ~17:00-17:20 (Ish: "test pages first, then live"; "on the day of delivery is fine. please make live on
+    all pages"): RUNX on all 61 live pages (`page_ids.json`: 60 sitemap pages + the 404 page), rules @c7ec2a0 + layer
+    @6842071, 0 errors, every page published; then HEADX on the 61 live page heads: 23 saved + published (Peterborough
+    sameAs on service pages, guarantee wording in head FAQ/schema text), 0 errors. abjVerify on all 60 sitemap pages:
+    0 issues. Phone 390 + desktop 1440 spot check (home, kitchens, Stamford, offers, payment terms, media walls): no
+    sideways scroll, one H1, brochure band present (none on payment terms, by design). Site health 99/100 (was 91);
+    only "Large HTML over 300 kB" (5 pages, low) left.
   - Service-page JSON-LD lives in each page's own HEAD code, not in blocks: `replace_head.js` HEADX reads it with
     `getheadcode` (stored HTML-escaped; decoded once like the editor), applies the same rules, saves with
     `editpageheadcode`, publishes. Backups in IndexedDB abj_home_bak/b as '<id>-head-before-rules-20261114'.
-    DEV: 12 heads done (Peterborough sameAs on 11 service pages, Oakham sameAs); 6 left (377446503, 352693503,
-    377441403, 352714603, 352674703, 352685103) when the session ended.
+    DEV: 18 heads saved + published (Peterborough sameAs on the service pages, Oakham sameAs).
   - Blog (Tilda Feeds): the 8 posts' "10-year manufacturer guarantee" -> "minimum 12-month guarantee" (posts_Edit
     request rewritten in flight, as on 12 Nov); checked live on all 8 /abjfeeds/tpost/ pages and the feeds API.
   - Meta descriptions over 985px trimmed (Page settings > SEO, live pages, single-page publish):
