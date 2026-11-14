@@ -8,7 +8,7 @@ window.ABJ_RULES = (function () {
     'St Ives': ['Q2569095', 'St_Ives,_Cambridgeshire'], 'Ely': ['Q209176', 'Ely,_Cambridgeshire'], 'Wisbech': ['Q1012031', 'Wisbech'],
     'Grantham': ['Q846683', 'Grantham'], 'Oakham': ['Q1001942', 'Oakham'], 'Cambridge': ['Q350', 'Cambridge'], 'St Neots': ['Q1018225', 'St_Neots'],
     'Corby': ['Q994925', 'Corby'], 'Kettering': ['Q984613', 'Kettering'], 'King’s Lynn': ['Q157341', 'King%27s_Lynn'],
-    'March': ['Q2569076', 'March,_Cambridgeshire'], 'Whittlesey': ['Q2335054', 'Whittlesey'], 'Chatteris': ['Q2636013', 'Chatteris']
+    'Peterborough': ['Q172438', 'Peterborough'], 'March': ['Q2569076', 'March,_Cambridgeshire'], 'Whittlesey': ['Q2335054', 'Whittlesey'], 'Chatteris': ['Q2636013', 'Chatteris']
   };
   const same = n => '"sameAs": ["https://www.wikidata.org/wiki/' + WD[n][0] + '", "https://en.wikipedia.org/wiki/' + WD[n][1] + '"]';
   const esc = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
@@ -19,7 +19,7 @@ window.ABJ_RULES = (function () {
     { re: /<b>12 months<\/b><span>Guarantee on our work<\/span>/g, to: '<b>12 months+</b><span>Guarantee on our work</span>' },
     { re: /(<li>(?:<i>\d+<\/i>)?)12-month guarantee/g, to: '$1Minimum 12-month guarantee' },
     { re: /<h3>12-month guarantee<\/h3>/g, to: '<h3>Minimum 12-month guarantee</h3>' },
-    { re: /\b(our|a|and|with) 12-month guarantee/gi, to: '$1 minimum 12-month guarantee' },
+    { re: /\b(our|a|and|with|reassuring) 12-month guarantee/gi, to: '$1 minimum 12-month guarantee' },
     { re: /(&middot;|·) 12-month guarantee/g, to: '$1 minimum 12-month guarantee' },
     { re: /(visit|design|survey), 12-month guarantee/g, to: '$1, minimum 12-month guarantee' },
     // payment terms page (Ish OK 14 Nov)
