@@ -723,3 +723,11 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   one page at a time. 0 errors. Live ids: data-tilda-page-id of each sitemap page carrying the layer.
   DEV check (before live): 52 pages x 390 + 1440: one layer each, no sideways scroll, 1 H1, script ran, facts tiles grid;
   3 pages use the older footer accordion (h4 data-acc), which folds on its own (checked).
+- 14 Nov 12:20-14:10 DESKTOP FIT PASS (Ish: sections must fit one window, buttons on one line, related links tidy, blank intro
+  column needs a photo; homepage film bigger; journey line must finish when the steps are on screen). `mobile/mobile.html`
+  @a2362fb on all 52 DEV pages (single-page publish each, 0 errors). Measured at Ish's screen (1920x869, header 86):
+  every section on every room / service / town / case-study / about page now <= 783px (1440x900 and 1920x1080 also
+  checked). Intro photo: chosen at runtime from the 82 gallery photos by page type, never one already on the page.
+  Card grids taller than the window show one row + "Show all (n)". Long text shows its first paragraph + Read more.
+  Still longer than a window by nature: offers, FAQ, gallery, products, legal pages, feeds; homepage rooms (830) and
+  featured project (866), which Ish approved earlier. Phones unchanged (52 checked at 390). NOT LIVE YET.
