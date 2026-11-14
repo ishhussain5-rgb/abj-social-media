@@ -211,6 +211,16 @@
  #kc .proj .pg{margin-top:clamp(40px,4vw,64px)}
 }
 @media (min-width:1101px){
+ /* homepage film: heading and room tabs move into the left column, so the film can use the full window height */
+ #kc .csv.vf:has(.tabs) .w{grid-template-rows:auto auto 1fr;row-gap:0;align-items:start}
+ #kc .csv.vf:has(.tabs) .vh{grid-column:1;grid-row:1;justify-self:start;text-align:left}
+ #kc .csv.vf:has(.tabs) .vh .vhd{text-align:left;font-size:clamp(28px,2.2vw,40px)}
+ #kc .csv.vf:has(.tabs) .tabs{grid-column:1;grid-row:2;justify-content:flex-start;flex-wrap:wrap;gap:8px;margin:22px 0 0!important;max-width:34em}
+ #kc .csv.vf:has(.tabs) .tabs button{margin:0!important}
+ #kc .csv.vf:has(.tabs) .vt{grid-column:1;grid-row:3;align-self:end;margin-top:clamp(24px,4vh,48px)}
+ #kc .csv.vf:has(.tabs) .vt h2{font-size:clamp(30px,2.4vw,44px)}
+ #kc .csv.vf:has(.tabs) .pl{grid-column:2;grid-row:1/4;align-self:center;height:min(820px,calc(100svh - 86px - 2*clamp(36px,4.5vh,64px)))}
+ #kc .csv.vf:has(.tabs) .vl{grid-column:3;grid-row:1/4;align-self:center}
  /* 4 + 5. featured project: large photo left, story and two photos right, in one window */
  #kc .proj{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);align-items:stretch;padding:0!important}
  #kc .proj .pimg{height:auto;min-height:min(700px,calc(100svh - 86px))}
