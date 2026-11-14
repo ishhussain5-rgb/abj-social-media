@@ -351,6 +351,7 @@
 #kc .brcv img{display:block;width:100%;height:100%;object-fit:cover}
 #kc .brk{display:inline-flex;align-items:center;gap:14px;font:600 11.5px/1.3 var(--sans);letter-spacing:.3em;text-transform:uppercase;color:var(--gd)}
 #kc .brk:before{content:"";flex:0 0 34px;height:1px;background:currentColor}
+#kc .brk b{font-weight:inherit}
 #kc .brc h2{font-size:clamp(28px,2.4vw,42px);margin:12px 0 10px;max-width:none;color:var(--ink)}
 #kc .brc p{margin:0;max-width:40em;font-size:15.5px;line-height:1.6;color:var(--mut)}
 #kc .bra{display:flex;align-items:center;gap:12px;flex-wrap:nowrap}
@@ -374,6 +375,7 @@
  #kc .brc p{display:none}
  #kc .brk{font-size:11px;letter-spacing:.2em;gap:10px}
  #kc .brk:before{flex-basis:18px}
+ #kc .brk b{display:none}
  #kc .bra{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px}
  #kc .bra .bt{width:100%;min-width:0;height:48px;padding:0 6px;font-size:11px;letter-spacing:.1em}
  #kc .brl a{font-size:14px}
@@ -470,7 +472,7 @@ else if(/wardrobe|bedroom/.test(lp)){f="abj-bedrooms-catalogue";t="The bedroom c
 else if(/kitchen|worktop/.test(lp)){f="abj-kitchens-catalogue";t="The kitchen collection";d="Kitchen styles, worktops, a featured project and guide prices.";n=9;sh="the kitchen catalogue"}
 var u=BRB+f+".pdf",at=' href="'+u+'" target="_blank" rel="noopener" data-bro="'+f+'"';
 var sec=document.createElement("section");sec.className="brc";sec.setAttribute("aria-label","Brochure");
-sec.innerHTML='<div class="w"><div class="brb"><a class="brcv"'+at+' aria-label="Open '+sh+' (PDF)"><img src="'+BRB+"covers/"+f+'.jpg" width="480" height="679" loading="lazy" decoding="async" alt="Cover of '+sh+'"></a><div class="brt"><span class="brk">Free brochure · '+n+' pages · PDF</span><h2>'+t+'</h2><p>'+d+'</p></div><div class="bra"><a class="bt d"'+at+'>Open the brochure</a><a class="bt bro" href="'+u+'" data-brdl="'+f+'">Download PDF</a></div></div></div>';
+sec.innerHTML='<div class="w"><div class="brb"><a class="brcv"'+at+' aria-label="Open '+sh+' (PDF)"><img src="'+BRB+"covers/"+f+'.jpg" width="480" height="679" loading="lazy" decoding="async" alt="Cover of '+sh+'"></a><div class="brt"><span class="brk"><span>Free brochure<b> · '+n+' pages</b> · PDF</span></span><h2>'+t+'</h2><p>'+d+'</p></div><div class="bra"><a class="bt d"'+at+'>Open the brochure</a><a class="bt bro" href="'+u+'" data-brdl="'+f+'">Download PDF</a></div></div></div>';
 var bk=k.querySelector(".bk")||k.querySelector(".ft");if(!bk)return;bk.parentNode.insertBefore(sec,bk);
 var it=k.querySelector(".intro");if(it&&!it.querySelector(".brl")){var fa=it.querySelector(".facts"),ho=fa?fa.parentNode:it.querySelector(".w>div:not(.lmk):not(.mix)");if(ho){var pl=document.createElement("p");pl.className="brl";pl.innerHTML="<a"+at+"><i>PDF</i><span>Open "+sh+"</span></a>";if(fa&&fa.nextSibling)ho.insertBefore(pl,fa.nextSibling);else ho.appendChild(pl)}}}
 function brdl(a){if(a.getAttribute("data-busy"))return;var u=a.href,nm=a.getAttribute("data-brdl"),tx=a.textContent;a.setAttribute("data-busy","1");a.textContent="Preparing…";var fin=function(){a.removeAttribute("data-busy");a.textContent=tx};
