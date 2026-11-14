@@ -731,3 +731,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Card grids taller than the window show one row + "Show all (n)". Long text shows its first paragraph + Read more.
   Still longer than a window by nature: offers, FAQ, gallery, products, legal pages, feeds; homepage rooms (830) and
   featured project (866), which Ish approved earlier. Phones unchanged (52 checked at 390). NOT LIVE YET.
+- 14 Nov 13:20-14:40 DESKTOP DETAILS (Ish): premium section labels (gold rule + gold small caps; light gold on photos),
+  fact tiles open a short explainer (desktop only; 30 wording rules, a group only becomes clickable when every tile has
+  an explainer), related links shortened (page-type word dropped, full name kept as title/aria-label) and on one line;
+  fact tiles keep the label-first word order ("MADE IN / Peterborough"). `mobile/mobile.html` @4383e8e on 51 DEV pages,
+  @6a1ee7a on DEV home (homepage film label stays hidden). Checked 48 DEV pages at 390 + 1920x869: all tiles clickable,
+  links on one line everywhere they exist, no sideways scroll, phones unchanged. NOT LIVE YET.
