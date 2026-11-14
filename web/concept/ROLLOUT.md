@@ -751,3 +751,29 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Prices in the PDFs: kitchens and media walls are ABJ's published guide prices; wardrobes, bedrooms and storage are UK
   market averages and still need ABJ's sign-off. The 7 newest DEV drafts (St Neots, Corby, Kettering, Fenland, King's
   Lynn, Shaker, handleless) never carried the layer and are unchanged.
+- 14 Nov 16:30-18:30 WORDING + SCHEMA PASS (Ish: "minimum 12-month guarantee" in sentences, "12-month+" on tiles;
+  payment terms "Finance is offered through our partner, Ideal4Finance."; offers T&Cs "The remaining 50% is payable
+  before delivery."; Wikidata town links; Site Health fixes).
+  - `replace_rules.js` (@6842071, then @c7ec2a0 adds Peterborough sameAs and "reassuring 12-month guarantee") +
+    `replace.js` RUNX: rules applied to every switched-on block (phone layer masked out), layer swapped for
+    `mobile.html`@6842071 (brochure PDFs @218c78f with the minimum-guarantee wording). DEV run 1: all 52 DEV pages,
+    0 errors, single-page publish each. DEV run 2 (rules @c7ec2a0, no layer swap) stopped at 21/52 when Tilda signed
+    the session out (no saves after that point; restart on the remaining ids).
+  - Service-page JSON-LD lives in each page's own HEAD code, not in blocks: `replace_head.js` HEADX reads it with
+    `getheadcode` (stored HTML-escaped; decoded once like the editor), applies the same rules, saves with
+    `editpageheadcode`, publishes. Backups in IndexedDB abj_home_bak/b as '<id>-head-before-rules-20261114'.
+    DEV: 12 heads done (Peterborough sameAs on 11 service pages, Oakham sameAs); 6 left (377446503, 352693503,
+    377441403, 352714603, 352674703, 352685103) when the session ended.
+  - Blog (Tilda Feeds): the 8 posts' "10-year manufacturer guarantee" -> "minimum 12-month guarantee" (posts_Edit
+    request rewritten in flight, as on 12 Nov); checked live on all 8 /abjfeeds/tpost/ pages and the feeds API.
+  - Meta descriptions over 985px trimmed (Page settings > SEO, live pages, single-page publish):
+    /media-walls (73279037), /bespoke-wardrobes (73280437; its page description also "minimum 12-month guarantee"),
+    /bespoke-kitchens (73297273), /kitchen-cost-peterborough (383065903). All about 940-970px now.
+  - Site HEAD: phone-menu note "· 12-month guarantee" -> "· minimum 12-month guarantee" (+8 bytes, now 65,502 of
+    65,535). Backup IndexedDB abj_home_bak/b 'sitehead-before-mnote-20261114'. The commented-out old X tags still say
+    "12-month guarantee" (inside an HTML comment, not shown or read). Live pages pick this up on their next publish.
+  - Not changed on purpose: T&Cs legal "12-month warranty", finance "12 months" wording.
+  - `verify_rules.js` abjVerify(paths, sha): published-page check (no 10-year, every guarantee sentence says minimum,
+    deposit/finance wording, JSON-LD parses, every City has sameAs, layer commit).
+  - The 7 DEV drafts without the layer (Corby, Kettering, St Neots, Fenland, King's Lynn, Shaker, handleless) were
+    left alone, as before.
