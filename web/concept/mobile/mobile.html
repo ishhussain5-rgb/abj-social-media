@@ -220,6 +220,14 @@
  #kc .proj .pg h2{font-size:clamp(30px,2.5vw,44px)!important;margin:16px 0 18px!important}
  #kc .proj .pg p{margin-bottom:22px!important}
  #kc .proj .pg figure img{aspect-ratio:1/1}
+ /* 5. feature section with the tall photo (room pages): fits one window; the homepage keeps its own fit */
+ #kc:not(:has(.intro .ix)) .fp{padding-top:clamp(40px,6vh,80px)!important;padding-bottom:clamp(40px,6vh,80px)!important}
+ #kc:not(:has(.intro .ix)) .fp .big{min-height:min(740px,calc(100svh - 86px - 2*clamp(40px,6vh,80px)))}
+ #kc:not(:has(.intro .ix)) .fp .tx{gap:24px;justify-content:center}
+ #kc:not(:has(.intro .ix)) .fp h2{font-size:clamp(32px,2.8vw,48px);margin:14px 0 16px}
+ #kc:not(:has(.intro .ix)) .fp p{margin-bottom:16px}
+ #kc:not(:has(.intro .ix)) .fp ul{margin-bottom:8px}
+ #kc:not(:has(.intro .ix)) .fp .sm2{grid-template-columns:repeat(2,minmax(0,clamp(150px,calc(100svh - 600px),280px)));justify-content:start}
 }
 @keyframes kcmf{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 </style>
