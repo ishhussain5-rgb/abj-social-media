@@ -844,3 +844,8 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   bought elsewhere?" (Ish: not usually, and no guarantee if we do); DEV page updated to match. Checked at 1920 and 390.
   NOT yet linked from any other page: a footer link on all live pages ("Kitchen fitters" after "Kitchen design") is prepared
   (build.py has it for future builds) but needs Ish's OK, as it edits every live page.
+- 15 Nov 21:15: "Kitchen fitters" footer link (after "Kitchen design", Rooms column) added on all 64 live pages (Ish's OK),
+  add-only, single-page publishes, 0 errors. All 63 sitemap pages checked: fitters link, planner link and the .co.uk
+  Cut & Edge link each present once. build.py footer now carries the fitters link and the .co.uk address for future builds.
+  Still to log in Plaky (weekly batch): project pack example, Park Road project page, budget planner + strips, footer links,
+  Cut & Edge link, showroom links, kitchen fitters page, FRUITS category removed.
