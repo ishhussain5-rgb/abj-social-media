@@ -24,7 +24,7 @@ EL = 'Electrical connections are priced separately.'
 ROOMS = {
  'kitchen': dict(tab='Kitchen', a='a kitchen', plural='kitchens', tpl='{sz} {st} kitchen with {wt} worktops', pref=dict(wt=[2, 0, 1, 3], st=[1, 0, 2, 3]),
   excl='Appliances, sink and tap, plumbing, electrics and building work are priced separately.',
-  photos=[(S('tila6664-3632-4562-b164-393964383962', 'abj-kitchen-cream-gl.webp'), 'Cream gloss handleless L-shaped kitchen'),
+  photos=[(T('tild6639-3330-4666-b839-323935633032', 'BespokeKitchens473.jpg'), 'Grey gloss L-shaped kitchen with a metro tile splashback'),
           (T('tild6433-6635-4239-a236-363531366664', 'abj-kitchen-navy-sha.jpg'), 'Navy Shaker U-shaped kitchen with oak worktops'),
           (T('tild3330-3561-4463-a638-333464383539', 'abj-kitchen-grey-sha.jpg'), 'Light grey Shaker kitchen with a navy island'),
           (S('tila6131-3661-4863-b433-336364646331', 'abj-open-plan-kitche.webp'), 'Open-plan handleless kitchen with an island')]),
@@ -38,24 +38,24 @@ ROOMS = {
  'walkin': dict(tab='Walk-in wardrobes', a='a walk-in wardrobe', plural='walk-in wardrobes', tpl='{sz} walk-in wardrobe {st}', szw=['small', 'medium', 'large', 'dressing-suite'], pref=dict(st=[0, 1, 2]), excl=EL,
   photos=[(T('tild3431-3662-4062-b833-396339626633', 'abj-war92.jpg'), 'Walk-in dressing room with walnut shelving and pull-out drawers')]),
  'sloping': dict(tab='Sloping ceilings', a='sloping-ceiling wardrobes', plural='sloping-ceiling wardrobes', tpl='{sz} run of sloping-ceiling wardrobes with {st} doors', pref=dict(st=[1, 0, 2]), excl=EL,
-  photos=[(S('tila6337-6339-4734-a237-306631373133', 'BespokeBedrooms30.webp'), 'White gloss fitted wardrobes built into a sloped loft ceiling')]),
+  photos=[(T('tild6664-3336-4531-b966-313535303131', 'BespokeFittedWardrob.jpg'), 'Loft fitted wardrobes under a sloped ceiling with a built-in TV unit')]),
  'bedroom': dict(tab='Fitted bedroom', a='a fitted bedroom', plural='fitted bedrooms', tpl='Fitted bedroom with {sz} in a {st} finish', art=False, szw=['a single wardrobe', 'medium wardrobes', 'large wardrobes', 'wall-to-wall wardrobes'], pref=dict(st=[1, 0, 2]), excl=EL,
-  photos=[(S('tila6162-3235-4265-a535-653331656565', 'BespokeBedrooms25.webp'), 'Navy fitted bedroom with overhead cabinets and a padded headboard')]),
+  photos=[(T('tild6133-6233-4063-a639-663961623837', 'abj-bed27.jpg'), 'Loft bedroom with a walnut headboard panel and sloped-ceiling storage')]),
  'mediawall': dict(tab='Media wall', a='a media wall', plural='media walls', tpl='{sz} media wall in a {st} finish', pref=dict(st=[0, 1, 2]),
   excl='The electric fire, TV set-up and electrical connections are priced separately.',
   photos=[(T('tild3761-3562-4439-b837-386439613861', 'abj-med36.jpg'), 'Grey media wall with a low TV unit'),
-          (T('tild3331-6337-4834-b466-343262386465', 'abj-med3.jpg'), 'Cream media wall with display shelving'),
-          (S('tila6334-3364-4937-b632-623438633735', 'BespokeMediaWalls43.webp'), 'Walnut slatted media wall with a backlit TV panel'),
-          (S('tila6435-3766-4165-a532-663637336638', 'WhatsApp_Image_2024-.webp'), 'Large media wall with lit glass display cabinets')]),
+          (T('tild3666-6166-4661-b231-343937373935', 'BespokeMediaWalls15.jpg'), 'White Shaker media wall with cupboards and lit shelves'),
+          (T('tild3162-3466-4966-a464-393266623636', 'BespokeMediaWalls45.jpg'), 'Backlit TV panel on a walnut slat wall with a floating unit'),
+          (T('tild3762-6563-4761-b035-386364616130', 'abj-med4.jpg'), 'Dark slatted media wall with a white-framed TV surround')]),
  'alcove': dict(tab='Alcove units', a='alcove units', plural='alcove units', tpl='Alcove units for {sz} in a {st} finish', art=False, pref=dict(st=[1, 0, 2]), excl=EL, est=True,
   photos=[(S('tila3938-3335-4239-b730-623234363739', 'abj-cab75.webp'), 'Living room alcove cabinetry with an inset fire and TV')]),
  'understairs': dict(tab='Under-stairs', a='under-stairs storage', plural='under-stairs storage designs', tpl='{sz} under-stairs design with {st} storage', pref=dict(st=[1, 0, 2]), excl=EL, est=True,
-  photos=[(S('tila6661-3436-4835-b261-343631313434', 'UnderStair28.webp'), 'Under-stairs pull-out shelving towers')]),
+  photos=[(T('tild6234-6438-4430-b736-623766633535', 'UnderStair13.jpg'), 'White under-stairs pull-out drawers and cupboard')]),
  'storage': dict(tab='Storage & utility', a='fitted storage', plural='fitted storage designs', tpl='{sz} of {st} storage', art=False, szw=['One tall unit', 'A small run', 'A utility or boot room', 'A full room'], pref=dict(st=[1, 0, 2]), est=True,
   excl='Appliances, plumbing and electrical connections are priced separately.',
   photos=[(T('tild3132-3061-4665-b162-666361386636', 'UnderStair22.jpg'), 'Fitted loft cupboards around a round window')]),
  'office': dict(tab='Home office', a='a home office', plural='home offices', tpl='{sz} with {st} doors', szw=['desk nook', 'study wall', 'two-wall home office', 'full home office'], pref=dict(st=[0, 1, 2]), excl=EL, est=True,
-  photos=[(S('tila6631-6662-4265-a564-653935613632', 'Cabinet35.webp'), 'Fitted oak home office with a desk, bookshelves and tall cupboards')]),
+  photos=[(T('tild3239-3135-4239-a532-636633346339', 'abj-cab49.jpg'), 'Fitted home office with lit shelving and a corner desk')]),
  'hallway': dict(tab='Hallway', a='hallway storage', plural='hallway storage designs', tpl='{sz} with {st} doors', art=False, szw=['A hallway shoe cabinet', 'A coat and shoe unit', 'A full wall of hallway cupboards', 'Hallway and under-stairs storage'], pref=dict(st=[0, 1, 2]), excl=EL, est=True,
   photos=[(T('tild3735-6338-4530-b333-303330336334', 'UnderStair21.jpg'), 'Pull-out drawers under the stairs in a hallway')]),
  'bathroom': dict(tab='Bathroom', a='bathroom cabinetry', plural='bathroom cabinetry designs', tpl='{sz} in a {st} finish', art=False, pref=dict(st=[0, 1, 2]), est=True,
@@ -150,7 +150,7 @@ CSS = '''<style>
 #kc .bp .pre{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
 #kc .bp .pre button{border:1px solid rgba(243,238,230,.22);background:transparent;color:rgba(243,238,230,.82);padding:9px 13px;font:400 13px/1.2 var(--sans);cursor:pointer;transition:.2s}
 #kc .bp .pre button:hover{border-color:var(--go);color:var(--lin)}
-#kc .bp figure{margin:clamp(26px,3vw,44px) 0 0}
+#kc .bp figure{margin:clamp(26px,3vw,44px) 0 0;max-width:620px}
 #kc .bp figure img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
 #kc .bp figcaption{margin-top:10px;font-size:12.5px;line-height:1.5;color:rgba(243,238,230,.6)}
 #kc .bp .res{background:var(--lin);color:var(--ink);padding:clamp(24px,2.6vw,44px)}
