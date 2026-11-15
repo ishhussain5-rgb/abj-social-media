@@ -801,3 +801,10 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Project page example: /project-media-walls-park-road-peterborough-dev-p4r7 (Tilda 389603903, rec5849759803), media on branch
   web-media-t. Needs the customer's OK before it goes live (town only, no names).
 - Project pack: `design_pages`, `included`, `renders_note` keys added (see projectpack/README.md). Real packs stay out of the repo.
+- 15 Nov (evening): budget planner hero swapped for a sharp shoot photo (the first one was a 640px image stretched to
+  full width; local previews block remote images, so always check `naturalWidth` against shown width on the published
+  page). Hero on branch web-media-t @553d576 (`heroes/budget-planner-hero.webp`), page @d9977c4.
+- Park Road project page LIVE (Ish: "please put it live"): /project-media-walls-park-road-peterborough, Tilda 389664003,
+  rec5849896303, indexable, canonical to itself, built with golive.py (`out-live/project-park-road.full.html` @fcc5846,
+  layer included). Checked: one H1, no DEV links, no sideways scroll at 1920 and 390. Not yet linked from other pages.
+- Tilda catalogue: empty "FRUITS" category deleted (Ish's OK). Catalogue has no products.
