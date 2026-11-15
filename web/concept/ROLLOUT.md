@@ -821,3 +821,10 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   £2,250; housedesigner £850-£1,500 per alcove, £1,800-£4,000 a pair), under-stairs (Checkatrade £1,000-£2,500, average
   £1,750 + VAT), wall panelling (Checkatrade £50-£400/m2, average £225 + VAT). Our bands sit inside those ranges, below the
   averages. No published averages found for storage, home office, hallway or bathroom cabinetry. Waiting on Ish/Alex.
+- 15 Nov (night): footer links on every live page (Ish's OK): "Media wall project" after "Case study" and "Budget planner"
+  after "Finance options" in the ABJ column. `foot_links.js` abjFootLinks (project link) then a second pass for the planner
+  link (live footers say "Finance options", not "Finance"). 61 live pages + the 2 new pages, add-only, each published on its
+  own; backups `live-<pid>-<rec>-before-footlinks-20261115` (first pass). Checked: all 62 sitemap pages carry both links once,
+  one H1 each (the /abjfeeds index has Tilda's two `{{title}}` template H1s in its raw HTML, as before). Both new pages are in
+  sitemap.xml. NOT done: DEV page footers (build.py has the links for future builds), and the phone/overlay menu (a 13th
+  item pushes "Book a design visit" off a 390x844 screen).
