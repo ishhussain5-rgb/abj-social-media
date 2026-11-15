@@ -1,0 +1,142 @@
+<section class="bp mini" id="bp" aria-label="Budget planner">
+<style>
+#kc .bp{background:var(--g);color:var(--lin);padding:clamp(64px,6.5vw,120px) 0}
+#kc .bp .kick{color:var(--go)}
+#kc .bp h2{margin:16px 0 16px;color:var(--lin)}
+#kc .bp .lead{max-width:36em;color:rgba(243,238,230,.74);margin-bottom:clamp(24px,2.6vw,40px)}
+#kc .bp .bg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,5vw,100px);align-items:start}
+#kc .bp .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(26px,3vw,44px)}
+#kc .bp .selw{display:none}
+#kc .bp .selw span{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(243,238,230,.55);margin-bottom:8px}
+#kc .bp select.sel{width:100%;height:52px;padding:0 14px;border:1px solid var(--go);border-radius:0;background:var(--g);color:var(--lin);font:400 17px/1 var(--sans)}
+#kc .bp .tabs button{border:1px solid rgba(243,238,230,.25);background:transparent;color:rgba(243,238,230,.85);padding:12px 18px;font:500 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:.2s}
+#kc .bp .tabs button[aria-pressed=true]{background:var(--go);border-color:var(--go);color:var(--g)}
+#kc .bp .amt{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+#kc .bp .amt small{font:500 11px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(243,238,230,.55)}
+#kc .bp .amt output{font:300 clamp(48px,5.4vw,84px)/1 var(--serif);color:var(--lin);font-variant-numeric:lining-nums}
+#kc .bp input[type=range]{-webkit-appearance:none;appearance:none;display:block;width:100%;height:44px;margin:10px 0 0;background:transparent;cursor:pointer;--p:50%}
+#kc .bp input[type=range]::-webkit-slider-runnable-track{height:3px;background:linear-gradient(90deg,var(--go) var(--p),rgba(243,238,230,.22) var(--p))}
+#kc .bp input[type=range]::-moz-range-track{height:3px;background:rgba(243,238,230,.22)}
+#kc .bp input[type=range]::-moz-range-progress{height:3px;background:var(--go)}
+#kc .bp input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-12px;border-radius:50%;background:var(--go);border:4px solid var(--g);box-shadow:0 0 0 1px var(--go)}
+#kc .bp input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--go);border:4px solid var(--g);box-shadow:0 0 0 1px var(--go)}
+#kc .bp input[type=range]:focus-visible{outline:1px solid var(--go);outline-offset:4px}
+#kc .bp .ends{display:flex;justify-content:space-between;font:400 12px/1 var(--sans);color:rgba(243,238,230,.5)}
+#kc .bp .pre{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+#kc .bp .pre button{border:1px solid rgba(243,238,230,.22);background:transparent;color:rgba(243,238,230,.82);padding:9px 13px;font:400 13px/1.2 var(--sans);cursor:pointer;transition:.2s}
+#kc .bp .pre button:hover{border-color:var(--go);color:var(--lin)}
+#kc .bp figure{margin:clamp(26px,3vw,44px) 0 0}
+#kc .bp figure img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover}
+#kc .bp figcaption{margin-top:10px;font-size:12.5px;line-height:1.5;color:rgba(243,238,230,.6)}
+#kc .bp .res{background:var(--lin);color:var(--ink);padding:clamp(24px,2.6vw,44px)}
+#kc .bp .res .kick{color:#8a6d3b}
+#kc .bp .res h3{font:400 clamp(26px,2.3vw,36px)/1.15 var(--serif);margin:12px 0 6px;color:var(--ink)}
+#kc .bp .res .sub{font-size:14px;color:var(--mut);margin-bottom:18px}
+#kc .bp .opt{padding:16px 0;border-top:1px solid rgba(27,35,33,.14)}
+#kc .bp .opt .tg{display:inline-block;font-style:normal;font:500 10px/1.5 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#8a6d3b;margin-bottom:6px}
+#kc .bp .opt.r .tg{color:var(--mut)}
+#kc .bp .opt b{display:block;font:400 clamp(19px,1.5vw,23px)/1.25 var(--serif);color:var(--ink)}
+#kc .bp .opt span{display:block;font-size:13.5px;line-height:1.5;color:var(--mut);margin-top:4px}
+#kc .bp .tip{display:flex;gap:10px;margin-top:6px;padding:12px 14px;background:var(--lin2);font-size:13.5px;line-height:1.5;color:var(--ink)}
+#kc .bp .tip:before{content:"";flex:0 0 7px;height:7px;margin-top:7px;background:var(--go);transform:rotate(45deg)}
+#kc .bp .tip:empty{display:none}
+#kc .bp .res .acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+#kc .bp .res .bt{background:var(--g);color:var(--lin);border:1px solid var(--g)}
+#kc .bp .res .bt:hover{background:var(--go);border-color:var(--go);color:var(--g)}
+#kc .bp .res .bt.o{background:transparent;border-color:rgba(27,35,33,.3);color:var(--ink)}
+#kc .bp .res .bt.o:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
+#kc .bp .fine{margin-top:16px;font-size:12px;line-height:1.55;color:var(--mut)}
+#kc .bp .fine b{font-weight:400}
+#kc .bp.mini{padding:clamp(44px,4.5vw,76px) 0}
+#kc .bp.mini .bg{align-items:center}
+#kc .bp.mini h2{font-size:clamp(28px,2.6vw,42px)}
+#kc .bp.mini .lead{margin-bottom:18px}
+#kc .bp.mini .amt output{font-size:clamp(40px,4vw,60px)}
+#kc .bp.mini .res h3{font-size:clamp(21px,1.7vw,26px);margin:10px 0 12px}
+@media(max-width:1100px){#kc .bp .bg{grid-template-columns:1fr;gap:28px}#kc .bp figure{display:none}#kc .bp .tabs{display:none}#kc .bp .selw{display:block;margin-bottom:26px}}
+</style>
+<div class="w"><div class="bg">
+ <div class="rv"><span class="kick">Budget planner</span>
+  <h2>Have a budget in mind?</h2>
+  <p class="lead">Slide to the amount you would be comfortable spending and see what it typically covers.</p>
+  <div class="amt"><small>Around</small><output for="bp-r" aria-live="polite"></output></div>
+  <input type="range" id="bp-r" aria-label="Your budget in pounds" min="250" max="5500.0" value="2000">
+  <div class="ends"><span></span><span></span></div>
+ </div>
+ <aside class="res rv" aria-live="polite">
+  <span class="kick">Typically covers</span>
+  <h3></h3>
+  <a class="lnk" href="/budget-planner-dev-p6k3">See everything this budget could cover</a>
+  <p class="fine">A guide worked out from our recent quotes, not a quote. Electrical connections are priced separately.</p>
+ </aside>
+</div></div>
+<script>
+(function(){
+ var root=document.getElementById('bp'),D=[{"k":"hallway","tab":"Hallway","a":"hallway storage","pl":"hallway storage designs","lo":250,"hi":5500.0,"st":2000,"step":250,"pre":[1000,2000,3000,4500],"est":1,"from_":750,"c":[{"s":0,"lo":550,"hi":950,"t":"A hallway shoe cabinet with matt doors","m":1,"r":0},{"s":0,"lo":600,"hi":1050,"t":"A hallway shoe cabinet with painted-look doors","m":1.15,"r":1},{"s":0,"lo":650,"hi":1100,"t":"A hallway shoe cabinet with mirrored sliding doors","m":1.2,"r":2},{"s":1,"lo":1150,"hi":1800,"t":"A coat and shoe unit with matt doors","m":1,"r":0},{"s":1,"lo":1300,"hi":2000,"t":"A coat and shoe unit with painted-look doors","m":1.15,"r":1},{"s":1,"lo":1350,"hi":2100,"t":"A coat and shoe unit with mirrored sliding doors","m":1.2,"r":2},{"s":2,"lo":1850,"hi":2850,"t":"A full wall of hallway cupboards with matt doors","m":1,"r":0},{"s":2,"lo":2100,"hi":3200,"t":"A full wall of hallway cupboards with painted-look doors","m":1.15,"r":1},{"s":2,"lo":2150,"hi":3300,"t":"A full wall of hallway cupboards with mirrored sliding doors","m":1.2,"r":2},{"s":3,"lo":2800,"hi":4300,"t":"Hallway and under-stairs storage with matt doors","m":1,"r":0},{"s":3,"lo":3150,"hi":4850,"t":"Hallway and under-stairs storage with painted-look doors","m":1.15,"r":1},{"s":3,"lo":3250,"hi":5000,"t":"Hallway and under-stairs storage with mirrored sliding doors","m":1.2,"r":2}],"x":[{"n":"a bench seat","p":[200,450],"m":0,"i":[]},{"n":"a slatted coat wall","p":[200,500],"m":0,"i":[]},{"n":"a mirror","p":[155,300],"m":0,"i":[]},{"n":"LED lighting","p":[185,450],"m":0,"i":[]},{"n":"a shoe carousel","p":[275,550],"m":0,"i":[]}],"ex":"Electrical connections are priced separately.","sz":["A slim unit for shoes","Hanging, shoes and a shelf","Floor-to-ceiling cupboards","A full wall plus under the stairs"],"sn":["Shoe cabinet","Coat & shoe unit","Full wall","Hall & under-stairs"],"ph":[["https://thb.tildacdn.com/tild3735-6338-4530-b333-303330336334/-/resize/1200x/-/format/webp/UnderStair21.jpg","Pull-out drawers under the stairs in a hallway"]]}],mini=root.classList.contains('mini'),cur=null,B=0;
+ var q=function(s){return root.querySelector(s)},gbp=function(n){return '£'+n.toLocaleString('en-GB')};
+ var esc=function(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;')};
+ var rng=q('input[type=range]'),out=q('output');
+ function pick(){
+  var rows=[],lc=function(t){return t.charAt(0).toLowerCase()+t.slice(1)};
+  for(var z=cur.sz.length-1;z>=0&&rows.length<3;z--){
+   var all=cur.c.filter(function(c){return c.s===z}),ok=all.filter(function(c){return c.hi<=B}),near=all.filter(function(c){return c.lo<=B&&c.hi>B});
+   var byR=function(x,y){return x.r-y.r};
+   if(ok.length===all.length){var top=all.slice().sort(function(x,y){return y.hi-x.hi})[0];rows.push({c:top,ok:1,n:all.length>1?'Every style and finish we offer at this size is comfortably within this budget.':'Comfortably within this budget.'})}
+   else if(ok.length){var c=ok.sort(byR)[0],up=near.filter(function(n){return n.r<c.r}).sort(byR)[0]||near.sort(byR)[0];
+    rows.push({c:c,ok:1,n:'Comfortably within this budget.'+(up?' A step up ('+lc(up.t)+') may be possible, depending on your room.':'')})}
+   else if(near.length)rows.push({c:near.sort(byR)[0],n:'Possible, depending on your room and choices.'});
+  }
+  var okRows=rows.filter(function(r){return r.ok});
+  var typ=okRows.filter(function(r){return r.c.r===0})[0]||okRows[0];
+  return {o:rows.slice().reverse(),ok:okRows.length,A:okRows[0],typ:typ};
+ }
+ function extras(A){
+  var left=B-A.hi,got=[];
+  cur.x.forEach(function(e){var p=e.p[1]*(e.m?A.m:1);if(e.i.indexOf(A.s)<0&&p<=left&&got.length<3){got.push(e.n);left-=p}});
+  return got;
+ }
+ function list(a){return a.length>1?a.slice(0,-1).join(', ')+' and '+a[a.length-1]:a[0]}
+ function draw(){
+  B=+rng.value;out.textContent=gbp(B);
+  rng.style.setProperty('--p',((B-cur.lo)/(cur.hi-cur.lo)*100)+'%');
+  var r=pick(),A=r.A||r.o[0],h3,sub='',body='',tip='';
+  if(!A){
+   h3='A little under our usual starting point for '+cur.pl;
+   sub='Made to measure in our workshop and fitted by our own team, '+cur.pl+' typically start from around '+gbp(cur.from_)+'. Tell us what you have in mind and we will say honestly what is possible.';
+  }else{
+   h3=(r.ok?'Around '+gbp(B)+' typically covers':'Around '+gbp(B)+' is close to our starting point for '+cur.pl);
+   sub='It depends on the size, so here is what to expect at each one. Made to measure in our Peterborough workshop and fitted by our own team.';
+   body=r.o.map(function(x){return '<div class="opt'+(x.ok?'':' r')+'"><i class="tg">'+esc(cur.sn[x.c.s])+' &middot; '+esc(cur.sz[x.c.s])+'</i><b>'+esc(x.c.t)+'</b><span>'+esc(x.n)+'</span></div>'}).join('');
+   if(r.ok){var ex=extras(r.A.c);if(ex.length)tip='At this budget there is usually room for extras too, such as '+list(ex)+'.'}
+   if(!tip&&B>=6000)tip='0% finance is available on projects over £6,000 (subject to status).';
+   A=A.c;
+  }
+  if(mini){
+   q('.res h3').textContent=A?(r.ok?r.typ.c.t+', made and fitted.':'Close to our starting point for '+cur.pl+'. '+A.t+' may be possible.'):h3+'.';
+   q('.res a').href='/budget-planner-dev-p6k3#'+cur.k+'-'+B;
+  }else{
+   q('.res h3').textContent=h3;q('.res .sub').textContent=sub;q('.opts').innerHTML=body;q('.tip').textContent=tip;
+   var p=cur.ph[Math.min(A?A.s:0,cur.ph.length-1)],im=q('figure img');if(im.getAttribute('src')!==p[0]){im.src=p[0];im.alt=p[1]+', made and fitted by ABJ'}
+   q('figcaption').textContent='One we made: '+p[1].charAt(0).toLowerCase()+p[1].slice(1)+'. Shown for style. Your own price depends on your room.';
+   q('.fine i').textContent=cur.ex;q('.fine b').textContent=cur.est?'A guide worked out from our recent quotes, not a quote.':'A guide based on recent quotes, not a quote.';
+   q('.wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the budget planner on your website. My budget is around '+gbp(B)+' for '+cur.a+'. Could we arrange a free design visit?');
+  }
+ }
+ function room(k,b){
+  cur=D.filter(function(d){return d.k===k})[0]||D[0];
+  [].forEach.call(root.querySelectorAll('.tabs button'),function(t){t.setAttribute('aria-pressed',t.value===cur.k?'true':'false')});var sl=q('select.sel');if(sl)sl.value=cur.k;
+  rng.min=cur.lo;rng.max=cur.hi;rng.step=cur.step;rng.value=b||cur.st;
+  var e=root.querySelectorAll('.ends span');if(e.length){e[0].textContent=gbp(cur.lo);e[1].textContent=gbp(cur.hi)+'+'}
+  var pr=q('.pre');if(pr)pr.innerHTML=cur.pre.map(function(v){return '<button type="button" value="'+v+'">'+gbp(v)+'</button>'}).join('');
+  draw();
+ }
+ var tm;function track(){clearTimeout(tm);tm=setTimeout(function(){try{if(window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event','budget_planner',{room:cur.k,budget:B,placement:mini?'strip':'page'})}catch(e){}},1500)}
+ rng.addEventListener('input',function(){draw();track()});
+ var sl0=q('select.sel');if(sl0)sl0.addEventListener('change',function(){room(sl0.value);track()});
+ root.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  if(b.parentNode.classList.contains('tabs')){room(b.value);track()}
+  else if(b.parentNode.classList.contains('pre')){rng.value=b.value;draw();track()}});
+ var h=(location.hash||'').match(/^#([a-z]+)-(\d+)$/);
+ if(!mini&&h&&D.some(function(d){return d.k===h[1]})){room(h[1],Math.max(0,+h[2]));setTimeout(function(){root.scrollIntoView()},300)}else room(D[0].k);
+})();</script>
+</section>

@@ -16,32 +16,56 @@ PAGE = '/budget-planner-dev-p6k3'          # where the short strips link to (cha
 T = lambda id_, name: 'https://thb.tildacdn.com/%s/-/resize/1200x/-/format/webp/%s' % (id_, name)
 S = lambda id_, name: 'https://static.tildacdn.net/%s/%s' % (id_, name)
 
-# One real ABJ photo per size, with a caption that says what is in the photo (from gallery_data.txt).
+# Real ABJ photos (one per size where we have them, otherwise one for the room), captioned as what the photo shows.
+J = lambda sha, path: 'https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@%s/%s' % (sha, path)
+EL = 'Electrical connections are priced separately.'
+# tpl: how a suggestion reads ({sz} size, {st} style or finish, {wt} worktop). art: put "A"/"An" in front.
+# pref: the order most people choose in (first = most popular). est: no direct quote behind the bands yet.
 ROOMS = {
- 'kitchen': dict(
-  tab='Kitchen', noun='kitchen', plural='kitchens', lo=2000, hi=25000, start=8000, presets=[4000, 8000, 12000, 18000],
-  text=lambda w: '%s %s kitchen with %s worktops' % (w['sz'], w['st'], w['wt']), pref=dict(wt=[2, 0, 1, 3], st=[1, 0, 2, 3]),
+ 'kitchen': dict(tab='Kitchen', a='a kitchen', plural='kitchens', tpl='{sz} {st} kitchen with {wt} worktops', pref=dict(wt=[2, 0, 1, 3], st=[1, 0, 2, 3]),
   excl='Appliances, sink and tap, plumbing, electrics and building work are priced separately.',
   photos=[(S('tila6664-3632-4562-b164-393964383962', 'abj-kitchen-cream-gl.webp'), 'Cream gloss handleless L-shaped kitchen'),
           (T('tild6433-6635-4239-a236-363531366664', 'abj-kitchen-navy-sha.jpg'), 'Navy Shaker U-shaped kitchen with oak worktops'),
           (T('tild3330-3561-4463-a638-333464383539', 'abj-kitchen-grey-sha.jpg'), 'Light grey Shaker kitchen with a navy island'),
           (S('tila6131-3661-4863-b433-336364646331', 'abj-open-plan-kitche.webp'), 'Open-plan handleless kitchen with an island')]),
- 'wardrobe': dict(
-  tab='Wardrobes', noun='fitted wardrobe', plural='fitted wardrobes', lo=750, hi=8000, start=2500, presets=[1500, 2500, 4000, 6000],
-  text=lambda w: '%s fitted wardrobe with %s doors' % (w['sz'], w['st']), pref=dict(st=[1, 0, 2]),
-  excl='Electrical connections are priced separately.',
+ 'wardrobe': dict(tab='Fitted wardrobes', a='fitted wardrobes', plural='fitted wardrobes', tpl='{sz} fitted wardrobe with {st} doors', pref=dict(st=[1, 0, 2]), excl=EL,
   photos=[(T('tild6566-3663-4431-a234-373934646231', 'BespokeFittedWardrob.jpg'), 'Walnut-effect fitted wardrobe with a lit alcove'),
           (T('tild6439-3461-4735-a639-616138666364', 'BespokeFittedWardrob.jpg'), 'White Shaker fitted wardrobes with a chest of drawers'),
           (T('tild6365-3032-4562-a630-376262383035', 'BespokeFittedWardrob.jpg'), 'A wall of white Shaker fitted wardrobes'),
           (T('tild3237-3062-4838-a238-396133343433', 'abj-bed53.jpg'), 'Light grey Shaker wardrobes along a full bedroom wall')]),
- 'mediawall': dict(
-  tab='Media wall', noun='media wall', plural='media walls', lo=750, hi=6000, start=3000, presets=[1500, 3000, 4000, 5500],
-  text=lambda w: '%s media wall in a %s finish' % (w['sz'], w['st']), pref=dict(st=[0, 1, 2]),
+ 'sliding': dict(tab='Sliding wardrobes', a='a sliding wardrobe', plural='sliding wardrobes', tpl='{sz} sliding wardrobe with {st} doors', pref=dict(st=[0, 2, 1, 3]), excl=EL,
+  photos=[(T('tild3666-3062-4630-b662-303130386639', 'abj-war37.jpg'), 'Sliding wardrobe doors with mirror and black glass panels')]),
+ 'walkin': dict(tab='Walk-in wardrobes', a='a walk-in wardrobe', plural='walk-in wardrobes', tpl='{sz} walk-in wardrobe {st}', szw=['small', 'medium', 'large', 'dressing-suite'], pref=dict(st=[0, 1, 2]), excl=EL,
+  photos=[(T('tild3431-3662-4062-b833-396339626633', 'abj-war92.jpg'), 'Walk-in dressing room with walnut shelving and pull-out drawers')]),
+ 'sloping': dict(tab='Sloping ceilings', a='sloping-ceiling wardrobes', plural='sloping-ceiling wardrobes', tpl='{sz} run of sloping-ceiling wardrobes with {st} doors', pref=dict(st=[1, 0, 2]), excl=EL,
+  photos=[(S('tila6337-6339-4734-a237-306631373133', 'BespokeBedrooms30.webp'), 'White gloss fitted wardrobes built into a sloped loft ceiling')]),
+ 'bedroom': dict(tab='Fitted bedroom', a='a fitted bedroom', plural='fitted bedrooms', tpl='Fitted bedroom with {sz} in a {st} finish', art=False, szw=['a single wardrobe', 'medium wardrobes', 'large wardrobes', 'wall-to-wall wardrobes'], pref=dict(st=[1, 0, 2]), excl=EL,
+  photos=[(S('tila6162-3235-4265-a535-653331656565', 'BespokeBedrooms25.webp'), 'Navy fitted bedroom with overhead cabinets and a padded headboard')]),
+ 'mediawall': dict(tab='Media wall', a='a media wall', plural='media walls', tpl='{sz} media wall in a {st} finish', pref=dict(st=[0, 1, 2]),
   excl='The electric fire, TV set-up and electrical connections are priced separately.',
   photos=[(T('tild3761-3562-4439-b837-386439613861', 'abj-med36.jpg'), 'Grey media wall with a low TV unit'),
           (T('tild3331-6337-4834-b466-343262386465', 'abj-med3.jpg'), 'Cream media wall with display shelving'),
           (S('tila6334-3364-4937-b632-623438633735', 'BespokeMediaWalls43.webp'), 'Walnut slatted media wall with a backlit TV panel'),
           (S('tila6435-3766-4165-a532-663637336638', 'WhatsApp_Image_2024-.webp'), 'Large media wall with lit glass display cabinets')]),
+ 'alcove': dict(tab='Alcove units', a='alcove units', plural='alcove units', tpl='Alcove units for {sz} in a {st} finish', art=False, pref=dict(st=[1, 0, 2]), excl=EL, est=True,
+  photos=[(S('tila3938-3335-4239-b730-623234363739', 'abj-cab75.webp'), 'Living room alcove cabinetry with an inset fire and TV')]),
+ 'understairs': dict(tab='Under-stairs', a='under-stairs storage', plural='under-stairs storage designs', tpl='{sz} under-stairs design with {st} storage', pref=dict(st=[1, 0, 2]), excl=EL, est=True,
+  photos=[(S('tila6661-3436-4835-b261-343631313434', 'UnderStair28.webp'), 'Under-stairs pull-out shelving towers')]),
+ 'storage': dict(tab='Storage & utility', a='fitted storage', plural='fitted storage designs', tpl='{sz} of {st} storage', art=False, szw=['One tall unit', 'A small run', 'A utility or boot room', 'A full room'], pref=dict(st=[1, 0, 2]), est=True,
+  excl='Appliances, plumbing and electrical connections are priced separately.',
+  photos=[(T('tild3132-3061-4665-b162-666361386636', 'UnderStair22.jpg'), 'Fitted loft cupboards around a round window')]),
+ 'office': dict(tab='Home office', a='a home office', plural='home offices', tpl='{sz} with {st} doors', szw=['desk nook', 'study wall', 'two-wall home office', 'full home office'], pref=dict(st=[0, 1, 2]), excl=EL, est=True,
+  photos=[(S('tila6631-6662-4265-a564-653935613632', 'Cabinet35.webp'), 'Fitted oak home office with a desk, bookshelves and tall cupboards')]),
+ 'hallway': dict(tab='Hallway', a='hallway storage', plural='hallway storage designs', tpl='{sz} with {st} doors', art=False, szw=['A hallway shoe cabinet', 'A coat and shoe unit', 'A full wall of hallway cupboards', 'Hallway and under-stairs storage'], pref=dict(st=[0, 1, 2]), excl=EL, est=True,
+  photos=[(T('tild3735-6338-4530-b333-303330336334', 'UnderStair21.jpg'), 'Pull-out drawers under the stairs in a hallway')]),
+ 'bathroom': dict(tab='Bathroom', a='bathroom cabinetry', plural='bathroom cabinetry designs', tpl='{sz} in a {st} finish', art=False, pref=dict(st=[0, 1, 2]), est=True,
+  excl='Basins, taps, plumbing and electrical connections are priced separately.',
+  photos=[('https://static.tildacdn.net/tild3164-3131-4532-b163-633561633337/2-1600x0_1.webp', 'Grey vanity unit with deep drawers')]),
+ 'worktop': dict(tab='Worktops', a='new worktops', plural='worktops', tpl='{wt} worktops for a {sz} kitchen', art=False, pref=dict(wt=[2, 0, 1, 3]), est=True,
+  excl='Removing old worktops, plumbing and electrics are priced separately.',
+  photos=[(J('f58f336440de04a809f3750794a9529ad9469251', 'media/l/c9b6a43-abj-wt-quartz-sink.webp'), 'Quartz worktop with an undermount sink under a window')]),
+ 'decor': dict(tab='Feature walls', a='a feature wall', plural='feature walls', tpl='{sz} {st} feature wall', szw=['narrow', 'medium', 'full-wall', 'large'], pref=dict(st=[0, 1, 2]), excl=EL, est=True,
+  photos=[(S('tila3736-3466-4231-b934-376164303364', 'Cabinet57.webp'), 'Oak slat wall panel with floating black display shelves')]),
 }
 
 
@@ -68,15 +92,13 @@ def combos(key):
                     a = g['add'][pick[g['n']]][sz]; lo += a[0]; hi += a[1]
             hi = rnd(hi); lo = rnd(lo, hi)
             w = {g['n']: html.unescape(g['say'][pick[g['n']]]) for g in groups}
-            t = r['text'](w)
-            t = ('An ' if t[0] in 'aeio' else 'A ') + t
-            # r: how typical the choice is (0 = the one most people ask for), so suggestions read like real kitchens
+            if r.get('szw'): w['sz'] = r['szw'][sz]
+            t = r['tpl'].format(**w)
+            if r.get('art', True): t = ('An ' if t[0].lower() in 'aeio' else 'A ') + t
+            t = t[0].upper() + t[1:]
             rk = 0
-            for g in groups[1:]:
-                order = r['pref'][g['n']]
-                rk = rk * 10 + order.index(pick[g['n']])
-            if 'wt' in r['pref']:  # worktop matters more than door style
-                rk = r['pref']['wt'].index(pick['wt']) * 10 + r['pref']['st'].index(pick['st'])
+            for n, order in r['pref'].items():   # first key matters most (worktop before door style)
+                rk = rk * 10 + order.index(pick[n])
             out.append(dict(s=sz, lo=lo, hi=hi, t=t, m=round(m, 3), r=rk))
             return
         g = groups[gi]
@@ -91,8 +113,14 @@ def data(key):
     cs = combos(key)
     ext = [dict(n=html.unescape(e['name']), p=e['p'], m=1 if e.get('mult') else 0, i=e.get('incl', [])) for e in c['ext'].values()
            if isinstance(e['p'][0], (int, float))]
-    return dict(k=key, tab=r['tab'], noun=r['noun'], pl=r['plural'], lo=r['lo'], hi=r['hi'], st=r['start'], pre=r['presets'],
-                from_=-(-min(x['lo'] for x in cs) // 500) * 500, c=cs, x=ext, ex=r['excl'],
+    lo_min, hi_max = min(x['lo'] for x in cs), max(x['hi'] for x in cs)
+    step = 500 if hi_max > 10000 else 250 if hi_max > 4000 else 100
+    up = lambda v: -(-v // step) * step
+    lo, hi = max(step, (int(lo_min * 0.8) // step) * step), up(hi_max * 1.08)
+    # quick picks: the budget at which the most popular choice becomes comfortable, size by size
+    pre = sorted({up(min((x for x in cs if x['s'] == z), key=lambda x: x['r'])['hi']) for z in range(len(c['groups'][0]['opts']))})
+    return dict(k=key, tab=r['tab'], a=r['a'], pl=r['plural'], lo=lo, hi=hi, st=pre[min(1, len(pre) - 1)], step=step, pre=pre, est=1 if r.get('est') else 0,
+                from_=-(-lo_min // step) * step, c=cs, x=ext, ex=r['excl'],
                 sz=[html.unescape(o[1]) for o in c['groups'][0]['opts']], sn=[html.unescape(o[0]) for o in c['groups'][0]['opts']], ph=[list(p) for p in r['photos']])
 
 
@@ -102,7 +130,10 @@ CSS = '''<style>
 #kc .bp h2{margin:16px 0 16px;color:var(--lin)}
 #kc .bp .lead{max-width:36em;color:rgba(243,238,230,.74);margin-bottom:clamp(24px,2.6vw,40px)}
 #kc .bp .bg{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(36px,5vw,100px);align-items:start}
-#kc .bp .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
+#kc .bp .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(26px,3vw,44px)}
+#kc .bp .selw{display:none}
+#kc .bp .selw span{display:block;font:500 11px/1.4 var(--sans);letter-spacing:.24em;text-transform:uppercase;color:rgba(243,238,230,.55);margin-bottom:8px}
+#kc .bp select.sel{width:100%;height:52px;padding:0 14px;border:1px solid var(--go);border-radius:0;background:var(--g);color:var(--lin);font:400 17px/1 var(--sans)}
 #kc .bp .tabs button{border:1px solid rgba(243,238,230,.25);background:transparent;color:rgba(243,238,230,.85);padding:12px 18px;font:500 11.5px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;cursor:pointer;transition:.2s}
 #kc .bp .tabs button[aria-pressed=true]{background:var(--go);border-color:var(--go);color:var(--g)}
 #kc .bp .amt{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
@@ -140,13 +171,14 @@ CSS = '''<style>
 #kc .bp .res .bt.o{background:transparent;border-color:rgba(27,35,33,.3);color:var(--ink)}
 #kc .bp .res .bt.o:hover{background:transparent;border-color:var(--ink);color:var(--ink)}
 #kc .bp .fine{margin-top:16px;font-size:12px;line-height:1.55;color:var(--mut)}
+#kc .bp .fine b{font-weight:400}
 #kc .bp.mini{padding:clamp(44px,4.5vw,76px) 0}
 #kc .bp.mini .bg{align-items:center}
 #kc .bp.mini h2{font-size:clamp(28px,2.6vw,42px)}
 #kc .bp.mini .lead{margin-bottom:18px}
 #kc .bp.mini .amt output{font-size:clamp(40px,4vw,60px)}
 #kc .bp.mini .res h3{font-size:clamp(21px,1.7vw,26px);margin:10px 0 12px}
-@media(max-width:1100px){#kc .bp .bg{grid-template-columns:1fr;gap:28px}#kc .bp figure{display:none}#kc .bp .tabs button{padding:11px 13px;letter-spacing:.14em}}
+@media(max-width:1100px){#kc .bp .bg{grid-template-columns:1fr;gap:28px}#kc .bp figure{display:none}#kc .bp .tabs{display:none}#kc .bp .selw{display:block;margin-bottom:26px}}
 </style>'''
 
 ENGINE = r'''(function(){
@@ -179,37 +211,38 @@ ENGINE = r'''(function(){
   rng.style.setProperty('--p',((B-cur.lo)/(cur.hi-cur.lo)*100)+'%');
   var r=pick(),A=r.A||r.o[0],h3,sub='',body='',tip='';
   if(!A){
-   h3='A little under where our '+cur.pl+' usually start';
-   sub='Made-to-measure '+cur.pl+', made in our workshop and fitted by our own team, typically start from around '+gbp(cur.from_)+'. Tell us what you have in mind and we will say honestly what is possible.';
+   h3='A little under our usual starting point for '+cur.pl;
+   sub='Made to measure in our workshop and fitted by our own team, '+cur.pl+' typically start from around '+gbp(cur.from_)+'. Tell us what you have in mind and we will say honestly what is possible.';
   }else{
-   h3=(r.ok?'Around '+gbp(B)+' typically covers':'Around '+gbp(B)+' is close to where our '+cur.pl+' start');
-   sub='It depends on the size of your room, so here is what to expect at each size. Made to measure in our Peterborough workshop and fitted by our own team.';
+   h3=(r.ok?'Around '+gbp(B)+' typically covers':'Around '+gbp(B)+' is close to our starting point for '+cur.pl);
+   sub='It depends on the size, so here is what to expect at each one. Made to measure in our Peterborough workshop and fitted by our own team.';
    body=r.o.map(function(x){return '<div class="opt'+(x.ok?'':' r')+'"><i class="tg">'+esc(cur.sn[x.c.s])+' &middot; '+esc(cur.sz[x.c.s])+'</i><b>'+esc(x.c.t)+'</b><span>'+esc(x.n)+'</span></div>'}).join('');
    if(r.ok){var ex=extras(r.A.c);if(ex.length)tip='At this budget there is usually room for extras too, such as '+list(ex)+'.'}
    if(!tip&&B>=6000)tip='0% finance is available on projects over £6,000 (subject to status).';
    A=A.c;
   }
   if(mini){
-   q('.res h3').textContent=A?(r.ok?r.typ.c.t+', made and fitted.':'Close to where our '+cur.pl+' start. '+A.t+' may be possible.'):h3+'.';
+   q('.res h3').textContent=A?(r.ok?r.typ.c.t+', made and fitted.':'Close to our starting point for '+cur.pl+'. '+A.t+' may be possible.'):h3+'.';
    q('.res a').href='__PAGE__#'+cur.k+'-'+B;
   }else{
    q('.res h3').textContent=h3;q('.res .sub').textContent=sub;q('.opts').innerHTML=body;q('.tip').textContent=tip;
-   var p=cur.ph[A?A.s:0],im=q('figure img');if(im.getAttribute('src')!==p[0]){im.src=p[0];im.alt=p[1]+', made and fitted by ABJ'}
+   var p=cur.ph[Math.min(A?A.s:0,cur.ph.length-1)],im=q('figure img');if(im.getAttribute('src')!==p[0]){im.src=p[0];im.alt=p[1]+', made and fitted by ABJ'}
    q('figcaption').textContent='One we made: '+p[1].charAt(0).toLowerCase()+p[1].slice(1)+'. Shown for style. Your own price depends on your room.';
-   q('.fine i').textContent=cur.ex;
-   q('.wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the budget planner on your website. My budget is around '+gbp(B)+' for a '+cur.noun+'. Could we arrange a free design visit?');
+   q('.fine i').textContent=cur.ex;q('.fine b').textContent=cur.est?'A guide worked out from our recent quotes, not a quote.':'A guide based on recent quotes, not a quote.';
+   q('.wa').href='https://wa.me/447479219421?text='+encodeURIComponent('Hi ABJ, I used the budget planner on your website. My budget is around '+gbp(B)+' for '+cur.a+'. Could we arrange a free design visit?');
   }
  }
  function room(k,b){
   cur=D.filter(function(d){return d.k===k})[0]||D[0];
-  [].forEach.call(root.querySelectorAll('.tabs button'),function(t){t.setAttribute('aria-pressed',t.value===cur.k?'true':'false')});
-  rng.min=cur.lo;rng.max=cur.hi;rng.step=cur.hi>10000?500:250;rng.value=b||cur.st;
+  [].forEach.call(root.querySelectorAll('.tabs button'),function(t){t.setAttribute('aria-pressed',t.value===cur.k?'true':'false')});var sl=q('select.sel');if(sl)sl.value=cur.k;
+  rng.min=cur.lo;rng.max=cur.hi;rng.step=cur.step;rng.value=b||cur.st;
   var e=root.querySelectorAll('.ends span');if(e.length){e[0].textContent=gbp(cur.lo);e[1].textContent=gbp(cur.hi)+'+'}
   var pr=q('.pre');if(pr)pr.innerHTML=cur.pre.map(function(v){return '<button type="button" value="'+v+'">'+gbp(v)+'</button>'}).join('');
   draw();
  }
  var tm;function track(){clearTimeout(tm);tm=setTimeout(function(){try{if(window.gtag&&localStorage.getItem('abj_cookie_consent')==='accepted')gtag('event','budget_planner',{room:cur.k,budget:B,placement:mini?'strip':'page'})}catch(e){}},1500)}
  rng.addEventListener('input',function(){draw();track()});
+ var sl0=q('select.sel');if(sl0)sl0.addEventListener('change',function(){room(sl0.value);track()});
  root.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
   if(b.parentNode.classList.contains('tabs')){room(b.value);track()}
   else if(b.parentNode.classList.contains('pre')){rng.value=b.value;draw();track()}});
@@ -226,16 +259,18 @@ def js(keys):
 def full():
     keys = list(ROOMS)
     tabs = ''.join('<button type="button" value="%s" aria-pressed="%s">%s</button>' % (k, 'true' if i == 0 else 'false', ROOMS[k]['tab']) for i, k in enumerate(keys))
+    opts = ''.join('<option value="%s">%s</option>' % (k, ROOMS[k]['tab']) for k in keys)
     p = ROOMS[keys[0]]['photos'][1]
     return f'''<section class="bp" id="bp" aria-label="Budget planner">
 {CSS}
 <div class="w">
  <div class="rv"><span class="kick">Budget planner</span>
  <h2>Tell us your budget. See what it could become.</h2>
- <p class="lead">Choose a room and slide to the amount you would be comfortable spending. We will show what that typically covers, based on real quotes for work we have made in our Peterborough workshop and fitted ourselves.</p></div>
+ <p class="lead">Choose what you are planning and slide to the amount you would be comfortable spending. We will show what that typically covers, using the guide ranges from our recent quotes for work made in our Peterborough workshop and fitted by our own team.</p>
+ <div class="tabs" role="group" aria-label="What are you planning?">{tabs}</div>
+ <label class="selw"><span>I am planning</span><select class="sel" aria-label="What are you planning?">{opts}</select></label></div>
  <div class="bg">
   <div class="rv">
-   <div class="tabs" role="group" aria-label="Choose a room">{tabs}</div>
    <div class="amt"><small>My budget is around</small><output for="bp-r" aria-live="polite">&pound;8,000</output></div>
    <input type="range" id="bp-r" aria-label="Your budget in pounds" min="2000" max="25000" step="500" value="8000">
    <div class="ends"><span></span><span></span></div>
@@ -248,7 +283,7 @@ def full():
    <div class="opts"></div>
    <p class="tip"></p>
    <div class="acts"><a class="bt" href="{{BOOK}}">Book a free design visit</a><a class="bt o wa" href="https://wa.me/447479219421" target="_blank" rel="noopener">Send us your budget</a></div>
-   <p class="fine">A guide based on recent quotes, not a quote. Your exact price comes with your 3D design after a free home visit, and your designer works with the budget you give them. It covers making, delivering and fitting. <i></i> Prices include VAT.</p>
+   <p class="fine"><b></b> Your exact price comes with your 3D design after a free home visit, and your designer works with the budget you give them. It covers making, delivering and fitting. <i></i> Prices include VAT.</p>
   </aside>
  </div>
 </div>
@@ -259,7 +294,7 @@ def full():
 
 
 def mini(key):
-    r = ROOMS[key]
+    r = ROOMS[key]; d = data(key)
     return f'''<section class="bp mini" id="bp" aria-label="Budget planner">
 {CSS}
 <div class="w"><div class="bg">
@@ -267,14 +302,14 @@ def mini(key):
   <h2>Have a budget in mind?</h2>
   <p class="lead">Slide to the amount you would be comfortable spending and see what it typically covers.</p>
   <div class="amt"><small>Around</small><output for="bp-r" aria-live="polite"></output></div>
-  <input type="range" id="bp-r" aria-label="Your budget in pounds" min="{r['lo']}" max="{r['hi']}" value="{r['start']}">
+  <input type="range" id="bp-r" aria-label="Your budget in pounds" min="{d['lo']}" max="{d['hi']}" value="{d['st']}">
   <div class="ends"><span></span><span></span></div>
  </div>
  <aside class="res rv" aria-live="polite">
   <span class="kick">Typically covers</span>
   <h3></h3>
   <a class="lnk" href="{PAGE}">See everything this budget could cover</a>
-  <p class="fine">A guide based on recent quotes, not a quote. {r['excl']}</p>
+  <p class="fine">{'A guide worked out from our recent quotes' if r.get('est') else 'A guide based on recent quotes'}, not a quote. {r['excl']}</p>
  </aside>
 </div></div>
 <script>
