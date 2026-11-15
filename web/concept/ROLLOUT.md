@@ -828,3 +828,14 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   one H1 each (the /abjfeeds index has Tilda's two `{{title}}` template H1s in its raw HTML, as before). Both new pages are in
   sitemap.xml. NOT done: DEV page footers (build.py has the links for future builds), and the phone/overlay menu (a 13th
   item pushes "Book a design visit" off a 390x844 screen).
+- 15 Nov (competitor report follow-ups, Ish: "yes please"):
+  - Footer "Cut & Edge Express" link changed from https://www.cutandedgexpress.com/ to https://cutandedgexpress.co.uk/ on all
+    63 live pages (one swap per page, length-checked, single-page publish). The .com site still answers on its own (not yet
+    forwarding). Left alone: three old site-HEAD script references to the .com edgebanding service URL.
+  - Showroom links in body copy: home (30601906, "our showroom at Brassey Close" in the workshop section) and about
+    (112290576, "showroom" in "Where we work"). Booking page has no showroom sentence, so nothing added there.
+  - Kitchen fitters page on DEV: /kitchen-fitters-peterborough-dev-f5t8, Tilda 389757303, rec5850128703 (duplicate of the
+    planner DEV page), noindex, canonical /bespoke-kitchens until go-live, `pages/kitchen-fitters.html` @1e8451b, hero on
+    web-media-t @28d785d. linkmap has the live address /kitchen-fitters-peterborough. Wording on plumbing/electrics/removal
+    follows the site's own FAQ ("can be arranged, priced on your quote"). It does not say we fit kitchens bought elsewhere.
+    Checked on the published page: one H1, no repeated or upscaled photos, no sideways scroll at 1920 and 390.
