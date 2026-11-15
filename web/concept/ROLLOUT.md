@@ -839,3 +839,8 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     web-media-t @28d785d. linkmap has the live address /kitchen-fitters-peterborough. Wording on plumbing/electrics/removal
     follows the site's own FAQ ("can be arranged, priced on your quote"). It does not say we fit kitchens bought elsewhere.
     Checked on the published page: one H1, no repeated or upscaled photos, no sideways scroll at 1920 and 390.
+- Kitchen fitters page LIVE (Ish: "please publish"): /kitchen-fitters-peterborough, Tilda 389763803, rec5850137403, indexable,
+  canonical to itself, `out-live/kitchen-fitters.full.html` @5896c85; in sitemap.xml. Added FAQ "Can you fit a kitchen I
+  bought elsewhere?" (Ish: not usually, and no guarantee if we do); DEV page updated to match. Checked at 1920 and 390.
+  NOT yet linked from any other page: a footer link on all live pages ("Kitchen fitters" after "Kitchen design") is prepared
+  (build.py has it for future builds) but needs Ish's OK, as it edits every live page.
