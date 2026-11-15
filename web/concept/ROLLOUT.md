@@ -783,3 +783,21 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     deposit/finance wording, JSON-LD parses, every City has sameAs, layer commit).
   - The 7 DEV drafts without the layer (Corby, Kettering, St Neots, Fenland, King's Lynn, Shaker, handleless) were
     left alone, as before.
+
+## Budget planner, project page example, real project pack (15 Nov 2026)
+- Budget planner: `calc/build_planner.py` reads the SAME price bands as the cost guides (SERVICES in `build_calc.py`), so there is
+  one set of numbers. The visitor picks a room and a budget; the planner shows, size by size, what that typically covers
+  ("comfortably within" = the top of our guide range is inside the budget; "possible" = the budget falls inside the range).
+  It never prints a price of ours except "typically start from around" when the budget is below the lowest range.
+  Photos: one real ABJ photo per size, captioned as what it is ("Shown for style").
+  - DEV page /budget-planner-dev-p6k3: Tilda 389635003, block rec5849862103 (duplicate of the Park Road DEV page), noindex,
+    canonical /kitchen-cost-peterborough, single-page publish, @0ac6ed9. Deep link: `#kitchen-8000`, `#wardrobe-4000`, `#mediawall-3000`.
+  - Short strips (`calc/planner_<key>.html`) inserted before "How it works" (after the cost guide) on Kitchens DEV 352648603,
+    Wardrobes DEV 352674603, Media walls DEV 352685103. Old block codes: IndexedDB `abj_svc_bak`, keys
+    `<page>-dev-before-budget-strip-20261115`. Re-running the insert replaces the strip.
+  - Checked on the published pages at 1920 and 390: one H1, no sideways scroll, no broken images, noindex.
+  - Before LIVE: Alex signs off the bands; change `PAGE` in build_planner.py to the live address and rebuild; the planner page
+    needs its own canonical and to come off noindex.
+- Project page example: /project-media-walls-park-road-peterborough-dev-p4r7 (Tilda 389603903, rec5849759803), media on branch
+  web-media-t. Needs the customer's OK before it goes live (town only, no names).
+- Project pack: `design_pages`, `included`, `renders_note` keys added (see projectpack/README.md). Real packs stay out of the repo.
