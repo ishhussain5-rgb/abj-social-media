@@ -1,0 +1,112 @@
+{
+  "_note": "SAMPLE project for the template preview. Every size is in mm (the customer pack shows cm). Replace with the real design for each client.",
+  "sample": true,
+  "ref": "ABJ-K-0000",
+  "project": "Handleless kitchen with island",
+  "room_name": "Kitchen",
+  "client": "Sample client",
+  "address": "Sample address, Peterborough",
+  "designer": "Your ABJ designer",
+  "issued": "15 November 2026",
+  "version": "Design 1",
+  "fit_weeks": "Fitting typically takes 1–2 weeks",
+  "cover_photo": "kc-handleless-l",
+  "cover_note": "Example ABJ kitchen. Your pack shows the 3D render of your own design.",
+  "style": [
+    ["Door style", "Handleless slab, matt finish"],
+    ["Wall and tall units", "Matt cashmere"],
+    ["Island", "Matt graphite"],
+    ["Cabinets", "18 mm high-density MFC, light grey interior"],
+    ["Handle profile", "Integrated rail, matt black"],
+    ["Hinges and drawers", "Soft-close (Blum, sample)"],
+    ["Worktops", "White quartz with soft grey veining, 30 mm"],
+    ["Plinth", "Matching matt cashmere, 150 mm"],
+    ["Lighting", "Warm white LED under wall units and in the plinth"]
+  ],
+  "room": {
+    "w": 5200, "d": 4200, "h": 2400,
+    "openings": [
+      {"wall": "A", "type": "window", "at": 2000, "w": 1200, "sill": 1000, "head": 2100},
+      {"wall": "C", "type": "door", "at": 3800, "w": 900, "hinge": "right"}
+    ]
+  },
+  "heights": {"plinth": 150, "base": 720, "worktop": 30, "upstand": 100, "wall_bottom": 1580, "wall": 720, "tall": 2150},
+  "units": [
+    {"n": 1, "cat": "base", "wall": "A", "at": 0, "w": 1000, "d": 560, "name": "Corner base, 1 door", "detail": "Blind corner with pull-out corner storage; door on the open side"},
+    {"n": 2, "cat": "base", "wall": "A", "at": 1000, "w": 600, "d": 560, "name": "Drawer base, 3 drawers", "detail": "Soft-close drawers; cutlery insert in top drawer", "fronts": "3d"},
+    {"n": 3, "cat": "appliance", "wall": "A", "at": 1600, "w": 600, "d": 560, "name": "Integrated dishwasher door", "detail": "Door panel to match; dishwasher listed under appliances", "fronts": "1", "app": "DW"},
+    {"n": 4, "cat": "base", "wall": "A", "at": 2200, "w": 800, "d": 560, "name": "Sink base, 2 doors", "detail": "For the undermount sink; no shelf to leave room for plumbing", "fronts": "2", "sink": true},
+    {"n": 5, "cat": "base", "wall": "A", "at": 3000, "w": 600, "d": 560, "name": "Pull-out recycling base", "detail": "Soft-close pull-out with two bins", "fronts": "1"},
+    {"n": 6, "cat": "base", "wall": "A", "at": 3600, "w": 600, "d": 560, "name": "Pan drawer base, 2 drawers", "detail": "Two deep soft-close drawers", "fronts": "2d"},
+    {"n": 7, "cat": "panel", "wall": "A", "at": 4200, "w": 18, "d": 600, "name": "End panel", "detail": "Matching end panel, finishes the run by the door"},
+
+    {"n": 8, "cat": "base", "wall": "D", "at": 580, "w": 900, "d": 560, "name": "Hob base, 3 drawers", "detail": "Wide drawers under the hob", "fronts": "3d", "hob": true},
+    {"n": 9, "cat": "base", "wall": "D", "at": 1480, "w": 600, "d": 560, "name": "Drawer base, 3 drawers", "detail": "Soft-close drawers", "fronts": "3d"},
+    {"n": 10, "cat": "base", "wall": "D", "at": 2080, "w": 300, "d": 560, "name": "Narrow pull-out base", "detail": "Pull-out for trays and oils", "fronts": "1"},
+    {"n": 11, "cat": "tall", "wall": "D", "at": 2380, "w": 600, "d": 560, "name": "Tall oven housing", "detail": "Single oven with combination microwave above; drawer below", "fronts": "oven2"},
+    {"n": 12, "cat": "tall", "wall": "D", "at": 2980, "w": 600, "d": 560, "name": "Tall fridge freezer housing", "detail": "For the integrated 70/30 fridge freezer", "fronts": "ff"},
+    {"n": 13, "cat": "tall", "wall": "D", "at": 3580, "w": 600, "d": 560, "name": "Tall larder", "detail": "Two doors, five adjustable shelves", "fronts": "2t"},
+    {"n": 14, "cat": "filler", "wall": "D", "at": 4180, "w": 20, "d": 560, "name": "Filler to wall", "detail": "Scribed to the wall on site"},
+    {"n": 15, "cat": "filler", "wall": "D", "at": 560, "w": 20, "d": 560, "name": "Corner filler", "detail": "Keeps drawers clear of the corner unit"},
+
+    {"n": 16, "cat": "wall", "wall": "A", "at": 0, "w": 600, "d": 330, "name": "Wall unit, 1 door", "detail": "Two adjustable shelves", "fronts": "1"},
+    {"n": 17, "cat": "wall", "wall": "A", "at": 600, "w": 800, "d": 330, "name": "Wall unit, 2 doors", "detail": "Two adjustable shelves", "fronts": "2"},
+    {"n": 18, "cat": "wall", "wall": "A", "at": 1400, "w": 600, "d": 330, "name": "Wall unit, 1 door", "detail": "Two adjustable shelves", "fronts": "1"},
+    {"n": 19, "cat": "wall", "wall": "A", "at": 3200, "w": 600, "d": 330, "name": "Wall unit, 1 door", "detail": "Two adjustable shelves", "fronts": "1"},
+    {"n": 20, "cat": "wall", "wall": "A", "at": 3800, "w": 400, "d": 330, "name": "Wall unit, 1 door", "detail": "Two adjustable shelves", "fronts": "1"},
+    {"n": 21, "cat": "wall", "wall": "D", "at": 1480, "w": 600, "d": 330, "name": "Wall unit, 1 door", "detail": "Two adjustable shelves", "fronts": "1"},
+    {"n": 22, "cat": "wall", "wall": "D", "at": 2080, "w": 300, "d": 330, "name": "Wall unit, 1 door", "detail": "Two adjustable shelves", "fronts": "1"},
+
+    {"n": 23, "cat": "island", "x": 1600, "y": 1900, "w": 600, "d": 560, "face": "up", "name": "Island drawer base, 3 drawers", "detail": "Soft-close drawers", "fronts": "3d"},
+    {"n": 24, "cat": "island", "x": 2200, "y": 1900, "w": 600, "d": 560, "face": "up", "name": "Island drawer base, 2 drawers", "detail": "Two deep drawers", "fronts": "2d"},
+    {"n": 25, "cat": "island", "x": 2800, "y": 1900, "w": 600, "d": 560, "face": "up", "name": "Wine cooler space", "detail": "Open space for the under-counter wine cooler", "app": "WC"},
+    {"n": 26, "cat": "island", "x": 3400, "y": 1900, "w": 600, "d": 560, "face": "up", "name": "Island door base, 2 doors", "detail": "One adjustable shelf", "fronts": "2"},
+    {"n": 27, "cat": "panel", "x": 1582, "y": 1900, "w": 18, "d": 980, "name": "Island end panel (left)", "detail": "Full depth, supports the seating overhang"},
+    {"n": 28, "cat": "panel", "x": 4000, "y": 1900, "w": 18, "d": 980, "name": "Island end panel (right)", "detail": "Full depth, supports the seating overhang"},
+    {"n": 29, "cat": "panel", "x": 1600, "y": 2460, "w": 2400, "d": 18, "name": "Island back panel", "detail": "Seating side, matt graphite"}
+  ],
+  "appliances": [
+    {"n": "A1", "name": "Integrated dishwasher, 60 cm", "at": "Unit 3", "by": "ABJ"},
+    {"n": "A2", "name": "Induction hob, 80 cm", "at": "Unit 8", "by": "ABJ"},
+    {"n": "A3", "name": "Chimney extractor, 90 cm, ducted outside", "at": "Above unit 8", "by": "ABJ"},
+    {"n": "A4", "name": "Built-in single oven", "at": "Unit 11", "by": "ABJ"},
+    {"n": "A5", "name": "Built-in combination microwave", "at": "Unit 11", "by": "ABJ"},
+    {"n": "A6", "name": "Integrated fridge freezer, 70/30", "at": "Unit 12", "by": "ABJ"},
+    {"n": "A7", "name": "Under-counter wine cooler, 60 cm", "at": "Unit 25", "by": "Customer"}
+  ],
+  "sink": [
+    {"n": "S1", "name": "Single-bowl undermount sink, stainless steel", "at": "Unit 4", "by": "ABJ"},
+    {"n": "S2", "name": "Mixer tap, brushed steel", "at": "Unit 4", "by": "ABJ"},
+    {"n": "S3", "name": "Waste kit and space-saver plumbing", "at": "Unit 4", "by": "ABJ"}
+  ],
+  "worktops": [
+    {"n": "W1", "name": "Quartz worktop, wall A (corner)", "len": 2200, "dep": 600, "thk": 30, "cut": "No cut-outs", "edge": "Front edge polished"},
+    {"n": "W2", "name": "Quartz worktop, wall A (sink run)", "len": 2018, "dep": 600, "thk": 30, "cut": "Undermount sink cut-out, 5 drainer grooves", "edge": "Front and right end polished"},
+    {"n": "W3", "name": "Quartz worktop, wall D (hob run)", "len": 1780, "dep": 600, "thk": 30, "cut": "Hob cut-out", "edge": "Front edge polished"},
+    {"n": "W4", "name": "Quartz island top with seating overhang", "len": 2436, "dep": 1000, "thk": 30, "cut": "No cut-outs", "edge": "All four edges polished, small radius corners"},
+    {"n": "U1", "name": "Quartz upstand, wall A", "len": 4218, "dep": 100, "thk": 20, "cut": "Stops at window reveal", "edge": "Top edge polished"},
+    {"n": "U2", "name": "Quartz upstand, wall D", "len": 1780, "dep": 100, "thk": 20, "cut": "Splashback panel behind hob instead of upstand", "edge": "Top edge polished"}
+  ],
+  "trims": [
+    {"n": "P1", "name": "Plinth, matt cashmere, 150 mm", "qty": "3 lengths"},
+    {"n": "P2", "name": "Plinth, matt graphite (island), 150 mm", "qty": "2 lengths"},
+    {"n": "P3", "name": "Glass splashback behind hob, 900 x 600 mm", "qty": "1"},
+    {"n": "P4", "name": "Light pelmet under wall units, matt cashmere", "qty": "2 lengths"}
+  ],
+  "lighting": [
+    {"n": "L1", "name": "LED strip under wall units, warm white", "qty": "4 runs"},
+    {"n": "L2", "name": "LED plinth lighting, warm white", "qty": "3 runs"},
+    {"n": "L3", "name": "LED drivers and connectors", "qty": "As needed"}
+  ],
+  "customer_supplied": ["Under-counter wine cooler (A7): we fit it into the island."],
+  "fitter_notes": [
+    "Check the room is clear, dry and safe before starting. Floor protection down before any unit comes in.",
+    "Set the base unit height off the highest point of the floor so every run finishes level at 870 mm to the top of the carcass.",
+    "Corner unit 1 goes in first; then work left to right along wall A and down wall D from the corner filler (15).",
+    "Tall units 11, 12 and 13 must be fixed to the wall with the brackets supplied before any appliance goes in.",
+    "Leave the sink run and hob run worktop-ready for the stone templating visit: units level, fixed and tied together.",
+    "Wall unit bottoms at 1580 mm from the floor so their tops line up with the tall units at 2300 mm.",
+    "Integrated appliances must be fitted to the manufacturer's instructions, including ventilation gaps. Gas and electrical work by a qualified person only.",
+    "Extractor is ducted to the outside: confirm the duct route with the designer before fixing the extractor and wall unit 21."
+  ]
+}
