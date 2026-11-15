@@ -29,7 +29,7 @@ def b64(path, mime):
 
 
 def pic(name, wmm, hmm, pos='50% 50%', q=80, ppm=7.0):
-    f = [p for p in (os.path.join(IMG, name + x) for x in ('.webp', '.jpg', '.png')) if os.path.exists(p)]
+    f = [name] if os.path.isfile(name) else [p for p in (os.path.join(IMG, name + x) for x in ('.webp', '.jpg', '.png')) if os.path.exists(p)]
     if not f: raise SystemExit('missing photo: ' + name)
     im = Image.open(f[0]).convert('RGB')
     px, py = [float(v.strip('%')) / 100 for v in pos.split()]
@@ -126,6 +126,16 @@ p{margin:0 0 2mm}
 .terms p{margin:0 0 1.1mm}
 .terms .lead{font-size:7.1pt;color:#1b2321}
 .qr{width:100%;height:auto;display:block}
+.qsec{margin:0 0 4.5mm}
+.qsec h3{margin-bottom:1.2mm}
+.ql{font-size:8.2pt;line-height:1.5;margin:0 0 1.6mm}
+.qb{margin:0 0 1.6mm 4mm;font-size:8.2pt;line-height:1.5}
+.qt,.qsum{width:100%;border-collapse:collapse;font-size:8.4pt}
+.qt td{padding:1.25mm 0;border-bottom:.2mm solid rgba(14,27,26,.1)}
+.qt tr.tot td{font-weight:600;color:#0E1B1A;border-bottom:.35mm solid #C9A96E}
+.qsum td{padding:1.8mm 0;border-bottom:.2mm solid rgba(201,169,110,.35);font-size:9pt}
+.qsum tr:last-child td{border-bottom:0;color:#C9A96E;font-weight:600;padding-top:2.6mm}
+.qsum tr:last-child td:last-child{font:500 18pt/1 'Cormorant Garamond',serif}
 /* fitter pages */
 .f{background:#fff;padding:11mm 12mm 10mm 30mm}
 .f .rail{position:absolute;left:0;top:0;bottom:0;width:20mm;background:#0E1B1A;color:#F3EEE6;padding:9mm 0 0;text-align:center}
@@ -168,9 +178,64 @@ def sample_tag(p):
 
 def c_page(p, title, kicker, body, n):
     return ('<section class="pg c"><div class="hd"><div><div class="kick">%s</div><h1>%s%s</h1></div>'
-            '<div class="r">%s<br>%s · %s</div></div>%s'
+            '<div class="r">%s<br>%s</div></div>%s'
             '<div class="ft"><span>ABJ Kitchens &amp; Bedrooms · %s · %s</span><span>%s · page %d</span></div></section>') % (
-        E(kicker), E(title), sample_tag(p), E(p['project']), E(p['ref']), E(p['version']), body, E(ADDR), PHONE, SHORT, n)
+        E(kicker), E(title), sample_tag(p), E(p['project']), E(refline(p)), body, E(ADDR), PHONE, SHORT, n)
+
+
+def refline(p):
+    return ' · '.join(x for x in (p.get('ref'), p.get('version')) if x)
+
+
+def quote_check(q):
+    """Add up the quote's lines and report any total that does not match (the quote is printed as written either way)."""
+    num = lambda v: float(re.sub(r'[^0-9.]', '', v))
+    warn, grand = [], 0
+    for sec in q['sections']:
+        if sec.get('items') and sec.get('total'):
+            t = sum(num(a) for _, a in sec['items'])
+            if abs(t - num(sec['total'][1])) > 0.005: warn.append('%s: lines add up to £%.2f, total says %s' % (sec['title'], t, sec['total'][1]))
+        if sec.get('total'): grand += num(sec['total'][1])
+    if q.get('summary') and abs(grand - num(q['summary'][0][1])) > 0.005:
+        warn.append('grand total: sections add up to £%.2f, quote says %s' % (grand, q['summary'][0][1]))
+    return warn
+
+
+def quote_page(p, n):
+    q = p['quote']
+    money = lambda a, b, strong=False: '<tr%s><td>%s</td><td style="text-align:right;white-space:nowrap">%s</td></tr>' % (' class="tot"' if strong else '', E(a), E(b))
+    def sec(x):
+        h = ['<div class="qsec"><h3>%s</h3>' % E(x['title'])]
+        if x.get('lines'): h.append('<p class="ql">%s</p>' % '<br>'.join(E(l) for l in x['lines']))
+        if x.get('bullets'): h.append('<ul class="qb">%s</ul>' % ''.join('<li>%s</li>' % E(l) for l in x['bullets']))
+        rows = ''.join(money(a, b) for a, b in x.get('items', []))
+        if x.get('total'): rows += money(x['total'][0], x['total'][1], True)
+        if rows: h.append('<table class="qt">%s</table>' % rows)
+        if x.get('note'): h.append('<div class="note" style="margin:2mm 0 0">%s</div>' % E(x['note']))
+        h.append('</div>')
+        return ''.join(h)
+    S = q['sections']
+    half = q.get('split', (len(S) + 1) // 2)
+    summ = ''.join('<tr><td>%s</td><td style="text-align:right;white-space:nowrap">%s</td></tr>' % (E(a), E(b)) for a, b in q.get('summary', []))
+    body = '''<div class="cols" style="grid-template-columns:1fr 1fr;gap:9mm;align-items:start">
+<div><p style="font-size:8.6pt">%s</p>%s</div>
+<div>%s
+ <div class="card dark" style="margin-top:2mm"><h3 style="color:#C9A96E">Summary of costs</h3><table class="qsum">%s</table></div>
+ <p class="mute" style="font-size:7pt;margin-top:3mm"><b>%s.</b> %s</p></div>
+</div>''' % (E(q['intro']), ''.join(sec(x) for x in S[:half]), ''.join(sec(x) for x in S[half:]), summ,
+             E(q.get('notice_title', 'Important notice')), E(q.get('notice', '')))
+    return c_page(p, q.get('title', 'Your quotation'), 'Your quotation', body, n)
+
+
+def renders_page(p, n):
+    R = p['renders'][1:5]
+    cells = ''.join('<div style="border-radius:2mm;background:url(%s) center/cover"></div>' % pic(r, 130, 71, q=82, ppm=8) for r in R)
+    if len(R) == 3:
+        cells += ('<div class="card" style="display:flex;flex-direction:column;justify-content:center"><h3>Your design in 3D</h3>'
+                  '<p style="font-size:8.6pt">These views are rendered from your design, so you can see how the finishes, handles and worktops work together before anything is made.</p>'
+                  '<p class="mute" style="font-size:7.6pt;margin:0">3D views are a guide to the look of your kitchen. Lighting, colours and props such as furniture and appliances shown may differ from the finished room.</p></div>')
+    body = '<div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:71mm 71mm;gap:5mm">%s</div>' % cells
+    return c_page(p, 'Your design in 3D', 'How your kitchen will look', body, n)
 
 
 def f_page(p, stage, label, title, body, n):
@@ -282,10 +347,11 @@ def terms_pages(p, start_n, npages=4):
 
 # ------------------------------------------------------------------ customer pack
 def customer(p):
-    H, room = p['heights'], p['room']
+    H, room = p.get('heights'), p.get('room')
+    has_plan = bool(p.get('units'))
     pages = []
     # 1 cover
-    photo = pic(p['cover_photo'], 185, 210, '50% 50%')
+    photo = pic(p['renders'][0] if p.get('renders') else p['cover_photo'], 185, 210, p.get('cover_pos', '50% 50%'))
     logo = b64(LOGO, 'image/png') if LOGO else ''
     pages.append('''<section class="pg" style="background:#0E1B1A;color:#F3EEE6">
 <div class="bleed" style="position:absolute;left:0;top:0;bottom:0;width:112mm;padding:16mm 14mm 14mm 17mm">
@@ -300,9 +366,9 @@ def customer(p):
 <div class="bleed" style="position:absolute;right:6mm;bottom:6mm;max-width:90mm;font:400 6.8pt/1.4 'DM Sans';color:#fff;background:rgba(14,27,26,.62);padding:1.6mm 2.4mm;border-radius:1mm">%s</div>
 </section>''' % (logo, E(p['project']), sample_tag(p),
                  ''.join('<tr><td style="color:#C9A96E;font:600 6.4pt/1.9 \'DM Sans\';letter-spacing:.14em;text-transform:uppercase;width:28mm;vertical-align:top">%s</td><td>%s</td></tr>' % (E(a), E(b)) for a, b in (
-                     ('Prepared for', p['client']), ('Address', p['address']), ('Your designer', p['designer']),
-                     ('Reference', '%s · %s' % (p['ref'], p['version'])), ('Issued', p['issued']))),
-                 photo, E(p['cover_note'])))
+                     ('Prepared for', p.get('client')), ('Address', p.get('address')), ('Your designer', p.get('designer')),
+                     ('Reference', refline(p)), ('Issued', p.get('issued'))) if b),
+                 photo, E(p.get('cover_note', ''))))
     n = 2
     # 2 welcome + design at a glance
     spec = ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(a), E(b)) for a, b in p['style'])
@@ -326,6 +392,12 @@ def customer(p):
 <div class="card"><h3>Your design at a glance</h3><table class="spec">%s</table></div>
 </div>''' % (E(p['designer']), PHONE, WA, EMAIL, E(ADDR), spec)
     pages.append(c_page(p, 'Welcome to your kitchen', 'Your design at a glance', body, n)); n += 1
+    if p.get('renders') and len(p['renders']) > 1:
+        pages.append(renders_page(p, n)); n += 1
+    if not has_plan:
+        if p.get('quote'):
+            pages.append(quote_page(p, n)); n += 1
+        return customer_rest(p, pages, n)
     # 3 floor plan
     isl = [u for u in p['units'] if u['cat'] == 'island']
     wA = min(u['y'] for u in isl) - 560 if isl else 0
@@ -375,6 +447,12 @@ def customer(p):
 </div>''' % (item_table(p['appliances'], ('', 'Appliance', 'Fitted in')), item_table(p['sink'], ('', 'Item', 'Fitted in')),
              worktop_rows(p), item_table(p['lighting'], ('', 'Item', 'Qty'), by=False), item_table(p['trims'], ('', 'Item', 'Qty'), by=False), sup)
     pages.append(c_page(p, "What's included: appliances, worktops and finishing", 'The rest of your kitchen', body, n)); n += 1
+    if p.get('quote'):
+        pages.append(quote_page(p, n)); n += 1
+    return customer_rest(p, pages, n)
+
+
+def customer_rest(p, pages, n):
     # 7 journey
     steps = [('Survey and measure', 'Our surveyor visits, measures the room and talks through what you want.'),
              ('Your design', 'Your designer turns the survey into your 3D design and an itemised quotation.'),
@@ -455,12 +533,12 @@ def customer(p):
  <p class="mute" style="font-size:6.9pt;margin-top:3mm">%s</p>
 </div>
 <div class="card dark"><h3 style="color:#C9A96E">Design sign-off</h3>
- <p style="font-size:8.4pt">I have checked the plans, wall views and item lists in this pack (reference %s, %s) and approve the design for production.</p>
+ <p style="font-size:8.4pt">%s</p>
  <div style="border:.3mm solid rgba(201,169,110,.6);border-radius:1.5mm;padding:3mm 3.4mm;font-size:8pt;color:#e8e1d3;margin-top:3mm"><b style="color:#C9A96E">Bespoke goods.</b> %s</div>
  <div class="sig" style="margin-top:12mm"><div style="border-color:#C9A96E;color:#9fb0aa">Signed</div><div style="border-color:#C9A96E;color:#9fb0aa">Name</div><div style="border-color:#C9A96E;color:#9fb0aa">Date</div></div>
  <div class="sig" style="margin-top:12mm"><div style="border-color:#C9A96E;color:#9fb0aa">For ABJ Kitchens &amp; Bedrooms</div><div style="border-color:#C9A96E;color:#9fb0aa">Name</div><div style="border-color:#C9A96E;color:#9fb0aa">Date</div></div>
 </div></div>''' % (E(find('4.1 ').replace('4.1 ', '')), E(find('The remaining 50% balance')), E(find('Delivery, installation, or collection will NOT')),
-                   E(fin), E(p['ref']), E(p['version']), E(bespoke))
+                   E(fin), E(p.get('signoff') or ('I have checked the plans, wall views and item lists in this pack (reference %s) and approve the design for production.' % refline(p))), E(bespoke))
     pages.append(c_page(p, 'Payment, finance and sign-off', 'Before production starts', body, n)); n += 1
     # 12+ terms
     tp = terms_pages(p, n); pages += tp; n += len(tp)
@@ -598,7 +676,11 @@ def main():
     problems = []
     with sync_playwright() as pw:
         b = pw.chromium.launch()
+        if p.get('quote'):
+            for w in quote_check(p['quote']): print('  ! quote check:', w)
         for name, fn in (('customer-pack', customer), ('fitter-pack', fitter)):
+            if name == 'fitter-pack' and not p.get('units'):
+                print('  (no unit data in the project file, so no fitter pack)'); continue
             out = os.path.join(outdir, '%s-%s.pdf' % (slug, name))
             bad = render(fn(p), out, b)
             print(out, os.path.getsize(out) // 1024, 'KB', 'OK' if not bad else 'PROBLEMS')

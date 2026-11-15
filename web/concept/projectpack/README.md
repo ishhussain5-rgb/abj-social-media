@@ -16,6 +16,12 @@ Two A4 landscape PDFs built from one project file:
    Needs Python with Pillow, segno and Playwright. The build stops with a list if anything runs off a page.
 3. **Never commit a real client's project file or pack here: this repository is public.** Keep them in Google Drive.
 
+## Adding the quotation and 3D views
+
+- `"quote"`: the quotation Alex sends, typed in exactly as written (sections, line items, totals, summary, notice). It becomes a "Your quotation" page, and the build checks that the lines add up to the totals.
+- `"renders"`: paths to the designer's 3D views. The first goes on the cover; the next three or four go on a "Your design in 3D" page.
+- No `"units"` (no unit-by-unit design yet)? The pack skips the plan, wall and item pages and the fitter's pack, and still builds the customer pack from the quote.
+
 ## Wording sources
 
 - `data/terms.txt`: the live Terms and Conditions page, word for word (check it still matches the site before each batch).
