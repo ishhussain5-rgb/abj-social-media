@@ -808,3 +808,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   rec5849896303, indexable, canonical to itself, built with golive.py (`out-live/project-park-road.full.html` @fcc5846,
   layer included). Checked: one H1, no DEV links, no sideways scroll at 1920 and 390. Not yet linked from other pages.
 - Tilda catalogue: empty "FRUITS" category deleted (Ish's OK). Catalogue has no products.
+- 15 Nov (late): planner now covers all 15 services with a cost guide (ROOMS in build_planner.py: wording template, popularity
+  order, what is priced separately, real photos; slider range and quick picks are worked out from the bands). Room picker sits
+  above the planner (two rows on desktop, a dropdown at 1100px and below). Photo frame capped at 620px so no photo is upscaled.
+- Budget planner LIVE (Ish: "make live now"): /budget-planner, Tilda 389698703, rec5849969403, indexable, canonical to itself,
+  `out-live/budget-planner.full.html` @6882939. Strips (`calc/planner_<key>.live.html`, link to /budget-planner) inserted
+  before "How it works" on all 15 live service pages and (DEV versions) on all 15 DEV service pages, each published on its own.
+  Insert is add-only (checked: new code minus the strip equals the old code). Backups: IndexedDB `abj_svc_bak`, keys
+  `live-<pageid>-before-budget-strip-20261115b` and `<pageid>-dev-before-budget-strip-20261115b`.
+  Runner: abjStrips() loads each page's editor in a hidden iframe from one editor tab (record code is not in the editor HTML).
+- Bands NOT changed. Published UK averages checked for the estimated services: alcoves (Checkatrade £500-£4,000, average
+  £2,250; housedesigner £850-£1,500 per alcove, £1,800-£4,000 a pair), under-stairs (Checkatrade £1,000-£2,500, average
+  £1,750 + VAT), wall panelling (Checkatrade £50-£400/m2, average £225 + VAT). Our bands sit inside those ranges, below the
+  averages. No published averages found for storage, home office, hallway or bathroom cabinetry. Waiting on Ish/Alex.
