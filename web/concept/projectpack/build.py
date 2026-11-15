@@ -189,7 +189,7 @@ def refline(p):
 
 def quote_check(q):
     """Add up the quote's lines and report any total that does not match (the quote is printed as written either way)."""
-    num = lambda v: float(re.sub(r'[^0-9.]', '', v))
+    num = lambda v: float(re.sub(r'[^0-9.]', '', v)) * (-1 if re.match(r'\s*[-−–]', v) else 1)
     warn, grand = [], 0
     for sec in q['sections']:
         if sec.get('items') and sec.get('total'):
@@ -233,7 +233,7 @@ def renders_page(p, n):
     if len(R) == 3:
         cells += ('<div class="card" style="display:flex;flex-direction:column;justify-content:center"><h3>Your design in 3D</h3>'
                   '<p style="font-size:8.6pt">These views are rendered from your design, so you can see how the finishes, handles and worktops work together before anything is made.</p>'
-                  '<p class="mute" style="font-size:7.6pt;margin:0">3D views are a guide to the look of your kitchen. Lighting, colours and props such as furniture and appliances shown may differ from the finished room.</p></div>')
+                  '<p class="mute" style="font-size:7.6pt;margin:0">3D views are a guide to the look of your kitchen. Lighting, colours and props such as furniture and appliances shown may differ from the finished room.</p>%s</div>' % (('<div class="note" style="margin:3mm 0 0">%s</div>' % E(p['renders_note'])) if p.get('renders_note') else ''))
     body = '<div style="display:grid;grid-template-columns:1fr 1fr;grid-template-rows:71mm 71mm;gap:5mm">%s</div>' % cells
     return c_page(p, 'Your design in 3D', 'How your kitchen will look', body, n)
 
@@ -346,6 +346,50 @@ def terms_pages(p, start_n, npages=4):
 
 
 # ------------------------------------------------------------------ customer pack
+def fit_img(path, wmm, hmm, crop=None, ppm=10):
+    """A drawing (plan or wall view) shown whole, as large as fits in wmm x hmm."""
+    im = Image.open(path).convert('L')
+    if crop:
+        W, H = im.size; im = im.crop((round(crop[0] * W), round(crop[1] * H), round(crop[2] * W), round(crop[3] * H)))
+    k = min(wmm / im.width, hmm / im.height)
+    w, h = im.width * k, im.height * k
+    if im.width > w * ppm: im = im.resize((round(w * ppm), round(h * ppm)), Image.LANCZOS)
+    buf = io.BytesIO(); im.save(buf, 'PNG', optimize=True)
+    return '<img src="data:image/png;base64,%s" style="width:%.1fmm;height:%.1fmm;display:block;margin:0 auto">' % (base64.b64encode(buf.getvalue()).decode(), w, h)
+
+
+def design_page(p, d, n):
+    """One page of the designer's own drawings: images stacked on the left, a short guide on the right."""
+    im = d['images']
+    gap, lab = 4, 6
+    each = (150 - gap * (len(im) - 1)) / len(im)
+    cells = ''.join('<div style="height:%.1fmm;background:#fff;border:.25mm solid rgba(14,27,26,.12);border-radius:2mm;padding:2mm 3mm;box-sizing:border-box%s">'
+                    '<div style="font:600 6.6pt/%dmm \'DM Sans\';letter-spacing:.13em;text-transform:uppercase;color:#a7864c">%s</div>%s</div>' % (
+                        each, ';margin-top:%dmm' % gap if i else '', lab, E(x.get('label', '')), fit_img(x['src'], 196, each - lab - 5, x.get('crop')))
+                    for i, x in enumerate(im))
+    c = d.get('card', {})
+    side = '<div class="card"><h3>%s</h3>%s%s%s</div>' % (
+        E(c.get('title', 'How to read this page')), ''.join('<p style="font-size:8.2pt">%s</p>' % E(t) for t in c.get('text', [])),
+        ('<table class="spec">%s</table>' % ''.join('<tr><td>%s</td><td>%s</td></tr>' % (E(a), E(b)) for a, b in c['facts'])) if c.get('facts') else '',
+        ('<p class="mute" style="font-size:7.4pt;margin:3mm 0 0">%s</p>' % E(c['small'])) if c.get('small') else '')
+    body = '<div class="cols" style="grid-template-columns:1fr 62mm"><div>%s</div><div>%s</div></div>' % (cells, side)
+    return c_page(p, d['title'], d.get('kicker', 'Your design drawings'), body, n)
+
+
+def included_page(p, n):
+    """What is in the price, as plain lists (for projects without full unit data)."""
+    I = p['included']
+    def grp(g):
+        rows = ''.join('<tr><td><b>%s</b></td><td style="text-align:right;white-space:nowrap">%s</td></tr>' % (E(a), E(b)) for a, b in g.get('rows', []))
+        return '<div style="margin-bottom:5mm"><h2>%s</h2>%s%s%s</div>' % (
+            E(g['title']), ('<table class="tbl">%s</table>' % rows) if rows else '',
+            ('<ul style="margin:1mm 0 0 4mm;font-size:8.2pt;line-height:1.6">%s</ul>' % ''.join('<li>%s</li>' % E(x) for x in g['bullets'])) if g.get('bullets') else '',
+            ('<div class="note%s" style="margin:3mm 0 0">%s</div>' % (' warn' if g.get('warn') else '', E(g['note']))) if g.get('note') else '')
+    cols = ''.join('<div>%s</div>' % ''.join(grp(g) for g in col) for col in I['columns'])
+    body = '<div class="cols" style="grid-template-columns:%s;gap:8mm;align-items:start">%s</div>' % (' '.join(['1fr'] * len(I['columns'])), cols)
+    return c_page(p, I.get('title', "What's included"), I.get('kicker', 'Everything in your price'), body, n)
+
+
 def customer(p):
     H, room = p.get('heights'), p.get('room')
     has_plan = bool(p.get('units'))
@@ -394,7 +438,11 @@ def customer(p):
     pages.append(c_page(p, 'Welcome to your kitchen', 'Your design at a glance', body, n)); n += 1
     if p.get('renders') and len(p['renders']) > 1:
         pages.append(renders_page(p, n)); n += 1
+    for d in p.get('design_pages', []):
+        pages.append(design_page(p, d, n)); n += 1
     if not has_plan:
+        if p.get('included'):
+            pages.append(included_page(p, n)); n += 1
         if p.get('quote'):
             pages.append(quote_page(p, n)); n += 1
         return customer_rest(p, pages, n)

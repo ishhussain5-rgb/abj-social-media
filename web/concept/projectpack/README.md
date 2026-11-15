@@ -20,6 +20,9 @@ Two A4 landscape PDFs built from one project file:
 
 - `"quote"`: the quotation Alex sends, typed in exactly as written (sections, line items, totals, summary, notice). It becomes a "Your quotation" page, and the build checks that the lines add up to the totals.
 - `"renders"`: paths to the designer's 3D views. The first goes on the cover; the next three or four go on a "Your design in 3D" page.
+- `"design_pages"`: the designer's own drawings (plan and wall views exported from the design software, cropped so no customer address or phone number shows). Each entry is one page: `title`, `kicker`, `images` (`src`, `label`, optional `crop` as fractions) and a side `card` (`title`, `text`, `facts`, `small`).
+- `"included"`: plain lists of what is in the price (`columns` of groups with `rows`, `bullets` and an optional `note`), for jobs without unit-by-unit data.
+- `"renders_note"`: a line under the 3D views, for example when they show items that are not in the quotation.
 - No `"units"` (no unit-by-unit design yet)? The pack skips the plan, wall and item pages and the fitter's pack, and still builds the customer pack from the quote.
 
 ## Wording sources
