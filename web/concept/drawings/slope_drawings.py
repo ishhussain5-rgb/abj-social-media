@@ -138,14 +138,15 @@ def section():
             '<rect width="760" height="670" fill="%s"/>' % LIN + ''.join(o) + '</svg>')
 
 
-CSS = ('<style>#kc .drw{padding:clamp(72px,7vw,130px) 0;background:var(--lin)}'
-       '#kc .drw .g2{display:grid;grid-template-columns:920fr 760fr;align-items:start;gap:clamp(20px,2.4vw,44px)}'
+CSS = ('<style>#kc .drw{padding:clamp(40px,3.6vw,64px) 0;background:var(--lin)}#kc .drw .sh{margin-bottom:clamp(20px,2vw,32px)}'
+       '#kc .drw .s2b{display:none;margin-top:14px;width:100%;padding:13px 16px;background:none;border:1px solid var(--hair);font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);cursor:pointer}'
+       '#kc .drw .g2{display:grid;grid-template-columns:920fr 760fr;align-items:start;max-width:1180px;gap:clamp(20px,2.4vw,44px)}'
        '#kc .drw figure{margin:0;background:var(--lin);border:1px solid var(--hair);min-width:0}#kc .drw .sc{overflow-x:auto;-webkit-overflow-scrolling:touch}#kc .drw svg{display:block;width:100%;height:auto}'
        '#kc .drw .sw{display:none;padding:10px 20px 0;font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gd,#8A6A2F)}'
        '#kc .drw figcaption{padding:16px 20px 20px;border-top:1px solid var(--hair);font:400 15px/1.55 var(--sans);color:var(--mut)}'
        '#kc .drw figcaption b{display:block;font-weight:600;color:var(--ink);margin-bottom:4px}'
        '#kc .drw .nt{margin-top:22px;font:400 13.5px/1.5 var(--sans);color:var(--mut)}'
-       '@media(max-width:900px){#kc .drw .g2{grid-template-columns:1fr}}@media(max-width:640px){#kc .drw svg{width:560px;max-width:none}#kc .drw .s2 svg{width:530px}#kc .drw .sw{display:block}}</style>')
+       '@media(max-width:900px){#kc .drw .g2{grid-template-columns:1fr}}@media(max-width:640px){#kc .drw svg{width:560px;max-width:none}#kc .drw .s2 svg{width:530px}#kc .drw .sw{display:block}#kc .drw .s2b{display:block}#kc .drw .s2:not(.op){display:none}}</style>')
 
 
 def html():
@@ -156,9 +157,10 @@ def html():
             '  <figure class="rv"><div class="sw" aria-hidden="true">&larr; Swipe to see the full drawing</div><div class="sc">' + elevation() + '</div><figcaption><b>Front view: following the roofline</b>Long hanging goes where the ceiling is highest, double hanging next, then a shelf with short hanging, and drawers where the slope comes down to the knee wall.</figcaption></figure>\n'
             '  <figure class="rv s2"><div class="sw" aria-hidden="true">&larr; Swipe to see the full drawing &rarr;</div><div class="sc">' + section() + '</div><figcaption><b>Side view: using the eaves void</b>Drawers can be built into the knee wall and run back into the space behind it. We keep a hatch for access to the rest of the void and any pipework.</figcaption></figure>\n'
             ' </div>\n'
+            ' <button class="s2b" type="button" aria-expanded="false">See the side view through the eaves</button>\n'
             ' <p class="nt rv">Drawings show a typical layout. Every design is measured to your room at the free design visit.</p>\n'
             '</div></section>\n'
-            '<script>(function(){var s=document.querySelectorAll("#kc .drw .sc");if(s.length<2)return;var a=s[0],b=s[1];if(a.scrollWidth>a.clientWidth)a.scrollLeft=a.scrollWidth;if(b.scrollWidth>b.clientWidth)b.scrollLeft=Math.round(b.scrollWidth*.26)})();</script>\n')
+            '<script>(function(){var r=document.querySelector("#kc .drw");if(!r)return;var s=r.querySelectorAll(".sc");if(s.length<2)return;var a=s[0],b=s[1];if(a.scrollWidth>a.clientWidth)a.scrollLeft=a.scrollWidth;var f=r.querySelector(".s2"),t=r.querySelector(".s2b");if(t&&f)t.addEventListener("click",function(){var o=f.classList.toggle("op");t.setAttribute("aria-expanded",o?"true":"false");t.textContent=o?"Hide the side view":"See the side view through the eaves";if(o&&b.scrollWidth>b.clientWidth)b.scrollLeft=Math.round(b.scrollWidth*.26)})})();</script>\n')
 
 
 if __name__ == '__main__':
