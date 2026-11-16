@@ -1,9 +1,9 @@
 <style>/* legal pages: clauses fold on phones, 16 Nov 2026 */
 @media (max-width:760px){
 #kc .lgw .tx h2.lgf{margin:0;padding:0;border-top:1px solid rgba(14,27,26,.14)}
-#kc .lgw .tx h2.lgf .lgt{display:block;width:100%;min-height:48px;padding:14px 40px 14px 0;margin:0;border:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;position:relative}
-#kc .lgw .tx h2.lgf .lgt::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font:400 24px/1 'DM Sans',sans-serif;color:#C9A96E}
-#kc .lgw .tx h2.lgf .lgt[aria-expanded="true"]::after{content:"\2212"}
+#kc .lgw .tx h2.lgf .lgq{display:block;width:100%;min-height:48px;padding:14px 40px 14px 0;margin:0;border:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;position:relative}
+#kc .lgw .tx h2.lgf .lgq::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font:400 24px/1 'DM Sans',sans-serif;color:#C9A96E}
+#kc .lgw .tx h2.lgf .lgq[aria-expanded="true"]::after{content:"\2212"}
 #kc .lgw .tx .lgb{padding:2px 0 18px}
 #kc .lgw .tx .lgb[hidden]{display:none}
 #kc .lgw .tx .lgall{display:inline-block;margin:6px 0 18px;padding:12px 0;min-height:44px;border:0;background:none;font:600 12px/1.4 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#16302C;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
@@ -24,7 +24,7 @@
       var n=h.nextSibling;
       while(n&&!(n.nodeType===1&&n.tagName==='H2')){var x=n.nextSibling;b.appendChild(n);n=x}
       h.parentNode.insertBefore(b,h.nextSibling);
-      var t=document.createElement('button');t.type='button';t.className='lgt';
+      var t=document.createElement('button');t.type='button';t.className='lgq';
       t.setAttribute('aria-expanded','false');t.setAttribute('aria-controls',b.id);
       while(h.firstChild)t.appendChild(h.firstChild);
       h.appendChild(t);h.classList.add('lgf');
