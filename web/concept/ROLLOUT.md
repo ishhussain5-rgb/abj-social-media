@@ -907,3 +907,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   drawer, blog header/footer 18 Oct, desktop nav, mobile polish) on home, kitchens, Stamford, blog list, a blog article,
   booking and the 404 page at 390 and 1440. Identical on the main pages, but on phones the old scripts still draw the blog
   article header and the 404 "Sorry, we couldn't find that page" banner. So they are NOT dead: left exactly as they are.
+- Kitchens DEV (352648603 / rec5644015603), 16 Nov evening: 4 new FAQs (guarantee, old kitchen removal + plumbing/electrics,
+  showroom visit, areas covered) added after the existing 5 and to the block's FAQPage JSON-LD (now 9); phone-only spacing
+  (section padding, project photo 340px, FAQ rows) appended as a <style>. Phone height 10,141 -> 9,737px (the phone layer folds
+  FAQs 6-9 behind "More questions (4)"). Desktop unchanged. Backup `dev-352648603-5644015603-before-faqs-phone-20261116`.
+  Note: the page also has a second FAQPage (5 questions) outside the block, so two FAQPage objects: merge into one at go-live.
+  Price wording ("start from £5,000") left until Ish/Alex settle the bands.
