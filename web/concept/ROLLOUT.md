@@ -869,3 +869,21 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   line drawings (front view doors off; side section through the eaves) from `drawings/slope_drawings.py`, measured in cm, with
   a note that they show a typical layout. Phone: drawings scroll sideways (swipe hint), opening on the slope end.
   Backup key `dev-377339703-5698354303-before-drawings-20261116`. Live needs Ish's OK.
+- Live run done: all 64 live pages (63 sitemap + 404) checked on the published site: 0 mailto links, "Send an enquiry" +
+  "Enquire" both to /bookingform, footer links present. Blog article checked at 390 and 1440 after /abjfeeds republish.
+- Tracking checked on live /bespoke-wardrobes: phone tap -> phone_call + cta_tap (gtag and dataLayer for GTM), WhatsApp ->
+  whatsapp_click; Meta pixel loaded; booking form posts with fetch, which the head wrapper turns into generate_lead + Meta Lead.
+  GA4 (Tilda analytics) starts 2 s after load. GA4 key-event settings not checked (no GA access from here).
+- Site HEAD inventory (65,490 of 65,535 chars, 36 items): biggest are the old menu/header scripts that only build hidden markup on
+  the new pages: abjm mobile header+menu 14.5k (builds #abjm-header, display:none, plus an extra Google Fonts request on phones),
+  unified menu drawer 5.2k, blog header/footer 18 Oct 5.0k, mobile polish 6.3k, desktop nav 3.2k. Proposal (needs OK because of
+  the no-removal rule): move them unchanged into one pinned file, or switch them off; either frees ~34k.
+- Image size audit (16 Nov, every live page at 1440 and 390, natural vs shown size incl. object-fit cover), stretched > 5%:
+  town heroes use cut-down copies: Stamford 959 (x1.55, phone x1.29), Grantham 844 (x1.77, phone x1.44), Oakham 959 (x1.58,
+  phone x1.42), Spalding 959 (x1.58), Bourne 1090 (x1.39), St Ives 1090 (x1.38), Corby 1090 (x1.37), Cambridge 1239 (x1.34),
+  Oundle/Deeping/St Neots 1239 (x1.2), Ely 1408 (x1.14), Wisbech/Fenland 1408 (x1.06). Fix ready: hero_srcset.js (adds the
+  1680 originals via srcset), not run: needs OK for live edits.
+  Small source photos as full-width heroes (need bigger real photos): under-stairs UnderStair16 640 (x2.36), cabinet makers
+  Cabinet48 640 (x2.34), kitchen cost guide 640 (x2.33), media wall cost guide 640 (x2.33, phone x1.96), alcove 866 (x1.73),
+  office fit-out 1300 (x1.5), sliding walnut 1080 (x1.4), utility 1080 (x1.33), showroom 1200 (x1.24); Kings Road case study
+  photo 249 px on phones (x1.51).
