@@ -849,3 +849,23 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Cut & Edge link each present once. build.py footer now carries the fitters link and the .co.uk address for future builds.
   Still to log in Plaky (weekly batch): project pack example, Park Road project page, budget planner + strips, footer links,
   Cut & Edge link, showroom links, kitchen fitters page, FRUITS category removed.
+
+## 16 Nov 2026 (evening): DEV footers, info@ hidden, sloping drawings, blog chrome
+- `foot_links2.js` (abjFoot3): one add-only pass per page. Footer links Media wall project (after Case study / Projects),
+  Budget planner (after Finance / Finance options), Kitchen fitters (after Kitchen design); clickable info@ links swapped:
+  footer "Email us" -> "Send an enquiry", menu "Email" -> "Enquire", both to the booking form. Integrity check: stripping the new
+  links and undoing the swap must give back the old code exactly. Backups in IndexedDB `abj_svc_bak` on tilda.cc,
+  keys `<dev|live>-<pageid>-<recordid>-before-foot3-20261116`.
+- DEV: all 62 DEV pages done and published (page_ids.json `dev` now lists all 62; 8 added). Verified on the published pages:
+  3 links + 2 enquiry links, 0 mailto each.
+- Live: email swap only (`{links:false}`), all 64 live pages.
+- The info@ address still appears (not clickable) in the JSON-LD business data on every page and in the text of the privacy,
+  terms, payment terms and booking pages. Left as is: legal pages need a contact address; schema email is optional.
+- build.py: menu and footer use BOOK for the enquiry links (no mailto left in the generators).
+- Blog articles: out-live/post-chrome.html footer brought in line with live (kitchen design, kitchen fitters, utility, media wall
+  project, budget planner, showroom link, Cut & Edge .co.uk, enquiry links). Site HEAD pin 38e6be3 -> 12cb901 (same length,
+  HEAD still 65,490 chars). Site HEAD before the change: IndexedDB `abj_svc_bak` key `sitehead-20261116`.
+- #176 sloping-ceiling page (DEV 377339703 / rec5698354303): new "Design drawings" section before the review: two inline SVG
+  line drawings (front view doors off; side section through the eaves) from `drawings/slope_drawings.py`, measured in cm, with
+  a note that they show a typical layout. Phone: drawings scroll sideways (swipe hint), opening on the slope end.
+  Backup key `dev-377339703-5698354303-before-drawings-20261116`. Live needs Ish's OK.
