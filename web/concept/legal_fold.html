@@ -1,0 +1,44 @@
+<style>/* legal pages: clauses fold on phones, 16 Nov 2026 */
+@media (max-width:760px){
+#kc .lgw .tx h2.lgf{margin:0;padding:0;border-top:1px solid rgba(14,27,26,.14)}
+#kc .lgw .tx h2.lgf .lgt{display:block;width:100%;min-height:48px;padding:14px 40px 14px 0;margin:0;border:0;background:none;color:inherit;font:inherit;letter-spacing:inherit;text-align:left;cursor:pointer;position:relative}
+#kc .lgw .tx h2.lgf .lgt::after{content:"+";position:absolute;right:6px;top:50%;transform:translateY(-50%);font:400 24px/1 'DM Sans',sans-serif;color:#C9A96E}
+#kc .lgw .tx h2.lgf .lgt[aria-expanded="true"]::after{content:"\2212"}
+#kc .lgw .tx .lgb{padding:2px 0 18px}
+#kc .lgw .tx .lgb[hidden]{display:none}
+#kc .lgw .tx .lgall{display:inline-block;margin:6px 0 18px;padding:12px 0;min-height:44px;border:0;background:none;font:600 12px/1.4 'DM Sans',sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#16302C;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+}
+@media print{#kc .lgw .tx .lgb[hidden]{display:block!important}#kc .lgw .tx .lgall{display:none}}
+</style>
+<script>(function(){
+  function run(){
+    if(!window.matchMedia||!matchMedia('(max-width:760px)').matches)return;
+    var tx=document.querySelector('#kc .lgw .tx');
+    if(!tx||tx.getAttribute('data-fold'))return;
+    var hs=[].slice.call(tx.children).filter(function(e){return e.tagName==='H2'});
+    if(hs.length<4)return;
+    tx.setAttribute('data-fold','1');
+    var btns=[];
+    hs.forEach(function(h,i){
+      var b=document.createElement('div');b.className='lgb';b.id='lgb'+i;b.hidden=true;
+      var n=h.nextSibling;
+      while(n&&!(n.nodeType===1&&n.tagName==='H2')){var x=n.nextSibling;b.appendChild(n);n=x}
+      h.parentNode.insertBefore(b,h.nextSibling);
+      var t=document.createElement('button');t.type='button';t.className='lgt';
+      t.setAttribute('aria-expanded','false');t.setAttribute('aria-controls',b.id);
+      while(h.firstChild)t.appendChild(h.firstChild);
+      h.appendChild(t);h.classList.add('lgf');
+      t.addEventListener('click',function(){var o=b.hidden;b.hidden=!o;t.setAttribute('aria-expanded',o?'true':'false')});
+      btns.push([t,b]);
+    });
+    var all=document.createElement('button');all.type='button';all.className='lgall';all.textContent='Open all sections';
+    all.addEventListener('click',function(){var open=all.getAttribute('data-open')!=='1';
+      btns.forEach(function(p){p[1].hidden=!open;p[0].setAttribute('aria-expanded',open?'true':'false')});
+      all.setAttribute('data-open',open?'1':'0');all.textContent=open?'Close all sections':'Open all sections'});
+    tx.insertBefore(all,hs[0]);
+    function openHash(){var id=location.hash.slice(1);if(!id)return;var el=document.getElementById(id);if(!el)return;
+      btns.forEach(function(p){if(p[1].contains(el)||p[0].parentNode===el){p[1].hidden=false;p[0].setAttribute('aria-expanded','true')}})}
+    openHash();window.addEventListener('hashchange',openHash);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();</script>

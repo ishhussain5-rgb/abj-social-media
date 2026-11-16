@@ -930,3 +930,22 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Long on phones (screens at 390x844): terms 22, payment terms 15, home 12.6, Oakham 12.1, kitchens 12, bedrooms/decors/media
   walls/wardrobes ~11.7 (median page 9.2). Desktop sections taller than one screen: FAQ 1437, budget planner 1382, offers 1257,
   booking 1077, gallery 1826 (plus legal pages and articles, expected).
+
+## Fixes from the full review, 16 Nov 2026 (night)
+- Stretched heroes swapped for full-size real photos in a <picture> (desktop *-hero-d 2400x1500 or the largest that exists,
+  phone *-hero-m), hosted on web-media-t @3d535ec, applied with `hero_pic.js` (abjHeroPic; keeps alt and attributes,
+  backup keys `live-<pid>-<rec>-before-heropic-20261116`):
+  showroom 381512703 = same shot full size (19.12.24 Showroom Shoot IMG_2723); alcove units 377674903 = desktop Laila's living
+  room IMG_7459 (alcove cupboards beside the media wall), phone IMG_8609 (same shot as before, full size), caption now "Alcove
+  cupboards beside a media wall"; sliding wardrobes 377674503 = same walnut shot full size (31.10.24 Eye Property IMG_1106);
+  utility 381512603 = BespokeHallways6 (1686 px, the largest copy there is; 1.17x at 1920, was 1.78x);
+  office fit-out 377674703 = same reception render at 1600 px (largest render; 1.28x at 1920, was 1.5x).
+  At 1920 the showroom, alcove and sliding heroes now show at 0.82x (sharp).
+- Kitchen cost 383065903: the (06) "Appliances & extras" card photo (abj-kitchen-dark-isl, near-identical to the "Dark and
+  dramatic" photo above it) replaced with the showroom ovens + island shot IMG_2571 (heroes/kitchen-cost-appliances.webp
+  1280x1600), alt "Built-in ovens and a hob on a white handleless island at the ABJ showroom". Backup `-before-cardimg-20261116`.
+- Cambridge 241181303: the two landmark photos had sizes="... 708px" but show 784px wide: sizes now 784px so desktop picks
+  the bigger copy. Backup `-before-sizes-20261116`.
+- Article "How to choose a kitchen fitter": the green kitchen photo (only 504x467 exists) is now shown at its own size,
+  centred (figure max-width:504px), edited in Tilda Feeds; old embed in the feeds tab localStorage
+  `abj_post_fitter_embed_before_20261116`.
