@@ -913,3 +913,20 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   FAQs 6-9 behind "More questions (4)"). Desktop unchanged. Backup `dev-352648603-5644015603-before-faqs-phone-20261116`.
   Note: the page also has a second FAQPage (5 questions) outside the block, so two FAQPage objects: merge into one at go-live.
   Price wording ("start from £5,000") left until Ish/Alex settle the bands.
+- Sloping drawings section (DEV + live): padding clamp(40px,3.6vw,64px), figures capped at 1060px: 887px tall at 1440x900,
+  856 at 1920 (was 1059). Phones: side view behind "See the side view through the eaves" (section 1047 vs 1734).
+
+## Full site review, 16 Nov 2026 evening (all 63 sitemap pages + 8 articles + 404, at 390 and 1440)
+- Clean: no sideways scroll, no broken images, no broken internal links (62 checked), no links to -dev- pages, no clickable
+  mailto in page code, one H1 everywhere, titles <=60 chars, descriptions 124-156, canonicals + og:image on every page,
+  no noindex, all JSON-LD parses, one FAQPage per live page, no "10-year" guarantee text (the finance page's "3-10 years" is
+  the loan term), no placeholders.
+- To fix: US spelling "meter(s)" on /under-stairs-storage and two articles (under-stairs ideas, kitchen renovation timeline);
+  stretched photos (desktop): alcove units x1.72, office fit-out x1.5 (phone x1.4), article "how to choose a kitchen fitter"
+  x1.47, sliding wardrobes x1.37, utility x1.37, showroom x1.24, Cambridge x1.19; blog cards/articles use 9.5-10.5px text on
+  phones (dates, tags); phone tap targets: menu button 25px tall, text links 21px, read-more 29px; the hidden old site footer
+  (#abj-site-footer, added by script) still has an "Email us" mailto on 50 pages; kitchen cost page has two near-identical
+  dark-island photos.
+- Long on phones (screens at 390x844): terms 22, payment terms 15, home 12.6, Oakham 12.1, kitchens 12, bedrooms/decors/media
+  walls/wardrobes ~11.7 (median page 9.2). Desktop sections taller than one screen: FAQ 1437, budget planner 1382, offers 1257,
+  booking 1077, gallery 1826 (plus legal pages and articles, expected).
