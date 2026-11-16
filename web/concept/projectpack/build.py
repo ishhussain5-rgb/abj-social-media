@@ -227,6 +227,17 @@ def quote_page(p, n):
     return c_page(p, q.get('title', 'Your quotation'), 'Your quotation', body, n)
 
 
+def quote_more_page(p, n):
+    """Second quotation page for long quotes: q['more'] sections, laid out in two columns."""
+    q = p['quote']; M = q['more']; half = q.get('more_split', (len(M) + 1) // 2)
+    sec = lambda x: ('<div class="qsec"><h3>%s</h3>%s%s</div>' % (E(x['title']),
+        ('<p class="ql">%s</p>' % '<br>'.join(E(l) for l in x['lines'])) if x.get('lines') else '',
+        ('<ul class="qb">%s</ul>' % ''.join('<li>%s</li>' % E(l) for l in x['bullets'])) if x.get('bullets') else ''))
+    body = '<div class="cols" style="grid-template-columns:1fr 1fr;gap:9mm;align-items:start"><div>%s</div><div>%s</div></div>' % (
+        ''.join(sec(x) for x in M[:half]), ''.join(sec(x) for x in M[half:]))
+    return c_page(p, q.get('title', 'Your quotation') + ' (continued)', 'Your quotation', body, n)
+
+
 def renders_page(p, n):
     R = p['renders'][1:5]
     cells = ''.join('<div style="border-radius:2mm;background:url(%s) center/cover"></div>' % pic(r, 130, 71, q=82, ppm=8) for r in R)
@@ -346,9 +357,9 @@ def terms_pages(p, start_n, npages=4):
 
 
 # ------------------------------------------------------------------ customer pack
-def fit_img(path, wmm, hmm, crop=None, ppm=10):
+def fit_img(path, wmm, hmm, crop=None, ppm=10, colour=False):
     """A drawing (plan or wall view) shown whole, as large as fits in wmm x hmm."""
-    im = Image.open(path).convert('L')
+    im = Image.open(path).convert('RGB' if colour else 'L')
     if crop:
         W, H = im.size; im = im.crop((round(crop[0] * W), round(crop[1] * H), round(crop[2] * W), round(crop[3] * H)))
     k = min(wmm / im.width, hmm / im.height)
@@ -365,7 +376,7 @@ def design_page(p, d, n):
     each = (150 - gap * (len(im) - 1)) / len(im)
     cells = ''.join('<div style="height:%.1fmm;background:#fff;border:.25mm solid rgba(14,27,26,.12);border-radius:2mm;padding:2mm 3mm;box-sizing:border-box%s">'
                     '<div style="font:600 6.6pt/%dmm \'DM Sans\';letter-spacing:.13em;text-transform:uppercase;color:#a7864c">%s</div>%s</div>' % (
-                        each, ';margin-top:%dmm' % gap if i else '', lab, E(x.get('label', '')), fit_img(x['src'], 196, each - lab - 5, x.get('crop')))
+                        each, ';margin-top:%dmm' % gap if i else '', lab, E(x.get('label', '')), fit_img(x['src'], 196, each - lab - 5, x.get('crop'), colour=x.get('colour', False)))
                     for i, x in enumerate(im))
     c = d.get('card', {})
     side = '<div class="card"><h3>%s</h3>%s%s%s</div>' % (
@@ -445,6 +456,8 @@ def customer(p):
             pages.append(included_page(p, n)); n += 1
         if p.get('quote'):
             pages.append(quote_page(p, n)); n += 1
+            if p['quote'].get('more'):
+                pages.append(quote_more_page(p, n)); n += 1
         return customer_rest(p, pages, n)
     # 3 floor plan
     isl = [u for u in p['units'] if u['cat'] == 'island']
@@ -497,6 +510,8 @@ def customer(p):
     pages.append(c_page(p, "What's included: appliances, worktops and finishing", 'The rest of your kitchen', body, n)); n += 1
     if p.get('quote'):
         pages.append(quote_page(p, n)); n += 1
+        if p['quote'].get('more'):
+            pages.append(quote_more_page(p, n)); n += 1
     return customer_rest(p, pages, n)
 
 
