@@ -126,7 +126,7 @@ def section():
     o.append('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" stroke-width="1"/>' % (X(0) - 8, Y(75), X(-30), Y(112), MUT))
     o.append(t(X(-31), Y(112) - 6, 'Access hatch kept', 12, 'end', MUT, 500))
     o.append(t(X(78), Y(5), 'Eaves void', 12, fill=MUT, weight=600))
-    o.append(t(X(-80), Y(150), 'Loft room', 13, fill=MUT, weight=600))
+    o.append(t(X(-90), Y(128), 'Loft room', 13, fill=MUT, weight=600))
     # dimensions
     o.append('<line x1="%g" y1="%g" x2="%g" y2="%g" stroke="%s" stroke-width="1" stroke-dasharray="3 4"/>' % (X(0) - 8, Y(100), X(-96), Y(100), GD))
     o.append(dim_v(X(-96), Y(0), Y(100), '100 cm'))
