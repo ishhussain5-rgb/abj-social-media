@@ -887,3 +887,23 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Cabinet48 640 (x2.34), kitchen cost guide 640 (x2.33), media wall cost guide 640 (x2.33, phone x1.96), alcove 866 (x1.73),
   office fit-out 1300 (x1.5), sliding walnut 1080 (x1.4), utility 1080 (x1.33), showroom 1200 (x1.24); Kings Road case study
   photo 249 px on phones (x1.51).
+
+## 16 Nov 2026 (later): photos, drawings live, head scripts tested
+- Town heroes (15 live pages): hero_srcset.js added the 1680 px originals to the hero srcset (backup keys
+  `live-<pid>-<rec>-before-herosrcset-20261116`); Huntingdon/Cambridge copy descriptors corrected to 1600w/1239w (Tilda had
+  shortened the file names). Rechecked at 1440/1920/390: desktop now loads the originals. Still slightly stretched: Cambridge
+  (~1.2x at 1440, the landmark photo is a 1680x792 panorama) and Ely (~1.1x); needs a taller landmark photo.
+- New heroes (live), from ABJ's own shoots via the laptop link, hosted on web-media-t @1e572a4 (heroes/*-hero-d 2400x1500 for
+  >480px, *-hero-m 1080x2000 for phones, in <picture>):
+  kitchen cost 383065903 = 41A King's Road IMG_2558; media wall cost 383066003 = 18 Fendale Lane DSC03530;
+  cabinet makers 377674803 = Kitchen Shoot 06.02.24 IMG_7005; under-stairs 377674303 = UnderStair2.2 (only 1365 px: 1.1x at 1440,
+  1.46x at 1920, was 2.36x). Chosen so no photo repeats one already on the page: the under-stairs page's body photo UnderStair2
+  (same shot as the new hero) swapped for the oak-stairs shoe pull-out (WhatsApp 10.09.14 (11)). Hero captions updated to match.
+  Backup keys `live-<pid>-<rec>-before-hero-20261116` / `-before-cap-20261116`.
+- Kitchen cost page already shows two near-identical dark-island photos (abj-kitchen-dark-isl and the Kitchen Shoot pendant
+  shot) plus a near-copy of IMG_6998: worth thinning out.
+- Sloping drawings live on 377674203 / rec5699149203 (backup `live-377674203-5699149203-before-drawings-20261116`).
+- Site HEAD scripts: A/B tested (each page rendered with and without the five old scripts: abjm mobile header, unified menu
+  drawer, blog header/footer 18 Oct, desktop nav, mobile polish) on home, kitchens, Stamford, blog list, a blog article,
+  booking and the 404 page at 390 and 1440. Identical on the main pages, but on phones the old scripts still draw the blog
+  article header and the 404 "Sorry, we couldn't find that page" banner. So they are NOT dead: left exactly as they are.
