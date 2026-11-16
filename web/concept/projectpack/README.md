@@ -30,3 +30,16 @@ Two A4 landscape PDFs built from one project file:
 - `data/terms.txt`: the live Terms and Conditions page, word for word (check it still matches the site before each batch).
 - `data/faq.json`: answers from the website FAQ, word for word.
 - `sample/`: the two sample PDFs from the sample project.
+
+## Optional pages (added 16 Nov 2026)
+
+Each is switched on by a key in the project file (`extra_pages.py`):
+
+- `"finishes"`: large swatches of each finish with an "Approved, initials" line (`items`: `where`, `name`, `text`, `img` or a `placeholder`).
+- `"appliance_checklist"`: rows of appliance and where it goes, with blank make / model number boxes (`rows`, `why`, `how`).
+- `"team"`: the designer (cut-out photo, name, title, short bio), the fitting team, real Google reviews word for word and a QR code to the reviews.
+- `"cross_sell"`: "While we are here" cards (ABJ Accessories, bedrooms, media walls).
+- `"next_step"`: numbered steps to sign, pay the deposit and book production, the price-holds-until date, and "also price for me" tick boxes.
+- `"payments"` and `"finance_example"`: the 50/50 figures and an Ideal4Finance calculator example on the payment page. Take the finance figures from the Ideal4Finance calculator (ideal4finance.com/retail/calculator/abj), never work them out by hand.
+- `quote.valid` and `quote.pay`: the validity line and payment figures under the quotation.
+- `"terms_override"`: replace a numbered clause for this pack only, e.g. `{"3.1": "..."}`.

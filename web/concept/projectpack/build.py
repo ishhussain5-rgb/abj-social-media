@@ -201,6 +201,20 @@ def quote_check(q):
     return warn
 
 
+def pay_lines(q):
+    """Validity and the 50/50 payment figures, under the summary of costs."""
+    out = ''
+    if q.get('valid'):
+        out += '<div class="note" style="margin:3mm 0 0;font-size:8pt"><b>%s</b></div>' % E(q['valid'])
+    if q.get('pay'):
+        rows = ''.join('<tr><td>%s</td><td style="text-align:right;white-space:nowrap">%s</td><td style="text-align:right;white-space:nowrap">%s</td></tr>' % (E(a), E(b), E(c)) for a, b, c in q['pay']['rows'])
+        out += ('<table class="qt" style="margin-top:3mm;font-size:8pt"><tr><td style="font:600 6.3pt/1.2 \'DM Sans\';letter-spacing:.12em;text-transform:uppercase;color:#a7864c">%s</td>'
+                '<td style="text-align:right;font:600 6.3pt/1.2 \'DM Sans\';letter-spacing:.12em;text-transform:uppercase;color:#a7864c">%s</td>'
+                '<td style="text-align:right;font:600 6.3pt/1.2 \'DM Sans\';letter-spacing:.12em;text-transform:uppercase;color:#a7864c">%s</td></tr>%s</table>') % (
+            E(q['pay']['head'][0]), E(q['pay']['head'][1]), E(q['pay']['head'][2]), rows)
+    return out
+
+
 def quote_page(p, n):
     q = p['quote']
     money = lambda a, b, strong=False: '<tr%s><td>%s</td><td style="text-align:right;white-space:nowrap">%s</td></tr>' % (' class="tot"' if strong else '', E(a), E(b))
@@ -218,11 +232,11 @@ def quote_page(p, n):
     half = q.get('split', (len(S) + 1) // 2)
     summ = ''.join('<tr><td>%s</td><td style="text-align:right;white-space:nowrap">%s</td></tr>' % (E(a), E(b)) for a, b in q.get('summary', []))
     body = '''<div class="cols" style="grid-template-columns:1fr 1fr;gap:9mm;align-items:start">
-<div><p style="font-size:8.6pt">%s</p>%s</div>
+<div><p style="font-size:8.6pt">%s</p>%s%s</div>
 <div>%s
  <div class="card dark" style="margin-top:2mm"><h3 style="color:#C9A96E">Summary of costs</h3><table class="qsum">%s</table></div>
- <p class="mute" style="font-size:7pt;margin-top:3mm"><b>%s.</b> %s</p></div>
-</div>''' % (E(q['intro']), ''.join(sec(x) for x in S[:half]), ''.join(sec(x) for x in S[half:]), summ,
+ %s<p class="mute" style="font-size:7pt;margin-top:3mm"><b>%s.</b> %s</p></div>
+</div>''' % (E(q['intro']), ''.join(sec(x) for x in S[:half]), pay_lines(q), ''.join(sec(x) for x in S[half:]), summ, '',
              E(q.get('notice_title', 'Important notice')), E(q.get('notice', '')))
     return c_page(p, q.get('title', 'Your quotation'), 'Your quotation', body, n)
 
@@ -324,12 +338,18 @@ def worktop_rows(p, mm=False):
     return ''.join(out)
 
 
+TERMS_OVERRIDE = {}  # clause number -> replacement text, from the project file ("terms_override")
+
+
 def terms_blocks():
     out = []
     for line in open(os.path.join(HERE, 'data', 'terms.txt'), encoding='utf-8').read().splitlines():
         m = re.match(r'\[(H1|H2|H3|P)\] (.*)', line)
         if not m: continue
-        out.append((m.group(1), m.group(2)))
+        t, x = m.group(1), m.group(2)
+        k = re.match(r'(\d+\.\d+) ', x)
+        if t == 'P' and k and k.group(1) in TERMS_OVERRIDE: x = k.group(1) + ' ' + TERMS_OVERRIDE[k.group(1)]
+        out.append((t, x))
     return out
 
 
@@ -447,6 +467,9 @@ def customer(p):
 <div class="card"><h3>Your design at a glance</h3><table class="spec">%s</table></div>
 </div>''' % (E(p['designer']), PHONE, WA, EMAIL, E(ADDR), spec)
     pages.append(c_page(p, 'Welcome to your kitchen', 'Your design at a glance', body, n)); n += 1
+    import extra_pages as X
+    if p.get('finishes'):
+        pages.append(X.finishes_page(p, n)); n += 1
     if p.get('renders') and len(p['renders']) > 1:
         pages.append(renders_page(p, n)); n += 1
     for d in p.get('design_pages', []):
@@ -458,6 +481,8 @@ def customer(p):
             pages.append(quote_page(p, n)); n += 1
             if p['quote'].get('more'):
                 pages.append(quote_more_page(p, n)); n += 1
+        if p.get('appliance_checklist'):
+            pages.append(X.appliances_page(p, n)); n += 1
         return customer_rest(p, pages, n)
     # 3 floor plan
     isl = [u for u in p['units'] if u['cat'] == 'island']
@@ -581,27 +606,32 @@ def customer_rest(p, pages, n):
     col = lambda L: ''.join('<div class="qa"><h4>%s</h4><p>%s</p></div>' % (E(q), E(faq[q])) for q in L)
     body = '<div class="cols" style="grid-template-columns:1fr 1fr">%s%s</div>' % ('<div class="card">%s</div>' % col(qs[:half]), '<div class="card">%s</div>' % col(qs[half:]))
     pages.append(c_page(p, 'Questions customers often ask', 'Answers from our team', body, n)); n += 1
+    import extra_pages as X
+    for key, fn in (('team', X.team_page), ('cross_sell', X.crosssell_page), ('next_step', X.nextstep_page)):
+        if p.get(key):
+            pages.append(fn(p, n)); n += 1
     # 11 payment, finance and sign-off
     pay = [x for t, x in terms_blocks() if t == 'P'][:0]
     tb = terms_blocks()
     find = lambda start: next(x for t, x in tb if x.startswith(start))
     bespoke = next(x for t, x in tb if x.startswith('"I understand and agree'))
     fin = next(x for t, x in tb if x.startswith('AB Joinery Kitchens & Bedrooms Limited is an introducer'))
+    compact = bool(p.get('payments') or p.get('finance_example')); fs = '7.6pt;line-height:1.42' if compact else '8.4pt'
     body = '''<div class="cols" style="grid-template-columns:1fr 1fr">
 <div>
- <div class="card"><h3>Paying for your kitchen</h3>
-  <p style="font-size:8.4pt"><b>Deposit.</b> %s</p>
-  <p style="font-size:8.4pt"><b>Balance.</b> %s %s</p>
-  <p style="font-size:8.4pt;margin:0"><b>Finance.</b> 0%% interest-free credit is available through Ideal4Finance on orders of £6,000 or more with a 50%% deposit, subject to status. Ask your designer for a quote.</p></div>
- <p class="mute" style="font-size:6.9pt;margin-top:3mm">%s</p>
+ <div class="card"%s><h3>Paying for your kitchen</h3>
+  <p style="font-size:%s"><b>Deposit.</b> %s</p>
+  <p style="font-size:%s"><b>Balance.</b> %s %s</p>
+  <p style="font-size:%s;margin:0"><b>Finance.</b> 0%% interest-free credit is available through Ideal4Finance on orders of £6,000 or more with a 50%% deposit, subject to status. %s</p></div>
+ %s<p class="mute" style="font-size:6.6pt;margin-top:2.4mm">%s</p>
 </div>
-<div class="card dark"><h3 style="color:#C9A96E">Design sign-off</h3>
+<div><div class="card dark"><h3 style="color:#C9A96E">Design sign-off</h3>
  <p style="font-size:8.4pt">%s</p>
  <div style="border:.3mm solid rgba(201,169,110,.6);border-radius:1.5mm;padding:3mm 3.4mm;font-size:8pt;color:#e8e1d3;margin-top:3mm"><b style="color:#C9A96E">Bespoke goods.</b> %s</div>
  <div class="sig" style="margin-top:12mm"><div style="border-color:#C9A96E;color:#9fb0aa">Signed</div><div style="border-color:#C9A96E;color:#9fb0aa">Name</div><div style="border-color:#C9A96E;color:#9fb0aa">Date</div></div>
  <div class="sig" style="margin-top:12mm"><div style="border-color:#C9A96E;color:#9fb0aa">For ABJ Kitchens &amp; Bedrooms</div><div style="border-color:#C9A96E;color:#9fb0aa">Name</div><div style="border-color:#C9A96E;color:#9fb0aa">Date</div></div>
-</div></div>''' % (E(find('4.1 ').replace('4.1 ', '')), E(find('The remaining 50% balance')), E(find('Delivery, installation, or collection will NOT')),
-                   E(fin), E(p.get('signoff') or ('I have checked the plans, wall views and item lists in this pack (reference %s) and approve the design for production.' % refline(p))), E(bespoke))
+</div>%s</div></div>''' % ((' style="padding:4mm 5mm"' if compact else ''), fs, E(find('4.1 ').replace('4.1 ', '')), fs, E(find('The remaining 50% balance')), E(find('Delivery, installation, or collection will NOT')), fs, ('See the example below.' if p.get('finance_example') else 'Ask your designer for a quote.'),
+                   X.payment_extra(p, 'schedule'), E(fin), E(p.get('signoff') or ('I have checked the plans, wall views and item lists in this pack (reference %s) and approve the design for production.' % refline(p))), E(bespoke), X.payment_extra(p, 'finance'))
     pages.append(c_page(p, 'Payment, finance and sign-off', 'Before production starts', body, n)); n += 1
     # 12+ terms
     tp = terms_pages(p, n); pages += tp; n += len(tp)
@@ -735,6 +765,7 @@ def main():
     src, outdir = sys.argv[1], sys.argv[2]
     os.makedirs(outdir, exist_ok=True)
     p = json.load(open(src, encoding='utf-8'))
+    TERMS_OVERRIDE.update(p.get('terms_override', {}))
     slug = os.path.splitext(os.path.basename(src))[0]
     problems = []
     with sync_playwright() as pw:
