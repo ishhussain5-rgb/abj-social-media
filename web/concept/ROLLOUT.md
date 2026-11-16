@@ -949,3 +949,22 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Article "How to choose a kitchen fitter": the green kitchen photo (only 504x467 exists) is now shown at its own size,
   centred (figure max-width:504px), edited in Tilda Feeds; old embed in the feeds tab localStorage
   `abj_post_fitter_embed_before_20261116`.
+- Showroom desktop hero changed again to a wider view of the navy Shaker display (IMG_2715, heroes/showroom-hero-d2.webp
+  @71e1c39); the first crop (IMG_2723) was too close. Backup `-before-showroomd2-20261116`.
+- Cambridge hero (the review's "x1.19" was the hero, not the landmark photos): the King's College panorama (1680x792) is too
+  wide for the hero, so it is stretched to fill the height. Swapped places with the Mathematical Bridge (original 1680x1042,
+  found on the DEV page): hero = bridge (desktop 1090/1680 srcset, phone the 1680 original, object-position 12% so the H1 sits
+  over the trees), body photo 2 = King's College (1239/1680 srcset); punting photo srcset gets its 1680 original too.
+  Caption/figcaption/alt swapped with them. Backups `-before-landmarkswap-20261116`, `-before-heropos-20261116`.
+- Legal pages, phones only (<=760px): `legal_fold.html` appended to the page block (DEV 354171103 / 354170903 first, then live
+  82695596 / 84863476). Each numbered H2 becomes a button (inside the H2, so headings stay headings) that opens its clauses;
+  "Open all sections" link above; a #link to a clause opens it; print shows everything. Text stays in the page.
+  Terms 22 -> 3.9 screens, payment terms 15 -> 3.5. Desktop unchanged. Backups `-before-legalfold-20261116` (and
+  `-before-legalfold2-20261116` for the class rename lgt -> lgq: .lgt is the logo text class).
+- 1920 px image audit (new; the review was at 1440): heroes made from 1600 px copies are ~1.2x at 1920 (kitchen design,
+  supply-only, bespoke vs off-the-shelf, Kettering, Shaker, handleless, King's Lynn), plus body photos in two-column rows:
+  booking-band kc-book-s 733 px (x1.3, media walls / kitchen cost / budget planner), sloping wardrobes abj-bed27 (x1.85),
+  cabinet makers abj-cab49 (x2.1), under-stairs UnderStair21 (x1.7) and hero (x1.45), walk-in wardrobes (x1.2-1.7), sliding
+  wardrobes BespokeFittedWardrob (x1.58), showroom cream island (x1.49), media wall cost (x1.28/1.49), home handleless (x1.37),
+  HMO (x1.28), Kings Road case study (x1.32), alcove abj-cab75 (x1.28), kitchen cabinets (x1.28), Huntingdon landmark (x1.22).
+  Not fixed yet.
