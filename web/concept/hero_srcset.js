@@ -1,4 +1,4 @@
-/* abjHeroSet(jobs): six town heroes (16 Nov 2026). The desktop <source> pointed at one lighter copy (e.g. 1239 px wide), so on
+/* abjHeroSet(jobs): town page heroes (16 Nov 2026). The desktop <source> pointed at one lighter copy (e.g. 1239 px wide), so on
    1440-1920 px screens the photo was stretched. Give the browser the full-size original as well:
    srcset="<copy> <w>w, <original> 1680w" sizes="100vw". Nothing else in the block changes; one save + publish per page.
    jobs = [[pageid, originalUrl], ...]. Progress in window.__hs. Backup in IndexedDB abj_svc_bak, key live-<pid>-<rec>-before-herosrcset-20261116. */
@@ -18,23 +18,34 @@ window.abjHeroSet = async function (jobs) {
       if (!ok) throw 'no records'; await W(1500);
       const w = f.contentWindow, d = f.contentDocument;
       if (/DEV|private test/.test(d.title)) throw 'DEV page';
-      const re = /<source media="\(min-width:481px\)" srcset="([^" ]+-w(\d+)\.webp)">/g;
+      // A: <picture> pages: desktop <source> gets the original too.  B: plain hero <img class="hi" src="...-wNNN.webp"> gets a srcset.
+      const reA = /<source media="\(min-width:481px\)" srcset="([^" ]+-w(\d+)\.webp)">/g;
+      const reB = /(<img width="1680" height="\d+" data-wh class="hi" src="([^" ]+-w(\d+)\.webp)")/g;
       let done = false;
       for (const rec of d.querySelectorAll('.record')) {
         if (rec.getAttribute('off') === 'y') continue;
         const el = rec.querySelector('pre code'); if (!el) continue;
-        const old = el.textContent, m = old.match(re);
-        if (!m) continue;
-        if (m.length !== 1) throw 'sources x' + m.length;
-        const [, src, wd] = re.exec(old); re.lastIndex = 0;
+        const old = el.textContent, mA = old.match(reA) || [], mB = old.match(reB) || [];
+        if (!mA.length && !mB.length) continue;
+        let c, add, wd;
+        if (mA.length) {
+          if (mA.length !== 1) throw 'sources x' + mA.length;
+          const x = new RegExp(reA.source).exec(old); wd = x[2];
+          add = ' ' + wd + 'w, ' + orig + ' 1680w" sizes="100vw';
+          c = old.replace(mA[0], '<source media="(min-width:481px)" srcset="' + x[1] + add + '">');
+        } else {
+          if (mB.length !== 1) throw 'hero imgs x' + mB.length;
+          const x = new RegExp(reB.source).exec(old); wd = x[3];
+          add = ' srcset="' + x[2] + ' ' + wd + 'w, ' + orig + ' 1680w" sizes="(max-width:480px) 320vw, 100vw"';
+          c = old.replace(mB[0], mB[0] + add);
+        }
         if (+wd >= 1680) { window.__hs.push(pid + ': already ' + wd); done = true; break; }
-        const c = old.replace(m[0], '<source media="(min-width:481px)" srcset="' + src + ' ' + wd + 'w, ' + orig + ' 1680w" sizes="100vw">');
-        if (c.length !== old.length + (' ' + wd + 'w, ' + orig + ' 1680w" sizes="100vw').length) throw 'integrity';
+        if (c.length !== old.length + add.length) throw 'integrity';
         await bak('live-' + pid + '-' + rec.getAttribute('recordid') + '-before-herosrcset-20261116', old);
         const r = await w.tp__fetch({ url: '/page/submit/', body: { comm: 'saverecord', pageid: String(pid), recordid: rec.getAttribute('recordid'), onlythisfield: 'code', code: c } });
         if (JSON.stringify(r) !== '"OK"') throw 'save ' + JSON.stringify(r).slice(0, 60);
         const p = await w.tp__fetch({ url: '/page/publish/', body: { comm: 'pagepublish', pageid: String(pid), csrf: w.getCSRF(), returnjson: 'yes' } });
-        window.__hs.push(pid + ': ' + wd + 'w + 1680w ' + (JSON.stringify(p).includes('publishonepage') ? 'pub' : 'PUBLISH?'));
+        window.__hs.push(pid + ': ' + (mA.length ? 'A ' : 'B ') + wd + 'w + 1680w ' + (JSON.stringify(p).includes('publishonepage') ? 'pub' : 'PUBLISH?'));
         done = true; break;
       }
       if (!done) window.__hs.push(pid + ': no desktop source found');
