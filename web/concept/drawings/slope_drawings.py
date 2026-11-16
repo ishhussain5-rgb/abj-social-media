@@ -140,7 +140,7 @@ def section():
 
 CSS = ('<style>#kc .drw{padding:clamp(40px,3.6vw,64px) 0;background:var(--lin)}#kc .drw .sh{margin-bottom:clamp(20px,2vw,32px)}'
        '#kc .drw .s2b{display:none;margin-top:14px;width:100%;padding:13px 16px;background:none;border:1px solid var(--hair);font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--ink);cursor:pointer}'
-       '#kc .drw .g2{display:grid;grid-template-columns:920fr 760fr;align-items:start;max-width:1180px;gap:clamp(20px,2.4vw,44px)}'
+       '#kc .drw .g2{display:grid;grid-template-columns:920fr 760fr;align-items:start;max-width:1060px;gap:clamp(20px,2.4vw,44px)}'
        '#kc .drw figure{margin:0;background:var(--lin);border:1px solid var(--hair);min-width:0}#kc .drw .sc{overflow-x:auto;-webkit-overflow-scrolling:touch}#kc .drw svg{display:block;width:100%;height:auto}'
        '#kc .drw .sw{display:none;padding:10px 20px 0;font:500 11px/1.4 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gd,#8A6A2F)}'
        '#kc .drw figcaption{padding:16px 20px 20px;border-top:1px solid var(--hair);font:400 15px/1.55 var(--sans);color:var(--mut)}'
