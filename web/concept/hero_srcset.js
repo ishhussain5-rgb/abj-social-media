@@ -20,7 +20,7 @@ window.abjHeroSet = async function (jobs) {
       if (/DEV|private test/.test(d.title)) throw 'DEV page';
       // A: <picture> pages: desktop <source> gets the original too.  B: plain hero <img class="hi" src="...-wNNN.webp"> gets a srcset.
       const reA = /<source media="\(min-width:481px\)" srcset="([^" ]+-w(\d+)\.webp)">/g;
-      const reB = /(<img width="1680" height="\d+" data-wh class="hi" src="([^" ]+-w(\d+)\.webp)")/g;
+      const reB = /(<img width="\d+" height="\d+" data-wh class="hi" src="([^" ]+-w(\d+)\.webp)")/g;
       let done = false;
       for (const rec of d.querySelectorAll('.record')) {
         if (rec.getAttribute('off') === 'y') continue;
