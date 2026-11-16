@@ -28,7 +28,7 @@ def b64(path, mime):
     return 'data:%s;base64,%s' % (mime, base64.b64encode(open(path, 'rb').read()).decode())
 
 
-def pic(name, wmm, hmm, pos='50% 50%', q=80, ppm=7.0):
+def pic(name, wmm, hmm, pos='50% 50%', q=90, ppm=11.8):
     f = [name] if os.path.isfile(name) else [p for p in (os.path.join(IMG, name + x) for x in ('.webp', '.jpg', '.png')) if os.path.exists(p)]
     if not f: raise SystemExit('missing photo: ' + name)
     im = Image.open(f[0]).convert('RGB')
@@ -254,7 +254,7 @@ def quote_more_page(p, n):
 
 def renders_page(p, n):
     R = p['renders'][1:5]
-    cells = ''.join('<div style="border-radius:2mm;background:url(%s) center/cover"></div>' % pic(r, 130, 71, q=82, ppm=8) for r in R)
+    cells = ''.join('<div style="border-radius:2mm;background:url(%s) center/cover"></div>' % pic(r, 130, 71, q=90, ppm=11.8) for r in R)
     if len(R) == 3:
         cells += ('<div class="card" style="display:flex;flex-direction:column;justify-content:center"><h3>Your design in 3D</h3>'
                   '<p style="font-size:8.6pt">These views are rendered from your design, so you can see how the finishes, handles and worktops work together before anything is made.</p>'

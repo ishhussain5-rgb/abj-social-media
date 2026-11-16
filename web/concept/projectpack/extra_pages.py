@@ -8,7 +8,7 @@ E = B.E
 
 def img_tag(path, hmm, pos='50% 50%', radius=2):
     return '<div style="width:100%%;height:%.1fmm;border-radius:%smm;background:url(%s) %s/cover"></div>' % (
-        hmm, radius, B.pic(path, 82, hmm, pos, q=84, ppm=9), pos)
+        hmm, radius, B.pic(path, 82, hmm, pos, q=90, ppm=11.8), pos)
 
 
 def finishes_page(p, n):
@@ -17,7 +17,7 @@ def finishes_page(p, n):
     for f in F['items']:
         if f.get('img'):
             sw = ('<div style="height:80mm;border-radius:2mm;background:url(%s) center/cover;'
-                  'border:.25mm solid rgba(14,27,26,.15)"></div>') % B.pic(f['img'], 48, 80, f.get('pos', '50% 50%'), q=90, ppm=8)
+                  'border:.25mm solid rgba(14,27,26,.15)"></div>') % B.pic(f['img'], 48, 80, f.get('pos', '50% 50%'), q=92, ppm=11.8)
         else:
             sw = ('<div style="height:80mm;border-radius:2mm;border:.35mm dashed #a7864c;display:flex;align-items:center;'
                   'justify-content:center;text-align:center;padding:4mm;font:500 8pt/1.45 \'DM Sans\';color:#5f6866;'
