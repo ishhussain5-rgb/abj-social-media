@@ -1013,3 +1013,7 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   `-before-phoneshort2-20261117`. WAITING FOR ISH before live (30601906, 204575403, 73297273, 73297487, 73195791,
   73279037, 73280437). Bigger cuts possible if wanted: process steps with the number beside the heading (~200px), film 4:5.
 - Not done here (Ish): December TikTok batch is handled in the separate TikTok session, Metricool left alone.
+- 17 Nov Plaky (ABJ Kitchens & Bedrooms board, Website group, person Ish): 6 items added and checked - 15 Nov budget planner
+  + footer links + info@ swap (Done), 16 Nov heroes + legal fold (Done), 17 Nov Kitchens live + VAT terms + skip link (Done),
+  sharper photos 1920 (Done), Crawley pack v5 (Done), DEV shorter phone pages + FAQ fold (In progress, waiting for Ish).
+  Plaky titles max 255 characters.
