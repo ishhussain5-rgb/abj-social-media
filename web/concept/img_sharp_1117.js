@@ -52,7 +52,7 @@
         if (op.w) { t = setAttr(t, 'width', op.w); t = setAttr(t, 'height', op.h); }
         if (op.alt) t = setAttr(t, 'alt', op.alt);
         if (op.srcset) t = setAttr(t, 'srcset', op.srcset);
-        if (op.srcsetAppend) { if (t.includes(op.srcsetAppend.trim().split(' ')[0])) return tag; t = t.replace(/\ssrcset="([^"]*)"/, (m, s) => ' srcset="' + s + op.srcsetAppend + '"'); }
+        if (op.srcsetAppend) { if (t.includes(op.srcsetAppend.replace(/^[,\s]+/, '').split(' ')[0])) return tag; t = t.replace(/\ssrcset="([^"]*)"/, (m, s) => ' srcset="' + s + op.srcsetAppend + '"'); }
         if (op.sizes) t = setAttr(t, 'sizes', op.sizes);
         if (t !== tag) hit++;
         return t;
