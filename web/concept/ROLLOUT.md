@@ -1028,3 +1028,13 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   (1365x1706, the largest copy); office = the reception render (1600 max); utility = BespokeHallways6 (1686 max).
   Drive "Boot_Room_*" and "Home_Office_ABJ_*" are supplier CGI renders, not ABJ jobs, so not used. Running EDSR x4
   super-resolution on the current hero crops (scratchpad/hsr) to make 2400x1500 desktop copies.
+- Hero super-resolution result: EDSR x4 versions of the under-stairs, office and utility heroes (scratchpad/hsr/*-hero-d-sr.webp,
+  2400x1500) compared at 1:1 with the current copies: barely different (slightly crisper office slats only), because the
+  source photos themselves are soft. Not swapped. The real fix is new photos of those rooms.
+- Yell (listing 9052833, Alex's Yell login): alternative phone 07791 290848 -> 07479 219421 (WhatsApp); listing email
+  info@abjkitchenandbedrooms.co.uk (typo, missing "s") -> ish@abjkitchensandbedrooms.co.uk; ABJ roundel logo uploaded and set as
+  the logo, old "AB Joinery" image no longer the logo (the two AB Joinery images are still in the gallery - Ish to say if they
+  go); business highlights Children Welcome / All Budgets / Quality Workmanship -> Made to Measure / Free Consultation /
+  Quality Workmanship; business summary rewritten. Hours (Mon-Fri 8-6, Sat 10-2) and main phone were already right.
+- FreeIndex: Chrome is signed in to the ABJ Accessories FreeIndex account (abjaccessories.freeindex.co.uk). The ABJ Kitchens
+  profile (846312) belongs to a different login; its hours are wrong (Mon-Fri 9-5, Sat 9-1). Waiting for Ish to sign in to it.
