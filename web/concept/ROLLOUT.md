@@ -1017,3 +1017,14 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   + footer links + info@ swap (Done), 16 Nov heroes + legal fold (Done), 17 Nov Kitchens live + VAT terms + skip link (Done),
   sharper photos 1920 (Done), Crawley pack v5 (Done), DEV shorter phone pages + FAQ fold (In progress, waiting for Ish).
   Plaky titles max 255 characters.
+- 17 Nov 19:30 LIVE (Ish: "make live"): `faq_fold.html` @5c8d1ba on /faq-abj 107787436 and `phone_short.html` @963a582 on
+  30601906, 204575403, 73297273, 73297487, 73195791, 73279037, 73280437 (append only, each published on its own, backups
+  `live-<pid>-<rec>-before-faqfold-20261117` / `-before-phoneshort-20261117`). Checked live: FAQ desktop section 727px with
+  "More questions (7)", all 12 questions still in the page and the FAQPage schema; phone heights at 390x844 home 9881 (11.7),
+  Oakham 9848 (11.7), kitchens 9430 (11.2), bedrooms 9495 (11.3), decors 9358 (11.1), media walls 9326 (11.0), wardrobes 9341 (11.1).
+- Plaky: "ABJ Hub next steps" item now says the VAT rule is settled (prices include VAT; Hub and T&Cs agree); the DEV item
+  renamed LIVE and set to Done.
+- Bigger hero photos (utility, office, under-stairs): Drive has no larger originals. Under-stairs = UnderStair2.2.jpg
+  (1365x1706, the largest copy); office = the reception render (1600 max); utility = BespokeHallways6 (1686 max).
+  Drive "Boot_Room_*" and "Home_Office_ABJ_*" are supplier CGI renders, not ABJ jobs, so not used. Running EDSR x4
+  super-resolution on the current hero crops (scratchpad/hsr) to make 2400x1500 desktop copies.
