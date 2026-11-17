@@ -968,3 +968,48 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   wardrobes BespokeFittedWardrob (x1.58), showroom cream island (x1.49), media wall cost (x1.28/1.49), home handleless (x1.37),
   HMO (x1.28), Kings Road case study (x1.32), alcove abj-cab75 (x1.28), kitchen cabinets (x1.28), Huntingdon landmark (x1.22).
   Not fixed yet.
+
+## 17 Nov 2026
+- Website terms clause 3.1 (live 82695596 + DEV): "Prices include Value Added Tax (VAT) at the rate prevailing at the date of
+  your quotation, unless your quotation explicitly states otherwise." Pack template terms.txt matches (e24e1a4).
+- Budget planner / calculator "skip" link: 44px tap area on phones (`mobile/mobile.html` rule
+  `#kc .calc .ai-skip{display:block;margin:10px auto 0;min-height:44px;padding:12px 18px}`), applied to the 15 live pages
+  that carry the button (73195791, 73279037, 73279381, 73280437, 73297273, 73297487, 73340083, 73372439, 73545333,
+  152105513, 377674203, 377674303, 377674503, 377674603, 377674903). DEV pages not touched.
+- Kitchens rebuild LIVE (73297273 / rec5657531303): the 4 FAQs from DEV (guarantee, old kitchen + plumbing/electrics,
+  see kitchens first, areas) added after the existing 5, plus the DEV phone-spacing <style> after `<!-- /ABJ MOBILE -->`.
+  One FAQPage only: the page HEAD schema (Page settings > HEAD code, /projects/editheadcode/) now lists all 9 questions,
+  answers word for word as on the page; the block's own JSON-LD stays Service + business only (DEV block has the FAQPage
+  in the block because DEV HEAD has none). Checked live: 1 FAQPage, 9 questions, 9 visible, 0 mismatches, JSON parses.
+  Backups: record `live-73297273-5657531303-before-kitchens-golive-20261117`, HEAD `live-73297273-HEADCODE-before-kitchens-golive-20261117`.
+- Sharper photos at 1920 (`img_audit.js` true-pixel audit of 63 pages; rows where the browser had picked a phone/small
+  srcset candidate were checked by hand and are fine: Chrome picks the desktop copy at 1920). `img_sharp_1117.js` @fc31590,
+  14 live pages, each published on its own, backups `-before-sharp1920-20261117`:
+  - booking band kc-book-s (733px): srcset with kc-book-l 1200w on /media-walls, /kitchen-cost-peterborough,
+    /budget-planner, Kings Road case study.
+  - heroes: srcset adds the 2200px originals (about kc-booth-l, handleless kc-handleless-l, kitchen cabinets kc-kr-detail-l).
+  - Stamford / Bourne landmark photo 3: srcset adds the 1680 originals, sizes 783px.
+  - 640px photos swapped for bigger real photos (none repeats a photo already on its page; checked by image hash):
+    under-stairs UnderStair36 -> abj-hl-us-marble (abj-st-us-drawers is the same photo as UnderStair13 already there),
+    walk-in BespokeSlidingWardro -> abj-w-walkin-drawers, alcove abj-cab75 -> abj-st-living-alcove, showroom cream island
+    -> kc-handleless-l, kitchen cabinets copper-g -> kc-inframe-l, media wall cost 43/30 -> abj-mediawalls-A/B-v-poster.
+    Alt text rewritten to describe the new photos.
+  - Left as they are: HMO1 (450px, the only shared-lounge HMO photo), 1600px heroes at ~1.2x (kitchen design, supply-only,
+    bespoke vs off-the-shelf, Shaker, Kettering, King's Lynn: no bigger originals found), under-stairs hero (1365 is the
+    largest), office/utility heroes, cabinet makers abj-cab49 (x1.1).
+- FAQ page, desktop and tablet (761px+), DEV only (354003103 / rec5644425603): `faq_fold.html` @5c8d1ba appended to the
+  block. The first two topics (5 questions) stay open; the other three topics sit behind "More questions (7)". The Topics
+  links and a #kc-fqN address open everything first (and scroll to it); print shows everything; phones unchanged (all 12
+  shown, as before). Section 1437 -> 727px at 1536 wide. Backups `dev-354003103-...-before-faqfold-20261117` and
+  `-before-faqfold2-20261117`. WAITING FOR ISH before live (107787436).
+- Shorter phone pages, DEV only: `phone_short.html` @963a582 appended to the main block of the 7 DEV pages (phones only,
+  <=760px): intro statement 28 -> 23px; style cards 4:5 -> 5:4; featured project photo 328 -> 240px, its small photos 4:3;
+  "And more" cards square; homepage workshop photo 252 -> 200px and its four figures hidden on phones (the same four facts
+  sit in the intro above); quote and quick-cost sections 72 -> 48px padding; "In detail" text folded behind its Read more
+  (heading + related links stay; FAQs under it stay); FAQ rows 26 -> 18px padding. Heights at 390x844 (DEV before -> after):
+  home 10612 -> 9881 (12.6 -> 11.7 screens), Oakham 10270 -> 9885 (12.2 -> 11.7), kitchens 9732 -> 9389 (11.5 -> 11.1),
+  bedrooms 9964 -> 9393 (11.8 -> 11.1), decors 9910 -> 9338 (11.7 -> 11.1), media walls 9791 -> 9224 (11.6 -> 10.9),
+  wardrobes ~9930 -> 9248 (11.8 -> 11.0). Desktop unchanged. Backups `dev-<pid>-...-before-phoneshort-20261117` and
+  `-before-phoneshort2-20261117`. WAITING FOR ISH before live (30601906, 204575403, 73297273, 73297487, 73195791,
+  73279037, 73280437). Bigger cuts possible if wanted: process steps with the number beside the heading (~200px), film 4:5.
+- Not done here (Ish): December TikTok batch is handled in the separate TikTok session, Metricool left alone.
