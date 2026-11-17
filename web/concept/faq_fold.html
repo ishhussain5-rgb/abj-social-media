@@ -25,7 +25,7 @@
     gs[cut].parentNode.insertBefore(b,gs[cut].nextSibling);
     function openAll(){rest.forEach(function(g){g.classList.remove('fqh')});b.setAttribute('aria-expanded','true');b.hidden=true}
     b.addEventListener('click',function(){openAll();var f=rest[0].querySelector('summary');if(f)f.focus()});
-    function hashOpen(){var id=location.hash.slice(1);if(!id)return;var el=document.getElementById(id);if(el&&rest.some(function(g){return g===el||g.contains(el)}))openAll()}
+    function hashOpen(){var id=location.hash.slice(1);if(!id)return;var el=document.getElementById(id);if(el&&rest.some(function(g){return g===el||g.contains(el)})&&b.hidden!==true){openAll();el.scrollIntoView()}}
     document.querySelectorAll('#kc .fqn a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){var el=document.getElementById(a.getAttribute('href').slice(1));if(el&&rest.indexOf(el)>-1)openAll()})});
     hashOpen();window.addEventListener('hashchange',hashOpen);
   }
