@@ -1,0 +1,33 @@
+<style>/* FAQ page, desktop and tablet (761px+): first topics open, the rest behind "More questions", 17 Nov 2026 */
+@media (min-width:761px){
+#kc .fq .fqg.fqh{display:none}
+#kc .fq .fqm{display:inline-flex;align-items:center;gap:10px;margin:26px 0 6px;min-height:44px;padding:10px 0;border:0;border-bottom:1px solid var(--go,#C9A96E);background:none;color:inherit;font:500 11.5px/1.4 var(--sans,'DM Sans',sans-serif);letter-spacing:.2em;text-transform:uppercase;cursor:pointer}
+#kc .fq .fqm:hover{gap:16px}
+#kc .fq .fqm:focus-visible{outline:2px solid var(--go,#C9A96E);outline-offset:4px}
+}
+@media print{#kc .fq .fqg.fqh{display:block!important}#kc .fq .fqm{display:none!important}}
+</style>
+<script>(function(){
+  function run(){
+    if(!window.matchMedia||!matchMedia('(min-width:761px)').matches)return;
+    var fq=document.querySelector('#kc .fqw .fq');
+    if(!fq||fq.getAttribute('data-fold'))return;
+    var gs=[].filter.call(fq.children,function(e){return e.classList.contains('fqg')});
+    if(gs.length<3)return;
+    var shown=0,cut=-1;
+    for(var i=0;i<gs.length;i++){shown+=gs[i].querySelectorAll(':scope>details').length;if(shown>=5){cut=i;break}}
+    if(cut<0||cut>=gs.length-1)return;
+    var rest=gs.slice(cut+1),n=0;
+    rest.forEach(function(g){g.classList.add('fqh');n+=g.querySelectorAll(':scope>details').length});
+    fq.setAttribute('data-fold','1');
+    var b=document.createElement('button');b.type='button';b.className='fqm';b.setAttribute('aria-expanded','false');
+    b.textContent='More questions ('+n+')';
+    gs[cut].parentNode.insertBefore(b,gs[cut].nextSibling);
+    function openAll(){rest.forEach(function(g){g.classList.remove('fqh')});b.setAttribute('aria-expanded','true');b.hidden=true}
+    b.addEventListener('click',function(){openAll();var f=rest[0].querySelector('summary');if(f)f.focus()});
+    function hashOpen(){var id=location.hash.slice(1);if(!id)return;var el=document.getElementById(id);if(el&&rest.some(function(g){return g===el||g.contains(el)}))openAll()}
+    document.querySelectorAll('#kc .fqn a[href^="#"]').forEach(function(a){a.addEventListener('click',function(){var el=document.getElementById(a.getAttribute('href').slice(1));if(el&&rest.indexOf(el)>-1)openAll()})});
+    hashOpen();window.addEventListener('hashchange',hashOpen);
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run();
+})();</script>
