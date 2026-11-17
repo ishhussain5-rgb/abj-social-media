@@ -17,7 +17,8 @@
       alt: 'Cream in-frame kitchen with glazed wall cabinets and an oak worktop' }]),
     150457663: town('abj-stamford-3', 'https://static.tildacdn.net/tila6139-6538-4266-b035-643637353031/abj-stamford-3.webp', 'w743'),
     150783143: town('abj-bourne-3', 'https://static.tildacdn.net/tila3933-3937-4634-b034-376132333764/abj-bourne-3.webp', 'w654'),
-    377674303: [{ key: 'UnderStair36.webp', src: C9 + 'abj-st-us-drawers.webp', w: 1040, h: 1300, alt: 'Deep under-stairs pull-out drawers open' }],
+    /* abj-st-us-drawers is the same photo as UnderStair13 already on the page, so a different staircase */
+    377674303: [{ key: 'UnderStair36.webp', src: C9 + 'abj-hl-us-marble.webp', w: 1040, h: 1300, alt: 'Under-stairs drawers with dark slatted panelling below a glass staircase' }],
     377674603: [{ key: 'tila3363-3439-4839-b735-393133376232/BespokeSlidingWardro', src: JD + '123050832ba2be74a77bf0f7c632826f8cc5c439/media/abj-w-walkin-drawers.webp', w: 1935, h: 1119,
       alt: 'Walk-in wardrobe with open shelving, shoe racks and pull-out drawers' }],
     377674903: [{ key: 'abj-cab75.webp', src: C9 + 'abj-st-living-alcove.webp', w: 866, h: 1300, alt: 'Living room alcove cabinetry with fluted doors beside an inset fire and TV' }],
