@@ -19,7 +19,7 @@ def finishes_page(p, n):
             sw = ('<div style="height:80mm;border-radius:2mm;background:url(%s) center/cover;'
                   'border:.25mm solid rgba(14,27,26,.15)"></div>') % B.pic(f['img'], 48, 80, f.get('pos', '50% 50%'), q=92, ppm=11.8)
         else:
-            sw = ('<div style="height:46mm;border-radius:2mm;border:.35mm dashed #a7864c;display:flex;align-items:center;'
+            sw = ('<div style="height:80mm;border-radius:2mm;border:.35mm dashed #a7864c;display:flex;align-items:center;'
                   'justify-content:center;text-align:center;padding:4mm;font:500 8pt/1.45 \'DM Sans\';color:#5f6866;'
                   'background:repeating-linear-gradient(135deg,#F7F3EA 0 3mm,#efe8da 3mm 6mm)">%s</div>') % E(f.get('placeholder', 'See the sample at our showroom'))
         tiles.append(
