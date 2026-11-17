@@ -1038,3 +1038,10 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Quality Workmanship; business summary rewritten. Hours (Mon-Fri 8-6, Sat 10-2) and main phone were already right.
 - FreeIndex: Chrome is signed in to the ABJ Accessories FreeIndex account (abjaccessories.freeindex.co.uk). The ABJ Kitchens
   profile (846312) belongs to a different login; its hours are wrong (Mon-Fri 9-5, Sat 9-1). Waiting for Ish to sign in to it.
+- FreeIndex (later, 17 Nov): Ish signed in to the ABJ Kitchens login. Profile 846312 updated and checked on the public page:
+  hours Mon-Fri 08:00-18:00, Sat 10:00-14:00, Sun closed; mobile 07479 219421; company number 11100736; description rewritten
+  in 3 sections (what we do / kitchens + wardrobes / media walls + experience); optional categories Kitchens and Bedroom Fitters;
+  search tags Fitted wardrobes, Sliding wardrobes, Media walls (free plan allows 3); 6 project photos added from the site
+  (handleless kitchen now the main photo, then wardrobes, media wall, bedroom), the 5 older under-stairs photos kept after them.
+  Still open: logo is the old "AB Joinery" image. Free plan allows one logo, so it has to be removed before the ABJ roundel
+  can go up - waiting for Ish's OK. Payment methods left blank (not confirmed). Plaky item logged (In progress).
