@@ -1124,3 +1124,6 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 18 Nov 21:10 REMOVED (Ish: "We don't offer free door samples please remove"): /free-door-samples (399455003) and its DEV
   copy (399385903) unpublished in Tilda (both 404, gone from the sitemap). Pages kept in Tilda, not deleted, until Ish
   says so. No other page linked to them. ABJ does NOT offer free door samples - never offer or mention them.
+- 18 Nov 21:15 (Ish: "The surveyor has swatches with him"): "door samples" -> "swatches" on /handleless-kitchens-peterborough
+  381737403 ("bring swatches in matt and gloss") and /sliding-wardrobes 377674503 ("We will bring swatches to your home"),
+  plus their DEV pages 381698003 / 377441303 and the source files. Backups `...-before-swatches-20261118`.

@@ -87,7 +87,7 @@ PAGES = [
  "quote": REV_OLGA,
  "book": (U("c9b6a43-abj-wt-quartz-island.webp"), "Marble-effect quartz island with a waterfall end", "50% 50%"),
  "book_h": "Start with a free design visit",
- "book_p": "Book a visit or send a few photos on WhatsApp. We will measure the room, bring door samples in matt and gloss, and send you a 3D design of your handleless kitchen with an itemised quote.",
+ "book_p": "Book a visit or send a few photos on WhatsApp. We will measure the room, bring swatches in matt and gloss, and send you a 3D design of your handleless kitchen with an itemised quote.",
  "proc_p": "Once you approve the design, your kitchen takes four to six weeks to make and usually one to two weeks to fit.",
  "steps": STEPS,
  "seo_h": "Handleless kitchens in Peterborough",
