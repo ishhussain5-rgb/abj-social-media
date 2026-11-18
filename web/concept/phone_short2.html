@@ -1,0 +1,21 @@
+<!-- ABJ PHONE SHORT2 (phones: shorter pages, round 2, 18 Nov 2026) -->
+<style>/* Phones only (760px and below): smaller featured-project photo and film frame, tighter "How it works" steps,
+   shorter photo above "Free design visit", tighter footer top. Desktop unchanged.
+   Undo: delete from the ABJ PHONE SHORT2 marker to /ABJ PHONE SHORT2 and publish the page. */
+@media (max-width:760px){
+#kc .fp figure.big,#kc .fp .big{height:300px!important;min-height:0!important;aspect-ratio:auto!important}
+#kc #kc-film .pl{aspect-ratio:4/5!important;height:auto!important}
+#kc .bk figure{height:130px}
+#kc .ws-a figure{height:170px}
+#kc .ps.jr>div,#kc .ps>div{padding-bottom:18px!important}
+#kc .ps p{line-height:1.55}
+#kc .ft{padding-top:28px}
+#kc .ft-s{padding-top:10px}
+}
+</style>
+<script>/* "Why ABJ" lists of 4+ points become one swipeable row on phones (same style as the other long lists) */
+(function(){function run(){if(!window.matchMedia||!matchMedia('(max-width:760px)').matches)return;
+document.querySelectorAll('#kc .why').forEach(function(e){if(e.classList.contains('mrail'))return;var ch=[].filter.call(e.children,function(z){return z.offsetHeight>40});if(ch.length<4)return;var H=0;ch.forEach(function(z){H+=z.offsetHeight});if(H<innerHeight*.75)return;
+e.classList.add('mrail');var m=document.createElement('div');m.className='mcount';m.innerHTML='<span>Swipe</span><i>1 / '+ch.length+'</i>';e.parentNode.insertBefore(m,e.nextSibling)})}
+if(document.readyState==='complete')setTimeout(run,300);else addEventListener('load',function(){setTimeout(run,300)})})();</script>
+<!-- /ABJ PHONE SHORT2 -->
