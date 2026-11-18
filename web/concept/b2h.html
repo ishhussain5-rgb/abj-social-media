@@ -16,6 +16,10 @@
 #kc .b2h .w{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:clamp(28px,4vw,72px);align-items:center}
 #kc .b2h .b2v{aspect-ratio:4/5}
 #kc .b2h h2{margin:14px 0 0}
+#kc .b2h .b2c{display:none}
+#kc .b2h .b2s li{opacity:.5;transition:opacity .5s,border-color .5s}
+#kc .b2h .b2s li.on{opacity:1;border-top-color:var(--go,#C9A96E);box-shadow:inset 0 2px 0 var(--go,#C9A96E)}
+#kc .b2h .b2s.nov li{opacity:1}
 #kc .b2s{list-style:none;margin:clamp(20px,2.6vh,32px) 0 0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(14px,1.6vw,28px)}
 #kc .b2s li{padding-top:16px;border-top:1px solid var(--go,#C9A96E)}
 #kc .b2s i{display:block;font:italic 400 16px/1 var(--serif);color:var(--go,#C9A96E)}
@@ -36,7 +40,7 @@
 </style>
 <script>/* film: light up the step that is on screen; pause when off screen */
 (function(){function run(){document.querySelectorAll('#kc .b2v').forEach(function(f){var v=f.querySelector('video'),li=f.querySelectorAll('.b2c li');if(!v||f.getAttribute('data-b2'))return;f.setAttribute('data-b2','1');
-var cut=[4.4,5.8,7.2,99];v.addEventListener('timeupdate',function(){var t=v.currentTime,k=0;while(t>=cut[k])k++;for(var i=0;i<li.length;i++)li[i].classList.toggle('on',i===k)});
+var sec=f.closest('.b2h'),st=sec?sec.querySelectorAll('.b2s li'):[];var cut=[4.4,5.8,7.2,99];v.addEventListener('timeupdate',function(){var t=v.currentTime,k=0;while(t>=cut[k])k++;for(var i=0;i<li.length;i++)li[i].classList.toggle('on',i===k);for(var j=0;j<st.length;j++)st[j].classList.toggle('on',j===k)});if(sec&&getComputedStyle(f).display==='none'){var o=sec.querySelector('.b2s');o&&o.classList.add('nov')}
 if('IntersectionObserver'in window){new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){var p=v.play();if(p&&p.catch)p.catch(function(){})}else v.pause()})},{threshold:.2}).observe(f)}})}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run()})();</script>
 <!-- /ABJ B2H -->
