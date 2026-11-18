@@ -1045,3 +1045,35 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   (handleless kitchen now the main photo, then wardrobes, media wall, bedroom), the 5 older under-stairs photos kept after them.
   Still open: logo is the old "AB Joinery" image. Free plan allows one logo, so it has to be removed before the ABJ roundel
   can go up - waiting for Ish's OK. Payment methods left blank (not confirmed). Plaky item logged (In progress).
+
+## 18 Nov 2026
+- Spelling check ("meter" vs "metre"): no change needed. Every "meter" on /under-stairs-storage and the two articles is a gas or
+  electric meter (correct UK spelling); measurements already say "metre". The 16 Nov audit flagged them wrongly.
+- Hidden old footer "Email us" mailto: already gone (16 Nov enquiry swap). Only an inert line in the footer script
+  (`.abjf-mail`, matches nothing) remains in record 5302826903; left alone (no code removed from the old site).
+- Search Console (URL inspection, read only): /kitchen-cost-peterborough and /media-wall-cost-peterborough both "URL is on Google".
+- Phones, 44px tap areas + readable blog filters: `tap44.html` (ABJ TAP block, phones only) appended to the main block after
+  `<!-- /ABJ MOBILE -->`: DEV all 62 (backups `dev-<pid>-<rec>-before-tap-20261118`, 15 calculator pages again `-before-tap2-`),
+  then LIVE all 64 (Ish: "Yes please"), backups `live-<pid>-<rec>-before-tap-20261118`. Checked on the published pages at 390 with
+  real hit-testing (elementFromPoint): menu button, footer folds, legal links, socials, related-link rows, film/feature buttons,
+  calculator chips, gallery filters, FAQ topic links, booking contacts all >= 44px. Left: photo-credit links on landmark
+  captions and inline links inside article text (WCAG inline exception). Page growth ~25px (footer folds when opened).
+- Blog articles: same rules + date line / byline 11px -> 12.5px, inside the FIRST <style> of out-live/post-chrome.html
+  (post-skin only reads the first style, #kc and the last script). Site HEAD pin e47cc89 -> 7afc01c -> e0d5bdb (same length,
+  HEAD 65,490), backup IndexedDB abj_svc_bak 'sitehead-before-tap-20261118'; /abjfeeds (72969701) republished. Checked on
+  /abjfeeds/tpost/under-stairs-storage-ideas at 390.
+- 7 newest DEV pages (St Neots 381331703, Corby 381331803, Kettering 381331903, Shaker 381697803, handleless 381698003,
+  Fenland 381698103, King's Lynn 381698203): phone/desktop layer `mobile/mobile.html` @3717056 + guarantee fix + ABJ TAP,
+  backups `-before-mobile-tap-20261118`. St Neots DEV now matches live (390: 7899 vs 7898; 1440 sections identical).
+- DESKTOP one-screen sections, DEV ONLY: `desk_fit.html` (ABJ DESKFIT) on offers 354002703, gallery 354003003, booking
+  354003303, budget planner 389635003 (backups `-before-deskfit-20261118`). Gallery: even 4:3 tiles (3:2 at 1600+), 8 photos
+  to start on desktop (script N patched to 8 on 761px+, 16 on phones), white-bar photo zoomed. Offer/case-study cards
+  compact. Booking: tighter, and the EMPTY POSTCODE BOX (#abj-pc, a blank white panel under the address field, also on
+  live) hidden while empty. Planner: heading beside intro, room buttons + small print moved into the left column on
+  desktop (moved back on phones), example render hidden on desktop. Sections at 1440x900 / 1920x911 (screen = height-86):
+  offers 793/804, gallery 729/777, case studies 500/521, booking 873/882 content, planner 790/824. Phones unchanged.
+- Phone pages round 2, DEV ONLY: `phone_short2.html` on home 350369803, Oakham 354171903, kitchens 352648603, bedrooms
+  352674703 (and by mistake Bespoke Joinery DEV 377446203, harmless). Screens at 390x844: home 11.8 -> 11.4, Oakham
+  11.7 -> 10.5 ("Why ABJ" list becomes a swipe row), kitchens 11.2 -> 11.0, bedrooms 11.2 -> 10.8.
+- Desktop cursor (Ish's idea), DEV ONLY: `cursor.html` (ABJ CURSOR) gold dot + trailing ring; ring grows on links and
+  shows "View" on photos; only mouse + 1025px+ + no reduced motion; normal cursor in form fields.
