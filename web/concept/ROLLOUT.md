@@ -1094,3 +1094,7 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     web3forms key as the booking form (filled in Tilda, not in this repo) -> ABJ Factory lead hand-off, GA event
     sample_request. Before live: SEO title/description/canonical still the booking page's; confirm samples are free and posted.
   - Booking calendar: skipped (Ish is linking ABJ Hub to a calendar).
+  - Films v2 (Ish: wardrobe ending jittery and not liked; kitchens film too fast): web-media-u @52a2e9e. 13.9s, 0.8s fades,
+    machine clips at 2/3 speed, ending zoom supersampled 4x (no pixel jumps). Home uses abj-board-to-home-wide.mp4 (960x800,
+    ends on the handleless roof-lantern kitchen); kitchens band uses abj-board-to-home-v2.mp4 (720x900, ends on the quartz
+    island + dining kitchen). Step timings in b2h.html now 5.8 / 7.85 / 9.75 s. Neither photo appears elsewhere on its page.
