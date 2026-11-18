@@ -1098,3 +1098,10 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     machine clips at 2/3 speed, ending zoom supersampled 4x (no pixel jumps). Home uses abj-board-to-home-wide.mp4 (960x800,
     ends on the handleless roof-lantern kitchen); kitchens band uses abj-board-to-home-v2.mp4 (720x900, ends on the quartz
     island + dining kitchen). Step timings in b2h.html now 5.8 / 7.85 / 9.75 s. Neither photo appears elsewhere on its page.
+- 18 Nov 20:30 LIVE (Ish: "these are perfect, please make live"): board-to-home on the homepage 30601906 (rec 5657646303:
+  ws photo -> wide film, 4 steps inserted before the figures row, languages line before the finance note) and /bespoke-kitchens
+  73297273 (rec 5657531303: band before How it works, languages line), plus ABJ B2H snippet. Backups
+  `live-<pid>-<rec>-before-b2h-20261118`. Kitchens band video has no autoplay attribute (plays when scrolled into view;
+  phones hide it and no longer download it); same on DEV. Checked live at 1440 and 390: film plays, steps light up,
+  1 H1, no sideways scroll. Home 9.5 / 11.8 screens, kitchens 9.4 / 11.5. Not live yet: Oakham named reviews, gallery
+  real-jobs layout, free door samples page, cursor, desktop fit, phone round 2.
