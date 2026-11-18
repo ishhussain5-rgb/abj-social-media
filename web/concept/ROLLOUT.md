@@ -1077,3 +1077,20 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   11.7 -> 10.5 ("Why ABJ" list becomes a swipe row), kitchens 11.2 -> 11.0, bedrooms 11.2 -> 10.8.
 - Desktop cursor (Ish's idea), DEV ONLY: `cursor.html` (ABJ CURSOR) gold dot + trailing ring; ring grows on links and
   shows "View" on photos; only mouse + 1025px+ + no reduced motion; normal cursor in form fields.
+- "Next level" items (Ish: "please can you do the below on a dev page"), DEV ONLY, 18 Nov evening:
+  - Board-to-home film: `films/abj-board-to-home.mp4` (9.8s, 720x900, 682 kB, silent loop) + poster on branch web-media-u
+    @b20789d. Cut & Edge footage (CNC nesting, panel saw, CEHISA edgebander from reel04, panel stacks from reel09 - cropped
+    above their caption overlays) then a fitted ABJ walnut sliding wardrobe (31.10.24 shoot photo, slow zoom).
+  - `b2h.html` (ABJ B2H): film figure with Cut / Edge / Make / Fit chips lit in time with the film; 4-step chain; languages
+    line "We speak English, Polski, Lietuviu and Russian" (Ish confirmed the team speaks them). `nextlevel_dev.js`:
+    home 350369803 (ws photo -> film, 4 steps under the workshop text; review quote tried then removed to keep the section
+    one screen), kitchens 352648603 ("From board to your home" band before How it works; phones: one compact row),
+    Oakham 354171903 (three real named Google reviews: Olga I., Iftikhar A., M Rich - replaced the unnamed ones).
+    Google reviews don't name towns (0 of 94 with text), so true per-town reviews need a town noted when asking for them.
+  - Real jobs layout: gallery 354003003, "Real jobs, real prices" cards (Kings Road, Park Road, handleless island); cost /
+    time rows appear only when filled in `JOBS` (waiting for Ish's list); old Case studies section hidden (display:none).
+  - Free door samples DEV page: 399385903 /free-door-samples-dev-s6d1 (duplicate of Booking Form DEV, noindex). 127 Egger
+    decors (152 codes merged by colour) from cutandedgexpress.co.uk in 3 tabs + search, max 3, sends through the same
+    web3forms key as the booking form (filled in Tilda, not in this repo) -> ABJ Factory lead hand-off, GA event
+    sample_request. Before live: SEO title/description/canonical still the booking page's; confirm samples are free and posted.
+  - Booking calendar: skipped (Ish is linking ABJ Hub to a calendar).
