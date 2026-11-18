@@ -1121,3 +1121,6 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     3 tabs (35 / 74 / 18), form present, 1 H1, no sideways scroll. Not linked from other pages yet.
   - Checks: all 63 sitemap pages carry ABJ CURSOR; gallery desktop 8 tiles / 4 columns, phones 16; planner tabs in the
     left column; home phone hero 300px; no sideways scroll at 390.
+- 18 Nov 21:10 REMOVED (Ish: "We don't offer free door samples please remove"): /free-door-samples (399455003) and its DEV
+  copy (399385903) unpublished in Tilda (both 404, gone from the sitemap). Pages kept in Tilda, not deleted, until Ish
+  says so. No other page linked to them. ABJ does NOT offer free door samples - never offer or mention them.
