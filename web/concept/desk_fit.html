@@ -1,0 +1,68 @@
+<!-- ABJ DESKFIT (desktop: each section fits one screen - offers, case studies, gallery, booking, budget planner; 18 Nov 2026) -->
+<style>/* Desktop and tablet (761px and up) only, apart from the empty postcode box fix. Phones unchanged.
+   Undo: delete from the ABJ DESKFIT marker to /ABJ DESKFIT and publish the page. */
+#kc #abj-pc:empty{display:none!important}
+@media (min-width:761px){
+/* offer and case-study cards */
+#kc section:has(>.w>.ofg){padding-top:clamp(28px,3.4vh,48px);padding-bottom:clamp(28px,3.4vh,48px)}
+#kc section:has(>.w>.ofg) .sh{margin-bottom:clamp(18px,2.4vh,28px)}
+#kc .ofg .of figure{aspect-ratio:auto;height:clamp(130px,17vh,200px)}
+#kc .ofg .of .b{padding:clamp(20px,2.6vh,30px) clamp(24px,2.2vw,36px)}
+#kc .ofg .of h3{font-size:clamp(26px,2vw,34px);margin:8px 0 4px}
+#kc .ofg .of .val{margin:0 0 8px}
+#kc .ofg .of .val b{font-size:clamp(36px,2.8vw,50px)}
+#kc .ofg .of p{font-size:15px;line-height:1.55}
+#kc .ofg .of ul{margin-top:10px}
+#kc .ofg .of li{grid-template-columns:minmax(0,9.5em) minmax(0,1fr);gap:16px;padding:6px 0;font-size:14px;line-height:1.45}
+#kc .ofg .of .oft{padding-top:10px}
+#kc .ofg .of small{margin-top:10px;font-size:12px}
+/* gallery: even tiles, two rows to start (the full photo opens on click) */
+#kc #kc-gal{padding-top:clamp(28px,3.4vh,48px);padding-bottom:clamp(28px,3.4vh,48px)}
+#kc #kc-gal .gf{margin-bottom:clamp(16px,2.2vh,28px)}
+#kc #kc-gal .gg{columns:auto;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:clamp(10px,1.2vw,18px)}
+#kc #kc-gal .gi{margin:0;aspect-ratio:4/3}
+#kc #kc-gal .gi[hidden]{display:none}
+#kc #kc-gal .gi img{width:100%;height:100%;object-fit:cover}
+#kc #kc-gal .gi[href*="abj-white-handleless"] img{transform:scale(1.3)}
+#kc #kc-gal .gi[href*="abj-white-handleless"]:hover img{transform:scale(1.34)}
+#kc #kc-gal .gm{margin-top:clamp(18px,2.4vh,30px)}
+/* booking form */
+#kc .bkp .l,#kc .bkp .r{padding-top:calc(86px + clamp(20px,3.2vh,44px));padding-bottom:clamp(24px,3.2vh,44px)}
+#kc .bkp .bf h2{margin:10px 0 6px}
+#kc .bkp .bf .sub{margin-bottom:20px}
+#kc .bkp .bf .f{margin-bottom:16px}
+#kc .bkp .bf .send{margin-top:4px}
+#kc .bkp h1{margin:16px 0 16px}
+#kc .bkp ol{margin-top:clamp(20px,2.6vh,36px);gap:14px}
+#kc .bkp ol li{padding-top:14px}
+#kc .bkp .ct{padding-top:24px}
+/* budget planner: heading beside its intro, room buttons and small print in the left column */
+#kc .bp{padding-top:clamp(26px,3vh,40px);padding-bottom:clamp(26px,3vh,40px)}
+#kc .bp .w>.rv:first-child{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);column-gap:clamp(32px,4vw,80px);align-items:end;margin-bottom:clamp(18px,2.4vh,30px)}
+#kc .bp .w>.rv:first-child>.kick{grid-column:1}
+#kc .bp .w>.rv:first-child>h2{grid-column:1;margin:12px 0 0;font-size:clamp(34px,2.9vw,52px)}
+#kc .bp .w>.rv:first-child>.lead{grid-column:2;grid-row:1/span 2;margin:0;font-size:15px}
+#kc .bp .bg>div:first-child>.tabs{margin-bottom:clamp(18px,2.4vh,28px);gap:6px}
+#kc .bp .bg>div:first-child>.tabs button{padding:10px 13px;font-size:10.5px;letter-spacing:.14em}
+#kc .bp .amt output{font-size:clamp(44px,4vw,66px)}
+#kc .bp .bg figure{display:none}
+#kc .bp .res{padding:clamp(22px,2.8vh,34px) clamp(24px,2.2vw,36px)}
+#kc .bp .res h3{margin:8px 0 6px;font-size:clamp(24px,1.9vw,32px)}
+#kc .bp .res .sub{margin-bottom:6px;font-size:14px}
+#kc .bp .res .opts>*{padding-top:7px;padding-bottom:7px}
+#kc .bp .res .tip{margin-top:10px;padding-top:9px;padding-bottom:9px}
+#kc .bp .res .acts{margin-top:12px}
+#kc .bp .res .fine{margin-top:12px;font-size:11.5px;line-height:1.5}
+#kc .bp .bg>div:first-child>.fine{margin-top:clamp(22px,3vh,36px);color:rgba(243,238,230,.62);max-width:40em;font-size:12px;line-height:1.6}
+#kc .bp .bg>div:first-child>.fine *{color:inherit}
+}
+@media (min-width:1600px){#kc #kc-gal .gi{aspect-ratio:3/2}}
+</style>
+<script>/* budget planner, desktop: move the room buttons to the top of the left column and the small print under the budget buttons (moved back on phones) */
+(function(){function run(){var bp=document.getElementById('bp');if(!bp||!window.matchMedia||bp.getAttribute('data-fit'))return;bp.setAttribute('data-fit','1');
+var mq=matchMedia('(min-width:761px)'),col=bp.querySelector('.bg>div');if(!col)return;
+var mv=[[bp.querySelector('.tabs'),0],[bp.querySelector('.res .fine'),1]].filter(function(x){return x[0]}).map(function(x){return{el:x[0],last:x[1],home:x[0].parentNode,nx:x[0].nextSibling}});
+var go=function(){mv.forEach(function(m){if(mq.matches){if(m.el.parentNode!==col){if(m.last)col.appendChild(m.el);else col.insertBefore(m.el,col.firstChild)}}else if(m.el.parentNode!==m.home)m.home.insertBefore(m.el,m.nx)})};
+go();if(mq.addEventListener)mq.addEventListener('change',go);else if(mq.addListener)mq.addListener(go)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run()})();</script>
+<!-- /ABJ DESKFIT -->
