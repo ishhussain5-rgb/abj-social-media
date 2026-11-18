@@ -1,8 +1,9 @@
 /* 18 Nov 2026 "next level" items, DEV pages only. Load after abjrec.js and set window.B2H (b2h.html), window.SAMPLES (samples section).
    tfHome / tfKitchens / tfOakham / tfGallery return the new block code or null. */
 (function () {
-  const MEDIA = 'https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@b20789df10aaf052bbfe40d7eabb55ed13b230c6/films/';
-  const FILM = '<figure class="b2v"><video autoplay muted loop playsinline preload="metadata" poster="' + MEDIA + 'abj-board-to-home-poster.webp" aria-label="From board to your home: CNC cutting, panel saw, edgebanding, stacked panels and a fitted walnut wardrobe"><source src="' + MEDIA + 'abj-board-to-home.mp4" type="video/mp4"></video><ol class="b2c" aria-hidden="true"><li class="on">Cut</li><li>Edge</li><li>Make</li><li>Fit</li></ol></figure>';
+  const MEDIA = 'https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@52a2e9e7fd4f4ca563501151396dc921acdf56a5/films/';
+  const film = (v, room) => '<figure class="b2v"><video autoplay muted loop playsinline preload="metadata" poster="' + MEDIA + 'abj-board-to-home-' + v + '-poster.webp" aria-label="From board to your home: CNC cutting, panel saw, edgebanding, stacked panels and a finished ' + room + '"><source src="' + MEDIA + 'abj-board-to-home-' + v + '.mp4" type="video/mp4"></video><ol class="b2c" aria-hidden="true"><li class="on">Cut</li><li>Edge</li><li>Make</li><li>Fit</li></ol></figure>';
+  const FILM = film('v2', 'kitchen with a quartz island'), WIDE = film('wide', 'handleless kitchen');
   const STEPS = '<ol class="b2s"><li><i>01</i><b>Cut</b><span>Boards cut to the millimetre on the CNC by our sister company, Cut &amp; Edge Express.</span></li><li><i>02</i><b>Edge</b><span>Every panel edged in-house to match its decor.</span></li><li><i>03</i><b>Make</b><span>Built in our Peterborough workshop with GTV, Blum and H&auml;fele hardware.</span></li><li><i>04</i><b>Fit</b><span>Fitted in your home by the team that made it.</span></li></ol>';
   const QUOTE = '<p class="b2n">&ldquo;Everyone we dealt with, from the office team and designers to the manufacturing and fitting teams, was professional, conscientious, and clearly took great pride in their work.&rdquo; <span style="white-space:nowrap">&mdash; M Rich, Google review</span></p>';
   const LNG = '<p class="lng">We speak English, <span lang="pl">Polski</span>, <span lang="lt">Lietuvi&#371;</span> and <span lang="ru">&#1056;&#1091;&#1089;&#1089;&#1082;&#1080;&#1081;</span>.</p>';
@@ -14,7 +15,7 @@
   window.tfHome = c => {
     if (!isKc(c)) return null;
     if (!c.includes('class="b2v"')) {
-      c = c.replace(/(<div class="ws-a">\s*)<figure>[\s\S]*?<\/figure>/, (m, a) => a + FILM);
+      c = c.replace(/(<div class="ws-a">\s*)<figure>[\s\S]*?<\/figure>/, (m, a) => a + WIDE);
       if (!c.includes('class="b2v"')) throw 'ws figure';
       c = once(c, 'in our showroom at Brassey Close.</p>', 'in our showroom at Brassey Close.</p>' + STEPS.replace('class="b2s"', 'class="b2s b2s-ws"') + QUOTE, 'ws text');
     }
