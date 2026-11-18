@@ -1,0 +1,42 @@
+<!-- ABJ CURSOR (desktop only: gold dot + trailing ring, 18 Nov 2026) -->
+<style>/* Only on computers with a mouse, 1025px and wider, and not when the visitor asks for reduced motion.
+   Normal cursor stays for typing in form fields. Undo: delete from the ABJ CURSOR marker to /ABJ CURSOR and publish. */
+.abjc-d,.abjc-r{position:fixed;left:0;top:0;pointer-events:none;z-index:2147483646;opacity:0;transition:opacity .25s}
+.abjc-d{width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#C9A96E}
+.abjc-r{width:36px;height:36px;margin:-18px 0 0 -18px;border-radius:50%;border:1px solid rgba(201,169,110,.85);display:flex;align-items:center;justify-content:center;
+  font:italic 400 15px/1 'Cormorant Garamond',Georgia,serif;letter-spacing:.02em;color:#F3EEE6;
+  transition:opacity .25s,width .35s cubic-bezier(.2,.7,.2,1),height .35s cubic-bezier(.2,.7,.2,1),margin .35s cubic-bezier(.2,.7,.2,1),background-color .35s,border-color .35s}
+.abjc-r span{opacity:0;transition:opacity .2s}
+html.abjc-on .abjc-d,html.abjc-on .abjc-r{opacity:1}
+html.abjc-on,html.abjc-on body,html.abjc-on a,html.abjc-on button,html.abjc-on [role=button],html.abjc-on summary,html.abjc-on label,html.abjc-on img{cursor:none!important}
+html.abjc-on input,html.abjc-on textarea,html.abjc-on select,html.abjc-on [contenteditable]{cursor:auto!important}
+html.abjc-link .abjc-r{width:58px;height:58px;margin:-29px 0 0 -29px;background-color:rgba(201,169,110,.14)}
+html.abjc-link .abjc-d{opacity:0}
+html.abjc-view .abjc-r{width:86px;height:86px;margin:-43px 0 0 -43px;background-color:rgba(14,27,26,.82);border-color:rgba(201,169,110,.9)}
+html.abjc-view .abjc-r span{opacity:1}
+html.abjc-view .abjc-d{opacity:0}
+html.abjc-text .abjc-d,html.abjc-text .abjc-r{opacity:0!important}
+</style>
+<script>(function(){
+  if(window.__abjCursor||!window.matchMedia)return;
+  var ok=matchMedia('(hover:hover) and (pointer:fine) and (min-width:1025px)'),calm=matchMedia('(prefers-reduced-motion: reduce)');
+  if(!ok.matches||calm.matches)return; window.__abjCursor=1;
+  var de=document.documentElement,d=document.createElement('div'),r=document.createElement('div');
+  d.className='abjc-d';r.className='abjc-r';r.innerHTML='<span>View</span>';d.setAttribute('aria-hidden','true');r.setAttribute('aria-hidden','true');
+  document.body.appendChild(r);document.body.appendChild(d);
+  var mx=-100,my=-100,rx=-100,ry=-100,shown=false,raf=0;
+  var TEXT='input,textarea,select,[contenteditable],iframe,video[controls]';
+  var VIEW='#kc .gi,#kc .fp figure,#kc .rooms figure,#kc .sty .card figure,#kc a figure,#kc a>img,#kc .ph-lb';
+  var LINK='a,button,[role=button],summary,label,.lnk,.bt';
+  function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;r.style.transform='translate3d('+rx+'px,'+ry+'px,0)';d.style.transform='translate3d('+mx+'px,'+my+'px,0)';
+    if(Math.abs(mx-rx)>.1||Math.abs(my-ry)>.1)raf=requestAnimationFrame(loop);else raf=0}
+  addEventListener('mousemove',function(e){if(!ok.matches||calm.matches)return;mx=e.clientX;my=e.clientY;if(!shown){rx=mx;ry=my;shown=true;de.classList.add('abjc-on')}if(!raf)raf=requestAnimationFrame(loop)},{passive:true});
+  document.addEventListener('mouseover',function(e){var t=e.target;if(!t||!t.closest)return;
+    var tx=!!t.closest(TEXT),vw=!tx&&!!t.closest(VIEW),lk=!tx&&!vw&&!!t.closest(LINK);
+    de.classList.toggle('abjc-text',tx);de.classList.toggle('abjc-view',vw);de.classList.toggle('abjc-link',lk)},{passive:true});
+  document.addEventListener('mouseleave',function(){de.classList.remove('abjc-on');shown=false});
+  document.addEventListener('mouseenter',function(){if(mx>-100)de.classList.add('abjc-on')});
+  function off(){if(!ok.matches||calm.matches){de.classList.remove('abjc-on','abjc-link','abjc-view','abjc-text')}}
+  if(ok.addEventListener){ok.addEventListener('change',off);calm.addEventListener('change',off)}
+})();</script>
+<!-- /ABJ CURSOR -->
