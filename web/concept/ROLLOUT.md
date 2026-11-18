@@ -1105,3 +1105,19 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   phones hide it and no longer download it); same on DEV. Checked live at 1440 and 390: film plays, steps light up,
   1 H1, no sideways scroll. Home 9.5 / 11.8 screens, kitchens 9.4 / 11.5. Not live yet: Oakham named reviews, gallery
   real-jobs layout, free door samples page, cursor, desktop fit, phone round 2.
+- 18 Nov LIVE (Ish: "make live for all"): one save + publish per page, backups `live-<pid>-<rec>-before-golive-all-20261118`
+  (cursor-only pages: `...-before-golive-cursor-20261118`).
+  - ABJ DESKFIT (desk_fit.html @057cc62): /offers 343764303, /gallery 74160025 (plus gallery script N=8 on desktop, 16 on
+    phones), /bookingform 74327267, /budget-planner 389698703.
+  - ABJ PHONE SHORT2 (phone_short2.html @60590d2): / 30601906, /fitted-kitchens-bedrooms-oakham 204575403,
+    /bespoke-kitchens 73297273, /bespoke-bedrooms-abj 73297487.
+  - Oakham 204575403: three named Google reviews, languages line, ABJ B2H snippet (as DEV 354171903).
+  - Gallery 74160025: real-jobs cards with the neutral heading "Real jobs / Rooms we have made and fitted" (switches to
+    the price wording only when a job has a cost), no DEV note; old Case studies section hidden.
+  - ABJ CURSOR (cursor.html @7140af0): all 64 live pages (desktop with a mouse, 1025px+, not reduced motion).
+  - Free door samples LIVE: /free-door-samples, page 399455003 (copy of DEV 399385903; DEV kept). Title, SEO title and
+    description its own, canonical to itself, indexable. Header/footer links mapped from DEV to live with linkmap.json;
+    web3forms key carried over from DEV (filled in Tilda, not in this repo). ABJ CURSOR added. Checked at 1440 and 390:
+    3 tabs (35 / 74 / 18), form present, 1 H1, no sideways scroll. Not linked from other pages yet.
+  - Checks: all 63 sitemap pages carry ABJ CURSOR; gallery desktop 8 tiles / 4 columns, phones 16; planner tabs in the
+    left column; home phone hero 300px; no sideways scroll at 390.
