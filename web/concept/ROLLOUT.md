@@ -1199,3 +1199,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   pages: v3 once, Aftercare link, no DEV links. Rendered home, Stamford, booking, aftercare, an article at 390/1280/
   1536: no links off screen, no sideways scroll; one line per group at 1536, two neat lines at 1280. Phones and
   tablets also get the logo icons, glow and gold italic heading word (layout unchanged there).
+- 19 Nov 13:20 Google Business Profile + Bing check (Ish asked; NOTHING CHANGED):
+  GBP: verified, 4.9 / 103 reviews, Kitchen remodeler + 10 categories, description (20 yrs, 2,500+, 12-month guarantee,
+  women-owned), hours Mon-Fri 8-6 / Sat 10-2, both numbers + WhatsApp chat, website with UTM, 6 social links (no X),
+  20 service areas (incl. Sleaford, Melton Mowbray; not Whittlesey), posts weekly (latest last week), all low reviews
+  answered (Wayne Guest 1-star reply is confrontational), newest review 8 weeks old. Services still carry unconfirmed
+  "from" prices and services from 13 Nov (custom cabinets from £5,000, granite worktop installation, cabinet refacing).
+  Bing: Places listing live (Kitchen remodelling, same description, 20 service areas incl. Leicester/Northampton, only
+  Yell 5/5 x2 shown); Bing Places dashboard not opened (Google sign-in did nothing; needs Ish). Bing Webmaster: 13 clicks /
+  1.6K impressions (3 months); "32 pages with identical titles" = DEV pages vs live pages - Bing has indexed DEV pages
+  (site: search ~57 results incl. bourne/corby/oakham/booking DEV). Cause: DEV pages carry noindex,nofollow AND the site
+  HEAD's sitewide <meta name="robots" content="index, follow, max-snippet..."> - Google takes the stricter one, Bing
+  apparently not. Proposed fix (waiting for Ish): drop "index, follow," from the HEAD tag (default anyway) + republish
+  DEV pages; optionally Bing "Block URLs" for /*-dev-*. Sitemap last read by Bing 10 Nov (38 URLs; now 64) - resubmit.
