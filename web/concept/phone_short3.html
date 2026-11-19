@@ -30,7 +30,18 @@
 #kc .proj .pg{padding-bottom:36px!important}
 /* customer quote: shorter photo */
 #kc .qt>img{height:180px!important;object-fit:cover}
+/* feature block: the two small photos under the text show on wider screens only */
+#kc .fp .sm2{display:none!important}
+/* style cards: slightly shorter photos */
+#kc .sty .card figure{height:200px!important}
+/* intro facts: tighter grid */
+#kc .intro .facts{row-gap:14px!important;margin-top:18px!important}
+#kc .intro .facts>*{padding-top:10px!important;padding-bottom:0!important}
+/* questions: first four open to view, the rest behind "More questions" */
+#kc .det details.q3-x{display:none}
+#kc .det .q3-more{display:inline-flex;align-items:center;min-height:44px;margin-top:10px;padding:0;border:0;border-bottom:1px solid currentColor;background:none;color:inherit;font:500 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;cursor:pointer}
 }
+#kc .det .q3-more{display:none}
 </style>
 <script>/* phones: process swipe counter; budget slider button */
 (function(){function run(){
@@ -40,6 +51,13 @@
     var c=document.createElement('div');c.className='p3c';c.setAttribute('aria-hidden','true');c.innerHTML='<span>Swipe</span><span class="n">1 / '+items.length+'</span>';ps.parentNode.insertBefore(c,ps.nextSibling);
     var n=c.querySelector('.n');ps.addEventListener('scroll',function(){var w=items[0].getBoundingClientRect().width+12;var k=Math.min(items.length,Math.round(ps.scrollLeft/w)+1);n.textContent=k+' / '+items.length},{passive:true});
     var show=function(){c.style.display=mq&&mq.matches?'':'none'};show();mq&&mq.addEventListener&&mq.addEventListener('change',show)});
+  document.querySelectorAll('#kc .det').forEach(function(s){if(s.getAttribute('data-p3'))return;s.setAttribute('data-p3','1');
+    var ds=s.querySelectorAll('details');if(ds.length<=4)return;
+    var already=[].some.call(s.querySelectorAll('button,a'),function(x){return /more questions/i.test(x.textContent)});if(already)return;
+    for(var i=4;i<ds.length;i++)ds[i].classList.add('q3-x');
+    var m=document.createElement('button');m.type='button';m.className='q3-more';m.textContent='More questions ('+(ds.length-4)+')';
+    ds[ds.length-1].parentNode.insertBefore(m,ds[ds.length-1].nextSibling);
+    m.addEventListener('click',function(){for(var j=4;j<ds.length;j++)ds[j].classList.remove('q3-x');m.remove()})});
   var bp=document.getElementById('bp'),calc=document.getElementById('kc-cost');
   if(bp&&calc&&!bp.getAttribute('data-p3')){bp.setAttribute('data-p3','1');
     var host=calc.querySelector('.w')||calc;var b=document.createElement('button');b.type='button';b.className='bp-open';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','bp');b.textContent='Prefer a slider? Set a budget instead';
