@@ -1229,3 +1229,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   'llms-before-abjcutandedge-20261119'); guide articles via post-chrome.html, HEAD post-skin pin -> e8baeb2, /abjfeeds
   republished. Checked: 64 sitemap pages + 404 + both llms files = 0 old links, 290 new; footer link clicked -> lands on
   cutandedgexpress.co.uk. Left as is: the Cloudflare 301 for /edgebanding-abj (goes straight to the final Cut & Edge page).
+- 19 Nov 17:05 Screaming Frog export (Ish: "resolve any of the attached issues"):
+  - Park Road 389664003, Budget planner 389698703, Kitchen fitters 389763803: 7/4/4 full-size jsDelivr photos (@74e75bd
+    media/abj-*.webp, 218-305 kB, menu + related cards) -> the lighter copies every other page uses (@f58f336 media/l/74e75bd-*,
+    86-95 kB); Park Road 2 alt texts cut to 85/82 chars; Kitchen fitters H1 73 -> 69 chars ("Peterborough kitchen fitters
+    from the workshop that made your kitchen"); backups '*-before-sf1119'. Then abjImgFix on those 3 + /gallery 74160025:
+    width/height on 18/15/23/3 images; 9 heavy images -> Tilda WebP copies under 100 kB (incl. kitchen-fitters hero 194k -> 82k
+    1600w, budget-planner hero 177k -> 76k). Kitchen fitters meta/OG description 156 -> 150 chars.
+    Checked live: 0 images without size, 0 over 100 kB, 0 alt over 100, no stretched images, no sideways scroll at 390/1440.
+  - Left on purpose: H2 Multiple (normal heading structure), Missing image title (optional tooltip, not a ranking factor),
+    High external outlinks (social/supplier/review links), OG image 160 kB (social shares only), no-anchor link on articles
+    (Tilda's own back arrow under the new article design).
+- 19 Nov 17:10 Bing Places (Ish signed in): 3 listings, synced with Google 2 weeks ago. ABJ Kitchens listing description
+  still says "10-year guarantee" (old Google text) -> needs a Sync from Google (asked Ish). ABJ Accessories: pending publish.
