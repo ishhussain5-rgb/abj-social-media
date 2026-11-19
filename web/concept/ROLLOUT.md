@@ -1212,3 +1212,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   HEAD's sitewide <meta name="robots" content="index, follow, max-snippet..."> - Google takes the stricter one, Bing
   apparently not. Proposed fix (waiting for Ish): drop "index, follow," from the HEAD tag (default anyway) + republish
   DEV pages; optionally Bing "Block URLs" for /*-dev-*. Sitemap last read by Bing 10 Nov (38 URLs; now 64) - resubmit.
+- 19 Nov 13:30 Bing fix (Ish: "yes"): site HEAD robots meta "index, follow, max-snippet:-1, ..." -> "max-snippet:-1,
+  max-image-preview:large, max-video-preview:-1" (65,490 -> 65,475; backup 'sitehead-before-robots-20261119'). All 63 DEV
+  pages republished (single-page publish, 0 errors); checked: every DEV page now carries only noindex,nofollow (no
+  conflicting "index"). Live pages keep the old tag until their next publish (harmless: index is the default).
+  Bing Webmaster: sitemap.xml + sitemap-feeds.xml re-submitted (Processing); 64 URLs submitted for re-crawl (63 DEV pages
+  so Bing sees noindex and drops them, + /aftercare). Re-check Bing 'site:' results and the identical-titles warning in ~1 week.
