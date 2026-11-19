@@ -1,0 +1,51 @@
+<!-- ABJ PHONE SHORT3 (phones: shorter service pages - process as a swipe row, budget slider folded into the cost guide, lighter booking band; 19 Nov 2026) -->
+<style>/* Phones only (760px and below). Desktop unchanged. Nothing is deleted: hidden parts stay in the page for Google and come back on wider screens.
+   Undo: delete from the ABJ PHONE SHORT3 marker to /ABJ PHONE SHORT3 and publish. */
+#kc .bp-open{display:none}
+@media (max-width:760px){
+/* process steps: one swipe row instead of a tall timeline */
+#kc .proc{padding-top:44px!important;padding-bottom:40px!important}
+#kc .proc .sh{margin-bottom:18px!important}
+#kc .proc .ps{display:flex!important;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;margin-right:-20px;padding:2px 20px 4px 0!important}
+#kc .proc .ps::-webkit-scrollbar{display:none}
+#kc .proc .ps>div{flex:0 0 74%;scroll-snap-align:start;padding:18px 16px 16px!important;border:1px solid rgba(201,169,110,.45);margin:0!important;min-height:0}
+#kc .proc .ps>div i{position:static!important;margin:0 0 10px!important;transform:none!important}
+#kc .proc .ps>div h3{margin-top:0!important}
+#kc .proc .ps .jr-t{display:none!important}
+#kc .proc .p3c{display:flex;justify-content:space-between;margin-top:12px;font:500 11px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;opacity:.7}
+/* budget slider: folded into the cost guide, opens on tap */
+#kc .bp-open{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:52px;margin:14px 0 0;padding:14px 16px;border:1px solid rgba(201,169,110,.55);background:transparent;color:inherit;font:500 12px/1.3 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-align:left;cursor:pointer}
+#kc .bp-open:after{content:"+";font:300 22px/1 var(--sans);letter-spacing:0;margin-left:12px}
+#kc .bp-open[aria-expanded="true"]:after{content:"\2013"}
+#kc section.bp.bp-fold{padding-top:0!important;padding-bottom:0!important}
+#kc section.bp.bp-fold>.w{display:none}
+#kc section.bp.bp-fold.bp-shown{padding-top:28px!important;padding-bottom:40px!important}
+#kc section.bp.bp-fold.bp-shown>.w{display:block}
+#kc .calc.bp-host{padding-bottom:36px!important}
+/* booking band: no photo strip on phones (the band already has its own heading and buttons) */
+#kc .bk>figure{display:none!important}
+#kc .bk>.t{padding-top:40px!important}
+/* featured project: the two small extra photos show on wider screens only */
+#kc .proj figure.f1,#kc .proj figure.f2{display:none!important}
+#kc .proj .pg{padding-bottom:36px!important}
+/* customer quote: shorter photo */
+#kc .qt>img{height:180px!important;object-fit:cover}
+}
+</style>
+<script>/* phones: process swipe counter; budget slider button */
+(function(){function run(){
+  var mq=window.matchMedia&&matchMedia('(max-width:760px)');
+  document.querySelectorAll('#kc .proc .ps').forEach(function(ps){if(ps.getAttribute('data-p3'))return;ps.setAttribute('data-p3','1');
+    var items=ps.querySelectorAll(':scope>div');if(items.length<2)return;
+    var c=document.createElement('div');c.className='p3c';c.setAttribute('aria-hidden','true');c.innerHTML='<span>Swipe</span><span class="n">1 / '+items.length+'</span>';ps.parentNode.insertBefore(c,ps.nextSibling);
+    var n=c.querySelector('.n');ps.addEventListener('scroll',function(){var w=items[0].getBoundingClientRect().width+12;var k=Math.min(items.length,Math.round(ps.scrollLeft/w)+1);n.textContent=k+' / '+items.length},{passive:true});
+    var show=function(){c.style.display=mq&&mq.matches?'':'none'};show();mq&&mq.addEventListener&&mq.addEventListener('change',show)});
+  var bp=document.getElementById('bp'),calc=document.getElementById('kc-cost');
+  if(bp&&calc&&!bp.getAttribute('data-p3')){bp.setAttribute('data-p3','1');
+    var host=calc.querySelector('.w')||calc;var b=document.createElement('button');b.type='button';b.className='bp-open';b.setAttribute('aria-expanded','false');b.setAttribute('aria-controls','bp');b.textContent='Prefer a slider? Set a budget instead';
+    calc.classList.add('bp-host');host.appendChild(b);bp.classList.add('bp-fold');
+    b.addEventListener('click',function(){var on=!bp.classList.contains('bp-shown');bp.classList.toggle('bp-shown',on);b.setAttribute('aria-expanded',on?'true':'false');if(on){var y=bp.getBoundingClientRect().top+window.pageYOffset-70;window.scrollTo({top:y,behavior:'smooth'})}});
+  }
+}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run()})();</script>
+<!-- /ABJ PHONE SHORT3 -->
