@@ -1,5 +1,5 @@
 {
- "_note": "Tilda page ids (project 6121364), 14 Nov 2026. live = the 60 sitemap pages + the 404 page (123982426). dev = the 52 DEV pages that carry the phone layer (Kitchens DEV 352648603 first). 16 Nov 2026: dev now all 62 DEV pages (8 added from the published DEV pages).",
+ "_note": "Tilda page ids (project 6121364), 14 Nov 2026. live = the 60 sitemap pages + the 404 page (123982426). dev = the 52 DEV pages that carry the phone layer (Kitchens DEV 352648603 first). 16 Nov 2026: dev now all 62 DEV pages (8 added from the published DEV pages). 19 Nov 2026: live + /aftercare 401085903 (65 pages); dev + /aftercare-dev-a7c3 400823803.",
  "live": [
   "30601906",
   "70795693",
@@ -64,6 +64,7 @@
   "389664003",
   "389698703",
   "389763803",
+  "401085903",
   "123982426"
  ],
  "dev": [
@@ -128,6 +129,7 @@
   "381698003",
   "381698203",
   "389603903",
-  "381331703"
+  "381331703",
+  "400823803"
  ]
 }

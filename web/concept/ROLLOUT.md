@@ -1159,3 +1159,22 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     (details + rooms, then timing/source/email/call time/notes). Tested with sending intercepted: payload correct.
 - Waiting on Ish: Cambridge/Huntingdon/Ely/Grantham real jobs; case study jobs; Alex's prices (price guidance, finance
   example); brochure mailing list (where sign-ups go, consent wording, privacy policy).
+- 19 Nov evening, LIVE (Ish: "Please make these live but before you do, i still think the footer on the desktop side
+  can be somehow halved" + "least amount of scrolling on both mobile and desktop"):
+  - ABJ FOOTFIT (foot_fit.html @40d5ca5) on every new-design page: computers 1025px+ footer about half the height
+    (Kitchens 765 -> 453 at 1280, 748 -> 416 at 1440, 756 -> 367 at 1920; social links move into the top row, link
+    lists in 2 columns (3 for ABJ from 1800px), brand blurb hidden, areas on one line); tablets 761-1024px brand row +
+    four columns (1177 -> 675); phones social links on one line, blurb hidden (898 -> 756). Every link kept. Tested
+    1024-2560 and 360-430: no overlap, no sideways scroll. DEV 8 pages, then all 65 live pages (single-page publish each).
+  - Guide articles: post-chrome.html (out/ + out-live/) carries the same FOOTFIT CSS/JS; site HEAD post-skin pin
+    c811da2 -> 169d3c4 -> 3fb4577 (same length 65,490; backup IndexedDB 'sitehead-before-footfit-20261119').
+  - golive_1119.js (tfCopy: copies finished blocks from DEV unchanged, refuses DEV links) + abjRec, dry-run checked
+    insert-only (code identical once the new blocks are taken out), backups '<live>-<pid>-<rec>-before-golive1119':
+    home 30601906 (HEROLAZY + light hero videos, film preload none, PHONE SHORT3), kitchens 73297273, wardrobes
+    73280437, bedrooms 73297487, media walls 73279037 (ROOMREVIEWS before #kc-book + PHONE SHORT3, PS2 where missing),
+    about 112290576 (PS2 + PS3), booking 74327267 (booking_tf.js: optional email + best time to call, ABJ FORMSTEP).
+    Checked live at 390 and 1440: phone screens home 10.4, kitchens 10.2, wardrobes 9.9, bedrooms 9.9, media walls 9.7,
+    about 8.9; light hero videos load after the page; 3 reviews per room; booking step 1 blocks empty Next (nothing sent).
+  - /aftercare LIVE: Tilda 401085903 (duplicate of live Terms 82695596), main = aftercare_main.html @acbce20, footer
+    heading "Something not right? Tell us.", title/description/canonical/X tags set, indexable. "Aftercare" link added
+    after "Terms & conditions" in the footer legal row of all live pages and guide articles. page_ids.json + linkmap.json.
