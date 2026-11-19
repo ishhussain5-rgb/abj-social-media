@@ -1,0 +1,75 @@
+<!-- ABJ FOOTFIT (footer about half the height on computers and tablets, shorter on phones; v2 19 Nov 2026: smaller text,
+     more air, social links under the logo on computers) -->
+<style>/* Computers, tablets and phones. Every link stays; only the short brand blurb is hidden.
+   Works with both footer versions (.mf columns and the homepage's .acc columns).
+   Undo: delete from the ABJ FOOTFIT marker to /ABJ FOOTFIT and publish. */
+@media (min-width:1025px){
+/* v2 (19 Nov, Ish: "squished" - wanted the look he got at 90% zoom): text about 10% smaller, more air between
+   columns and rows, social links under the logo instead of crowding the top row */
+#kc .ft{padding-top:28px!important;padding-bottom:14px!important}
+#kc .ft .ft-top{padding-bottom:20px!important;align-items:center}
+#kc .ft .ft-top h2{font-size:clamp(26px,2vw,32px)!important;margin:0!important}
+#kc .ft .ft-top .acts{margin-left:auto!important}
+#kc .ft .ft-g{grid-template-columns:minmax(190px,1fr) minmax(0,1.35fr) minmax(0,1.5fr) minmax(0,1.4fr) minmax(0,1.05fr)!important;column-gap:clamp(28px,3vw,56px)!important;row-gap:0!important;padding-top:24px!important;padding-bottom:22px!important;align-items:start}
+#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:14px!important;font-size:10px!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,auto))!important;justify-content:start;column-gap:clamp(18px,1.8vw,30px)!important;row-gap:8px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;line-height:1.4!important}
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-b .lg b{white-space:nowrap}
+#kc .ft .ft-b .rt{font-size:9.5px!important;letter-spacing:.12em!important}
+#kc .ft .ft-b .ft-s{display:flex!important;flex-wrap:wrap;gap:9px 16px!important;margin:20px 0 0!important;padding:0!important;border:0!important;max-width:230px}
+#kc .ft .ft-b .ft-s a{font-size:9.5px!important;letter-spacing:.16em!important;opacity:.85}
+#kc .ft .ft-b .ft-s a:hover{opacity:1}
+#kc .ft .ft-v,#kc .ft .ft-v address{font-size:12px!important;line-height:1.75!important}
+#kc .ft .ft-v address{margin:0!important}
+#kc .ft .ft-v address a{white-space:nowrap}
+#kc .ft .ft-v .lnk{margin-top:10px!important;font-size:10px!important}
+#kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:24px;padding-top:16px!important;padding-bottom:16px!important;border-top:1px solid rgba(243,238,230,.08)}
+#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap;font-size:10px!important}
+#kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 14px!important}
+#kc .ft .ft-ar .ft-a a{font-size:11.5px!important;opacity:.85}
+#kc .ft .ft-l{padding-top:14px!important;margin-top:0!important;border-top:1px solid rgba(243,238,230,.12)}
+#kc .ft .ft-l span,#kc .ft .ft-l nav a{font-size:11.5px!important;line-height:1.6!important}
+}
+/* laptops: link text may wrap inside its column rather than run into the next one */
+@media (min-width:1025px) and (max-width:1439px){
+#kc .ft .ft-g{grid-template-columns:minmax(170px,.9fr) minmax(0,1.4fr) minmax(0,1.55fr) minmax(0,1.45fr) minmax(0,1.1fr)!important;column-gap:28px!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:16px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12px!important}
+}
+/* tablets 761-1024px: brand row on top, then four link columns side by side */
+@media (min-width:761px) and (max-width:1024px){
+#kc .ft{padding-top:28px!important;padding-bottom:12px!important}
+#kc .ft .ft-top{padding-bottom:16px!important}
+#kc .ft .ft-g{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:20px!important;row-gap:18px!important;padding-top:18px!important;padding-bottom:12px!important;align-items:start}
+#kc .ft .ft-b{grid-column:1/-1!important;display:flex!important;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-b .rt{margin:0!important}
+#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:10px!important}
+#kc .ft .ft-g>:not(.ft-b) ul{display:grid!important;grid-template-columns:minmax(0,1fr)!important;row-gap:4px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:13px!important}
+#kc .ft .ft-v,#kc .ft .ft-v address{font-size:12.5px!important;line-height:1.55!important}
+#kc .ft .ft-v address{margin:0!important}
+#kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:18px;padding-top:4px!important;padding-bottom:8px!important}
+#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap}
+#kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 11px!important}
+#kc .ft .ft-ar .ft-a a{font-size:12px!important}
+#kc .ft .ft-s{padding-top:10px!important;padding-bottom:10px!important}
+#kc .ft .ft-l{padding-top:10px!important;margin-top:0!important}
+}
+/* phones: brand blurb hidden, social links on one line */
+@media (max-width:760px){
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-ar{padding-bottom:12px!important}
+#kc .ft .ft-s{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between;gap:4px!important;padding-top:6px!important}
+#kc .ft .ft-s a{font-size:clamp(9.5px,2.75vw,11px)!important;letter-spacing:.05em!important;white-space:nowrap;margin:0!important;padding-left:0!important;padding-right:0!important}
+}
+</style>
+<script>/* computers: social links sit under the logo in the footer; moved back on smaller screens */
+(function(){function run(){var ft=document.querySelector('#kc .ft');if(!ft||ft.getAttribute('data-ff'))return;ft.setAttribute('data-ff','1');
+  var s=ft.querySelector('.ft-s'),to=ft.querySelector('.ft-g .ft-b');if(!s||!to||!window.matchMedia)return;
+  var home=s.parentNode,nx=s.nextSibling,mq=matchMedia('(min-width:1025px)');
+  var go=function(){if(mq.matches){if(s.parentNode!==to)to.appendChild(s)}else if(s.parentNode!==home)home.insertBefore(s,nx)};
+  go();if(mq.addEventListener)mq.addEventListener('change',go);else if(mq.addListener)mq.addListener(go)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run()})();</script>
+<!-- /ABJ FOOTFIT -->
