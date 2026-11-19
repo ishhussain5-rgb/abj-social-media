@@ -10,10 +10,21 @@
 #kc .ft .ft-top{padding-bottom:20px!important;align-items:center}
 #kc .ft .ft-top h2{font-size:clamp(26px,2vw,32px)!important;margin:0!important}
 #kc .ft .ft-top .acts{margin-left:auto!important}
-#kc .ft .ft-g{grid-template-columns:minmax(222px,1fr) minmax(0,1.35fr) minmax(0,1.5fr) minmax(0,1.4fr) minmax(0,1.05fr)!important;column-gap:clamp(28px,3vw,56px)!important;row-gap:0!important;padding-top:22px!important;padding-bottom:18px!important;align-items:start}
-#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:14px!important;font-size:10px!important}
-#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,auto))!important;justify-content:start;column-gap:clamp(18px,1.8vw,30px)!important;row-gap:6px!important}
-#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;line-height:1.4!important}
+/* middle (19 Nov v3, Ish: the two-column Rooms/More lists "looked crap"): Rooms, More and ABJ as three neat lines
+   like the towns row - gold label, links in one row, fine divider between lines; brand left, Visit right */
+#kc .ft .ft-g{grid-template-columns:minmax(222px,250px) minmax(0,1fr) max-content!important;grid-template-rows:repeat(3,auto);column-gap:clamp(36px,4.5vw,80px)!important;row-gap:0!important;padding-top:22px!important;padding-bottom:18px!important;align-items:start}
+#kc .ft .ft-g>.ft-b{grid-column:1;grid-row:1/4}
+#kc .ft .ft-g>.ft-v{grid-column:3;grid-row:1/4}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v){grid-column:2;display:flex!important;align-items:baseline;gap:0 24px;padding:13px 0!important;margin:0!important;border-bottom:1px solid rgba(243,238,230,.09)}
+#kc .ft .ft-g>:nth-child(2){grid-row:1;padding-top:0!important}
+#kc .ft .ft-g>:nth-child(3){grid-row:2}
+#kc .ft .ft-g>:nth-child(4){grid-row:3;border-bottom:0!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v)>:first-child{flex:0 0 58px;margin:0!important;font-size:10px!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v)>:first-child::after,#kc .ft .ft-g>:not(.ft-b):not(.ft-v)>:first-child::before{display:none!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{display:flex!important;flex-wrap:wrap;gap:8px 22px!important;margin:0!important;padding:0!important;list-style:none;max-height:none!important;overflow:visible!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) li{margin:0!important;padding:0!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;line-height:1.4!important;white-space:nowrap;opacity:.9}
+#kc .ft .ft-v>:first-child{margin-bottom:14px!important;font-size:10px!important}
 #kc .ft .ft-b>p{display:none!important}
 #kc .ft .ft-b .lg b{white-space:nowrap}
 #kc .ft .ft-b .rt{font-size:9.5px!important;letter-spacing:.12em!important}
@@ -31,10 +42,11 @@
 #kc .ft .ft-l{padding-top:14px!important;margin-top:0!important;border-top:1px solid rgba(243,238,230,.12)}
 #kc .ft .ft-l span,#kc .ft .ft-l nav a{font-size:11.5px!important;line-height:1.6!important}
 }
-/* laptops: link text may wrap inside its column rather than run into the next one */
+/* laptops: slightly smaller; a long line of links wraps under itself, still lined up after its label */
 @media (min-width:1025px) and (max-width:1439px){
-#kc .ft .ft-g{grid-template-columns:minmax(160px,.75fr) minmax(0,1.55fr) minmax(0,1.65fr) minmax(0,1.45fr) minmax(0,1.05fr)!important;column-gap:26px!important}
-#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:16px!important}
+#kc .ft .ft-g{grid-template-columns:minmax(160px,190px) minmax(0,1fr) max-content!important;column-gap:32px!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v){gap:0 18px}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{gap:7px 18px!important}
 #kc .ft .ft-g>:not(.ft-b) li a{font-size:12px!important}
 #kc .ft .ft-b .ft-s{grid-template-columns:repeat(3,34px);gap:8px!important}
 #kc .ft .ft-b .ft-s a.ff-ic{width:34px;height:34px}
