@@ -1,6 +1,6 @@
-<!-- ABJ FOOTFIT (desktop footer about half the height: social links in the top row, two/three-column link lists,
+<!-- ABJ FOOTFIT (footer about half the height on computers and tablets, shorter on phones: social links in the top row, two/three-column link lists,
      address in two columns, one-line areas row, tighter spacing; 19 Nov 2026) -->
-<style>/* Computers 1025px and wider only. Phones and tablets unchanged. Every link stays; only the brand blurb is hidden on desktop.
+<style>/* Computers, tablets and phones. Every link stays; only the short brand blurb is hidden.
    Works with both footer versions (.mf columns and the homepage's .acc columns).
    Undo: delete from the ABJ FOOTFIT marker to /ABJ FOOTFIT and publish. */
 @media (min-width:1025px){
@@ -39,6 +39,32 @@
 #kc .ft .ft-g{grid-template-columns:minmax(208px,1fr) minmax(0,1.3fr) minmax(0,1.5fr) minmax(0,1.65fr) minmax(0,1.85fr)!important}
 #kc .ft .ft-g>:nth-child(4) ul{grid-template-columns:repeat(3,minmax(0,max-content))!important}
 #kc .ft .ft-v address{columns:2;column-gap:20px}
+}
+/* tablets 761-1024px: brand row on top, then four link columns side by side */
+@media (min-width:761px) and (max-width:1024px){
+#kc .ft{padding-top:28px!important;padding-bottom:12px!important}
+#kc .ft .ft-top{padding-bottom:16px!important}
+#kc .ft .ft-g{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:20px!important;row-gap:18px!important;padding-top:18px!important;padding-bottom:12px!important;align-items:start}
+#kc .ft .ft-b{grid-column:1/-1!important;display:flex!important;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-b .rt{margin:0!important}
+#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:10px!important}
+#kc .ft .ft-g>:not(.ft-b) ul{display:grid!important;grid-template-columns:minmax(0,1fr)!important;row-gap:4px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:13px!important}
+#kc .ft .ft-v,#kc .ft .ft-v address{font-size:12.5px!important;line-height:1.55!important}
+#kc .ft .ft-v address{margin:0!important}
+#kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:18px;padding-top:4px!important;padding-bottom:8px!important}
+#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap}
+#kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 11px!important}
+#kc .ft .ft-ar .ft-a a{font-size:12px!important}
+#kc .ft .ft-s{padding-top:10px!important;padding-bottom:10px!important}
+#kc .ft .ft-l{padding-top:10px!important;margin-top:0!important}
+}
+/* phones: brand blurb hidden, social links on one line */
+@media (max-width:760px){
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-s{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between;gap:8px!important}
+#kc .ft .ft-s a{font-size:10.5px!important;letter-spacing:.08em!important;white-space:nowrap;margin:0!important}
 }
 </style>
 <script>/* desktop: social links sit in the footer's top row; moved back on smaller screens */
