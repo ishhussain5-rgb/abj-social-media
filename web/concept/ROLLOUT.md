@@ -1218,3 +1218,14 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   conflicting "index"). Live pages keep the old tag until their next publish (harmless: index is the default).
   Bing Webmaster: sitemap.xml + sitemap-feeds.xml re-submitted (Processing); 64 URLs submitted for re-crawl (63 DEV pages
   so Bing sees noindex and drops them, + /aftercare). Re-check Bing 'site:' results and the identical-titles warning in ~1 week.
+- 19 Nov 15:50-16:45 (Ish: "update the website address for cut and edge to www.abjcutandedge.co.uk on the abj kitchens
+  website"): checked first that https://www.abjcutandedge.co.uk forwards to cutandedgexpress.co.uk and keeps the path
+  (/panel-edgebanding-services-peterborough/, /cutting-list-peterborough/ both land on the right page).
+  Every https://(www.)cutandedgexpress.com|co.uk/ link -> https://www.abjcutandedge.co.uk/ (same path):
+  site HEAD (menu "Cut & Edge Express (Trade)" x2 + retired-edgebanding link script; 65,475 -> 65,472, backup
+  'sitehead-before-abjcutandedge-20261119'); all 65 live page blocks (footer "Part of the ABJ group" link etc., backups
+  '*-before-abjcutandedge'); all 63 DEV pages; Tilda site footer page 346585603 (already had the new link saved but
+  unpublished - published, then all 65 live pages republished); llms.txt + llms-full.txt (Tilda + repo; backup
+  'llms-before-abjcutandedge-20261119'); guide articles via post-chrome.html, HEAD post-skin pin -> e8baeb2, /abjfeeds
+  republished. Checked: 64 sitemap pages + 404 + both llms files = 0 old links, 290 new; footer link clicked -> lands on
+  cutandedgexpress.co.uk. Left as is: the Cloudflare 301 for /edgebanding-abj (goes straight to the final Cut & Edge page).
