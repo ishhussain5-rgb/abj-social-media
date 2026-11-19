@@ -16,7 +16,7 @@
 #kc .ft .ft-g>:not(.ft-b) li a{white-space:nowrap}
 #kc .ft .ft-b>p{display:none!important}
 #kc .ft .ft-b .lg b{white-space:nowrap}
-#kc .ft .ft-b .rt{font-size:10px!important;letter-spacing:.12em!important;white-space:nowrap}
+#kc .ft .ft-b .rt{font-size:10px!important;letter-spacing:.1em!important}
 #kc .ft .ft-v,#kc .ft .ft-v address{font-size:12.5px!important;line-height:1.55!important}
 #kc .ft .ft-v address{margin:0!important}
 #kc .ft .ft-v address a{white-space:nowrap}
@@ -31,7 +31,8 @@
 /* laptops: slightly smaller links, address in one column */
 @media (min-width:1025px) and (max-width:1499px){
 #kc .ft .ft-g{grid-template-columns:minmax(190px,.9fr) minmax(0,1.25fr) minmax(0,1.55fr) minmax(0,1.5fr) minmax(0,1.2fr)!important}
-#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;white-space:normal}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:14px!important}
 }
 /* wide screens: three columns for the ABJ links, address in two columns */
 @media (min-width:1500px){
