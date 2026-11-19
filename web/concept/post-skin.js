@@ -68,14 +68,15 @@
         'media-wall-ideas-living-rooms': [['/media-walls', 'Media walls in Peterborough'], ['/media-wall-cost-peterborough', 'Media wall cost guide']]
       };
       var rel = REL[(location.pathname.split('/').pop() || '').toLowerCase()];
-      var relHtml = (rel && window.ABJ_POST_SKIN === true) ? '<p class="prel" style="margin:0 0 26px;font-size:15px;line-height:1.7">Related: ' +
+      var relHtml = (rel && window.ABJ_POST_SKIN === true) ? '<p class="prel" style="margin:28px 0 0;font-size:15px;line-height:1.7">Related: ' +
         rel.map(function (r) { return '<a href="' + r[0] + '" style="border-bottom:1px solid currentColor">' + esc(r[1]) + '</a>'; }).join(' &middot; ') + '</p>' : '';
       var slot = kc.querySelector('#kc-post');
       slot.outerHTML = '<section class="cs pg" aria-label="' + esc(title) + '"><div class="t"><span class="kick">Guide' + (date ? ' &middot; ' + esc(date) : '') + '</span><h1>' + esc(title) + '</h1>' +
         (lead ? '<p>' + esc(lead) + '</p>' : '') + '<div class="pmeta">By ' + author + '</div></div>' +
         (hero ? '<figure><img src="' + esc(hero) + '" alt="' + esc(heroAlt) + '" fetchpriority="high"></figure>' : '') + '</section>' +
-        '<section class="pbw"><div class="w"><article class="pbody" id="kc-pbody"></article>' + relHtml + '<div class="pnav"><a class="lnk" href="' + BLOG + '">All guides</a><a class="bt d" href="' + BOOK + '">Book a free design visit</a></div></div></section>';
+        '<section class="pbw"><div class="w"><article class="pbody" id="kc-pbody"></article><div class="pnav"><a class="lnk" href="' + BLOG + '">All guides</a><a class="bt d" href="' + BOOK + '">Book a free design visit</a></div></div></section>';
       kc.querySelector('#kc-pbody').appendChild(document.importNode(b, true));
+      if (relHtml) kc.querySelector('#kc-pbody').insertAdjacentHTML('beforeend', relHtml);
       de.classList.add('abjnew'); de.setAttribute('data-abjm-native', 'abjnew');
       document.body.insertBefore(document.importNode(kc, true), document.body.firstChild);
       (new Function(js.textContent.replace(/^\s*<script>|<\/script>\s*$/g, '')))();
