@@ -1,0 +1,18 @@
+<!-- ABJ HEROLAZY (home: still photo first, hero video after the page has loaded; 19 Nov 2026) -->
+<script>/* The hero shows its poster photo straight away. Once the page has finished loading, the lighter hero video
+   is fetched and starts playing. Visitors with "reduce motion" or data saver on keep the photo.
+   Undo: delete from the ABJ HEROLAZY marker to /ABJ HEROLAZY and put autoplay + preload="auto" back on the hero video. */
+(function(){
+  function start(){
+    var v=document.querySelector('#kc .hero video[data-lazy]');if(!v||v.getAttribute('data-started'))return;
+    var calm=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var save=navigator.connection&&navigator.connection.saveData;
+    if(calm||save)return;
+    v.setAttribute('data-started','1');v.preload='auto';v.muted=true;
+    try{v.load()}catch(e){}
+    var p=v.play();if(p&&p.catch)p.catch(function(){});
+  }
+  function later(){ (window.requestIdleCallback||function(f){setTimeout(f,300)})(start,{timeout:1500}) }
+  if(document.readyState==='complete')later();else window.addEventListener('load',later);
+})();</script>
+<!-- /ABJ HEROLAZY -->
