@@ -17,7 +17,7 @@
 #kc .ft .ft-b>p{display:none!important}
 #kc .ft .ft-b .lg b{white-space:nowrap}
 #kc .ft .ft-b .rt{font-size:9.5px!important;letter-spacing:.12em!important}
-#kc .ft .ft-b .ft-s{display:flex!important;flex-wrap:wrap;gap:4px!important;margin:16px 0 0 -8px!important;padding:0!important;border:0!important}
+#kc .ft .ft-b .ft-s{display:flex!important;flex-wrap:wrap;gap:8px!important;margin:18px 0 0!important;padding:0!important;border:0!important}
 #kc .ft .ft-b .ft-s a.ff-ic{width:34px;height:34px}
 #kc .ft .ft-b .ft-s a.ff-ic svg{width:17px;height:17px}
 #kc .ft .ft-v,#kc .ft .ft-v address{font-size:12px!important;line-height:1.75!important}
@@ -61,7 +61,7 @@
 @media (max-width:760px){
 #kc .ft .ft-b>p{display:none!important}
 #kc .ft .ft-ar{padding-bottom:12px!important}
-#kc .ft .ft-s{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start;gap:6px!important;padding-top:6px!important;margin-left:-10px!important}
+#kc .ft .ft-s{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start;gap:10px!important;padding-top:10px!important}
 #kc .ft .ft-s a.ff-ic{width:44px;height:44px}
 #kc .ft .ft-s a.ff-ic svg{width:20px;height:20px}
 }
@@ -72,6 +72,20 @@
 #kc .ft .ft-s a.ff-ic:hover,#kc .ft .ft-s a.ff-ic:focus-visible{opacity:1;color:var(--go,#C9A96E)!important}
 #kc .ft .ft-s a.ff-ic svg{width:18px;height:18px;display:block}
 #kc .ft .ft-s .ff-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* finish (all screen sizes): soft gold glow, gold hairline on top, gold italic last word in the heading,
+   social logos in fine circles that fill gold on hover, gold underline on link hover */
+#kc .ft{position:relative;background-image:radial-gradient(1100px 420px at 8% -12%,rgba(201,169,110,.11),transparent 62%),radial-gradient(900px 340px at 100% 115%,rgba(159,211,174,.05),transparent 60%)!important}
+#kc .ft::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent 0,rgba(201,169,110,.65) 50%,transparent 100%);pointer-events:none}
+#kc .ft .ft-top h2 .ff-em{font-style:italic;color:var(--go,#C9A96E)}
+#kc .ft .ft-s a.ff-ic{border:1px solid rgba(243,238,230,.22)!important;border-radius:50%;opacity:.9}
+#kc .ft .ft-s a.ff-ic:hover,#kc .ft .ft-s a.ff-ic:focus-visible{background:var(--go,#C9A96E)!important;border-color:var(--go,#C9A96E)!important;color:#0E1B1A!important;opacity:1}
+#kc .ft .ft-g li a,#kc .ft .ft-a a,#kc .ft .ft-l nav a{background:linear-gradient(var(--go,#C9A96E),var(--go,#C9A96E)) 0 100%/0 1px no-repeat;transition:background-size .35s ease,color .2s}
+#kc .ft .ft-g li a:hover,#kc .ft .ft-a a:hover,#kc .ft .ft-l nav a:hover{background-size:100% 1px;color:var(--go,#C9A96E)!important;opacity:1}
+@media (min-width:1025px){
+#kc .ft .ft-b .lg{display:inline-flex}
+#kc .ft .ft-l span{opacity:.6}
+#kc .ft .ft-l nav a{opacity:.75}
+}
 </style>
 <script>/* social links show as logo icons; on computers they sit under the logo in the footer, moved back on smaller screens */
 (function(){function run(){var ft=document.querySelector('#kc .ft');if(!ft||ft.getAttribute('data-ff'))return;ft.setAttribute('data-ff','1');
@@ -80,6 +94,7 @@ var IC={"instagram":"M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1
   [].forEach.call(s.querySelectorAll('a'),function(a){var h=(a.getAttribute('href')||'').toLowerCase(),k=/instagram/.test(h)?'instagram':/facebook/.test(h)?'facebook':/tiktok/.test(h)?'tiktok':/youtu/.test(h)?'youtube':/linkedin/.test(h)?'linkedin':/\/\/(www\.)?(twitter|x)\.com/.test(h)?'x':null;
     if(!k||a.querySelector('svg'))return;var t=a.textContent.trim();a.setAttribute('aria-label',t);a.setAttribute('title',t);a.classList.add('ff-ic');
     a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="'+IC[k]+'"/></svg><span class="ff-sr">'+t+'</span>'});
+  var h2=ft.querySelector('.ft-top h2');if(h2&&!h2.querySelector('.ff-em')&&h2.childNodes.length===1&&h2.firstChild.nodeType===3){var w=h2.textContent.replace(/\s+$/,''),i=w.lastIndexOf(' ');if(i>0){h2.textContent=w.slice(0,i+1);var em=document.createElement('span');em.className='ff-em';em.textContent=w.slice(i+1);h2.appendChild(em)}}
   if(!to||!window.matchMedia)return;
   var home=s.parentNode,nx=s.nextSibling,mq=matchMedia('(min-width:1025px)');
   var go=function(){if(mq.matches){if(s.parentNode!==to)to.appendChild(s)}else if(s.parentNode!==home)home.insertBefore(s,nx)};
