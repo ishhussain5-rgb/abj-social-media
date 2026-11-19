@@ -652,45 +652,52 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
    Works with both footer versions (.mf columns and the homepage's .acc columns).
    Undo: delete from the ABJ FOOTFIT marker to /ABJ FOOTFIT and publish. */
 @media (min-width:1025px){
-#kc .ft{padding-top:24px!important;padding-bottom:12px!important}
-#kc .ft .ft-top{padding-bottom:14px!important;align-items:center}
-#kc .ft .ft-top h2{font-size:clamp(28px,2.2vw,36px)!important;margin:0!important}
-#kc .ft .ft-top .ft-s{display:flex!important;flex-wrap:nowrap;gap:18px!important;padding:0!important;margin:0 0 0 auto!important;border:0!important}
-#kc .ft .ft-top .ft-s a{font-size:11px!important;letter-spacing:.14em!important}
-#kc .ft .ft-top .acts{margin-left:28px!important}
-#kc .ft .ft-g{column-gap:24px!important;row-gap:0!important;padding-top:16px!important;padding-bottom:12px!important;align-items:start}
-#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:10px!important}
-#kc .ft .ft-g>:not(.ft-b) ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,max-content))!important;column-gap:18px!important;row-gap:5px!important}
-#kc .ft .ft-g>:not(.ft-b) li a{white-space:nowrap}
+/* v2 (19 Nov, Ish: "squished" - wanted the look he got at 90% zoom): text about 10% smaller, more air between
+   columns and rows, social links under the logo instead of crowding the top row */
+#kc .ft{padding-top:28px!important;padding-bottom:14px!important}
+#kc .ft .ft-top{padding-bottom:20px!important;align-items:center}
+#kc .ft .ft-top h2{font-size:clamp(26px,2vw,32px)!important;margin:0!important}
+#kc .ft .ft-top .acts{margin-left:auto!important}
+/* middle (19 Nov v3, Ish: the two-column Rooms/More lists "looked crap"): Rooms, More and ABJ as three neat lines
+   like the towns row - gold label, links in one row, fine divider between lines; brand left, Visit right */
+#kc .ft .ft-g{grid-template-columns:minmax(222px,232px) minmax(0,1fr) max-content!important;grid-template-rows:repeat(3,auto);column-gap:clamp(32px,3.2vw,60px)!important;row-gap:0!important;padding-top:22px!important;padding-bottom:18px!important;align-items:start}
+#kc .ft .ft-g>.ft-b{grid-column:1;grid-row:1/4}
+#kc .ft .ft-g>.ft-v{grid-column:3;grid-row:1/4}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v){grid-column:2;display:flex!important;align-items:baseline;gap:0 20px;padding:13px 0!important;margin:0!important;border-bottom:1px solid rgba(243,238,230,.09)}
+#kc .ft .ft-g>:nth-child(2){grid-row:1;padding-top:0!important}
+#kc .ft .ft-g>:nth-child(3){grid-row:2}
+#kc .ft .ft-g>:nth-child(4){grid-row:3;border-bottom:0!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v)>:first-child{flex:0 0 58px;margin:0!important;font-size:10px!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v)>:first-child::after,#kc .ft .ft-g>:not(.ft-b):not(.ft-v)>:first-child::before{display:none!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{display:flex!important;flex-wrap:wrap;gap:8px 17px!important;margin:0!important;padding:0!important;list-style:none;max-height:none!important;overflow:visible!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) li{margin:0!important;padding:0!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;line-height:1.4!important;white-space:nowrap;opacity:.9}
+#kc .ft .ft-v>:first-child{margin-bottom:14px!important;font-size:10px!important}
 #kc .ft .ft-b>p{display:none!important}
 #kc .ft .ft-b .lg b{white-space:nowrap}
-#kc .ft .ft-b .rt{font-size:10px!important;letter-spacing:.1em!important}
-#kc .ft .ft-v,#kc .ft .ft-v address{font-size:12.5px!important;line-height:1.55!important}
+#kc .ft .ft-b .rt{font-size:9.5px!important;letter-spacing:.12em!important}
+#kc .ft .ft-b .ft-s{display:grid!important;grid-template-columns:repeat(6,31px);gap:7px!important;margin:20px 0 0!important;padding:0!important;border:0!important}
+#kc .ft .ft-b .ft-s a.ff-ic{width:31px;height:31px}
+#kc .ft .ft-b .ft-s a.ff-ic svg{width:15px;height:15px}
+#kc .ft .ft-v,#kc .ft .ft-v address{font-size:12px!important;line-height:1.75!important}
 #kc .ft .ft-v address{margin:0!important}
 #kc .ft .ft-v address a{white-space:nowrap}
-#kc .ft .ft-v .lnk{margin-top:6px!important}
-#kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:22px;padding-top:4px!important;padding-bottom:8px!important}
-#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap}
-#kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 11px!important}
-#kc .ft .ft-ar .ft-a a{font-size:12px!important}
-#kc .ft .ft-l{padding-top:10px!important;margin-top:0!important;border-top:1px solid rgba(243,238,230,.12)}
-#kc .ft .ft-l span{font-size:12px!important;line-height:1.6!important}
+#kc .ft .ft-v .lnk{margin-top:10px!important;font-size:10px!important}
+#kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:24px;padding-top:14px!important;padding-bottom:14px!important;border-top:1px solid rgba(243,238,230,.08)}
+#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap;font-size:10px!important}
+#kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 14px!important}
+#kc .ft .ft-ar .ft-a a{font-size:11.5px!important;opacity:.85}
+#kc .ft .ft-l{padding-top:14px!important;margin-top:0!important;border-top:1px solid rgba(243,238,230,.12)}
+#kc .ft .ft-l span,#kc .ft .ft-l nav a{font-size:11.5px!important;line-height:1.6!important}
 }
-/* laptops: slightly smaller links, address in one column */
-@media (min-width:1025px) and (max-width:1499px){
-#kc .ft .ft-g{grid-template-columns:minmax(190px,.9fr) minmax(0,1.25fr) minmax(0,1.55fr) minmax(0,1.5fr) minmax(0,1.2fr)!important}
-#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;white-space:normal}
-#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:14px!important}
-}
-/* wide screens: columns sized to their links (nothing can overlap), ABJ links in two columns */
-@media (min-width:1500px){
-#kc .ft .ft-g{grid-template-columns:repeat(5,auto)!important;justify-content:space-between}
-#kc .ft .ft-g>:not(.ft-b) ul{grid-template-columns:repeat(2,max-content)!important}
-}
-/* very wide screens: ABJ links in three columns, address in two */
-@media (min-width:1800px){
-#kc .ft .ft-g>:nth-child(4) ul{grid-template-columns:repeat(3,max-content)!important}
-#kc .ft .ft-v address{columns:2;column-gap:20px}
+/* laptops: slightly smaller; a long line of links wraps under itself, still lined up after its label */
+@media (min-width:1025px) and (max-width:1439px){
+#kc .ft .ft-g{grid-template-columns:minmax(160px,190px) minmax(0,1fr) max-content!important;column-gap:32px!important}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v){gap:0 18px}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{gap:7px 18px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12px!important}
+#kc .ft .ft-b .ft-s{grid-template-columns:repeat(3,34px);gap:8px!important}
+#kc .ft .ft-b .ft-s a.ff-ic{width:34px;height:34px}
 }
 /* tablets 761-1024px: brand row on top, then four link columns side by side */
 @media (min-width:761px) and (max-width:1024px){
@@ -716,8 +723,30 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
 @media (max-width:760px){
 #kc .ft .ft-b>p{display:none!important}
 #kc .ft .ft-ar{padding-bottom:12px!important}
-#kc .ft .ft-s{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between;gap:4px!important;padding-top:6px!important}
-#kc .ft .ft-s a{font-size:clamp(9.5px,2.75vw,11px)!important;letter-spacing:.05em!important;white-space:nowrap;margin:0!important;padding-left:0!important;padding-right:0!important}
+#kc .ft .ft-s{display:flex!important;flex-wrap:nowrap!important;justify-content:flex-start;gap:10px!important;padding-top:10px!important}
+#kc .ft .ft-s a.ff-ic{width:44px;height:44px}
+#kc .ft .ft-s a.ff-ic svg{width:20px;height:20px}
+}
+/* social logo icons (all screen sizes); the platform name stays in the link for screen readers and search engines */
+#kc .ft .ft-s{align-items:center}
+#kc .ft .ft-s a.ff-ic{display:inline-flex!important;align-items:center;justify-content:center;width:40px;height:40px;padding:0!important;margin:0!important;border:0!important;background:none!important;color:var(--lin,#F3EEE6)!important;opacity:.78;transition:opacity .2s,color .2s;font-size:0!important;letter-spacing:0!important}
+#kc .ft .ft-s a.ff-ic::before,#kc .ft .ft-s a.ff-ic::after{display:none!important}
+#kc .ft .ft-s a.ff-ic:hover,#kc .ft .ft-s a.ff-ic:focus-visible{opacity:1;color:var(--go,#C9A96E)!important}
+#kc .ft .ft-s a.ff-ic svg{width:18px;height:18px;display:block}
+#kc .ft .ft-s .ff-sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* finish (all screen sizes): soft gold glow, gold hairline on top, gold italic last word in the heading,
+   social logos in fine circles that fill gold on hover, gold underline on link hover */
+#kc .ft{position:relative;background-image:radial-gradient(1100px 420px at 8% -12%,rgba(201,169,110,.11),transparent 62%),radial-gradient(900px 340px at 100% 115%,rgba(159,211,174,.05),transparent 60%)!important}
+#kc .ft::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent 0,rgba(201,169,110,.65) 50%,transparent 100%);pointer-events:none}
+#kc .ft .ft-top h2 .ff-em{font-style:italic;color:var(--go,#C9A96E)}
+#kc .ft .ft-s a.ff-ic{border:1px solid rgba(243,238,230,.22)!important;border-radius:50%;opacity:.9}
+#kc .ft .ft-s a.ff-ic:hover,#kc .ft .ft-s a.ff-ic:focus-visible{background:var(--go,#C9A96E)!important;border-color:var(--go,#C9A96E)!important;color:#0E1B1A!important;opacity:1}
+#kc .ft .ft-g li a,#kc .ft .ft-a a,#kc .ft .ft-l nav a{background:linear-gradient(var(--go,#C9A96E),var(--go,#C9A96E)) 0 100%/0 1px no-repeat;transition:background-size .35s ease,color .2s}
+#kc .ft .ft-g li a:hover,#kc .ft .ft-a a:hover,#kc .ft .ft-l nav a:hover{background-size:100% 1px;color:var(--go,#C9A96E)!important;opacity:1}
+@media (min-width:1025px){
+#kc .ft .ft-b .lg{display:inline-flex}
+#kc .ft .ft-l span{opacity:.6}
+#kc .ft .ft-l nav a{opacity:.75}
 }
 
 /* /ABJ FOOTFIT */
@@ -819,11 +848,17 @@ if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es)
 })();
 
 /* ABJ FOOTFIT */
-/* desktop: social links sit in the footer's top row; moved back on smaller screens */
+/* social links show as logo icons; on computers they sit under the logo in the footer, moved back on smaller screens */
 (function(){function run(){var ft=document.querySelector('#kc .ft');if(!ft||ft.getAttribute('data-ff'))return;ft.setAttribute('data-ff','1');
-  var s=ft.querySelector('.ft-s'),top=ft.querySelector('.ft-top'),acts=top&&top.querySelector('.acts');if(!s||!top||!acts||!window.matchMedia)return;
+  var s=ft.querySelector('.ft-s'),to=ft.querySelector('.ft-g .ft-b');if(!s)return;
+var IC={"instagram":"M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077","facebook":"M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z","tiktok":"M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z","youtube":"M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z","linkedin":"M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z","x":"M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"};
+  [].forEach.call(s.querySelectorAll('a'),function(a){var h=(a.getAttribute('href')||'').toLowerCase(),k=/instagram/.test(h)?'instagram':/facebook/.test(h)?'facebook':/tiktok/.test(h)?'tiktok':/youtu/.test(h)?'youtube':/linkedin/.test(h)?'linkedin':/\/\/(www\.)?(twitter|x)\.com/.test(h)?'x':null;
+    if(!k||a.querySelector('svg'))return;var t=a.textContent.trim();a.setAttribute('aria-label',t);a.setAttribute('title',t);a.classList.add('ff-ic');
+    a.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="'+IC[k]+'"/></svg><span class="ff-sr">'+t+'</span>'});
+  var h2=ft.querySelector('.ft-top h2');if(h2&&!h2.querySelector('.ff-em')&&h2.childNodes.length===1&&h2.firstChild.nodeType===3){var w=h2.textContent.replace(/\s+$/,''),i=w.lastIndexOf(' ');if(i>0){h2.textContent=w.slice(0,i+1);var em=document.createElement('span');em.className='ff-em';em.textContent=w.slice(i+1);h2.appendChild(em)}}
+  if(!to||!window.matchMedia)return;
   var home=s.parentNode,nx=s.nextSibling,mq=matchMedia('(min-width:1025px)');
-  var go=function(){if(mq.matches){if(s.parentNode!==top)top.insertBefore(s,acts)}else if(s.parentNode!==home)home.insertBefore(s,nx)};
+  var go=function(){if(mq.matches){if(s.parentNode!==to)to.appendChild(s)}else if(s.parentNode!==home)home.insertBefore(s,nx)};
   go();if(mq.addEventListener)mq.addEventListener('change',go);else if(mq.addListener)mq.addListener(go)}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run()})();
 /* /ABJ FOOTFIT */
