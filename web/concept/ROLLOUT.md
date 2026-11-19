@@ -1242,3 +1242,19 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     (Tilda's own back arrow under the new article design).
 - 19 Nov 17:10 Bing Places (Ish signed in): 3 listings, synced with Google 2 weeks ago. ABJ Kitchens listing description
   still says "10-year guarantee" (old Google text) -> needs a Sync from Google (asked Ish). ABJ Accessories: pending publish.
+- 19 Nov 20:00 Site HEAD space (Plaky "Start here": move site-wide scripts out of the nearly full HEAD; Ish: "make a
+  start ... do as many items as you can"): the five old scripts (abjm-js mobile header+menu 14.5k, blog header+footer 5.0k,
+  unified menu drawer 5.2k, abj-dnav-js 3.2k, abj-mpol-js 6.3k) moved UNCHANGED (sha256 of the five blocks checked) into
+  head-moved.js @8ab7654 (each wrapped in ABJL.a..e). HEAD now loads the file where abjm-js sat (runs ABJL.a at once) and
+  calls ABJL.b..e exactly where the other four sat, so run order is unchanged (same script ids kept). HEAD 65,472 ->
+  31,637 chars. Backups: IndexedDB abj_svc_bak 'sitehead-before-move-20261119' + backup/sitehead-moved-scripts-20261119.txt.
+  Tested: local A/B (Chromium, inline vs file, 390/1440, normal + /tpost/ path) identical apart from one timing-dependent
+  hero margin that also varies inline-vs-inline; 5 DEV pages before/after at 390/1440 identical. All 63 DEV + 65 live
+  pages republished (0 errors). Live origin (cache-busted): 64 sitemap pages + 2 guides + 404 all carry the new tags and
+  none the old inline code; phone article header, 404 "Sorry" banner, desktop guide nav/burger, page menus checked.
+  Cloudflare caches HTML 10 min (max-age 600), so plain URLs switch over within 10 minutes.
+- Checked (nothing to change): /tpost/* already 301s to /abjfeeds/tpost/* (Cloudflare rule), feed sitemap lists 8
+  /abjfeeds/tpost URLs only, canonicals self; {{link@url}} only inside Tilda's <template> feed cards. Site Health item:
+  edgebanding not in sitemap, no tailwind script anywhere (only an HTML comment), gallery 0 images > 100 kB, Products We
+  Use has its own og:image. Yell shows 01733 686767 + 07479 219421 (no 07791); Houzz category Kitchen Designers (no
+  stairs category); Facebook feed back to 4 Nov has no automatic "updated cover photo" post.
