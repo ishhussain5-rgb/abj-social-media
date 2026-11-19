@@ -1127,3 +1127,35 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 18 Nov 21:15 (Ish: "The surveyor has swatches with him"): "door samples" -> "swatches" on /handleless-kitchens-peterborough
   381737403 ("bring swatches in matt and gloss") and /sliding-wardrobes 377674503 ("We will bring swatches to your home"),
   plus their DEV pages 381698003 / 377441303 and the source files. Backups `...-before-swatches-20261118`.
+
+## 19 Nov 2026 (Ish: "Please action these first" - suggestions list items 1-10, reviews, aftercare, 15-18)
+- LIVE fixes: Cloudflare rule 'Old blog posts (/tpost/<id>) -> same article in Design Journal' now targets
+  https://abjkitchensandbedrooms.co.uk/abjfeeds/tpost/${2} (was /abjfeeds); all 16 known old ids land on the right
+  article or service page; unknown ids 404. Search Console: /sitemapxml and /SITEMAP.XML removed (2 working sitemaps
+  left); kitchen-fitters, budget-planner, Park Road already indexed. GA4 (p475715913): event retention 2 -> 14 months,
+  email_click marked key event, Business Profile 'ABJ Kitchens and Bedrooms' linked. Google tag G-NNLJJB4115 (GTM
+  container 205236470, version 3): internal traffic rule 'ABJ team and website checks (Ish's connection)' = Ish's
+  current IP /32 (there was no rule before, so the active Internal Traffic filter excluded nothing).
+- LIVE links: home 30601906 (sentence in "In detail" + rel row: Kitchen design, Kitchen fitters), kitchens 73297273
+  (rel row: Kitchen fitters); same on DEV 350369803 / 352648603. post-skin.js @c811da2 adds a "Related:" line inside
+  each of the 8 guides (REL map); site HEAD pin e0d5bdb -> c811da2 (same length 65,490; backup IndexedDB
+  'sitehead-before-related-20261119'); /abjfeeds republished. Titles not changed (low-click queries were Maps pack /
+  national product search; media walls ranks 1-2 for its local term).
+- DEV only (waiting for Ish's "make live"):
+  - Home hero: hero_lazy.html (ABJ HEROLAZY) + videos web-media-u @750e6ce hero/abj-home-montage-{phone,wide}-light.mp4
+    (0.93 MB / 1.27 MB, 2-pass x264). Hero poster first, video after load; board-to-home film preload none, no autoplay.
+    DEV home: desktop LCP 0.76 s, first load 1.35 MB; phone 1.0 MB.
+  - phone_short3.html (ABJ PHONE SHORT3 @4969b3c) + PS2 where missing on DEV home, kitchens, wardrobes 352674603,
+    bedrooms, media walls 352685103, about 354002803. Phone screens: 11.3->9.7, 11.0->9.1, 10.8->9.3, 11.0->9.1,
+    10.3->9.1, home 11.4->10.5. Desktop unchanged. Finance disclosure left visible (FCA).
+  - ABJ ROOMREVIEWS (reviews_rooms.py/.json @3b0f5b5): 3 real 5-star Google reviews per room (read from the public
+    Maps listing 19 Nov, 103 reviews / 89 five-star with text; excerpts keep the reviewer's words) before #kc-book on
+    DEV kitchens, wardrobes, bedrooms, media walls. No review mentions a town.
+  - Aftercare DEV page 400823803 /aftercare-dev-a7c3 (copy of Terms DEV; noindex): aftercare_main.html @acbce20, all
+    wording from published T&Cs s8 (12-month warranty, manufacturers' warranties, 30-day written notice), s15-16
+    (24 h acknowledgement, 24-48 h investigation, visit) + Ish's rule on kitchens bought elsewhere.
+  - Booking DEV 354003303: booking_tf.js @74a5072 + booking_step.html (ABJ FORMSTEP): optional email (validated if
+    given) and best time to call, added to the web3forms message/JSON (so to ABJ Factory too); phones get 2 steps
+    (details + rooms, then timing/source/email/call time/notes). Tested with sending intercepted: payload correct.
+- Waiting on Ish: Cambridge/Huntingdon/Ely/Grantham real jobs; case study jobs; Alex's prices (price guidance, finance
+  example); brochure mailing list (where sign-ups go, consent wording, privacy policy).
