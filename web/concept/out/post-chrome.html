@@ -619,6 +619,77 @@ html.abjnew:not(#q1):not(#q2):not(#q3) #kc main{padding:0!important;margin:0!imp
  #kc .ft-l{margin-top:20px;gap:12px;font-size:11.5px}#kc .ft-l nav{gap:2px 18px;font-size:11.5px}#kc .ft-l nav a,#kc .ft-l span a{display:inline-block;padding:10px 0}
 }
 @keyframes kcft{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
+
+/* ABJ FOOTFIT */
+/* Computers, tablets and phones. Every link stays; only the short brand blurb is hidden.
+   Works with both footer versions (.mf columns and the homepage's .acc columns).
+   Undo: delete from the ABJ FOOTFIT marker to /ABJ FOOTFIT and publish. */
+@media (min-width:1025px){
+#kc .ft{padding-top:24px!important;padding-bottom:12px!important}
+#kc .ft .ft-top{padding-bottom:14px!important;align-items:center}
+#kc .ft .ft-top h2{font-size:clamp(28px,2.2vw,36px)!important;margin:0!important}
+#kc .ft .ft-top .ft-s{display:flex!important;flex-wrap:nowrap;gap:18px!important;padding:0!important;margin:0 0 0 auto!important;border:0!important}
+#kc .ft .ft-top .ft-s a{font-size:11px!important;letter-spacing:.14em!important}
+#kc .ft .ft-top .acts{margin-left:28px!important}
+#kc .ft .ft-g{column-gap:24px!important;row-gap:0!important;padding-top:16px!important;padding-bottom:12px!important;align-items:start}
+#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:10px!important}
+#kc .ft .ft-g>:not(.ft-b) ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,max-content))!important;column-gap:18px!important;row-gap:5px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{white-space:nowrap}
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-b .lg b{white-space:nowrap}
+#kc .ft .ft-b .rt{font-size:10px!important;letter-spacing:.1em!important}
+#kc .ft .ft-v,#kc .ft .ft-v address{font-size:12.5px!important;line-height:1.55!important}
+#kc .ft .ft-v address{margin:0!important}
+#kc .ft .ft-v address a{white-space:nowrap}
+#kc .ft .ft-v .lnk{margin-top:6px!important}
+#kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:22px;padding-top:4px!important;padding-bottom:8px!important}
+#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap}
+#kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 11px!important}
+#kc .ft .ft-ar .ft-a a{font-size:12px!important}
+#kc .ft .ft-l{padding-top:10px!important;margin-top:0!important;border-top:1px solid rgba(243,238,230,.12)}
+#kc .ft .ft-l span{font-size:12px!important;line-height:1.6!important}
+}
+/* laptops: slightly smaller links, address in one column */
+@media (min-width:1025px) and (max-width:1499px){
+#kc .ft .ft-g{grid-template-columns:minmax(190px,.9fr) minmax(0,1.25fr) minmax(0,1.55fr) minmax(0,1.5fr) minmax(0,1.2fr)!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;white-space:normal}
+#kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:14px!important}
+}
+/* wide screens: three columns for the ABJ links, address in two columns */
+@media (min-width:1500px){
+#kc .ft .ft-g{grid-template-columns:minmax(208px,1fr) minmax(0,1.3fr) minmax(0,1.5fr) minmax(0,1.65fr) minmax(0,1.85fr)!important}
+#kc .ft .ft-g>:nth-child(4) ul{grid-template-columns:repeat(3,minmax(0,max-content))!important}
+#kc .ft .ft-v address{columns:2;column-gap:20px}
+}
+/* tablets 761-1024px: brand row on top, then four link columns side by side */
+@media (min-width:761px) and (max-width:1024px){
+#kc .ft{padding-top:28px!important;padding-bottom:12px!important}
+#kc .ft .ft-top{padding-bottom:16px!important}
+#kc .ft .ft-g{grid-template-columns:repeat(4,minmax(0,1fr))!important;column-gap:20px!important;row-gap:18px!important;padding-top:18px!important;padding-bottom:12px!important;align-items:start}
+#kc .ft .ft-b{grid-column:1/-1!important;display:flex!important;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-b .rt{margin:0!important}
+#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:10px!important}
+#kc .ft .ft-g>:not(.ft-b) ul{display:grid!important;grid-template-columns:minmax(0,1fr)!important;row-gap:4px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:13px!important}
+#kc .ft .ft-v,#kc .ft .ft-v address{font-size:12.5px!important;line-height:1.55!important}
+#kc .ft .ft-v address{margin:0!important}
+#kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:18px;padding-top:4px!important;padding-bottom:8px!important}
+#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap}
+#kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 11px!important}
+#kc .ft .ft-ar .ft-a a{font-size:12px!important}
+#kc .ft .ft-s{padding-top:10px!important;padding-bottom:10px!important}
+#kc .ft .ft-l{padding-top:10px!important;margin-top:0!important}
+}
+/* phones: brand blurb hidden, social links on one line */
+@media (max-width:760px){
+#kc .ft .ft-b>p{display:none!important}
+#kc .ft .ft-ar{padding-bottom:12px!important}
+#kc .ft .ft-s{display:flex!important;flex-wrap:nowrap!important;justify-content:space-between;gap:4px!important;padding-top:6px!important}
+#kc .ft .ft-s a{font-size:clamp(9.5px,2.75vw,11px)!important;letter-spacing:.05em!important;white-space:nowrap;margin:0!important;padding-left:0!important;padding-right:0!important}
+}
+
+/* /ABJ FOOTFIT */
 </style>
 
 <div id="kc">
@@ -714,4 +785,14 @@ var cln=function(){document.documentElement.classList.remove('abjm','abj-dock-hi
 /* gentle reveal */
 if('IntersectionObserver'in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'});R.querySelectorAll('.rv').forEach(function(el){io.observe(el)})}else{R.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')})}
 })();
+
+/* ABJ FOOTFIT */
+/* desktop: social links sit in the footer's top row; moved back on smaller screens */
+(function(){function run(){var ft=document.querySelector('#kc .ft');if(!ft||ft.getAttribute('data-ff'))return;ft.setAttribute('data-ff','1');
+  var s=ft.querySelector('.ft-s'),top=ft.querySelector('.ft-top'),acts=top&&top.querySelector('.acts');if(!s||!top||!acts||!window.matchMedia)return;
+  var home=s.parentNode,nx=s.nextSibling,mq=matchMedia('(min-width:1025px)');
+  var go=function(){if(mq.matches){if(s.parentNode!==top)top.insertBefore(s,acts)}else if(s.parentNode!==home)home.insertBefore(s,nx)};
+  go();if(mq.addEventListener)mq.addEventListener('change',go);else if(mq.addListener)mq.addListener(go)}
+if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',run);else run()})();
+/* /ABJ FOOTFIT */
 </script>
