@@ -1189,3 +1189,7 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   icons (Simple Icons, CC0) in fine circles that fill gold on hover, gold hairline + soft glow, last word of the footer
   heading in gold italic, gold underline on link hover, quieter small print. Phones/tablets: same icons (44px tap
   circles). Tested 360-1920: no overlap, no wrapped links, no sideways scroll. Live pages still on v1 until Ish OKs.
+- 19 Nov 12:15, DEV only (Ish: middle Rooms/More "looks crap", "not nicely structured"): foot_fit_v2.html @519de2b on
+  DEV kitchens 352648603 + DEV home 350369803. Computers: Rooms, More and ABJ are three lines like the towns row
+  (gold label, links in one row, fine divider), brand left, Visit right. One line each from 1536px on both footer
+  versions; on smaller laptops a long line wraps under itself, lined up after its label. Height 444-459 at 1536.
