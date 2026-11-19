@@ -1193,3 +1193,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   DEV kitchens 352648603 + DEV home 350369803. Computers: Rooms, More and ABJ are three lines like the towns row
   (gold label, links in one row, fine divider), brand left, Visit right. One line each from 1536px on both footer
   versions; on smaller laptops a long line wraps under itself, lined up after its label. Height 444-459 at 1536.
+- 19 Nov 12:20-12:45 LIVE (Ish: "i like that a lot, please publish to all pages"): foot_fit_v2.html @519de2b replaces
+  ABJ FOOTFIT v1 on all 65 live pages (single-page publish each, 0 errors, backups '*-before-footfit-v3'); guide
+  articles via post-chrome.html, site HEAD pin 3fb4577 -> 5500684 (65,490), /abjfeeds republished. All 64 sitemap
+  pages: v3 once, Aftercare link, no DEV links. Rendered home, Stamford, booking, aftercare, an article at 390/1280/
+  1536: no links off screen, no sideways scroll; one line per group at 1536, two neat lines at 1280. Phones and
+  tablets also get the logo icons, glow and gold italic heading word (layout unchanged there).
