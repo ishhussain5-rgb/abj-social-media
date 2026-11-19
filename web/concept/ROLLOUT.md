@@ -1178,3 +1178,8 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   - /aftercare LIVE: Tilda 401085903 (duplicate of live Terms 82695596), main = aftercare_main.html @acbce20, footer
     heading "Something not right? Tell us.", title/description/canonical/X tags set, indexable. "Aftercare" link added
     after "Terms & conditions" in the footer legal row of all live pages and guide articles. page_ids.json + linkmap.json.
+  - Checked after the run (65/65 pages saved + published, 0 errors): all 64 sitemap pages carry FOOTFIT once + the
+    Aftercare link, no DEV links; /aftercare is in the sitemap; guide articles show pin 3fb4577, compact footer and
+    the Aftercare link after /abjfeeds was republished. Rendered at 390/820/1280/1920 on town, case study, gap,
+    blog, aftercare and gallery pages: no footer overlap. Not ours: Kings Road case study has a 4px sideways scroll
+    at 1280 from absolutely-positioned images (was there before). Plaky: DEV item -> Done, new LIVE item Done.
