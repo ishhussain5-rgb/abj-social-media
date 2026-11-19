@@ -34,10 +34,14 @@
 #kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important;white-space:normal}
 #kc .ft .ft-g>:not(.ft-b):not(.ft-v) ul{grid-template-columns:repeat(2,minmax(0,1fr))!important;column-gap:14px!important}
 }
-/* wide screens: three columns for the ABJ links, address in two columns */
+/* wide screens: columns sized to their links (nothing can overlap), ABJ links in two columns */
 @media (min-width:1500px){
-#kc .ft .ft-g{grid-template-columns:minmax(208px,1fr) minmax(0,1.3fr) minmax(0,1.5fr) minmax(0,1.65fr) minmax(0,1.85fr)!important}
-#kc .ft .ft-g>:nth-child(4) ul{grid-template-columns:repeat(3,minmax(0,max-content))!important}
+#kc .ft .ft-g{grid-template-columns:repeat(5,auto)!important;justify-content:space-between}
+#kc .ft .ft-g>:not(.ft-b) ul{grid-template-columns:repeat(2,max-content)!important}
+}
+/* very wide screens: ABJ links in three columns, address in two */
+@media (min-width:1800px){
+#kc .ft .ft-g>:nth-child(4) ul{grid-template-columns:repeat(3,max-content)!important}
 #kc .ft .ft-v address{columns:2;column-gap:20px}
 }
 /* tablets 761-1024px: brand row on top, then four link columns side by side */
