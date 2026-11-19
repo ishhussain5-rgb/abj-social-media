@@ -1183,3 +1183,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     the Aftercare link after /abjfeeds was republished. Rendered at 390/820/1280/1920 on town, case study, gap,
     blog, aftercare and gallery pages: no footer overlap. Not ours: Kings Road case study has a 4px sideways scroll
     at 1280 from absolutely-positioned images (was there before). Plaky: DEV item -> Done, new LIVE item Done.
+- 19 Nov 12:00, DEV only (Ish: footer "squished", liked it at 90% zoom; "use the actual logo icons"; "make the footer
+  look seriously sexy"): foot_fit_v2.html @01c6727 on DEV kitchens 352648603 (backup 'dev-352648603-*-before-footfit-v2').
+  Computers: link text ~10% smaller, more space between columns and rows, social links moved under the logo as logo
+  icons (Simple Icons, CC0) in fine circles that fill gold on hover, gold hairline + soft glow, last word of the footer
+  heading in gold italic, gold underline on link hover, quieter small print. Phones/tablets: same icons (44px tap
+  circles). Tested 360-1920: no overlap, no wrapped links, no sideways scroll. Live pages still on v1 until Ish OKs.
