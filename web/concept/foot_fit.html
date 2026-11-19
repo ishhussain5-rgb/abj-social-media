@@ -1,6 +1,7 @@
 <!-- ABJ FOOTFIT (desktop footer about half the height: social links in the top row, two/three-column link lists,
      address in two columns, one-line areas row, tighter spacing; 19 Nov 2026) -->
 <style>/* Computers 1025px and wider only. Phones and tablets unchanged. Every link stays; only the brand blurb is hidden on desktop.
+   Works with both footer versions (.mf columns and the homepage's .acc columns).
    Undo: delete from the ABJ FOOTFIT marker to /ABJ FOOTFIT and publish. */
 @media (min-width:1025px){
 #kc .ft{padding-top:24px!important;padding-bottom:12px!important}
@@ -9,24 +10,34 @@
 #kc .ft .ft-top .ft-s{display:flex!important;flex-wrap:nowrap;gap:18px!important;padding:0!important;margin:0 0 0 auto!important;border:0!important}
 #kc .ft .ft-top .ft-s a{font-size:11px!important;letter-spacing:.14em!important}
 #kc .ft .ft-top .acts{margin-left:28px!important}
-#kc .ft .ft-g{grid-template-columns:minmax(208px,1fr) minmax(0,1.3fr) minmax(0,1.5fr) minmax(0,1.65fr) minmax(0,1.85fr)!important;column-gap:24px!important;row-gap:0!important;padding-top:16px!important;padding-bottom:12px!important}
-#kc .ft .ft-g .mf .mh{margin-bottom:10px!important}
-#kc .ft .ft-g .mf ul{grid-template-columns:repeat(2,minmax(0,max-content))!important;column-gap:22px!important;row-gap:5px!important}
-#kc .ft .ft-g>.mf:nth-child(4) ul{grid-template-columns:repeat(3,minmax(0,max-content))!important}
-#kc .ft .ft-g .mf li a{white-space:nowrap}
+#kc .ft .ft-g{column-gap:24px!important;row-gap:0!important;padding-top:16px!important;padding-bottom:12px!important;align-items:start}
+#kc .ft .ft-g>:not(.ft-b)>:first-child{margin-bottom:10px!important}
+#kc .ft .ft-g>:not(.ft-b) ul{display:grid!important;grid-template-columns:repeat(2,minmax(0,max-content))!important;column-gap:18px!important;row-gap:5px!important}
+#kc .ft .ft-g>:not(.ft-b) li a{white-space:nowrap}
 #kc .ft .ft-b>p{display:none!important}
 #kc .ft .ft-b .lg b{white-space:nowrap}
 #kc .ft .ft-b .rt{font-size:10px!important;letter-spacing:.12em!important;white-space:nowrap}
 #kc .ft .ft-v,#kc .ft .ft-v address{font-size:12.5px!important;line-height:1.55!important}
-#kc .ft .ft-v address{columns:2;column-gap:20px;margin:0!important}
+#kc .ft .ft-v address{margin:0!important}
 #kc .ft .ft-v address a{white-space:nowrap}
 #kc .ft .ft-v .lnk{margin-top:6px!important}
 #kc .ft .ft-ar{display:flex!important;align-items:baseline;gap:22px;padding-top:4px!important;padding-bottom:8px!important}
-#kc .ft .ft-ar .mh{margin:0!important;flex:0 0 auto;white-space:nowrap}
+#kc .ft .ft-ar>:first-child{margin:0!important;flex:0 0 auto;white-space:nowrap}
 #kc .ft .ft-ar .ft-a{flex:1 1 auto;display:flex!important;flex-wrap:wrap;gap:6px 11px!important}
 #kc .ft .ft-ar .ft-a a{font-size:12px!important}
 #kc .ft .ft-l{padding-top:10px!important;margin-top:0!important;border-top:1px solid rgba(243,238,230,.12)}
 #kc .ft .ft-l span{font-size:12px!important;line-height:1.6!important}
+}
+/* laptops: slightly smaller links, address in one column */
+@media (min-width:1025px) and (max-width:1499px){
+#kc .ft .ft-g{grid-template-columns:minmax(190px,.9fr) minmax(0,1.25fr) minmax(0,1.55fr) minmax(0,1.5fr) minmax(0,1.2fr)!important}
+#kc .ft .ft-g>:not(.ft-b) li a{font-size:12.5px!important}
+}
+/* wide screens: three columns for the ABJ links, address in two columns */
+@media (min-width:1500px){
+#kc .ft .ft-g{grid-template-columns:minmax(208px,1fr) minmax(0,1.3fr) minmax(0,1.5fr) minmax(0,1.65fr) minmax(0,1.85fr)!important}
+#kc .ft .ft-g>:nth-child(4) ul{grid-template-columns:repeat(3,minmax(0,max-content))!important}
+#kc .ft .ft-v address{columns:2;column-gap:20px}
 }
 </style>
 <script>/* desktop: social links sit in the footer's top row; moved back on smaller screens */
