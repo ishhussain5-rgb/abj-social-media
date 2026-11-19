@@ -1258,3 +1258,23 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   edgebanding not in sitemap, no tailwind script anywhere (only an HTML comment), gallery 0 images > 100 kB, Products We
   Use has its own og:image. Yell shows 01733 686767 + 07479 219421 (no 07791); Houzz category Kitchen Designers (no
   stairs category); Facebook feed back to 4 Nov has no automatic "updated cover photo" post.
+- 19 Nov 20:20 Schema upgrades (Plaky SEO review MED): site HEAD LocalBusiness JSON-LD - areaServed towns now City
+  objects with Wikidata sameAs (30 places, ids checked against Wikidata labels/descriptions, e.g. Peterborough Q172438,
+  Stamford Q1000662, Cambridgeshire Q23112 as AdministrativeArea; the 80-mile GeoCircle was already there);
+  hasOfferCatalog 10 -> 26 services, one per live service page (kitchen design, fitters, Shaker, handleless, cabinets,
+  supply-only, utility, sliding, walk-in, sloping, under-stairs, alcove, bathroom, upholstery, office fit-out, cabinet
+  makers). HEAD 31,637 -> 37,407; backup 'sitehead-before-schema-20261119'. 65 live pages republished; checked 64 sitemap
+  pages + guide + 404: JSON parses, 26 services, 30 sameAs on every page.
+- DEV only (wait for Ish): "fittings we use" sentence linking ABJ Accessories collections on Wardrobes DEV 352674603
+  (wardrobe storage, shoe carousels, drawer runners) and Kitchens DEV 352648603 (handles, knobs, drawer systems, runners),
+  placed before the related-links row, so it shows under "Read more" like the paragraph above it. Backups
+  '*-before-fitlinks-20261119'.
+- Search Console since the 10 Nov baseline (8 days vs the 8 before): clicks 73 vs 70, impressions 6,233 vs 6,594, CTR
+  1.17% vs 1.06%; average position ~19.5 (was 24.2 in Aug-Sep). Live Google check (Ish's browser, Peterborough):
+  ABJ #1 for kitchen installation / kitchen design service / fitted wardrobes peterborough, #3 kitchen renovation. Titles
+  left alone (11 Nov changes too recent to judge). Recheck 28-day data ~3 Dec. Under-stairs: old /tpost/suanpezv31 URL
+  (pos 5.2) now 301s to the guide - ranking should carry over.
+- Blog tidy: /abjfeeds lists only the 8 guides (no early-2025 social posts). Guides already carry BlogPosting (author,
+  datePublished), byline, Related line and service links. Area pages already state travel times.
+- Perplexity re-test (Stamford kitchens) ran in Ish's SIGNED-IN Perplexity (thread now in his history): ABJ still not
+  named for Stamford (Bakehouse, QKS, Mastercraft). Needs a real Stamford job/case study.
