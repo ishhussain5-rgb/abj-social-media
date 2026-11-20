@@ -1344,3 +1344,21 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   - Plaky (ABJ Kitchens & Bedrooms, Website, Ish, Done, Nov 20): 4 items - deep dive + renovation FAQ + titles; booking form;
     Google profile services + photos; Cambridge CB2 job. (New item dialog: wait before typing the title or it saves as
     "New Item"; date picker sits lower once the dialog is scrolled.)
+
+## 20 Nov 2026 (evening): "world class" round, DEV only (Ish: "action all the points in dev first apart from the showroom virtual tour")
+- Design your room: /design-your-room-dev-d4z8, Tilda 405333603 (duplicate of Budget planner DEV 389635003, noindex,
+  canonical cleared, own title/description). Block = header/footer from the duplicate + designer/designer.html (ABJ DESIGNER,
+  SVG drawing, wardrobe: size/doors/colour/handles/inside; media wall: size/TV & fire/layout/finish; no prices) +
+  designer/proc.html + the booking band. "Book a visit with this design" saves the summary in sessionStorage 'abj_design';
+  booking DEV 354003303 got ABJ DESIGNFILL (designer/designfill.html) which puts it in the notes box with a note. Tested on
+  the published DEV pages: desktop and phone (iframe 390), design text arrives in the booking notes, nothing sent.
+  GA event room_designer (type_w/m, change once, book, whatsapp). Old .kd-first padding rule beaten with
+  html:not(#dz-a):not(#dz-b). Builder: designer/designer_tf.js (tfDesigner), designs3d/page_tf.js (tfPage).
+- Inspiration gallery: gallery DEV 354003003 + ABJ INSPO (inspo/inspo.html, inspo_tf.js): colour and style filters
+  (tags from each photo's alt text), live counts, clear, hover captions, round-robin by room (watermarked photo last),
+  room chips swipe on phones, "Design your own / Book" line under the grid. The five known 3D renders (white-sh, navy-sha,
+  grey-sha, war92, war104) taken out of the photo grid (77 photos left). Not added: Google profile photos (would need the
+  laptop link to move files; none graded).
+- 3D designs library: /3d-designs-dev-r3d5, Tilda 405342203 (designs3d/main.html via tfPage): the five renders labelled
+  "3D design" + "design visuals, not photos" + process. NEEDS ISH: confirm these five are ABJ's own designs; designers to
+  drop more finished visuals in one Drive folder.
