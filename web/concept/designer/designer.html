@@ -2,6 +2,7 @@
 <section class="dz" id="dz" aria-label="Design your room">
 <style>
 #kc .dz{background:var(--g);color:var(--lin);padding:calc(86px + clamp(18px,2.2vw,40px)) 0 clamp(28px,3vw,56px)}
+html:not(#dz-a):not(#dz-b) #kc .dz{padding-top:calc(86px + clamp(18px,2.2vw,40px))!important}
 #kc .dz .dzg{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:clamp(24px,3.4vw,64px);align-items:start}
 #kc .dz .kick{color:var(--go)}
 #kc .dz h1{font-size:clamp(28px,2.5vw,40px);line-height:1.06;margin:10px 0 8px;color:var(--lin)}
@@ -40,7 +41,7 @@
 #kc .dz .dz-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 @media(max-width:899px){
 #kc .dz svg text{font-size:27px}
-#kc .dz{padding-top:calc(70px + 14px)}
+html:not(#dz-a):not(#dz-b) #kc .dz{padding-top:84px!important}
 #kc .dz .dzg{grid-template-columns:1fr;gap:14px}
 #kc .dz .dz-hd2{order:-2}
 #kc .dz .dz-lead{display:none}
