@@ -1362,3 +1362,15 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 3D designs library: /3d-designs-dev-r3d5, Tilda 405342203 (designs3d/main.html via tfPage): the five renders labelled
   "3D design" + "design visuals, not photos" + process. NEEDS ISH: confirm these five are ABJ's own designs; designers to
   drop more finished visuals in one Drive folder.
+- Language pages (lang/build_lang.py -> lang/<code>.html, lang_tf.js tfLang replaces the whole <main>): Polski
+  /pl-dev-p1l5 405351103, Lietuviu /lt-dev-l2t6 405351303, Russkiy /ru-dev-r3u7 405351603 (Budget planner DEV duplicates,
+  noindex, canonical cleared, title/description in the language). One page per language: hero with language switch
+  (EN/PL/LT/RU), what we make (4 photos not used in the menu), facts, how it works, contact band (WhatsApp with a
+  pre-filled message in the language, phone, English booking form link). Only facts Ish has confirmed. Shared header, menu,
+  footer links and the phone bottom bar stay English. NEEDS the team to check the wording before live.
+- Accessibility layer ABJ A11Y (a11y/a11y.html, a11y_tf.js) on all 67 DEV new-design pages: gold text darkened to
+  #7A5C27 on light backgrounds (was 4.0-4.35:1, now 4.96-5.37:1) and #C9A96E on dark ones (was 3.5:1), star rating
+  #9C7A3A, visible focus ring on every link/button/field, "Skip to main content" link (main id kc-main), review swipe
+  row keyboard-focusable, reduced-motion users get no transitions and paused videos, 44px booking link on language pages.
+  Audit: axe-core run locally on built copies (home, kitchens, wardrobes, gallery, booking, designer, 3D, PL) + own
+  contrast/name/heading checks on the published DEV pages: no unnamed controls, no images without alt, no heading jumps.
