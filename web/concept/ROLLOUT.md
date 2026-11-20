@@ -1388,3 +1388,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     for 21 Nov 10:13.
   - Not yet: the team has not checked the PL/LT/RU wording (Ish chose to go live); the five 3D visuals not confirmed as
     ABJ's own designs; llms.txt not updated with the new pages.
+  - Sweep of all 69 sitemap pages at 1360 and 390 (skip link, both footer link sets, no sideways scroll, no DEV links,
+    one H1). Fixes from it: footer-link guard looked for any link to /design-your-room or /pl, so the gallery, 3D,
+    design and language pages missed one set (guard now checks the footer markup; those 8 pages re-run). The Kings Road
+    and Park Road case study photo rows overflowed on desktop (tiles 320px in 233px grid columns, an old bug): ABJ A11Y
+    now lets the tiles follow their column at 1101px+ (both pages re-run; Park Road checked, 5 even tiles, no overlap).
+  - Plaky: one item for the round (Website, Done, Nov 20, Ish).
