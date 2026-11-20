@@ -1278,3 +1278,31 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   datePublished), byline, Related line and service links. Area pages already state travel times.
 - Perplexity re-test (Stamford kitchens) ran in Ish's SIGNED-IN Perplexity (thread now in his history): ABJ still not
   named for Stamford (Bakehouse, QKS, Mastercraft). Needs a real Stamford job/case study.
+
+## 20 Nov 2026 (Ish: "action the lot" from the search gaps deep dive doc)
+- Deep dive doc: https://claude.ai/artifact/1dUFhFg2qo5R5WEedBWkwE (GSC 90/28 days, GA4 10-19 Nov, Tilda).
+- Kitchen fitters (live 389763803 + DEV 389757303): new FAQ "Do you do complete kitchen renovations?" after the plumber
+  FAQ, in the details list AND the FAQPage JSON-LD (now 10/10, JSON parses). Backups '*-before-reno-faq-20261120'.
+  Checked live at 1440 and 390 (5th visible question, "More questions (5)").
+- Home office page /bespoke-office-renovations (73279381): SEO title "Office Fit Out & Home Office Furniture Peterborough |
+  ABJ" -> "Fitted Home Offices Peterborough | Desks & Storage | ABJ"; description now home-office only and points business
+  fit-outs to /office-fit-out-peterborough (which keeps the commercial searches). Page HEAD twitter title/description and
+  Facebook title/description set to match. Backups IndexedDB abj_svc_bak 'live-73279381-HEADCODE-before-homeoffice-title-
+  20261120' + '...-settings-before-homeoffice-title-20261120' (old meta_title/meta_descr).
+- Sloping-ceiling guide (feed post zrfe5suhm1): SEO + Facebook title "Fitted Wardrobes for Sloping Ceilings and Eaves | ABJ"
+  -> "Fitted Wardrobes for Sloping Ceilings: Ideas and Layouts | ABJ" (an "&" there is double-escaped by Tilda Feeds, so
+  "and"); SEO description now "Ideas for wardrobes under sloping ceilings and eaves ...". Old description: "Made-to-measure
+  wardrobes for sloping ceilings, eaves and loft bedrooms: angled doors, full-height hanging and clever drawers, made in
+  Peterborough." An in-text link to the service page did not save through the Feeds editor (the post-skin "Related:" line
+  still links it).
+- Already in place (no change needed): /bespoke-kitchens already has styles, case study, cost guide, budget planner,
+  process, reviews, FAQs and links to all kitchen pages; homepage kitchen links already go to /bespoke-kitchens; kitchen and
+  media wall cost guides already end in "Book a free design visit" + WhatsApp. Homepage title still targets fitted kitchens
+  (11 Nov change) - left so rankings aren't disturbed.
+- Booking form: required = name, phone, full address, start time, how-heard (+ room). Not changed: making address or
+  how-heard optional is Ish/Alex's call.
+- Google Business Profile services: 139 services, 109 with unconfirmed "from" prices. Done before the browser automation
+  was stopped by the safety check: deleted Pet Furniture & Feeding Stations, Remodelling, Kitchen cabinet door replacement,
+  Kitchen cabinet refacing; Kitchen Installation price "From £100" -> No price. Rest waits for Ish's explicit OK on the
+  list (keep 61, delete 70, prices off the 43 kept priced ones).
+- Scheduled: 3 Dec 10:00 recheck message into this session.
