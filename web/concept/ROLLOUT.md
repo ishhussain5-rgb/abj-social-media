@@ -1394,3 +1394,6 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     and Park Road case study photo rows overflowed on desktop (tiles 320px in 233px grid columns, an old bug): ABJ A11Y
     now lets the tiles follow their column at 1101px+ (both pages re-run; Park Road checked, 5 even tiles, no overlap).
   - Plaky: one item for the round (Website, Done, Nov 20, Ish).
+- 20 Nov 22:15: Ish checked and confirmed the PL/LT/RU wording ("perfect") and that the five 3D visuals on /3d-designs are
+  ABJ's own. Open question: visual 3 (white Shaker kitchen with island seating, abj-kitchen-white-sh) may be a real photo
+  rather than a 3D design; if so, move it back to the gallery photo grid.
