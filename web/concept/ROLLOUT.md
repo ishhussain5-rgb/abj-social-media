@@ -1331,3 +1331,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     customer's framed family photo, window view and a document on the shelf were cropped or removed.
   - Checked live at 1536 (594px tall, fits one screen; photos shown smaller than their real size, so not stretched) and
     390 (626px, tags hidden, short captions, no sideways scroll); 1 H1, no DEV links, no photo used twice.
+- 20 Nov 19:30-20:15 (Ish: "please go ahead" on gallery card, indexing, doc, Plaky, Google photos):
+  - Gallery LIVE 74160025 (DEV 354003003 first): Cambridge CB2 card first in "Real jobs" (links to
+    /fitted-kitchens-bedrooms-cambridge#kc-job, sage photo, object-position 50% 42%); ABJ JOBS4 CSS = 4 across at 1100px+,
+    2 across 761-1099, phones keep the swipe row. Backups '*-before-cb2-gallery-20261120'. Checked 1536 (section 622px,
+    1 row) and 390; 1 H1, no DEV links; the only repeated images are the hidden menu/case-study copies (were there before).
+  - Search Console (URL-prefix property https://abjkitchensandbedrooms.co.uk/; the sc-domain property is not on Ish's
+    login): indexing requested for /fitted-kitchens-bedrooms-cambridge and /gallery.
+  - Google Business Profile: the two cleaned CB2 JPGs uploaded (open .../promote/photos/add directly so the file input is
+    reachable); both show "today" in Photos and videos.
+  - Deep-dive doc: "Progress so far (20 Nov)" section added; Gap 5 services line updated.
+  - Plaky (ABJ Kitchens & Bedrooms, Website, Ish, Done, Nov 20): 4 items - deep dive + renovation FAQ + titles; booking form;
+    Google profile services + photos; Cambridge CB2 job. (New item dialog: wait before typing the title or it saves as
+    "New Item"; date picker sits lower once the dialog is scrolled.)
