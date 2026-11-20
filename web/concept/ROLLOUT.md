@@ -1321,3 +1321,13 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     pending review" (up to a day).
   - Town jobs (Cambridge, Huntingdon, Stamford, Ely, Grantham): NOT done. No photo or folder in Drive says which town a
     job was in (ABJ/New Page Images = 3 unnamed photos), so a town can't be put on a photo without Ish naming it.
+- 20 Nov evening, LIVE (Ish: two photos, "this was done at an address in CB2 ... can you please work your magic on this"):
+  - Cambridge town page: new section "Recent Cambridge job · CB2" (jobs/cambridge_cb2.html @3855b83, id kc-job, beige
+    band between "What we make" and "Areas of Cambridge"): two fluted wardrobe rooms from the same house, text says only
+    the postcode area is shown for privacy, link to /bespoke-wardrobes. DEV 354172603 first, then live 241181303 (rec
+    5657622403); backups 'dev-354172603-5649232503-before-cb2-job*-20261120' and 'live-241181303-5657622403-before-cb2-job-
+    20261120'. CSS is scoped with #kc-job (the page's "#kc *" reset beats class selectors).
+  - Photos on web-media-t @c2c5792 (jobs/cambridge-cb2-*.webp, 26 and 31 kB, no metadata). Cropped to the furniture; the
+    customer's framed family photo, window view and a document on the shelf were cropped or removed.
+  - Checked live at 1536 (594px tall, fits one screen; photos shown smaller than their real size, so not stretched) and
+    390 (626px, tags hidden, short captions, no sideways scroll); 1 H1, no DEV links, no photo used twice.
