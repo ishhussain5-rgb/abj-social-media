@@ -1,0 +1,23 @@
+<!-- ABJ A11Y -->
+<style>
+/* 20 Nov 2026 accessibility layer: readable gold, visible keyboard focus, skip link, calmer motion */
+#kc{--gd:#7A5C27}
+#kc .hero,#kc .ih,#kc .bk,#kc .ws,#kc .dz,#kc .bp,#kc .bkp .l,#kc .ft,#kc .mm{--gd:#C9A96E}
+#kc .sr{color:#9C7A3A}
+#kc .hero .sr,#kc .bk .sr,#kc .ws .sr,#kc .ih .sr{color:var(--go)}
+#kc a:focus-visible,#kc button:focus-visible,#kc input:focus-visible,#kc select:focus-visible,#kc textarea:focus-visible,#kc summary:focus-visible,#kc [tabindex]:focus-visible,#kc [role=button]:focus-visible{outline:2px solid var(--gd);outline-offset:3px}
+#kc .a11y-skip{position:fixed;left:16px;top:-80px;z-index:2147483000;background:var(--lin);color:var(--g);padding:12px 18px;font:500 14px/1 var(--sans);border:2px solid var(--g);transition:top .2s}
+#kc .a11y-skip:focus{top:12px}
+#kc .lgbk .lnk{min-height:44px;display:inline-flex;align-items:center}
+@media (prefers-reduced-motion:reduce){#kc *,#kc *:before,#kc *:after{scroll-behavior:auto!important;transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}}
+</style>
+<script>
+(function(){var k=document.getElementById('kc');if(!k||k.getAttribute('data-a11y'))return;k.setAttribute('data-a11y','1');
+var m=k.querySelector('main');if(m){if(!m.id)m.id='kc-main';m.setAttribute('tabindex','-1');m.style.outline='none';
+ var s=document.createElement('a');s.className='a11y-skip';s.href='#'+m.id;s.textContent='Skip to main content';
+ s.addEventListener('click',function(e){e.preventDefault();m.focus({preventScroll:true});m.scrollIntoView()});k.insertBefore(s,k.firstChild)}
+[].forEach.call(k.querySelectorAll('.rvg'),function(r){if(!r.hasAttribute('tabindex')){r.setAttribute('tabindex','0');r.setAttribute('role','region');r.setAttribute('aria-label','Customer reviews, scroll sideways for more')}});
+try{if(matchMedia('(prefers-reduced-motion: reduce)').matches){var stop=function(){[].forEach.call(k.querySelectorAll('video'),function(v){try{v.pause();v.removeAttribute('autoplay')}catch(e){}})};stop();setTimeout(stop,1500);setTimeout(stop,4000)}}catch(e){}
+})();
+</script>
+<!-- /ABJ A11Y -->
