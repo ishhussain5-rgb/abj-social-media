@@ -1315,7 +1315,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     removed. Tested on live with fetch/XHR/beacon stubbed (nothing sent): blank passes, "XYZ" errors, "PE9 2JR" passes;
     checked at 390 and 1100. No other page has the required address/how-heard fields. Leads may now arrive with no address.
   - Google Business Profile services: deleted the 70 not kept (59 in the first run, the editor closed itself, last 11
-    re-run), leaving the 61 kept; then the 43 kept services with "from" prices set to No price. Google shows "Your edit is
+    re-run), leaving the 61 kept; then the 43 kept services with "from" prices set to No price (one save hit "Something went wrong" and was re-done;
+    "Bespoke Fitted Wardrobes" is listed twice and the second copy's "From £100" was cleared by hand). Final check: 61 kept
+    services present, 0 prices showing. Google shows "Your edit is
     pending review" (up to a day).
   - Town jobs (Cambridge, Huntingdon, Stamford, Ely, Grantham): NOT done. No photo or folder in Drive says which town a
     job was in (ABJ/New Page Images = 3 unnamed photos), so a town can't be put on a photo without Ish naming it.
