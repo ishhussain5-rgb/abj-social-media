@@ -83,6 +83,7 @@ html:not(#lg-a):not(#lg-b) #kc .lgh{padding-top:calc(86px + clamp(40px,5vw,90px)
 #kc .lg4 img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover}
 #kc .lg4 h3{margin:14px 0 6px;font-size:clamp(22px,1.7vw,28px)}
 #kc .lg4 p{font-size:14.5px;line-height:1.5;color:var(--mut)}
+#kc .lgbk .acts{flex-wrap:wrap;align-items:center;row-gap:12px}
 #kc .lgf{display:flex;flex-wrap:wrap;gap:8px;margin-top:clamp(24px,2.6vw,36px)}
 #kc .lgf span{padding:10px 14px;border:1px solid var(--hair);font-size:13.5px}
 @media(max-width:760px){#kc .lg4{grid-template-columns:1fr 1fr;gap:12px}#kc .lg4 img{aspect-ratio:1/1}#kc .lg4 h3{font-size:19px;margin-top:10px}#kc .lg4 p{font-size:13px}}
@@ -117,10 +118,10 @@ def page(code):
  <div class="sh rv" style="margin-bottom:0"><div><span class="kick">{e(t['hk'])}</span><h2 style="margin-top:16px">{e(t['hh'])}</h2></div><p>{e(t['hp'])}</p></div>
  <div class="ps">{steps}</div>
 </div></section>
-<section class="bk" id="kc-book" aria-label="{e(t['ch'])}">
+<section class="bk lgbk" id="kc-book" aria-label="{e(t['ch'])}">
  <figure><img loading="lazy" src="{S}tila3335-3465-4538-b264-316632643031/abj-kitchen-cream-is.webp" alt="{e(BKALT[code])}"></figure>
  <div class="t rv"><span class="kick">{e(t['ck'])}</span><h2>{e(t['ch'])}</h2><p>{e(t['cp'])}</p>
-  <div class="acts"><a class="bt" href="{e(wa)}" target="_blank" rel="noopener">{e(t['wa'])}</a><a class="bt o" href="tel:+441733686767">{e(t['call'])}</a><a class="bt o" href="/bookingform-dev-k9b4">{e(t['form'])}</a></div>
+  <div class="acts"><a class="bt" href="{e(wa)}" target="_blank" rel="noopener">{e(t['wa'])}</a><a class="bt o" href="tel:+441733686767">{e(t['call'])}</a><a class="lnk" href="/bookingform-dev-k9b4">{e(t['form'])}</a></div>
  </div>
 </section>
 </div>
