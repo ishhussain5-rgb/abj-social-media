@@ -1374,3 +1374,17 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   row keyboard-focusable, reduced-motion users get no transitions and paused videos, 44px booking link on language pages.
   Audit: axe-core run locally on built copies (home, kitchens, wardrobes, gallery, booking, designer, 3D, PL) + own
   contrast/name/heading checks on the published DEV pages: no unnamed controls, no images without alt, no heading jumps.
+- 20 Nov 21:45-22:30 LIVE (Ish: "Please make all live"):
+  - New live pages (duplicates of their DEV pages, DEV links mapped with linkmap.json + 5 new keys, golive_new_1120.js
+    tfToLive; indexable, canonical to themselves): /design-your-room 405423903, /3d-designs 405424003, /pl 405424103,
+    /lt 405424203, /ru 405424303. All in sitemap.xml. ABJ HREFLANG (en-GB /, pl, lt, ru, x-default) in the page HEAD of
+    the homepage 30601906 and the three language pages (old heads in localStorage 'abj_head_before_hreflang_<id>').
+  - Gallery 74160025: ABJ INSPO (filters, renders out, links mapped to live). Booking 74327267: ABJ DESIGNFILL. Tested:
+    design -> /bookingform notes filled, nothing sent; gallery 77 photos, wood filter 27, no DEV links.
+  - All 69 live pages: ABJ A11Y + footer links (ABJ column: Design your room, 3D designs; Visit column: Polski /
+    Lietuviu / Russkiy) via a11y/live_links_tf.js tfLiveRound. Backups '*-before-a11y-links-20261120'. Desktop footer
+    527 -> 557px on the homepage; phones unchanged (accordions).
+  - Search Console: indexing requested for /design-your-room, /3d-designs, /pl, /lt. /ru hit the daily quota; scheduled
+    for 21 Nov 10:13.
+  - Not yet: the team has not checked the PL/LT/RU wording (Ish chose to go live); the five 3D visuals not confirmed as
+    ABJ's own designs; llms.txt not updated with the new pages.
