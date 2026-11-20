@@ -1306,3 +1306,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   Kitchen cabinet refacing; Kitchen Installation price "From £100" -> No price. Rest waits for Ish's explicit OK on the
   list (keep 61, delete 70, prices off the 43 kept priced ones).
 - Scheduled: 3 Dec 10:00 recheck message into this session.
+- 20 Nov afternoon (Ish: hours confirmed; "make both optional. Change the full address to post code"; "continue with
+  the google services"; services not kept "that's fine"):
+  - Showroom hours (Mon-Fri 8am-6pm, Sat 10am-2pm) were already on the showroom page and profile: doc line corrected only.
+  - Booking form, DEV 354003303 then live 74327267 (backup tag form-optional-20261120): "Address with postcode" (required)
+    -> "Postcode (optional)" (autocomplete postal-code, placeholder PE1 2AZ; checked only if filled: "That postcode
+    doesn't look right. Please check it or leave it blank."); "How did you hear about us?" -> "(optional)", required check
+    removed. Tested on live with fetch/XHR/beacon stubbed (nothing sent): blank passes, "XYZ" errors, "PE9 2JR" passes;
+    checked at 390 and 1100. No other page has the required address/how-heard fields. Leads may now arrive with no address.
+  - Google Business Profile services: deleted the 70 not kept (59 in the first run, the editor closed itself, last 11
+    re-run), leaving the 61 kept; then the 43 kept services with "from" prices set to No price. Google shows "Your edit is
+    pending review" (up to a day).
+  - Town jobs (Cambridge, Huntingdon, Stamford, Ely, Grantham): NOT done. No photo or folder in Drive says which town a
+    job was in (ABJ/New Page Images = 3 unnamed photos), so a town can't be put on a photo without Ish naming it.
