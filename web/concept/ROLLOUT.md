@@ -1429,3 +1429,20 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     newest 9 weeks old, then 12/14/14/15/15/15/16/17 weeks, then 32+. Top profile searches: kitchen cabinets 140,
     sliding door wardrobe 105, built in wardrobes 66, kitchens peterborough 61, wardrobes 58.
   - Facebook post "Kitchen worktop samples" (~2 weeks old) shows the old 07791 290848 number.
+- 21 Nov 04:10-04:45 LIVE (Ish: "Yes please fix the lot"):
+  - Share previews (Page settings > Facebook: fb_title = SEO title, fb_descr = SEO description): /, /about-abj, /faq-abj,
+    /flexible-finance, /abjfeeds (also fb_img ABJLogo.jpeg -> og-Pembridge-Ki.jpg, the photo their twitter:image already
+    used); /pl, /lt, /ru, /design-your-room (were "Budget Planner..."; photo kept); /3d-designs (photo -> abj-kitchen-grey-
+    sha.jpg, one of its 3D visuals). Old values: IndexedDB abj_home_bak/b 'settings-before-og-20261121'.
+  - /lt SEO + share title 75 -> 60 chars: "Virtuvės ir spintos Peterborough | Kalbame lietuviškai | ABJ" (dropped "pagal
+    užsakymą", still in H1 and description).
+  - /pl /lt /ru page HEAD: + <script id="abj-lang-attr"> setting <html lang> to pl/lt/ru (Tilda has no per-page language
+    field). Old heads '<id>-head-before-lang-20261121'. Checked in the browser: /lt renders lang="lt", layout unchanged.
+  - All 10 pages published singly (0 errors); cache-busted check: new og:title/description/image on all 10, hreflang
+    still 5 on /, /pl, /lt, /ru.
+  - llms.txt + llms-full.txt (repo @568d976, then Tilda; Tilda text matched the repo before the change): + Kitchen Fitters,
+    Park Road, Budget Planner, Design Your Room, 3D Designs, Aftercare, and an "Other Languages" section (PL/LT/RU, team
+    speaks all three). Live check: 0 sitemap pages missing.
+  - Not changed: DEV copies of the 5 new pages still carry the Budget planner share text (noindex, not shared); twitter:title
+    in the page HEADs of / and the four company pages (X shares only).
+  - Plaky: add to the weekly batch.
