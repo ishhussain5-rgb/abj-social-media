@@ -1397,3 +1397,15 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - 20 Nov 22:15: Ish checked and confirmed the PL/LT/RU wording ("perfect") and that the five 3D visuals on /3d-designs are
   ABJ's own. Open question: visual 3 (white Shaker kitchen with island seating, abj-kitchen-white-sh) may be a real photo
   rather than a 3D design; if so, move it back to the gallery photo grid.
+
+## 21 Nov 2026 03:30: deep dive request (website, GBP, GA4, Search Console). Ish on the phone, Chrome not reachable
+- Done from the cloud (WebFetch/WebSearch only; GA4, Search Console and the Google profile need Chrome, not opened).
+- NEW ISSUE: /pl, /lt, /ru, /design-your-room and /3d-designs all carry the Budget planner's og:title ("Budget Planner:
+  What Could Your Budget Get You? | ABJ"), og:description and og:image (inherited from the duplicate); og:locale en_GB on the
+  language pages; no twitter:title. Fix in Tilda page settings (Facebook tab) + page HEAD twitter tags, then republish.
+- To verify in Chrome: /bespoke-office-renovations title read back as "Office Fit Out Peterborough | Home Office Furniture"
+  and the old description (20 Nov change maybe not published); hreflang tags (WebFetch can't see the raw head).
+- Old og:titles left on the homepage ("Kitchens in Peterborough UK & Fitted Bedrooms Peterborough") and /about-abj.
+- Not ABJ: checkatrade.com/trades/peterboroughkitchens (Peterborough Kitchens, 5 reviews, last 2020). FreeIndex: 0 reviews.
+- Finance wording: "Interest-free finance" + "rate offered is provisional" next to each other; ask Ideal4Finance for
+  their approved promo wording.
