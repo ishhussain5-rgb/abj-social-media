@@ -1464,3 +1464,19 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - URL inspection for https://abjkitchensandbedrooms.co.uk/ru: "Discovered - currently not indexed", no referring sitemap detected.
 - Request indexing failed again: Search Console daily quota exceeded. Retry scheduled for 22 Nov 10:13.
 - Worth checking: /ru (and /pl, /lt) are listed in sitemap.xml so Google finds them without manual requests.
+
+## 21 Nov 2026 - Deadline strip site-wide (Ish: "Please add the deadline banner in places as an incentive")
+- Offer wording (no price or freebie claim until Alex picks an incentive): "January-February fitting slots: order by 12 December
+  to secure yours" + "Book a free design visit" -> /bookingform. Phones: "Jan-Feb fitting: order by 12 Dec".
+- promo/deadline-strip.js @32df724 (look also kept as promo/deadline-strip.html). Loaded from the site HEAD as one deferred script tag
+  at the end (HEAD 37,407 -> 37,662). Backup IndexedDB abj_svc_bak 'sitehead-before-deadline-20261121'.
+- Behaviour: shows only after scrolling past 60% of the first screen; desktop = centred dark strip (z75, clear of the chat button
+  and cookie notice); phones with the Call/WhatsApp/Book bar = slim band docked just above that bar (no second button); hidden while
+  menu, cookie notice or guide-price pill shows; close (x) remembered per browser; not on /bookingform, /pl, /lt, /ru;
+  removes itself after 12 Dec 2026 23:59 UTC. GA4 dataLayer event 'deadline_strip_click' on the button.
+- Tested before going live: live homepage, /kitchens, /wardrobes at 1536 and 390 (injected), then Kitchens DEV 352648603 published
+  first and checked at 390/1100; then the other 62 DEV + 65 live pages republished one page at a time.
+- To remove early or change the date/wording: edit deadline-strip.js, push, change the pin in the site HEAD, republish all pages.
+- Result: 127 pages published, 0 errors. Live check (cache-busted /page<id>.html): all 65 live pages carry the script and
+  head-moved.js. Homepage: hidden on first screen, shows after scrolling; /bookingform: not shown; /media-walls at 390: docked band
+  above the Call/WhatsApp/Book bar. Plain URLs switch over within Cloudflare's 10-minute HTML cache.
