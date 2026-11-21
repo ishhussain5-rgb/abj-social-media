@@ -1,6 +1,7 @@
 <!-- ABJ deadline strip (21 Nov 2026). Site HEAD item. Self-contained; removes itself after 12 Dec 2026.
      Shows a slim bottom strip (once the visitor scrolls past the first screen): Jan-Feb fitting slots, order by 12 December, link to /bookingform.
-     Not shown on /bookingform, the language pages (/pl /lt /ru) or after the visitor closes it. -->
+     On phones, pages with the bottom Call/WhatsApp/Book bar (.mbar) get a slim band docked just above that bar, without its own button.
+     Hidden while the menu, cookie notice or a guide-price pill (.pill) is showing. Not shown on /bookingform, the language pages (/pl /lt /ru) or after the visitor closes it. -->
 <style id="abj-dl-css">
 #abj-dl{position:fixed;left:50%;bottom:16px;z-index:75;display:flex;align-items:center;gap:14px;width:max-content;max-width:calc(100vw - 160px);
 padding:10px 10px 10px 16px;background:#0E1B1A;color:#F3EEE6;border:1px solid rgba(201,169,110,.45);border-radius:10px;
@@ -16,7 +17,10 @@ letter-spacing:.02em;padding:8px 12px;border-radius:6px}
 #abj-dl button:hover,#abj-dl button:focus-visible{opacity:1;background:rgba(243,238,230,.1)}
 #abj-dl .m{display:none}
 @media (max-width:640px){#abj-dl{left:10px;bottom:10px;gap:8px;padding:8px 6px 8px 12px;font-size:13px;width:auto;max-width:none;right:62px;transform:translate(0,12px)}#abj-dl.on{transform:none}
-#abj-dl .d{display:none}#abj-dl .m{display:inline}#abj-dl a.c{font-size:12px;padding:7px 10px}#abj-dl button{width:26px;height:26px;font-size:18px}}
+#abj-dl .t{white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+#abj-dl .d{display:none}#abj-dl .m{display:inline}#abj-dl a.c{font-size:12px;padding:7px 10px}#abj-dl button{width:26px;height:26px;font-size:18px}
+#abj-dl.dock{left:0;right:0;border-radius:0;border-width:1px 0 0;box-shadow:none;padding:6px 6px 6px 14px;font-size:12.5px;transition:opacity .25s ease}
+#abj-dl.dock,#abj-dl.dock.on{transform:none}#abj-dl.dock a.c{display:none}}
 @media print{#abj-dl{display:none!important}}
 @media (prefers-reduced-motion:reduce){#abj-dl{transition:none}}
 </style>
@@ -43,15 +47,20 @@ letter-spacing:.02em;padding:8px 12px;border-radius:6px}
     });
     mob.addEventListener('click', function(){ try { (window.dataLayer = window.dataLayer || []).push({event:'deadline_strip_click'}); } catch (e) {} });
     document.body.appendChild(d);
+    function v(e){ if (!e) return false; var s = getComputedStyle(e); return s.visibility !== 'hidden' && s.display !== 'none' && parseFloat(s.opacity) > 0.05 && e.offsetHeight > 0; }
     function blocked(){
-      var ck = document.querySelector('.ck'), mm = document.querySelector('.mm');
-      var v = function(e){ if (!e) return false; var s = getComputedStyle(e); return s.visibility !== 'hidden' && s.display !== 'none' && e.offsetHeight > 0; };
-      return v(ck) || v(mm);
+      return v(document.querySelector('.ck')) || v(document.querySelector('.mm')) || v(document.querySelector('.pill'));
+    }
+    function dock(){
+      var mb = document.querySelector('.mbar'), small = window.matchMedia && matchMedia('(max-width:640px)').matches;
+      if (small && v(mb)) { d.classList.add('dock'); d.style.bottom = Math.round(window.innerHeight - mb.getBoundingClientRect().top) + 'px'; }
+      else { d.classList.remove('dock'); d.style.bottom = ''; }
     }
     function tick(){
       if (!document.body.contains(d)) return;
       if (Date.now() > END) { d.remove(); return; }
       var past = (window.scrollY || document.documentElement.scrollTop || 0) > window.innerHeight * 0.6;
+      dock();
       if (blocked() || !past) d.classList.remove('on'); else d.classList.add('on');
     }
     setInterval(tick, 500); window.addEventListener('scroll', tick, {passive:true});
