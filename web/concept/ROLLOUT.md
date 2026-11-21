@@ -1459,3 +1459,8 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     Checked: JSON-LD parses, 1 H1, section gone, desktop render tidy.
   - llms.txt / llms-full.txt (@4cbfe5e, Tilda text matched the repo first): replacement-door lines and FAQ answer changed to match.
   - tilda_content.js still holds the old 12 Nov section text (history only; don't re-run it for /sliding-wardrobes).
+
+## 21 Nov 2026 10:35 - /ru indexing request (retry)
+- URL inspection for https://abjkitchensandbedrooms.co.uk/ru: "Discovered - currently not indexed", no referring sitemap detected.
+- Request indexing failed again: Search Console daily quota exceeded. Retry scheduled for 22 Nov 10:13.
+- Worth checking: /ru (and /pl, /lt) are listed in sitemap.xml so Google finds them without manual requests.
