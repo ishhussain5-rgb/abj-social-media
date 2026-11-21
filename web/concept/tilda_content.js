@@ -18,7 +18,8 @@ window.ABJ_CONTENT = {
   '/bespoke-bedrooms-abj': [
     ['Children&rsquo;s and teenagers&rsquo; bedrooms', 'Children&rsquo;s rooms need storage that keeps up as they grow. We make wardrobes with shelves and hanging rails that can be moved up later, built-in desks for homework, and plenty of drawer space for toys and clothes. In smaller box rooms and rooms under the eaves, everything is made to fit the space you have.']
   ],
-  '/sliding-wardrobes': [
+  /* 21 Nov 2026: removed from the live page (ABJ does not make replacement doors). Do not re-run. */
+  '/sliding-wardrobes-REMOVED': [
     ['Replacement wardrobe doors', 'If your wardrobe frame is still sound, you may only need new doors. We can make replacement sliding doors in mirror, glass, woodgrain or painted panels to fit your existing opening, or replace the whole front for a new look. Send us a photo and the size of the opening on WhatsApp and we will tell you what is possible.']
   ],
   '/near-me-peterborough': [

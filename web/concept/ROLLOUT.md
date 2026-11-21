@@ -1446,3 +1446,16 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   - Not changed: DEV copies of the 5 new pages still carry the Budget planner share text (noindex, not shared); twitter:title
     in the page HEADs of / and the four company pages (X shares only).
   - Plaky: add to the weekly batch.
+- 21 Nov 04:30-05:00 (Ish: "Yes merge. We don't offer the other services" -> then chose "Keep both" office pages once told the
+  20 Nov change gave /bespoke-office-renovations the home-office job; TV hung on ABJ-built media walls: YES keep; replacement
+  sliding wardrobe doors: NO, remove):
+  - ABJ does NOT offer: replacement kitchen doors, standalone TV wall mounting / home cinema, office partitions, kitchen
+    spraying. Site scan (69 sitemap pages + 8 guides + llms): no claims of these. Google profile services (read only): none.
+  - Office pages: kept separate; already link each other in the body (no change).
+  - /sliding-wardrobes: "Replacement wardrobe doors" h3+p (added 12 Nov) removed; FAQ "Can you replace just the sliding
+    doors?" answer (visible + FAQPage JSON) -> "No. We make complete made-to-measure wardrobes, with the doors and frames
+    made together in our workshop, so we do not supply replacement doors for existing wardrobes." DEV 377441303 (rec
+    5698620103) then live 377674503 (rec 5699150703); backups IndexedDB abj_svc_bak '*-before-no-replacement-doors-20261121'.
+    Checked: JSON-LD parses, 1 H1, section gone, desktop render tidy.
+  - llms.txt / llms-full.txt (@4cbfe5e, Tilda text matched the repo first): replacement-door lines and FAQ answer changed to match.
+  - tilda_content.js still holds the old 12 Nov section text (history only; don't re-run it for /sliding-wardrobes).
