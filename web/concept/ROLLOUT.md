@@ -1409,3 +1409,23 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Not ABJ: checkatrade.com/trades/peterboroughkitchens (Peterborough Kitchens, 5 reviews, last 2020). FreeIndex: 0 reviews.
 - Finance wording: "Interest-free finance" + "rate offered is provisional" next to each other; ask Ideal4Finance for
   their approved promo wording.
+- 21 Nov 04:00-04:30, Chrome back (read only, NOTHING CHANGED):
+  - Corrections to the cloud pass: /bespoke-office-renovations title IS live ("Fitted Home Offices Peterborough | Desks &
+    Storage | ABJ"); hreflang present (5 tags) on /, /pl, /lt, /ru. WebFetch had stale/stripped copies.
+  - Sitemap sweep (69 pages, cache-busted): og:title = Budget Planner on /pl /lt /ru /design-your-room /3d-designs;
+    old og:title + ABJLogo.jpeg share image on /, /about-abj, /faq-abj, /flexible-finance, /abjfeeds; /lt title 75 chars;
+    <html lang="en"> on the language pages. Everything else: descriptions present, none noindex.
+  - Search Console: 79 indexed / 167 not (66 redirects, 62 old 404s - all 57 tested now 301 to a live page, validation
+    running; 13 crawled-not-indexed are old Aug URLs; noindex 3 = retired edgebanding pages). No manual actions. CWV: no
+    field data yet (new URLs). Breadcrumbs 37 valid, 0 invalid. 12-19 Nov vs 4-11 Nov: clicks 66 vs 68, impressions
+    6.69K vs 6.47K, position 20.6 vs 19.8. Homepage organic slipped on kitchen terms (fitted kitchens peterborough 12.7 ->
+    19.2, kitchens peterborough 19.8 -> 24.9) while the map listing stays ~2. Media walls "-61%" alert = national "media
+    wall" term 102 -> 17; local terms steady, position 16.5 -> 14.1.
+  - GA4 (28 days): 209 users; google organic 97, direct 46, Facebook 35, chatgpt.com 10, abjaccessories 27 sessions.
+    Key events: email_click, generate_lead (9 / 7 users), phone_call (5), whatsapp_click (15 / 11), purchase (unused).
+    homepage_form_submit (2) not a key event (old form). Consent mode signals all active; Internal Traffic filter active.
+  - Google profile: 9,983 views Jun-Nov; interactions Sep 213, Oct 172, Nov 145 (to 20th); website clicks 115/90/65;
+    calls ~30/18/15; Bookings 0 (link only, Google counts partner bookings). 4.9 / 103, all 100 loaded reviews replied,
+    newest 9 weeks old, then 12/14/14/15/15/15/16/17 weeks, then 32+. Top profile searches: kitchen cabinets 140,
+    sliding door wardrobe 105, built in wardrobes 66, kitchens peterborough 61, wardrobes 58.
+  - Facebook post "Kitchen worktop samples" (~2 weeks old) shows the old 07791 290848 number.
