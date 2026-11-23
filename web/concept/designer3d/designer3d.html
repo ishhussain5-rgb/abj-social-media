@@ -52,6 +52,37 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:calc(86px + clamp(14px,1.6vw,28px
 #kc .d3 .dz-go button.dz-rs{color:rgba(243,238,230,.6);border-bottom-color:transparent}
 #kc .d3 :focus-visible{outline:2px solid var(--go);outline-offset:3px}
 #kc .d3 .dz-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+#kc .d3 .d3-stage canvas{transition:opacity .2s}
+#kc .d3 .d3-foot>div{display:flex;gap:6px;pointer-events:auto}
+#kc .d3 .d3-foot button{min-height:36px;padding:0 12px;border-radius:999px;background:rgba(255,255,255,.82);color:#1b2321;font:500 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;box-shadow:0 1px 6px rgba(0,0,0,.08);display:inline-flex;align-items:center;gap:6px;backdrop-filter:blur(6px)}
+#kc .d3 .d3-foot button svg{width:15px;height:15px;flex:none}
+#kc .d3 .d3-foot button[aria-pressed="true"]{background:#0E1B1A;color:#F3EEE6}
+#kc .d3 .d3-insp{display:flex;align-items:center;gap:10px;margin-top:14px;min-width:0}
+#kc .d3 .d3-insp>span{font:500 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:var(--go);white-space:nowrap}
+#kc .d3 .d3-insp>div{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:2px 0;min-width:0}
+#kc .d3 .d3-insp>div::-webkit-scrollbar{display:none}
+#kc .d3 .d3-insp button{flex:0 0 auto;min-height:36px;padding:0 12px 0 8px;border:1px solid rgba(243,238,230,.26);border-radius:999px;font-size:13px;color:rgba(243,238,230,.9);display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+#kc .d3 .d3-insp button:hover{border-color:var(--go)}
+#kc .d3 .d3-insp i{width:16px;height:16px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(255,255,255,.35)}
+#kc .d3 .d3-pop{position:absolute;z-index:4;width:300px;max-height:calc(100% - 66px);overflow:auto;background:#F7F3EC;color:#1b2321;border-radius:6px;box-shadow:0 10px 34px rgba(0,0,0,.28);padding:12px 14px 6px}
+#kc .d3 .d3-pop[hidden]{display:none}
+#kc .d3 .d3-pop.d3-dock{left:8px!important;right:8px;bottom:8px;top:auto!important;width:auto;max-height:58%}
+#kc .d3 .d3-pop-h{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+#kc .d3 .d3-pop-h span{font:500 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#7A5C27}
+#kc .d3 .d3-pop-x{width:32px;height:32px;border-radius:50%;font-size:20px;line-height:1;color:#1b2321}
+#kc .d3 .d3-pop .dz-fl>span,#kc .d3 .d3-pop .dz-fl>label{color:#5a6360}
+#kc .d3 .d3-pop .dz-fl output{color:#1b2321}
+#kc .d3 .d3-pop .dz-ch button{border-color:rgba(14,27,26,.22);color:#1b2321;min-height:36px;font-size:13px}
+#kc .d3 .d3-pop .dz-ch button[aria-pressed="true"]{background:#0E1B1A;border-color:#0E1B1A;color:#F3EEE6}
+#kc .d3 .d3-pop .dz-sw button{width:32px;height:32px;border-color:rgba(14,27,26,.18)}
+#kc .d3 .d3-pop .dz-sw button[aria-pressed="true"]{border-color:#7A5C27;box-shadow:0 0 0 2px #F7F3EC,0 0 0 4px #7A5C27}
+#kc .d3 .d3-pop .dz-hint{color:#5a6360}
+#kc .d3 .d3-pop :focus-visible{outline-color:#7A5C27}
+#kc .d3 .d3-pbtn{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:0 16px;margin:0 8px 10px 0;border-radius:3px;background:#0E1B1A;color:#F3EEE6;font:500 11px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;text-decoration:none}
+#kc .d3 .d3-pbtn2{background:none;color:#0E1B1A;box-shadow:inset 0 0 0 1px rgba(14,27,26,.35)}
+#kc .d3 .d3-eve .d3-bar button[aria-pressed="true"],#kc .d3 .d3-eve .d3-foot button[aria-pressed="true"]{box-shadow:0 0 0 1px rgba(243,238,230,.55)}
+#kc .d3 .d3-toast{pointer-events:none;position:absolute;left:50%;top:56px;transform:translateX(-50%);z-index:5;background:#0E1B1A;color:#F3EEE6;font-size:13px;line-height:1.4;padding:9px 14px;border-radius:4px;max-width:calc(100% - 24px);box-shadow:0 6px 20px rgba(0,0,0,.25);text-align:center}
+#kc .d3 .d3-toast[hidden]{display:none}
 @media(max-width:899px){
 html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
 #kc .d3 .d3g{grid-template-columns:1fr;gap:12px}
@@ -70,6 +101,13 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
 #kc .d3 .d3-bar button{min-height:32px;padding:0 10px;font-size:10px}
 #kc .d3 .d3-bar button.d3-ic{width:32px}
 #kc .d3 .d3-v2{display:none!important}
+#kc .d3 .d3-foot button{min-height:32px;padding:0 10px;font-size:10px}
+#kc .d3 .d3-foot button span{display:none}
+#kc .d3 .d3-insp{margin-top:10px}
+#kc .d3 .d3-insp>span{display:none}
+#kc .d3 .dz-seg{overflow-x:auto;scrollbar-width:none}
+#kc .d3 .dz-seg button{padding:0 11px;font-size:10.5px;letter-spacing:.1em}
+#kc .d3 .d3-hint{font-size:9.5px;letter-spacing:.1em;padding:7px 9px}
 }
 </style>
 <div class="w"><div class="d3g">
@@ -77,9 +115,14 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
   <div class="d3-stage" id="d3-stage">
    <canvas id="d3-cv" tabindex="0" role="img" aria-label="3D view of your design. Drag, or use the arrow keys, to look around."></canvas>
    <div class="d3-load" id="d3-load"><i></i><span>Building your room in 3D</span></div>
-   <div class="d3-bar"><div role="group" aria-label="Camera view"><button type="button" data-view="angle" aria-pressed="true">Angle</button><button type="button" data-view="front" aria-pressed="false">Front</button><button type="button" data-view="top" aria-pressed="false" class="d3-v2">Above</button></div>
-   <div><button type="button" class="d3-ic" data-zoom="-1" aria-label="Zoom out">&minus;</button><button type="button" class="d3-ic" data-zoom="1" aria-label="Zoom in">+</button><button type="button" id="d3-snap" aria-label="Save a picture of your design">Save picture</button></div></div>
-   <div class="d3-foot"><span class="d3-hint" id="d3-hint">Drag to look around</span><span class="d3-note">3D illustration</span></div>
+   <div class="d3-bar"><div role="group" aria-label="Camera view"><button type="button" data-view="angle" aria-pressed="true">Angle</button><button type="button" data-view="front" aria-pressed="false">Front</button><button type="button" data-view="top" aria-pressed="false" class="d3-v2">Above</button><button type="button" data-view="eye" aria-pressed="false">Stand in it</button></div>
+   <div><button type="button" class="d3-ic" data-zoom="-1" aria-label="Zoom out">&minus;</button><button type="button" class="d3-ic" data-zoom="1" aria-label="Zoom in">+</button></div></div>
+   <div class="d3-foot"><span class="d3-hint" id="d3-hint">Drag to turn the room, tap anything to change it</span><div>
+    <button type="button" id="d3-mood" aria-pressed="false" aria-label="Switch to evening lighting" title="Evening"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span>Evening</span></button>
+    <button type="button" id="d3-share" aria-label="Share your design"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg><span>Share</span></button>
+    <button type="button" id="d3-snap" aria-label="Save a picture of your design"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span>Save</span></button></div></div>
+   <div class="d3-pop" id="d3-pop" hidden role="dialog" aria-label="Change this"><div class="d3-pop-h"><span id="d3-pop-t"></span><button type="button" class="d3-pop-x" id="d3-pop-x" aria-label="Close">&times;</button></div><div id="d3-popb"></div></div>
+   <div class="d3-toast" id="d3-toast" hidden role="status"></div>
   </div>
   <p class="dz-sum" id="d3-sum"></p>
   <p class="dz-sr" id="d3-live" aria-live="polite"></p>
@@ -87,8 +130,9 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
  <div class="d3-ct">
   <div class="d3-hd"><span class="kick">Design your room in 3D</span>
   <h1>Design your dream room</h1>
-  <p class="d3-lead">Choose the layout, style, colours and finishing touches and watch your room build itself in 3D. Spin it round, then send it with your enquiry so our surveyor arrives knowing exactly what you have in mind.</p>
-  <div class="dz-seg" role="group" aria-label="What would you like to design?"><button type="button" data-t="k" aria-pressed="true">Kitchen</button><button type="button" data-t="w" aria-pressed="false">Wardrobe</button><button type="button" data-t="m" aria-pressed="false">Media wall</button></div></div>
+  <p class="d3-lead">Start from a look you love, then tap anything in the room to change it. Open the doors, step inside, switch to evening light, and send it with your enquiry so our surveyor arrives knowing exactly what you have in mind.</p>
+  <div class="dz-seg" role="group" aria-label="What would you like to design?"><button type="button" data-t="k" aria-pressed="true">Kitchen</button><button type="button" data-t="b" aria-pressed="false">Bedroom</button><button type="button" data-t="w" aria-pressed="false">Wardrobe</button><button type="button" data-t="m" aria-pressed="false">Media wall</button></div>
+  <div class="d3-insp" id="d3-insp" role="group" aria-label="Inspire me"></div></div>
   <div class="dz-tabs" role="tablist" aria-label="Design steps" id="d3-tabs"></div>
   <div class="dz-pan" id="d3-pan" role="tabpanel"></div>
   <div class="dz-go"><a class="bt" id="d3-book" href="/bookingform-dev-k9b4">Book a free design visit with this</a><a class="dz-wa" id="d3-wa" target="_blank" rel="noopener" href="https://wa.me/447479219421">Send on WhatsApp</a><button type="button" class="dz-rs" id="d3-rs">Start again</button></div>
