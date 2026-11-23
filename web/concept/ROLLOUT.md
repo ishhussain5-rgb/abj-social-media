@@ -1488,3 +1488,19 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   only (Done 21 Nov); 3D room designer DEV (In progress 23 Nov); TO DO Google Ads recheck (24 Nov); TO DO Meta VAT number +
   walk-in wardrobe product photo (23 Nov). Website group now 309 items.
 - Plaky titles max 255 characters: an over-long title silently keeps the dialog open, so check the count goes up after Save.
+
+## 23 Nov 2026 21:30 - 3D room designer on DEV (Ish: "make sure its in dev first so i can test it")
+- designer3d/designer3d.js @639692e (three.js 0.160.0 from jsDelivr, no build step) + designer3d.html; Tilda block
+  designer3d.build.html @d1b1482 (script pinned to @639692e). Kitchen (4 layouts, island/waterfall, 4 door styles, matt/gloss,
+  12 colours + island colour, 5 worktops, upstand/tiles/paint, handles + finish, sink, hob, extractor, pendants, stools, LED),
+  wardrobe (hinged/sliding, 5 styles, open shelves, Inside step opens the doors, per-section interiors) and media wall (TV size,
+  fire, sides, base, slats/paint/marble). Angle/Front/Above, drag/pinch/wheel/arrow keys, Save picture (JPG), wall nearest the
+  camera drops to a stub. Same 'abj_design' hand-off as the 2D tool; GA event room_designer_3d (type, change once, rotate once,
+  book, whatsapp, save_picture, reset).
+- DEV only: Design your room DEV 405333603, rec 6052237103: <!-- ABJ DESIGNER --> block swapped for <!-- ABJ DESIGNER3D -->
+  (abjRec, __devOnly); backup IndexedDB abj_svc_bak 'dev-405333603-6052237103-before-designer3d-20261123'. Live /design-your-room
+  untouched (still the 2D tool).
+- Tested on the published DEV page: renders at 2752 wide (canvas 1065x797), kitchen -> wardrobe -> media wall, drag turns the
+  room; Book -> /bookingform-dev-k9b4 notes box filled with the media wall summary (nothing sent); phone 390 in an iframe: no
+  sideways scroll, sticky 388px preview, Above hidden. Local Playwright: 16 option combinations, 0 console errors.
+- Before go-live: page title/description still say "Wardrobe or Media Wall" (add kitchens); og tags still the Budget planner's.
