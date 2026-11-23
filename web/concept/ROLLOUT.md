@@ -1504,3 +1504,21 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   room; Book -> /bookingform-dev-k9b4 notes box filled with the media wall summary (nothing sent); phone 390 in an iframe: no
   sideways scroll, sticky 388px preview, Above hidden. Local Playwright: 16 option combinations, 0 console errors.
 - Before go-live: page title/description still say "Wardrobe or Media Wall" (add kitchens); og tags still the Budget planner's.
+
+## 23 Nov 2026 22:00-23:30 - 3D designer v2 on DEV (Ish: "build all 12" ... "just do the lot and you test")
+- designer3d.js @292f943, Tilda block designer3d.build.html @8030101, DEV 405333603 only (backups abj_svc_bak
+  'dev-405333603-6052237103-before-designer3d-v2*-20261123'). Live /design-your-room still the 2D tool.
+- Added: Inspire me looks (5 kitchen, 4 bedroom, 5 wardrobe, 4 media wall; set style + floor/walls, keep sizes); tap anything in
+  the 3D view -> popup with just those options (docked at the bottom on phones; ghost-tap guard); cupboard doors swing, drawers
+  slide, sliding doors glide, hollow carcasses with shelves; wardrobe Inside tab swings the doors open; Share (phone share
+  sheet, desktop popup with WhatsApp + copy link; #d3= link holds only what differs from the defaults); Evening lighting (dark
+  env map, night sky, LEDs/lamps/fire boosted); Room tab on every type (floor x5, wall colour x6, ceiling 230-300, window);
+  Stand in it eye-level view (drag to look, zoom = field of view); Fitted bedroom (bed size, headboard, wardrobes one/both
+  sides, bridge units, bedside units, dressing table, door style/colour/handles, LED); contact shadows (soft strips and blobs);
+  design restored from the browser on return; booking notes + WhatsApp message now end with "Open my 3D design: <link>";
+  older phones: half-size textures, lower pixel ratio, auto drop if frames run slow. GA events: inspire, tap, share,
+  evening/daylight, eye, save_picture, book, whatsapp.
+- Tests: local Playwright ~30 combinations (0 errors), draw calls 100-260 per room; real DEV page at 1329/1375 and phone
+  375/390 iframes: renders, tap popups, bedroom evening, booking notes carry the link (471 chars, no max length), shared link
+  reopens the design with a toast.
+- Before go-live: page title/description (add kitchens + bedrooms); og tags; decide whether the 2D tool goes.
