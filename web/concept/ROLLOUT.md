@@ -1531,3 +1531,19 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   visit with your design." Old values abj_svc_bak 'settings-<pid>-before-designer3d-20261123'. DEV republished.
 - Checked live (page405423903.html): title/description/og updated, indexable, canonical /design-your-room, one H1, 0 DEV links,
   3D renders; Book -> /bookingform notes filled with the design + link (not sent). Plain URL follows within Cloudflare's 10 min.
+
+## 23 Nov 2026 23:00-23:45 - Your photo + See it in your room (AR), DEV only (Ish: "build option 1 and 3 ... make this exceptional")
+- designer3d.js @56b11b9, DEV block @75f809e on 405333603 (backup 'dev-405333603-6052237103-before-designer3d-photoar-20261123').
+  Live /design-your-room unchanged (still v2 without these two).
+- Use your photo: photo opened in the browser only (never uploaded; max 2048 px), 4 corner dots dragged to where the wall meets
+  floor and ceiling; camera pose solved from the corners (homography -> least squares on pose + focal length held near a phone
+  lens + wall width) so the design sits on the real wall at the right angle; the fit reads the wall width ("Your wall looks about
+  3.6 m wide") with a "Fit to my wall (360 cm)" button; brightness slider; room context (floor, walls, rug, plants, bed, stools)
+  hidden, soft floor shadows kept; kitchens show the main wall run; Save picture = photo + design. Tests: accurate synthetic
+  photo of a 3.6 m wall -> measured 3.60 m, corner error 0.1 px, camera within 10 cm; all 4 rooms; phone 390 drag test.
+- See it in your room: iPhone/iPad = AR Quick Look (USDZ made in the browser with three's USDZExporter from jsDelivr +esm,
+  true size, floor placement, 150-460 KB, 1-2 s; then an "Open in your room" link). Android Chrome = WebXR immersive-ar with
+  hit-test: ring on the floor, tap to place facing you, arrows to turn, Close. Computers: popup explaining it + copy link.
+  NOT testable here: needs a real iPhone and Android phone test.
+- Fixed during testing: instructions now sit below the photo (they covered the top dots on phones); dot class renamed (clashed
+  with the heading's .d3-hd and broke the phone layout).
