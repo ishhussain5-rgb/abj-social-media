@@ -1522,3 +1522,12 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   375/390 iframes: renders, tap popups, bedroom evening, booking notes carry the link (471 chars, no max length), shared link
   reopens the design with a toast.
 - Before go-live: page title/description (add kitchens + bedrooms); og tags; decide whether the 2D tool goes.
+
+## 23 Nov 2026 22:45 - 3D designer v2 LIVE (Ish: "Make it live. I love it.")
+- Live /design-your-room 405423903 rec 6052446503: <!-- ABJ DESIGNER --> (2D) -> designer3d.live.html @1692222 (script @292f943,
+  Book -> /bookingform, no DEV links). Backup abj_svc_bak 'live-405423903-6052446503-before-designer3d-live-20261123'.
+- Page settings, live + DEV: SEO + Facebook title "Design Your Kitchen, Bedroom or Media Wall in 3D | ABJ", description
+  "Design your kitchen, fitted bedroom, wardrobe or media wall in 3D. Tap to change colours and doors, then book a free design
+  visit with your design." Old values abj_svc_bak 'settings-<pid>-before-designer3d-20261123'. DEV republished.
+- Checked live (page405423903.html): title/description/og updated, indexable, canonical /design-your-room, one H1, 0 DEV links,
+  3D renders; Book -> /bookingform notes filled with the design + link (not sent). Plain URL follows within Cloudflare's 10 min.
