@@ -237,7 +237,7 @@ const M_FABRIC = new THREE.MeshStandardMaterial({ color: '#B9AE9E', roughness: 1
 const M_FABRIC2 = new THREE.MeshStandardMaterial({ color: '#6E7A6C', roughness: 1 });
 const M_PLANT = new THREE.MeshStandardMaterial({ color: '#4F6B45', roughness: .9 });
 const M_LED = new THREE.MeshBasicMaterial({ color: '#FFE2B5' });
-const M_MIRROR = new THREE.MeshStandardMaterial({ color: '#E3EAEC', metalness: 1, roughness: .03, envMapIntensity: 1.3 });
+const M_MIRROR = new THREE.MeshPhysicalMaterial({ color: '#E8EEF0', metalness: .7, roughness: .1, envMapIntensity: 2, clearcoat: 1, clearcoatRoughness: .05 });
 const M_INSIDE = woodMat('#D2B48C');
 
 /* ------------------------------------------------------------- geometry */
@@ -283,7 +283,7 @@ function front(p, x, y, w, h, fz, style, m, o) {
   if (W <= .02 || H <= .02) return;
   if (style === 'shaker' || style === 'inframe') {
     const f = Math.min(.068, W * .2, H * .2);
-    bx(p, W, H, t - .007, X, Y, fz - t, m);
+    bx(p, W, H, t - .012, X, Y, fz - t, m);
     bx(p, W, f, t, X, Y + H - f, fz - t, m); bx(p, W, f, t, X, Y, fz - t, m);
     bx(p, f, H - 2 * f, t, X, Y + f, fz - t, m); bx(p, f, H - 2 * f, t, X + W - f, Y + f, fz - t, m);
   } else if (style === 'fluted') {
@@ -312,11 +312,15 @@ function shell(p, X, Z, o) {
   const ft = fl.material.map; ft.repeat.set(1, 1);
   fl.geometry.attributes.uv.array.forEach((v, i, a) => { a[i] = v * (i % 2 ? Z / 2.4 : X / 2.4); });
   fl.rotation.x = -Math.PI / 2; fl.position.set(X / 2, 0, Z / 2); fl.receiveShadow = true; p.add(fl);
-  bx(p, X + .2, .08, Z + .1, -.1, -.08, 0, M_SKIRT, { ns: 1 });
+  bx(p, X + .2, .08, Z + .1, -.1, -.082, 0, M_SKIRT, { ns: 1 });
   bx(p, X + .2, wh, .1, -.1, 0, -.1, M_WALL, { ns: 1 });
   bx(p, X, .1, .015, 0, 0, 0, M_SKIRT, { ns: 1 });
-  if (o.left !== false) { bx(p, .1, wh, Z, -.1, 0, 0, M_WALL, { ns: 1 }); bx(p, .015, .1, Z, 0, 0, 0, M_SKIRT, { ns: 1 }); }
-  if (o.right) { bx(p, .1, wh, Z, X, 0, 0, M_WALL, { ns: 1 }); bx(p, .015, .1, Z, X - .015, 0, 0, M_SKIRT, { ns: 1 }); }
+  /* side walls: the one between the camera and the room is cut down to a low stub (see cutaway) */
+  const cut = { L: [], R: [], Ls: [], Rs: [] };
+  const side = (x, sk, list, stub) => { list.push(bx(p, .1, wh, Z, x, 0, 0, M_WALL, { ns: 1 })); const s2 = bx(p, .1, .12, Z, x, 0, 0, M_WALL, { ns: 1 }); s2.visible = false; stub.push(s2); bx(p, .015, .1, Z, sk, 0, 0, M_SKIRT, { ns: 1 }); };
+  if (o.left !== false) side(-.1, 0, cut.L, cut.Ls);
+  if (o.right) side(X, X - .015, cut.R, cut.Rs);
+  p.userData.cut = cut;
 }
 function windowOn(p, cx, y0, w, h) {
   const fm = paint('#F4F2EE');
@@ -516,8 +520,10 @@ function kitchen(p) {
     const l = new THREE.PointLight('#FFD6A0', pend ? 1.1 : .7, pend ? 3.2 : 1.6, 2); l.position.set(x, y, typeof z === 'number' ? z : .35); par.add(l);
   });
   plant(p, Math.min(X - .35, X * .92), Z - .45);
-  const ty = 1.0, tz = Math.min(Z, isl ? iz0 + 1.2 : 2.4) / 2;
-  return { X, Z, target: new THREE.Vector3(X / 2, ty, tz), size: Math.max(X, isl ? iz0 + 1.4 : (lay === 'straight' ? 1.6 : B)) };
+  let ty = 1.0, tz = Math.min(Z, isl ? iz0 + 1.2 : 2.4) / 2, size = Math.max(X, isl ? iz0 + 1.4 : (lay === 'straight' ? 1.6 : B));
+  if (lay === 'galley') { tz = A / 2 + .1; size = Math.max(A + .3, X); }
+  if (lay === 'U') size *= 1.15;
+  return { X, Z, target: new THREE.Vector3(X / 2, ty, tz), size };
 }
 
 /* ------------------------------------------------------------- wardrobe */
@@ -527,8 +533,9 @@ function wardrobe(p) {
   shell(p, X, Z, { left: true, right: true, wallH: Math.max(2.55, H + .05) });
   const cm = colMat(o.col, false), hf = o.hf, sw = o.shelf === 'none' ? 0 : .45, dx = o.shelf === 'left' ? sw : 0, dw = W - sw;
   bx(p, W, .08, D - .06, 0, 0, 0, paint(shade(COL[o.col][1], -.12)));
-  bx(p, W, H - .08, .58, 0, .08, 0, cm);
-  if (H < 2.5) bx(p, W, .04, .6, 0, H - .04, 0, cm);
+  /* hollow carcass so the open shelves and the inside view show */
+  bx(p, W, H - .08, .02, 0, .08, 0, cm); bx(p, .02, H - .08, .6, 0, .08, 0, cm); bx(p, .02, H - .08, .6, W - .02, .08, 0, cm);
+  bx(p, W, .025, .6, 0, H - .025, 0, cm); bx(p, W, .02, .58, 0, .08, 0, cm);
   const led = o.led === 'on', ledLights = [];
   if (sw) {
     const sx = o.shelf === 'left' ? 0 : W - sw, lh = (H - .08) * .34, oy = .08 + lh;
@@ -659,10 +666,18 @@ function media(p) {
 /* ------------------------------------------------------------- camera */
 const C = { az: .55, pol: 1.1, zoom: 1, t: new THREE.Vector3(1.5, 1, 1), fit: 6, tw: null };
 const VIEWS = { angle: [.55, 1.08], front: [0, 1.32], top: [.12, .42] };
+function VIEWS_FN(n) { if (n === 'angle' && S.t === 'k' && (S.k.lay === 'U' || S.k.lay === 'galley')) return [.2, .86]; return VIEWS[n]; }
 function camPos(az, pol, dist, t) { const s = Math.sin(pol); return new THREE.Vector3(t.x + dist * s * Math.sin(az), t.y + dist * Math.cos(pol), t.z + dist * s * Math.cos(az)); }
 function applyCam() {
   C.az = Math.max(-1.2, Math.min(1.2, C.az)); C.pol = Math.max(.32, Math.min(1.48, C.pol)); C.zoom = Math.max(.45, Math.min(1.8, C.zoom));
   cam.position.copy(camPos(C.az, C.pol, C.fit * C.zoom, C.t)); cam.lookAt(C.t);
+  cutaway();
+}
+function cutaway() {
+  const c = G && G.userData.cut; if (!c) return;
+  const hr = C.az > .1, hl = C.az < -.1;
+  c.R.forEach(m => m.visible = !hr); c.Rs.forEach(m => m.visible = hr);
+  c.L.forEach(m => m.visible = !hl); c.Ls.forEach(m => m.visible = hl);
 }
 function fitDist(size) {
   const a = cam.aspect, vf = THREE.MathUtils.degToRad(cam.fov), hf = 2 * Math.atan(Math.tan(vf / 2) * a);
@@ -673,15 +688,15 @@ let info = null;
 function frame(resetView) {
   if (!info) return;
   C.fit = fitDist(info.size);
-  if (resetView) { const v = VIEWS[S.view || 'angle']; C.az = v[0]; C.pol = v[1]; C.zoom = 1; }
+  if (resetView) { const v = VIEWS_FN(S.view || 'angle'); C.az = v[0]; C.pol = v[1]; C.zoom = 1; }
   C.t.copy(info.target);
   applyCam();
   const sx = info.X, sz = info.Z;
   sun.position.set(info.X * .5 - 3.5, 6.5, sz + 3.5); sun.target.position.set(info.X / 2, 0, sz / 2.4);
   const sc = sun.shadow.camera, ext = Math.max(sx, sz) * .85 + 1; sc.left = -ext; sc.right = ext; sc.top = ext; sc.bottom = -ext; sc.near = .5; sc.far = 25; sc.updateProjectionMatrix();
 }
-function tweenTo(view) {
-  S.view = view; const v = VIEWS[view], from = [C.az, C.pol, C.zoom], t0 = performance.now();
+function tweenTo(view) { const viewOf = n => VIEWS_FN(n);
+  S.view = view; const v = viewOf(view), from = [C.az, C.pol, C.zoom], t0 = performance.now();
   C.tw = now => { const k = Math.min(1, (now - t0) / 650), e = k < .5 ? 2 * k * k : 1 - Math.pow(-2 * k + 2, 2) / 2; C.az = from[0] + (v[0] - from[0]) * e; C.pol = from[1] + (v[1] - from[1]) * e; C.zoom = from[2] + (1 - from[2]) * e; applyCam(); return k < 1; };
   req();
   root.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === view));
@@ -745,7 +760,7 @@ function snap() {
   document.body.appendChild(a); a.click(); a.remove(); ev('save_picture');
 }
 
-UI.onChange = soon; UI.onType = () => rebuild(true); UI.onReset = () => rebuild(true); UI.onTab = () => { if (S.t === 'w') soon(); };
+UI.onChange = k => (k === 'lay' || k === 'isl') ? rebuild(true) : soon(); UI.onType = () => rebuild(true); UI.onReset = () => rebuild(true); UI.onTab = () => { if (S.t === 'w') soon(); };
 rebuild(true); resize();
 load.style.display = 'none';
 UI.all();
