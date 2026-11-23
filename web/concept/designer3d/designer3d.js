@@ -1190,8 +1190,8 @@ function setupUI() {
     }
     $('d3-pan').innerHTML = h;
   }
-  function tabs() { let h = ''; TABS[S.t].forEach((t, i) => { h += '<button type="button" role="tab" data-tab="' + i + '" aria-selected="' + (S.tab === i) + '">' + t + '</button>'; }); $('d3-tabs').innerHTML = h; }
-  function insp() { const el = $('d3-insp'); if (!el) return; let h = '<span>Inspire me</span><div>'; PRESETS[S.t].forEach((p, i) => { h += '<button type="button" data-preset="' + i + '"><i style="background:' + p[1] + '"></i>' + p[0] + '</button>'; }); el.innerHTML = h + '</div>'; }
+  function tabs() { let h = ''; TABS[S.t].forEach((t, i) => { h += '<button type="button" role="tab" data-tab="' + i + '" aria-selected="' + (S.tab === i) + '">' + t + '</button>'; }); const tb = $('d3-tabs'); tb.innerHTML = h; const fit = () => tb.classList.toggle('d3-more', tb.scrollWidth > tb.clientWidth + 2 && tb.scrollLeft + tb.clientWidth < tb.scrollWidth - 4); fit(); if (!tb.dataset.f) { tb.dataset.f = 1; tb.addEventListener('scroll', fit, { passive: true }); addEventListener('resize', fit); } }
+  function insp() { const el = $('d3-insp'); if (!el) return; let h = '<span>Inspire me</span><div>'; PRESETS[S.t].forEach((p, i) => { h += '<button type="button" data-preset="' + i + '"><i style="background:' + p[1] + '"></i>' + p[0] + '</button>'; }); el.innerHTML = h + '</div>'; const d = el.lastChild, fit = () => d.classList.toggle('d3-more', d.scrollLeft + d.clientWidth < d.scrollWidth - 4); fit(); d.addEventListener('scroll', fit, { passive: true }); }
   function popRender() {
     const el = $('d3-pop'); if (!el) return;
     if (!popPart) { el.hidden = true; return; }
