@@ -1480,3 +1480,11 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Result: 127 pages published, 0 errors. Live check (cache-busted /page<id>.html): all 65 live pages carry the script and
   head-moved.js. Homepage: hidden on first screen, shows after scrolling; /bookingform: not shown; /media-walls at 390: docked band
   above the Call/WhatsApp/Book bar. Plain URLs switch over within Cloudflare's 10-minute HTML cache.
+
+## 23 Nov 2026 21:10 - Plaky catch-up (Ish: "make sure you have updated plaky")
+- Board checked: last items were the 7 from 21 Nov. Added 8 (Website group, Ish): Google Ads + GA4 first-day check (Done 21 Nov);
+  GBP 9 services + 2 products (Done 21 Nov); GBP Cut and Edge product removed + 36 descriptions + business description
+  (Done 21 Nov); Meta first lead / lead form fields (Done 21 Nov, no customer details on the board); Meta 'error' = old ads
+  only (Done 21 Nov); 3D room designer DEV (In progress 23 Nov); TO DO Google Ads recheck (24 Nov); TO DO Meta VAT number +
+  walk-in wardrobe product photo (23 Nov). Website group now 309 items.
+- Plaky titles max 255 characters: an over-long title silently keeps the dialog open, so check the count goes up after Save.
