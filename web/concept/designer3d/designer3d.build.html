@@ -85,6 +85,33 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:calc(86px + clamp(14px,1.6vw,28px
 #kc .d3 .d3-eve .d3-bar button[aria-pressed="true"],#kc .d3 .d3-eve .d3-foot button[aria-pressed="true"]{box-shadow:0 0 0 1px rgba(243,238,230,.55)}
 #kc .d3 .d3-toast{pointer-events:none;position:absolute;left:50%;top:56px;transform:translateX(-50%);z-index:5;background:#0E1B1A;color:#F3EEE6;font-size:13px;line-height:1.4;padding:9px 14px;border-radius:4px;max-width:calc(100% - 24px);box-shadow:0 6px 20px rgba(0,0,0,.25);text-align:center}
 #kc .d3 .d3-toast[hidden]{display:none}
+#kc .d3 .d3-row{display:flex;gap:8px;margin-top:10px}
+#kc .d3 .d3-row button{flex:1 1 0;min-height:44px;border:1px solid rgba(201,169,110,.65);border-radius:3px;color:var(--lin);font:500 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 10px}
+#kc .d3 .d3-row button:hover{background:rgba(201,169,110,.12)}
+#kc .d3 .d3-row svg{width:18px;height:18px;flex:none;color:var(--go)}
+#kc .d3 .d3-phm{background:#0E1B1A}
+#kc .d3 .d3-phm .d3-bar,#kc .d3 .d3-phm .d3-hint{display:none}
+#kc .d3 .d3-photo{position:absolute;pointer-events:none;user-select:none;object-fit:fill}
+#kc .d3 .d3-photo[hidden],#kc .d3 .d3-phl[hidden],#kc .d3 .d3-ph[hidden],#kc .d3 .d3-xr[hidden]{display:none}
+#kc .d3 .d3-phl{position:absolute;z-index:3;pointer-events:none}
+#kc .d3 .d3-phl.d3-done{visibility:hidden}
+#kc .d3 .d3-phl svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+#kc .d3 #d3-quad{fill:rgba(201,169,110,.12);stroke:#C9A96E;stroke-width:2;vector-effect:non-scaling-stroke}
+#kc .d3 .d3-hdl{position:absolute;width:36px;height:36px;margin:-18px 0 0 -18px;padding:0;border-radius:50%;background:rgba(14,27,26,.45);border:2px solid #fff;box-shadow:0 0 0 2px #C9A96E,0 2px 8px rgba(0,0,0,.4);pointer-events:auto;touch-action:none;cursor:grab}
+#kc .d3 .d3-hdl::after{content:"";position:absolute;left:50%;top:50%;width:6px;height:6px;margin:-3px 0 0 -3px;border-radius:50%;background:#fff}
+#kc .d3 .d3-ph{margin-top:10px;background:#F7F3EC;color:#1b2321;border-radius:4px;padding:10px 12px 4px}
+#kc .d3 .d3-pv.d3-phon .d3-row{display:none}
+#kc .d3 .d3-ph p{margin:0 0 8px;font-size:13px;line-height:1.4}
+#kc .d3 .d3-ph-l{display:flex;align-items:center;gap:10px;margin:0 0 8px;font:500 10.5px/1 var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#5a6360}
+#kc .d3 .d3-ph-l[hidden]{display:none}
+#kc .d3 .d3-ph-l input{flex:1;max-width:260px;accent-color:#7A5C27;height:24px}
+#kc .d3 .d3-ph .d3-pbtn{min-height:36px;margin:0 6px 6px 0;padding:0 12px}
+#kc .d3 .d3-ph .d3-pbtn[hidden]{display:none}
+#kc .d3 .d3-pop a.d3-pbtn img{position:absolute;width:1px;height:1px;opacity:0}
+.d3-xr{position:fixed;inset:0;z-index:2147483000;pointer-events:none;font-family:"DM Sans",Arial,sans-serif}
+.d3-xr p{position:absolute;left:12px;right:12px;top:14px;margin:0;padding:10px 14px;border-radius:6px;background:rgba(14,27,26,.85);color:#F3EEE6;font-size:15px;line-height:1.4;text-align:center}
+.d3-xr div{position:absolute;left:0;right:0;bottom:28px;display:flex;justify-content:center;gap:12px;pointer-events:auto}
+.d3-xr button{min-width:56px;min-height:52px;padding:0 18px;border:0;border-radius:999px;background:rgba(247,243,236,.95);color:#0E1B1A;font:600 15px/1 "DM Sans",Arial,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.3)}
 @media(max-width:899px){
 html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
 #kc .d3 .d3g{grid-template-columns:1fr;gap:12px}
@@ -110,12 +137,19 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
 #kc .d3 .dz-seg{overflow-x:auto;scrollbar-width:none}
 #kc .d3 .dz-seg button{padding:0 9px;font-size:10px;letter-spacing:.08em}
 #kc .d3 .d3-foot .d3-hint{max-width:58%}
+#kc .d3 .d3-row{margin-top:6px}
+#kc .d3 .d3-row button{min-height:40px;font-size:10px;letter-spacing:.1em;padding:0 6px}
+#kc .d3 .d3-ph{margin-top:6px;padding:7px 9px 2px}
+#kc .d3 .d3-hdl{width:44px;height:44px;margin:-22px 0 0 -22px}
+#kc .d3 .d3-ph p{font-size:11.5px;line-height:1.35;margin-bottom:6px}
+#kc .d3 .d3-ph .d3-pbtn{min-height:30px;padding:0 9px;font-size:10px;letter-spacing:.08em;margin-bottom:5px}
 #kc .d3 .d3-hint{font-size:9.5px;letter-spacing:.1em;padding:7px 9px}
 }
 </style>
 <div class="w"><div class="d3g">
  <div class="d3-pv">
   <div class="d3-stage" id="d3-stage">
+   <img class="d3-photo" id="d3-photo" alt="Your room photo" hidden>
    <canvas id="d3-cv" tabindex="0" role="img" aria-label="3D view of your design. Drag, or use the arrow keys, to look around."></canvas>
    <div class="d3-load" id="d3-load"><i></i><span>Building your room in 3D</span></div>
    <div class="d3-bar"><div role="group" aria-label="Camera view"><button type="button" data-view="angle" aria-pressed="true">Angle</button><button type="button" data-view="front" aria-pressed="false">Front</button><button type="button" data-view="top" aria-pressed="false" class="d3-v2">Above</button><button type="button" data-view="eye" aria-pressed="false">Stand in it</button></div>
@@ -124,9 +158,12 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
     <button type="button" id="d3-mood" aria-pressed="false" aria-label="Switch to evening lighting" title="Evening"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><span>Evening</span></button>
     <button type="button" id="d3-share" aria-label="Share your design"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="18" cy="5" r="2.5"/><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="19" r="2.5"/><path d="M8.2 10.8l7.6-4.4M8.2 13.2l7.6 4.4"/></svg><span>Share</span></button>
     <button type="button" id="d3-snap" aria-label="Save a picture of your design"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 20h14"/></svg><span>Save</span></button></div></div>
+   <div class="d3-phl" id="d3-phl" hidden><svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><polygon id="d3-quad" points=""/></svg><button type="button" class="d3-hdl" aria-label="Top left corner of your wall"></button><button type="button" class="d3-hdl" aria-label="Top right corner of your wall"></button><button type="button" class="d3-hdl" aria-label="Bottom right corner of your wall"></button><button type="button" class="d3-hdl" aria-label="Bottom left corner of your wall"></button></div>
    <div class="d3-pop" id="d3-pop" hidden role="dialog" aria-label="Change this"><div class="d3-pop-h"><span id="d3-pop-t"></span><button type="button" class="d3-pop-x" id="d3-pop-x" aria-label="Close">&times;</button></div><div id="d3-popb"></div></div>
    <div class="d3-toast" id="d3-toast" hidden role="status"></div>
   </div>
+  <div class="d3-ph" id="d3-ph" hidden><p id="d3-ph-t"></p><label class="d3-ph-l" id="d3-ph-l" hidden>Brightness <input type="range" id="d3-ph-exp" min="55" max="165" value="100" aria-label="Match the brightness of your photo"></label><div><button type="button" class="d3-pbtn" id="d3-ph-ok">Done</button><button type="button" class="d3-pbtn" id="d3-ph-fit" hidden>Fit to my wall</button><button type="button" class="d3-pbtn d3-pbtn2" id="d3-ph-edit" hidden>Move corners</button><button type="button" class="d3-pbtn d3-pbtn2" id="d3-ph-x">Back to 3D room</button></div></div>
+  <div class="d3-row"><button type="button" id="d3-photo-btn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>Use your photo</button><button type="button" id="d3-ar"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 3l8 4.5v9L12 21l-8-4.5v-9z"/><path d="M4 7.5l8 4.5 8-4.5M12 12v9"/></svg>See it in your room</button><input type="file" id="d3-file" accept="image/*" hidden></div>
   <p class="dz-sum" id="d3-sum"></p>
   <p class="dz-sr" id="d3-live" aria-live="polite"></p>
  </div>
@@ -141,6 +178,7 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
   <div class="dz-go"><a class="bt" id="d3-book" href="/bookingform-dev-k9b4">Book a free design visit with this</a><a class="dz-wa" id="d3-wa" target="_blank" rel="noopener" href="https://wa.me/447479219421">Send on WhatsApp</a><button type="button" class="dz-rs" id="d3-rs">Start again</button></div>
  </div>
 </div></div>
-<script type="module" src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@292f943/web/concept/designer3d/designer3d.js"></script>
+<div class="d3-xr" id="d3-xr" hidden><p id="d3-xr-t"></p><div><button type="button" data-xr="l" aria-label="Turn left">&#x27F2;</button><button type="button" data-xr="r" aria-label="Turn right">&#x27F3;</button><button type="button" data-xr="end">Close</button></div></div>
+<script type="module" src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@56b11b9/web/concept/designer3d/designer3d.js"></script>
 </section>
 <!-- /ABJ DESIGNER3D -->
