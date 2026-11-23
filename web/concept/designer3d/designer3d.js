@@ -141,7 +141,7 @@ function remember() { clearTimeout(saveT); saveT = setTimeout(() => { try { cons
 /* ================================================================== renderer */
 const cv = $('d3-cv'), stage = $('d3-stage'), load = $('d3-load');
 let R;
-try { R = new THREE.WebGLRenderer({ canvas: cv, antialias: true, powerPreference: 'high-performance', preserveDrawingBuffer: false }); } catch (e) { R = null; }
+try { R = new THREE.WebGLRenderer({ canvas: cv, antialias: true, alpha: true, powerPreference: 'high-performance', preserveDrawingBuffer: false }); } catch (e) { R = null; }
 const small = matchMedia('(max-width:899px)').matches;
 const LOW = small || (navigator.hardwareConcurrency || 8) <= 4 || (navigator.deviceMemory || 8) <= 4;
 const TS = LOW ? .5 : 1;
@@ -152,7 +152,7 @@ R.setPixelRatio(PR);
 R.outputColorSpace = THREE.SRGBColorSpace;
 R.toneMapping = THREE.ACESFilmicToneMapping; R.toneMappingExposure = 1.02;
 R.shadowMap.enabled = true; R.shadowMap.type = THREE.PCFSoftShadowMap;
-const scene = new THREE.Scene(); scene.background = new THREE.Color('#E9E3D8');
+const scene = new THREE.Scene(), BG = new THREE.Color('#E9E3D8'); scene.background = BG;
 const cam = new THREE.PerspectiveCamera(38, 1.6, 0.05, 60);
 const pm = new THREE.PMREMGenerator(R);
 const ENV = { day: pm.fromScene(envScene(1), 0.035).texture, eve: pm.fromScene(envScene(.16), 0.035).texture };
@@ -161,7 +161,8 @@ const hemi = new THREE.HemisphereLight('#fffaf2', '#a88d6f', 0.55); scene.add(he
 const sun = new THREE.DirectionalLight('#fff3e3', 1.55); sun.castShadow = true;
 sun.shadow.mapSize.set(LOW ? 1024 : 2048, LOW ? 1024 : 2048); sun.shadow.bias = -0.0004; sun.shadow.normalBias = 0.025;
 scene.add(sun, sun.target);
-let G = null, EVE = false, ANIMS = [], LIGHTS = [];
+let G = null, EVE = false, ANIMS = [], LIGHTS = [], VIS = 'room';
+const ctx = o => { if (o) o.userData.ctx = 1; return o; };
 
 function envScene(k) {
   const s = new THREE.Scene(), g = new THREE.BoxGeometry();
@@ -422,7 +423,7 @@ function aoStrip(p, x0, z0, len, depth, ry, op) {
 }
 function aoBlob(p, cx, cz, w, d, op, y) {
   const m = mat('aoB' + (op || ''), () => { const c = M_AO.clone(); c.alphaMap = aoBlobTex(); c.opacity = op || .45; return c; });
-  const me = new THREE.Mesh(new THREE.PlaneGeometry(w * 1.5, d * 1.5), m); me.rotation.x = -Math.PI / 2; me.position.set(cx, y || .004, cz); me.renderOrder = 1; p.add(me);
+  const me = new THREE.Mesh(new THREE.PlaneGeometry(w * 1.5, d * 1.5), m); me.rotation.x = -Math.PI / 2; me.position.set(cx, y || .004, cz); me.renderOrder = 1; p.add(me); return me;
 }
 function light(p, x, y, z, color, base, dist, eve) { const l = new THREE.PointLight(color || '#FFD6A0', base, dist || 2, 2); l.position.set(x, y, z); l.userData.base = base; l.userData.eve = eve || 2.6; p.add(l); LIGHTS.push(l); return l; }
 
@@ -497,7 +498,8 @@ function carc(p, x, y, w, h, d, z0, o) {
 }
 
 /* ================================================================== room shell */
-function shell(p, X, Z, o) {
+function shell(P, X, Z, o) {
+  const p = ctx(part(P, 'room'));
   const wh = Math.max(o.wallH || 0, S.room.ceil / 100), WM = wallMat();
   const fl = new THREE.Mesh(new THREE.PlaneGeometry(X, Z), floorMat(S.room.floor));
   const tile = S.room.floor === 'tile' || S.room.floor === 'stone' ? 1.2 : S.room.floor === 'herring' ? 1.6 : 2.4;
@@ -515,7 +517,7 @@ function shell(p, X, Z, o) {
   };
   if (o.left !== false) side(-.1, 0, cut.L, cut.Ls, Math.PI / 2, 0, Z);
   if (o.right) side(X, X - .015, cut.R, cut.Rs, -Math.PI / 2, X, 0);
-  p.userData.cut = cut;
+  P.userData.cut = cut;
   if (o.sideWin && S.room.swin === 'side' && o.left !== false) {
     const zc = Math.max(1.2, Z - 1.35), g = part(p, 'window', 0, 0, zc, Math.PI / 2);
     windowOn(g, 0, .95, 1.15, Math.min(1.35, wh - 1.15)); cut.L.push(g);
@@ -523,15 +525,15 @@ function shell(p, X, Z, o) {
   return wh;
 }
 function windowOn(p, cx, y0, w, h) {
-  const g = part(p, 'window'), fm = paint('#F4F2EE');
+  const g = ctx(part(p, 'window')), fm = paint('#F4F2EE');
   bx(g, w + .12, h + .12, .03, cx - w / 2 - .06, y0 - .06, 0, fm, { ns: 1 });
   const sk = mat('skyM', () => new THREE.MeshBasicMaterial({ map: skyTex(false) }));
   const pl = new THREE.Mesh(new THREE.PlaneGeometry(w, h), sk); pl.position.set(cx, y0 + h / 2, .031); g.add(pl);
   bx(g, .035, h, .02, cx - .0175, y0, .03, fm, { ns: 1 }); bx(g, w, .035, .02, cx - w / 2, y0 + h * .62, .03, fm, { ns: 1 });
   bx(g, w + .16, .03, .08, cx - w / 2 - .08, y0 - .06, 0, fm);
 }
-function plant(p, x, z, y) { const g = part(p, 'plant'); y = y || 0; cyl(g, .1, .2, x, y + .1, z, paint('#E9E4DA')); for (let i = 0; i < 7; i++) sph(g, .09 + (i % 3) * .02, x + Math.sin(i * 2.1) * .08, y + .3 + (i % 4) * .06, z + Math.cos(i * 2.1) * .08, M_PLANT); if (!y) aoBlob(p, x, z, .26, .26, .5); }
-function rug(p, cx, cz, w, d) { const r = new THREE.Mesh(new THREE.PlaneGeometry(w, d), mat('rugM', () => new THREE.MeshStandardMaterial({ map: rugTex(), roughness: 1 }))); r.rotation.x = -Math.PI / 2; r.position.set(cx, .005, cz); r.receiveShadow = true; tag(r, 'floor'); p.add(r); }
+function plant(p, x, z, y) { const g = ctx(part(p, 'plant')); y = y || 0; cyl(g, .1, .2, x, y + .1, z, paint('#E9E4DA')); for (let i = 0; i < 7; i++) sph(g, .09 + (i % 3) * .02, x + Math.sin(i * 2.1) * .08, y + .3 + (i % 4) * .06, z + Math.cos(i * 2.1) * .08, M_PLANT); if (!y) ctx(aoBlob(p, x, z, .26, .26, .5)); }
+function rug(p, cx, cz, w, d) { const r = new THREE.Mesh(new THREE.PlaneGeometry(w, d), mat('rugM', () => new THREE.MeshStandardMaterial({ map: rugTex(), roughness: 1 }))); r.rotation.x = -Math.PI / 2; r.position.set(cx, .005, cz); r.receiveShadow = true; tag(r, 'floor'); ctx(r); p.add(r); }
 
 /* ================================================================== kitchen */
 function planRun(Lr, specials, talls, tallStart) {
@@ -550,7 +552,7 @@ function planRun(Lr, specials, talls, tallStart) {
   return out;
 }
 function kitchen(p) {
-  const o = S.k, lay = o.lay, isl = o.isl !== 'none' && lay !== 'galley';
+  const o = S.k, PHM = VIS !== 'room', lay = PHM ? 'straight' : o.lay, isl = !PHM && o.isl !== 'none' && lay !== 'galley';
   const gloss = o.fin === 'gloss' && (o.style === 'handleless' || o.style === 'flat');
   const dm = colMat(o.col, gloss), im = colMat(o.col2 === 'same' ? o.col : o.col2, gloss);
   const tm = topMat(o.top), tt = (o.top === 'oak' || o.top === 'concrete') ? .04 : .03, TOPY = .87;
@@ -700,11 +702,11 @@ function kitchen(p) {
     aoBlob(p, icx, iz0 + .4, IL + .1, .95, .55);
     if (hobOnIsland) hobOn(p, icx, iz0 + .3);
     if (o.stools === 'yes') {
-      const n = Math.max(2, Math.min(4, Math.floor(IL / .58))), sm = woodMat('#6E4A33'), lm = metal(hf === 'chrome' ? 'chrome' : 'black'), sg = part(p, 'stools');
-      for (let i = 0; i < n; i++) { const sx = icx - IL / 2 + IL * (i + .5) / n, sz = iz0 + .6 + .28; cyl(sg, .19, .05, sx, .66, sz, sm); cyl(sg, .022, .62, sx, .33, sz, lm); cyl(sg, .2, .015, sx, .008, sz, lm); bx(sg, .3, .02, .02, sx - .15, .3, sz - .01, lm); aoBlob(p, sx, sz, .4, .4, .4); }
+      const n = Math.max(2, Math.min(4, Math.floor(IL / .58))), sm = woodMat('#6E4A33'), lm = metal(hf === 'chrome' ? 'chrome' : 'black'), sg = ctx(part(p, 'stools'));
+      for (let i = 0; i < n; i++) { const sx = icx - IL / 2 + IL * (i + .5) / n, sz = iz0 + .6 + .28; cyl(sg, .19, .05, sx, .66, sz, sm); cyl(sg, .022, .62, sx, .33, sz, lm); cyl(sg, .2, .015, sx, .008, sz, lm); bx(sg, .3, .02, .02, sx - .15, .3, sz - .01, lm); ctx(aoBlob(p, sx, sz, .4, .4, .4)); }
     }
     if (o.pend === 'yes') {
-      const n = IL > 2.1 ? 3 : 2, pg = part(p, 'pend'), ceil = S.room.ceil / 100;
+      const n = IL > 2.1 ? 3 : 2, pg = ctx(part(p, 'pend')), ceil = S.room.ceil / 100;
       for (let i = 0; i < n; i++) {
         const px = icx - IL / 2 + IL * (i + .5) / n, pz = iz0 + .35;
         cyl(pg, .004, ceil - 1.82, px, (ceil + 1.82) / 2, pz, M_DARK);
@@ -789,9 +791,9 @@ function wardrobe(p) {
     }
   }
   rug(p, W / 2, 1.9, Math.min(2.4, W * .8), 1.6);
-  const bw2 = Math.min(1.2, W * .45), bg = part(p, 'bench'); bx(bg, bw2, .1, .42, W / 2 - bw2 / 2, .36, 2.0, fabricMat('#6E7A6C')); bx(bg, bw2, .04, .42, W / 2 - bw2 / 2, .32, 2.0, woodMat('#6E4A33'));
+  const bw2 = Math.min(1.2, W * .45), bg = ctx(part(p, 'bench')); bx(bg, bw2, .1, .42, W / 2 - bw2 / 2, .36, 2.0, fabricMat('#6E7A6C')); bx(bg, bw2, .04, .42, W / 2 - bw2 / 2, .32, 2.0, woodMat('#6E4A33'));
   [[.04, .04], [bw2 - .08, .04], [.04, .34], [bw2 - .08, .34]].forEach(([a, b]) => bx(bg, .04, .32, .04, W / 2 - bw2 / 2 + a, 0, 2.0 + b, woodMat('#6E4A33')));
-  aoBlob(p, W / 2, 2.21, bw2, .42, .4);
+  ctx(aoBlob(p, W / 2, 2.21, bw2, .42, .4));
   plant(p, W - .3, Z - .5);
   return { X, Z, target: new THREE.Vector3(W / 2, H * .5, inside ? 1.0 : .9), size: Math.max(W, H * 1.35), eye: new THREE.Vector3(W / 2, 1.6, Z - .35) };
 }
@@ -857,8 +859,8 @@ function media(p) {
   const sc = new THREE.Mesh(new THREE.PlaneGeometry(tw - .015, th - .015), mat('scr', () => new THREE.MeshBasicMaterial({ map: screenTex(), color: '#bfbfbf' }))); sc.position.set(cx, ty + th / 2, D + .056); tg.add(sc);
   lts.slice(0, 3).forEach(([x, y, z]) => light(p, x, y, z, null, .6, 1.8));
   rug(p, cx, 2.2, Math.min(2.8, W * .75), 1.9);
-  const tb = part(p, 'decor'); cyl(tb, .45, .04, cx, .38, 2.25, woodMat('#6E4A33', true)); cyl(tb, .3, .36, cx, .18, 2.25, M_DARK); sph(tb, .06, cx + .15, .45, 2.2, paint('#C9A96E'));
-  aoBlob(p, cx, 2.25, .75, .75, .45);
+  const tb = ctx(part(p, 'decor')); cyl(tb, .45, .04, cx, .38, 2.25, woodMat('#6E4A33', true)); cyl(tb, .3, .36, cx, .18, 2.25, M_DARK); sph(tb, .06, cx + .15, .45, 2.2, paint('#C9A96E'));
+  ctx(aoBlob(p, cx, 2.25, .75, .75, .45));
   plant(p, W - .35, 1.2);
   return { X, Z, target: new THREE.Vector3(W / 2, H * .48, 1.1), size: Math.max(W * 1.02, H * 1.3), eye: new THREE.Vector3(W / 2, 1.25, Z - .45) };
 }
@@ -898,7 +900,7 @@ function bedroom(p) {
   else if (o.head === 'fluted') { const fm = mat('flh' + o.col, () => { const c = cm.clone(); c.bumpMap = fluteTex(); c.bumpScale = 3; return c; }); bx(hg, bedW + .5, 1.35, .04, bc - bedW / 2 - .25, 0, 0, fm, { s: .045 }); if (led) { bx(hg, bedW + .4, .006, .015, bc - bedW / 2 - .2, 1.34, .03, M_LED, { ns: 1 }); } }
   else if (o.head === 'upholstered') { const um = mat('uph' + o.col, () => new THREE.MeshStandardMaterial({ color: mix(COL[o.col][1], '#B9AE9E', .45), roughness: 1, bumpMap: fluteTex(), bumpScale: 4 })); bx(hg, bedW + .25, 1.3, .09, bc - bedW / 2 - .125, .3, .01, um, { s: .16 }); }
   /* bed */
-  const bdg = part(p, 'bed'), bz = o.head === 'upholstered' ? .1 : .06, bl = 2.1;
+  const bdg = ctx(part(p, 'bed')), bz = o.head === 'upholstered' ? .1 : .06, bl = 2.1;
   bx(bdg, bedW, .3, bl, bc - bedW / 2, .03, bz, fabricMat('#8F8A83'));
   bx(bdg, bedW - .08, .2, bl - .08, bc - bedW / 2 + .04, .33, bz + .02, fabricMat('#F3F0EA'));
   bx(bdg, bedW + .02, .07, 1.38, bc - bedW / 2 - .01, .5, bz + bl - 1.4, fabricMat('#E9E2D6'));
@@ -906,7 +908,7 @@ function bedroom(p) {
   bx(bdg, bedW + .04, .075, .42, bc - bedW / 2 - .02, .505, bz + bl - .5, fabricMat(mix(COL[o.col][1], '#9C6B53', .35)));
   const np = o.bed === 'double' ? 2 : 3;
   for (let i = 0; i < np; i++) { const pl = sph(bdg, 1, bc - bedW / 2 + (i + .5) * bedW / np, .6, bz + .3, fabricMat(i === 1 && np === 3 ? mix(COL[o.col][1], '#E9E2D6', .3) : '#F6F3EE')); pl.scale.set(bedW / np / 2 - .03, .09, .16); }
-  aoBlob(p, bc, bz + bl / 2, bedW + .1, bl, .55);
+  ctx(aoBlob(p, bc, bz + bl / 2, bedW + .1, bl, .55));
   rug(p, bc, bz + 1.6, Math.min(W - .4, bedW + 1.2), 2.0);
   /* bedside units + lamps */
   if (o.bside !== 'none') [-1, 1].forEach(sd => {
@@ -924,7 +926,7 @@ function bedroom(p) {
   });
   /* dressing table under the side window wall */
   if (o.dress === 'yes') {
-    const zc = Math.min(Z - 2.6, 1.9), g = part(p, 'dress', 0, 0, zc + .5, Math.PI / 2);
+    const zc = Math.min(Z - 2.6, 1.9), g = ctx(part(p, 'dress', 0, 0, zc + .5, Math.PI / 2));
     carc(g, 0, .6, 1.0, .16, .45, 0, { top: 1 }); front(g, 0, .6, 1.0, .16, .47, st, cm, { part: 'dress', hd: hdk === 'long' ? 'bar' : hdk, hf, pos: 'mid', anim: 'drawer', depth: .38 });
     bx(g, 1.04, .03, .48, -.02, .76, 0, cm);
     bx(g, .035, .6, .035, .03, 0, .4, metal(hf)); bx(g, .035, .6, .035, .935, 0, .4, metal(hf));
@@ -943,6 +945,7 @@ const VIEWS = { angle: [.55, 1.08], front: [0, 1.32], top: [.12, .42] };
 function viewOf(n) { if (n === 'angle' && S.t === 'k' && (S.k.lay === 'U' || S.k.lay === 'galley')) return [.2, .86]; return VIEWS[n] || VIEWS.angle; }
 function camPos(az, pol, dist, t) { const s = Math.sin(pol); return new THREE.Vector3(t.x + dist * s * Math.sin(az), t.y + dist * Math.cos(pol), t.z + dist * s * Math.cos(az)); }
 function applyCam() {
+  if (VIS === 'photo') { photoCam(); return; }
   if (C.mode === 'eye' && info) {
     C.yaw = Math.max(-1.35, Math.min(1.35, C.yaw)); C.pitch = Math.max(-.75, Math.min(.5, C.pitch)); C.fov = Math.max(35, Math.min(75, C.fov));
     if (cam.fov !== C.fov) { cam.fov = C.fov; cam.updateProjectionMatrix(); }
@@ -995,10 +998,10 @@ function spin() { if (C.mode === 'eye') return; const v = viewOf(S.view || 'angl
 /* ================================================================== lighting mood */
 function mood() {
   scene.environment = EVE ? ENV.eve : ENV.day;
-  scene.background.set(EVE ? '#15171a' : '#E9E3D8');
+  if (VIS === 'room') { scene.background = BG; BG.set(EVE ? '#15171a' : '#E9E3D8'); } else scene.background = null;
   hemi.intensity = EVE ? .07 : .55; hemi.color.set(EVE ? '#9fb3d9' : '#fffaf2');
   sun.intensity = EVE ? .14 : 1.55; sun.color.set(EVE ? '#9fb3d9' : '#fff3e3');
-  R.toneMappingExposure = EVE ? 1.25 : 1.02;
+  R.toneMappingExposure = (EVE ? 1.25 : 1.02) * (VIS === 'photo' ? PH.exp : 1);
   LIGHTS.forEach(l => { l.intensity = l.userData.base * (EVE ? l.userData.eve : 1); });
   if (MT.skyM) { MT.skyM.map = skyTex(EVE); MT.skyM.needsUpdate = true; }
   if (MT.glowM) MT.glowM.opacity = EVE ? .9 : .55;
@@ -1012,7 +1015,7 @@ function mood() {
 let need = false, raf = 0, lastT = 0, slow = 0, lastT0 = null;
 function req() { need = true; if (!raf) raf = requestAnimationFrame(tick); }
 function tick(now) {
-  raf = 0; const dt = lastT ? Math.min(200, now - lastT) : 16; lastT = now;
+  raf = 0; if (R.xr && R.xr.isPresenting) return; const dt = lastT ? Math.min(200, now - lastT) : 16; lastT = now;
   let more = false;
   if (C.tw) { if (C.tw(now)) more = true; else C.tw = null; }
   for (const g of ANIMS) { const a = g.userData.anim; if (a.v !== a.t) { const d = a.t - a.v, st = dt / 480; a.v = Math.abs(d) <= st ? a.t : a.v + Math.sign(d) * st; applyAnim(g); more = true; } }
@@ -1027,11 +1030,12 @@ function rebuild(resetView) {
   info = S.t === 'k' ? kitchen(G) : S.t === 'w' ? wardrobe(G) : S.t === 'm' ? media(G) : bedroom(G);
   const typeChanged = lastT0 !== S.t; lastT0 = S.t;
   frame(resetView || typeChanged);
-  mood(); remember();
+  applyVis(); mood(); remember();
 }
 let pend = 0;
 function soon() { if (pend) return; pend = requestAnimationFrame(() => { pend = 0; rebuild(false); }); }
 function resize() {
+  if (VIS === 'photo' && PH.img) { layoutPhoto(); return; }
   const r = stage.getBoundingClientRect(); if (!r.width || !r.height) return;
   R.setSize(r.width, r.height, false); cam.aspect = r.width / r.height; cam.updateProjectionMatrix();
   if (info) { C.fit = fitDist(info.size); applyCam(); } req();
@@ -1052,7 +1056,7 @@ cv.addEventListener('pointermove', e => {
   if (!ptrs.has(e.pointerId)) return;
   const prev = ptrs.get(e.pointerId); ptrs.set(e.pointerId, [e.clientX, e.clientY]);
   if (down && Math.hypot(e.clientX - down.x, e.clientY - down.y) > 7) { down = null; UI.pop(null); }
-  if (down) return;
+  if (down || VIS === 'photo') return;
   if (ptrs.size === 1) {
     if (C.mode === 'eye') { C.yaw -= (e.clientX - prev[0]) * .0042; C.pitch += (e.clientY - prev[1]) * .0036; }
     else { C.az -= (e.clientX - prev[0]) * .0065; C.pol -= (e.clientY - prev[1]) * .0055; }
@@ -1067,9 +1071,9 @@ const up = e => {
   down = null;
 };
 cv.addEventListener('pointerup', up); cv.addEventListener('pointercancel', up);
-cv.addEventListener('wheel', e => { e.preventDefault(); const k = 1 + Math.max(-.2, Math.min(.2, e.deltaY * .0012)); if (C.mode === 'eye') C.fov *= k; else C.zoom *= k; applyCam(); req(); hideHint(); UI.pop(null); }, { passive: false });
+cv.addEventListener('wheel', e => { e.preventDefault(); if (VIS === 'photo') return; const k = 1 + Math.max(-.2, Math.min(.2, e.deltaY * .0012)); if (C.mode === 'eye') C.fov *= k; else C.zoom *= k; applyCam(); req(); hideHint(); UI.pop(null); }, { passive: false });
 cv.addEventListener('keydown', e => {
-  const k = e.key; if (k === 'Escape') { UI.pop(null); return; } if (!/Arrow|^[+-]$/.test(k)) return; e.preventDefault();
+  const k = e.key; if (k === 'Escape') { UI.pop(null); return; } if (VIS === 'photo' || !/Arrow|^[+-]$/.test(k)) return; e.preventDefault();
   if (C.mode === 'eye') { if (k === 'ArrowLeft') C.yaw -= .08; if (k === 'ArrowRight') C.yaw += .08; if (k === 'ArrowUp') C.pitch += .06; if (k === 'ArrowDown') C.pitch -= .06; if (k === '+') C.fov *= .9; if (k === '-') C.fov *= 1.1; }
   else { if (k === 'ArrowLeft') C.az += .08; if (k === 'ArrowRight') C.az -= .08; if (k === 'ArrowUp') C.pol -= .06; if (k === 'ArrowDown') C.pol += .06; if (k === '+') C.zoom *= .9; if (k === '-') C.zoom *= 1.1; }
   applyCam(); req(); hideHint();
@@ -1088,7 +1092,13 @@ function tap(x, y) {
 function setDoors(open) { ANIMS.forEach(g => { if (g.userData.wdoor) { g.userData.anim.t = open ? 1 : 0; } if (g.userData.slider) g.visible = !open; }); req(); }
 
 root.addEventListener('click', e => {
-  const b = e.target.closest('[data-view],[data-zoom],#d3-snap,#d3-share,#d3-mood,#d3-pop-x,[data-share]'); if (!b) return;
+  const b = e.target.closest('[data-view],[data-zoom],#d3-snap,#d3-share,#d3-mood,#d3-pop-x,[data-share],#d3-photo-btn,#d3-ar,#d3-ph-ok,#d3-ph-x,#d3-ph-edit,#d3-ph-fit'); if (!b) return;
+  if (b.id === 'd3-ph-fit') { S[S.t][WKEY()] = +b.dataset.cm; UI.all(); rebuild(false); ev('photo_fit'); return; }
+  if (b.id === 'd3-photo-btn') { $('d3-file').click(); return; }
+  if (b.id === 'd3-ar') { arStart(); return; }
+  if (b.id === 'd3-ph-ok') { photoEdit(false); return; }
+  if (b.id === 'd3-ph-edit') { photoEdit(true); return; }
+  if (b.id === 'd3-ph-x') { exitPhoto(); return; }
   if (b.dataset.view) setView(b.dataset.view);
   else if (b.dataset.zoom) { const k = b.dataset.zoom === '1' ? .85 : 1.18; if (C.mode === 'eye') C.fov *= k; else C.zoom *= k; applyCam(); req(); }
   else if (b.id === 'd3-snap') snap();
@@ -1105,9 +1115,213 @@ function share() {
 }
 function snap() {
   R.render(scene, cam);
-  const a = document.createElement('a'); a.href = cv.toDataURL('image/jpeg', .92); a.download = 'abj-my-' + NAME[S.t].replace(' ', '-') + '-design.jpg';
+  let href;
+  if (VIS === 'photo' && PH.img) { const c = document.createElement('canvas'); c.width = cv.width; c.height = cv.height; const x = c.getContext('2d'); x.drawImage(PH.img, 0, 0, c.width, c.height); x.drawImage(cv, 0, 0); href = c.toDataURL('image/jpeg', .92); } else href = cv.toDataURL('image/jpeg', .92);
+  const a = document.createElement('a'); a.href = href; a.download = 'abj-my-' + NAME[S.t].replace(' ', '-') + '-design.jpg';
   document.body.appendChild(a); a.click(); a.remove(); ev('save_picture');
 }
+
+
+/* ================================================================== your photo: the design drawn into a photo of their wall */
+const PH = { img: null, pts: null, rect: null, edit: true, exp: 1 };
+const phImg = $('d3-photo'), phLay = $('d3-phl'), phBar = $('d3-ph');
+function applyVis() {
+  const room = VIS === 'room';
+  G.traverse(o => { if (o.userData.ctx) o.visible = room; });
+  if (!room) { const sc = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), mat('catch', () => new THREE.ShadowMaterial({ opacity: .28 }))); sc.rotation.x = -Math.PI / 2; sc.position.set(info.X / 2, .001, 0); sc.receiveShadow = true; sc.userData.catcher = 1; G.add(sc); }
+}
+$('d3-ph-exp').addEventListener('input', e => { PH.exp = +e.target.value / 100; mood(); });
+$('d3-file').addEventListener('change', e => { const fl = e.target.files && e.target.files[0]; e.target.value = ''; if (fl) loadPhoto(fl); });
+function loadPhoto(file) {
+  const url = URL.createObjectURL(file), im = new Image();
+  im.onload = () => {
+    const k = Math.min(1, 2048 / Math.max(im.naturalWidth, im.naturalHeight)), c = document.createElement('canvas');
+    c.width = Math.round(im.naturalWidth * k); c.height = Math.round(im.naturalHeight * k); c.getContext('2d').drawImage(im, 0, 0, c.width, c.height); URL.revokeObjectURL(url);
+    PH.img = c; c.toBlob(b => { if (phImg.dataset.u) URL.revokeObjectURL(phImg.dataset.u); phImg.dataset.u = URL.createObjectURL(b); phImg.src = phImg.dataset.u; enterPhoto(); }, 'image/jpeg', .9);
+  };
+  im.onerror = () => { URL.revokeObjectURL(url); UI.toast('Sorry, that photo could not be opened. Try a JPG or PNG.'); };
+  im.src = url;
+}
+function enterPhoto() {
+  if (C.mode === 'eye') { C.mode = 'orbit'; S.view = 'angle'; }
+  PH.wall = 0; PH.exp = 1; $('d3-ph-exp').value = 100; VIS = 'photo'; PH.pts = [[.16, .22], [.84, .22], [.84, .9], [.16, .9]];
+  stage.classList.add('d3-phm'); stage.parentNode.classList.add('d3-phon'); phImg.hidden = false; phLay.hidden = false; phBar.hidden = false; UI.pop(null);
+  rebuild(false); photoEdit(true); layoutPhoto(); ev('photo');
+}
+function exitPhoto() {
+  VIS = 'room'; stage.classList.remove('d3-phm'); stage.parentNode.classList.remove('d3-phon'); phImg.hidden = true; phLay.hidden = true; phBar.hidden = true; UI.pop(null);
+  ['position', 'left', 'top', 'width', 'height'].forEach(k => { cv.style[k] = ''; });
+  cam.matrixAutoUpdate = true; PH.rect = null; rebuild(true); resize();
+}
+function photoEdit(on) {
+  PH.edit = on; phLay.classList.toggle('d3-done', !on); $('d3-ph-l').hidden = on;
+  $('d3-ph-ok').hidden = !on; $('d3-ph-edit').hidden = on; if (PH.wall) fitNote(); else $('d3-ph-t').textContent = 'Drag the 4 dots to the corners of your wall, where it meets the floor and the ceiling. Set your ceiling height in the Room options for the best fit.';
+}
+const WKEY = () => S.t === 'k' ? 'A' : 'W';
+function fitNote() {
+  const el = $('d3-ph-fit'); if (!el) return; const cm = Math.round(PH.wall * 20) * 5, cur = S[S.t][WKEY()], n = NUM[S.t][WKEY()] || NUM.k.A;
+  const show = !PH.edit && Math.abs(cm - cur) >= 10 && cm >= n[0] && cm <= n[1];
+  el.hidden = !show; el.textContent = 'Fit to my wall (' + cm + ' cm)'; el.dataset.cm = cm;
+  $('d3-ph-t').textContent = PH.edit ? 'Drag the 4 dots to the corners of your wall, where it meets the floor and the ceiling. Set your ceiling height in the Room options for the best fit.'
+    : 'Your wall looks about ' + (PH.wall).toFixed(1) + ' m wide. Tap anything to change it. Your photo stays on your device.';
+}
+function phRect() { const sr = stage.getBoundingClientRect(), iw = PH.img.width, ih = PH.img.height, k = Math.min(sr.width / iw, sr.height / ih), w = Math.round(iw * k), h = Math.round(ih * k); return { x: Math.round((sr.width - w) / 2), y: Math.round((sr.height - h) / 2), w, h }; }
+function layoutPhoto() {
+  const r = PH.rect = phRect();
+  [cv, phImg, phLay].forEach(el => { el.style.position = 'absolute'; el.style.left = r.x + 'px'; el.style.top = r.y + 'px'; el.style.width = r.w + 'px'; el.style.height = r.h + 'px'; });
+  R.setSize(r.w, r.h, false); drawQuad(); applyCam(); req();
+}
+const hds = [...phLay.querySelectorAll('.d3-hdl')];
+function drawQuad() {
+  PH.pts.forEach((p, i) => { hds[i].style.left = p[0] * 100 + '%'; hds[i].style.top = p[1] * 100 + '%'; });
+  $('d3-quad').setAttribute('points', PH.pts.map(p => (p[0] * 100).toFixed(2) + ',' + (p[1] * 100).toFixed(2)).join(' '));
+}
+hds.forEach((h, i) => {
+  h.addEventListener('pointerdown', e => { e.preventDefault(); h.setPointerCapture(e.pointerId); h.dataset.drag = 1; });
+  h.addEventListener('pointermove', e => {
+    if (!h.dataset.drag) return; const r = phLay.getBoundingClientRect();
+    PH.pts[i] = [Math.max(-.15, Math.min(1.15, (e.clientX - r.left) / r.width)), Math.max(-.15, Math.min(1.15, (e.clientY - r.top) / r.height))];
+    drawQuad(); applyCam(); req();
+  });
+  const stop = () => { delete h.dataset.drag; }; h.addEventListener('pointerup', stop); h.addEventListener('pointercancel', stop);
+  h.addEventListener('keydown', e => { const d = { ArrowLeft: [-.01, 0], ArrowRight: [.01, 0], ArrowUp: [0, -.01], ArrowDown: [0, .01] }[e.key]; if (!d) return; e.preventDefault(); PH.pts[i] = [PH.pts[i][0] + d[0], PH.pts[i][1] + d[1]]; drawQuad(); applyCam(); req(); });
+});
+function solve(A, b) {
+  const n = b.length;
+  for (let i = 0; i < n; i++) {
+    let m = i; for (let r = i + 1; r < n; r++) if (Math.abs(A[r][i]) > Math.abs(A[m][i])) m = r;
+    [A[i], A[m]] = [A[m], A[i]]; [b[i], b[m]] = [b[m], b[i]];
+    const p = A[i][i]; if (Math.abs(p) < 1e-12) return null;
+    for (let r = 0; r < n; r++) { if (r === i) continue; const k = A[r][i] / p; if (!k) continue; for (let c = i; c < n; c++) A[r][c] -= k * A[i][c]; b[r] -= k * b[i]; }
+  }
+  return b.map((v, i) => v / A[i][i]);
+}
+/* camera pose from the 4 corners: plane homography -> focal length -> rotation + position */
+function photoCam() {
+  const r = PH.rect; if (!r || !info) return;
+  const Wt = info.X, Hc = S.room.ceil / 100; let wp = [[0, Hc], [Wt, Hc], [Wt, 0], [0, 0]];
+  const ip = PH.pts.map(([nx, ny]) => [(nx - .5) * r.w, (ny - .5) * r.h]);
+  const A = [], b = [];
+  for (let i = 0; i < 4; i++) { const [X, Y] = wp[i], [u, v] = ip[i]; A.push([X, Y, 1, 0, 0, 0, -u * X, -u * Y]); b.push(u); A.push([0, 0, 0, X, Y, 1, -v * X, -v * Y]); b.push(v); }
+  const h = solve(A, b); if (!h) return;
+  const h1 = [h[0], h[3], h[6]], h2 = [h[1], h[4], h[7]], h3 = [h[2], h[5], 1];
+  const fa = -(h1[0] * h2[0] + h1[1] * h2[1]) / (h1[2] * h2[2]);
+  const fb = -(h1[0] * h1[0] + h1[1] * h1[1] - h2[0] * h2[0] - h2[1] * h2[1]) / (h1[2] * h1[2] - h2[2] * h2[2]);
+  const Lm = Math.max(r.w, r.h), ok = x => isFinite(x) && x > Math.pow(.4 * Lm, 2) && x < Math.pow(3.5 * Lm, 2);
+  const f = ok(fa) && ok(fb) ? Math.sqrt((fa + fb) / 2) : ok(fa) ? Math.sqrt(fa) : ok(fb) ? Math.sqrt(fb) : .8 * Lm;
+  const kin = v => [v[0] / f, v[1] / f, v[2]];
+  let r1 = kin(h1), r2 = kin(h2), t = kin(h3);
+  const lam = 2 / (Math.hypot(...r1) + Math.hypot(...r2));
+  r1 = r1.map(x => x * lam); r2 = r2.map(x => x * lam); t = t.map(x => x * lam);
+  if (t[2] < 0) { r1 = r1.map(x => -x); r2 = r2.map(x => -x); t = t.map(x => -x); }
+  const a1 = new THREE.Vector3(...r1).normalize(), a2 = new THREE.Vector3(...r2), a3 = new THREE.Vector3().crossVectors(a1, a2).normalize(); a2.crossVectors(a3, a1).normalize();
+  /* refine: least squares on the 4 corners, focal length gently held near a normal phone lens (rough sizes stay believable) */
+  const q0 = new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(a1, a2, a3));
+  const ang = 2 * Math.acos(Math.min(1, Math.abs(q0.w))), sn = Math.sqrt(Math.max(1e-12, 1 - q0.w * q0.w)), sg = q0.w < 0 ? -1 : 1;
+  const f0 = .8 * Lm, fi = Math.max(.55 * Lm, Math.min(1.4 * Lm, f));
+  let P = [sg * q0.x / sn * ang, sg * q0.y / sn * ang, sg * q0.z / sn * ang, t[0], t[1], t[2], Math.log(fi), Wt];
+  if (ang < 1e-6) { P[0] = P[1] = P[2] = 0; }
+  const rot = new THREE.Matrix4(), ax = new THREE.Vector3(), qq = new THREE.Quaternion(), pv = new THREE.Vector3();
+  const res = Q => {
+    const th = Math.hypot(Q[0], Q[1], Q[2]); if (th > 1e-9) qq.setFromAxisAngle(ax.set(Q[0] / th, Q[1] / th, Q[2] / th), th); else qq.identity(); rot.makeRotationFromQuaternion(qq);
+    const F = Math.exp(Q[6]), Wq = Math.max(.8, Math.min(9, Q[7])), out = [];
+    for (let i = 0; i < 4; i++) { pv.set(wp[i][0] ? Wq : 0, wp[i][1], 0).applyMatrix4(rot); const z = pv.z + Q[5]; if (z < .05) { out.push(1e4, 1e4); continue; } out.push(F * (pv.x + Q[3]) / z - ip[i][0], F * (pv.y + Q[4]) / z - ip[i][1]); }
+    out.push(40 * (Q[6] - Math.log(f0)), 3 * (Q[7] - Wt)); return out;
+  };
+  let cur = res(P), cost = cur.reduce((a, v) => a + v * v, 0), lamd = 1e-3;
+  for (let it = 0; it < 40; it++) {
+    const J = cur.map(() => new Array(8).fill(0));
+    for (let k = 0; k < 8; k++) { const Q = P.slice(), e = k < 3 ? 1e-5 : k < 6 ? 1e-5 * Math.max(1, Math.abs(P[k])) : 1e-5; Q[k] += e; const rr = res(Q); for (let i = 0; i < rr.length; i++) J[i][k] = (rr[i] - cur[i]) / e; }
+    const A2 = [], g2 = [];
+    for (let a = 0; a < 8; a++) { A2.push([]); let gs = 0; for (let c = 0; c < 8; c++) { let v = 0; for (let i = 0; i < J.length; i++) v += J[i][a] * J[i][c]; A2[a].push(v + (a === c ? lamd * v + 1e-9 : 0)); } for (let i = 0; i < J.length; i++) gs += J[i][a] * cur[i]; g2.push(-gs); }
+    const d = solve(A2, g2); if (!d) break;
+    const Q = P.map((v, i) => v + d[i]), nr = res(Q), nc = nr.reduce((a, v) => a + v * v, 0);
+    if (nc < cost) { P = Q; cur = nr; const done = cost - nc < 1e-6 * cost; cost = nc; lamd *= .3; if (done) break; } else lamd *= 10;
+  }
+  const th = Math.hypot(P[0], P[1], P[2]); if (th > 1e-9) qq.setFromAxisAngle(ax.set(P[0] / th, P[1] / th, P[2] / th), th); else qq.identity();
+  const M = new THREE.Matrix4().makeRotationFromQuaternion(qq).setPosition(P[3], P[4], P[5]);
+  const fF = Math.exp(P[6]);
+  const view = new THREE.Matrix4().makeScale(1, -1, -1).multiply(M);
+  cam.matrixAutoUpdate = false; cam.matrix.copy(view).invert(); cam.matrix.decompose(cam.position, cam.quaternion, cam.scale); cam.updateMatrixWorld(true);
+  PH.err = Math.sqrt(cur.slice(0, 8).reduce((a, v) => a + v * v, 0) / 4);
+  PH.wall = Math.max(.8, Math.min(9, P[7])); if (G) G.position.x = (PH.wall - Wt) / 2; fitNote();
+  cam.fov = 2 * Math.atan(r.h / 2 / fF) * 180 / Math.PI; cam.aspect = r.w / r.h; cam.updateProjectionMatrix();
+}
+
+/* ================================================================== see it in your room: AR on the phone */
+const USDZ_URL = 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/exporters/USDZExporter.js/+esm';
+const AR = { ios: false, xr: false };
+try { const a = document.createElement('a'); AR.ios = !!(a.relList && a.relList.supports && a.relList.supports('ar')); } catch (e) {}
+if (navigator.xr && navigator.xr.isSessionSupported) navigator.xr.isSessionSupported('immersive-ar').then(v => { AR.xr = !!v; }).catch(() => {});
+function arStart() {
+  ev('ar_tap');
+  if (AR.ios) return quickLook();
+  if (AR.xr) return startXR();
+  UI.popCustom('See it in your room', '<p class="dz-hint">This uses your phone&#39;s camera to place your design in your room at its real size. Open this page on your phone, or send yourself the link, then tap <b>See it in your room</b>.</p><button type="button" class="d3-pbtn" data-share="copy">Copy link</button>');
+}
+function exportRoot() {
+  G.updateMatrixWorld(true);
+  const root = new THREE.Group(), off = new THREE.Matrix4().makeTranslation(-info.X / 2, 0, 0), m4 = new THREE.Matrix4();
+  const conv = m => {
+    if (!m || m.transparent || m.alphaMap) return null;
+    if (m.isMeshStandardMaterial) return m;
+    if (m.isMeshBasicMaterial) return mat('ex' + m.uuid, () => new THREE.MeshStandardMaterial({ color: m.color, map: m.map || null, emissive: m.color, emissiveMap: m.map || null, emissiveIntensity: .8, roughness: .5 }));
+    return null;
+  };
+  G.traverse(o => {
+    if (!o.isMesh || !shown(o)) return; const m = conv(o.material); if (!m) return;
+    if (o.isInstancedMesh) { for (let i = 0; i < o.count; i++) { o.getMatrixAt(i, m4); const me = new THREE.Mesh(o.geometry, m); me.matrixAutoUpdate = false; me.matrix.multiplyMatrices(off, o.matrixWorld).multiply(m4); root.add(me); } return; }
+    const me = new THREE.Mesh(o.geometry, m); me.matrixAutoUpdate = false; me.matrix.multiplyMatrices(off, o.matrixWorld); root.add(me);
+  });
+  root.updateMatrixWorld(true); return root;
+}
+async function makeUsdz() {
+  const prev = VIS; VIS = 'ar'; rebuild(false);
+  try { const mod = await import(USDZ_URL); const buf = await new mod.USDZExporter().parse(exportRoot(), { quickLookCompatible: true }); return new Blob([buf], { type: 'model/vnd.usdz+zip' }); }
+  finally { VIS = prev; rebuild(false); }
+}
+async function quickLook() {
+  UI.popCustom('See it in your room', '<p class="dz-hint">Getting your 3D model ready…</p>');
+  try {
+    const url = URL.createObjectURL(await makeUsdz());
+    UI.popCustom('See it in your room', '<p class="dz-hint">Point your camera at the floor, then place it against your wall. It is shown at its real size.</p><a class="d3-pbtn" rel="ar" href="' + url + '#allowsContentScaling=0"><img alt="" width="1" height="1" src="data:image/gif;base64,R0lGODlhAQABAAAAACw=">Open in your room</a>');
+  } catch (e) { UI.popCustom('See it in your room', '<p class="dz-hint">Sorry, the 3D model could not be prepared on this device.</p>'); }
+}
+let XR = null;
+async function startXR() {
+  if (XR) return;
+  const ov = $('d3-xr'); let session;
+  try { session = await navigator.xr.requestSession('immersive-ar', { requiredFeatures: ['hit-test'], optionalFeatures: ['dom-overlay'], domOverlay: { root: ov } }); }
+  catch (e) { UI.toast('Sorry, your phone could not start the camera view.'); return; }
+  XR = { session }; UI.pop(null);
+  if (VIS === 'photo') exitPhoto();
+  VIS = 'ar'; rebuild(false);
+  const anchor = new THREE.Group(); anchor.visible = false; scene.add(anchor);
+  scene.remove(G); G.position.set(-info.X / 2, 0, 0); anchor.add(G);
+  sun.position.x -= info.X / 2; sun.target.position.x -= info.X / 2; anchor.add(sun, sun.target);
+  const ret = new THREE.Mesh(new THREE.RingGeometry(.12, .16, 40).rotateX(-Math.PI / 2), new THREE.MeshBasicMaterial({ color: '#C9A96E' })); ret.matrixAutoUpdate = false; ret.visible = false; scene.add(ret);
+  XR.anchor = anchor; XR.ret = ret; ov.hidden = false; $('d3-xr-t').textContent = 'Move your phone slowly to find the floor, then tap where your wall meets the floor.';
+  R.xr.enabled = true; R.xr.setReferenceSpaceType('local'); await R.xr.setSession(session);
+  const ref = await session.requestReferenceSpace('local'), viewer = await session.requestReferenceSpace('viewer'), src = await session.requestHitTestSource({ space: viewer });
+  session.addEventListener('select', () => {
+    if (!ret.visible) return; anchor.position.setFromMatrixPosition(ret.matrix);
+    const c = new THREE.Vector3(); R.xr.getCamera().getWorldPosition(c); anchor.rotation.set(0, Math.atan2(c.x - anchor.position.x, c.z - anchor.position.z), 0);
+    anchor.visible = true; $('d3-xr-t').textContent = 'Tap the floor again to move it. Use the arrows to turn it.'; ev('ar_placed');
+  });
+  session.addEventListener('end', endXR);
+  R.setAnimationLoop((t, frame) => {
+    if (frame) { const hits = frame.getHitTestResults(src); if (hits.length) { ret.visible = true; ret.matrix.fromArray(hits[0].getPose(ref).transform.matrix); } else ret.visible = false; }
+    R.render(scene, cam);
+  });
+  ev('ar_android');
+}
+function endXR() {
+  if (!XR) return; R.setAnimationLoop(null); R.xr.enabled = false;
+  scene.add(sun, sun.target); XR.anchor.remove(G); scene.remove(XR.anchor); scene.remove(XR.ret); G.position.set(0, 0, 0); scene.add(G);
+  $('d3-xr').hidden = true; XR = null; VIS = 'room'; rebuild(true); resize();
+}
+$('d3-xr').addEventListener('beforexrselect', e => { if (e.target.closest('button')) e.preventDefault(); });
+$('d3-xr').addEventListener('click', e => { const b = e.target.closest('button'); if (!b || !XR) return; if (b.dataset.xr === 'end') XR.session.end(); else if (XR.anchor) XR.anchor.rotation.y += (b.dataset.xr === 'l' ? 1 : -1) * Math.PI / 12; });
 
 UI.onChange = k => { if (k === 'lay' || k === 'isl' || k === 'preset') rebuild(true); else soon(); if (k === 'preset') spin(); };
 UI.onType = () => { UI.pop(null); if (C.mode === 'eye') { C.mode = 'orbit'; S.view = 'angle'; root.querySelectorAll('[data-view]').forEach(b => b.setAttribute('aria-pressed', b.dataset.view === 'angle')); } rebuild(true); };
@@ -1115,7 +1329,7 @@ UI.onReset = () => rebuild(true);
 UI.onTab = (prev) => { if (S.t === 'w' && (prev === 4 || S.tab === 4)) setDoors(S.tab === 4); };
 UI.link = link;
 rebuild(true); resize();
-if (/d3debug/.test(location.search)) window.__d3 = { R, scene, cam, S: () => S, info: () => info };
+if (/d3debug/.test(location.search)) window.__d3 = { R, scene, cam, S: () => S, info: () => info, PH, makeUsdz, setPts: p => { PH.pts = p; drawQuad(); applyCam(); req(); } };
 load.style.display = 'none';
 UI.all();
 if (fromLink) setTimeout(() => UI.toast('You are looking at a shared design. Change anything you like.'), 600);
@@ -1196,7 +1410,8 @@ function setupUI() {
     const el = $('d3-pop'); if (!el) return;
     if (!popPart) { el.hidden = true; return; }
     let title = '', body = '';
-    if (popPart === 'share') {
+    if (popPart === 'custom' && custom) { title = custom[0]; body = custom[1]; }
+    else if (popPart === 'share') {
       const u = api.link(), wa = 'https://wa.me/?text=' + encodeURIComponent('Have a look at the ' + NAME[S.t] + ' I designed on the ABJ Kitchens & Bedrooms website: ' + u);
       title = 'Share your design'; body = '<p class="dz-hint">Send this link and they will see exactly what you designed, in 3D.</p><a class="d3-pbtn" data-share="wa" target="_blank" rel="noopener" href="' + E(wa) + '">Send on WhatsApp</a><button type="button" class="d3-pbtn d3-pbtn2" data-share="copy">Copy link</button>';
     } else {
@@ -1209,6 +1424,8 @@ function setupUI() {
     else { el.classList.remove('d3-dock'); const pw = 300, ph = Math.min(el.offsetHeight || 220, sr.height - 20); el.style.left = Math.max(10, Math.min(popXY[0] + 14, sr.width - pw - 10)) + 'px'; el.style.top = Math.max(56, Math.min(popXY[1] - 20, sr.height - ph - 10)) + 'px'; }
   }
   let popAt = 0;
+  let custom = null;
+  api.popCustom = (t, body) => { custom = [t, body]; popPart = 'custom'; const sr = stage.getBoundingClientRect(); popXY = [sr.width / 2 - 150, 70]; popAt = 0; popRender(); };
   api.pop = (p, x, y) => { if (p && p !== popPart) popAt = performance.now(); popPart = p; if (x != null) popXY = [x, y]; popRender(); };
   api.toast = (msg) => { const t = $('d3-toast'); if (!t) return; t.textContent = msg; t.hidden = false; clearTimeout(api._tt); api._tt = setTimeout(() => { t.hidden = true; }, 4200); };
   let hintGoneUI = false;
@@ -1271,7 +1488,7 @@ function setupUI() {
     after(k, b); api.onChange(k); ev('change');
   });
   r.addEventListener('input', e => {
-    const x = e.target; if (x.type !== 'range') return; const k = x.dataset.k; own(k)[k] = +x.value;
+    const x = e.target; if (x.type !== 'range' || !x.dataset.k) return; const k = x.dataset.k; own(k)[k] = +x.value;
     const out = $(x.id + 'o'); if (out) out.textContent = x.value + ' ' + x.dataset.u; text();
     if (x.closest('#d3-pop')) { const p = $('d3-' + k), po = $('d3-' + k + 'o'); if (p) { p.value = x.value; po.textContent = out.textContent; } }
     else { const p = $('d3p-' + k), po = $('d3p-' + k + 'o'); if (p) { p.value = x.value; po.textContent = out.textContent; } }
