@@ -7,7 +7,8 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:calc(86px + clamp(14px,1.6vw,28px
 #kc .d3 .kick{color:var(--go)}
 #kc .d3 h1{font-size:clamp(28px,2.4vw,40px);line-height:1.06;margin:8px 0 8px;color:var(--lin)}
 #kc .d3 .d3-lead{color:rgba(243,238,230,.76);font-size:clamp(14px,.95vw,15.5px);line-height:1.55;max-width:34em;margin:0}
-#kc .d3 .d3-stage{position:relative;background:#E9E3D8;border-radius:6px;overflow:hidden;height:clamp(400px,calc(100vh - 86px - 132px),800px)}
+#kc .d3{--d3h:clamp(400px,calc(100vh - 86px - 132px),800px)}
+#kc .d3 .d3-stage{position:relative;background:#E9E3D8;border-radius:6px;overflow:hidden;height:var(--d3h)}
 #kc .d3 .d3-stage canvas{display:block;width:100%;height:100%;touch-action:none;cursor:grab;outline:none}
 #kc .d3 .d3-stage canvas:active{cursor:grabbing}
 #kc .d3 .d3-stage canvas:focus-visible{box-shadow:inset 0 0 0 3px var(--go)}
@@ -112,6 +113,22 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:calc(86px + clamp(14px,1.6vw,28px
 .d3-xr p{position:absolute;left:12px;right:12px;top:14px;margin:0;padding:10px 14px;border-radius:6px;background:rgba(14,27,26,.85);color:#F3EEE6;font-size:15px;line-height:1.4;text-align:center}
 .d3-xr div{position:absolute;left:0;right:0;bottom:28px;display:flex;justify-content:center;gap:12px;pointer-events:auto}
 .d3-xr button{min-width:56px;min-height:52px;padding:0 18px;border:0;border-radius:999px;background:rgba(247,243,236,.95);color:#0E1B1A;font:600 15px/1 "DM Sans",Arial,sans-serif;box-shadow:0 4px 14px rgba(0,0,0,.3)}
+/* desktop: options column is exactly as tall as the 3D view + its button row, booking buttons pinned at the bottom (24 Nov, Ish: buttons on the first screen) */
+@media(min-width:900px){
+#kc .d3 .d3-ct{display:flex;flex-direction:column;height:calc(var(--d3h) + 54px);min-height:0}
+#kc .d3 .d3-hd{flex:none}
+#kc .d3 h1{font-size:clamp(26px,2.1vw,36px);margin:6px 0 6px}
+#kc .d3 .d3-lead{font-size:14px;line-height:1.5}
+#kc .d3 .dz-seg{margin-top:12px}
+#kc .d3 .d3-insp{margin-top:10px}
+#kc .d3 .dz-tabs{flex:none;margin-top:10px}
+#kc .d3 .dz-pan{flex:1 1 auto;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:12px 8px 4px 0;scrollbar-width:thin;scrollbar-color:rgba(243,238,230,.25) transparent}
+#kc .d3 .dz-pan::-webkit-scrollbar{width:6px}#kc .d3 .dz-pan::-webkit-scrollbar-thumb{background:rgba(243,238,230,.25);border-radius:3px}
+#kc .d3 .dz-go{flex:none;margin-top:8px;padding-top:12px;gap:8px 16px}
+#kc .d3 .dz-go .bt{min-height:46px;padding:0 20px;letter-spacing:.12em}
+#kc .d3 .dz-go a.dz-wa,#kc .d3 .dz-go button.dz-rs{letter-spacing:.12em}
+}
+@media(min-width:900px) and (max-height:820px){#kc .d3 .d3-lead{display:none}#kc .d3 h1{margin-bottom:0}}
 @media(max-width:899px){
 html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
 #kc .d3 .d3g{grid-template-columns:1fr;gap:12px}
