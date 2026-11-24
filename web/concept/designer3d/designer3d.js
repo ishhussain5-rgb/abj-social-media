@@ -111,6 +111,16 @@ let fromLink = false;
   if (!src) try { src = JSON.parse(localStorage.getItem('abj_d3') || 'null'); } catch (e) {}
   const c = clean(src); ['k', 'w', 'm', 'b', 'room'].forEach(t => { if (c[t]) Object.assign(S[t], c[t]); }); if (c.t) S.t = c.t;
 })();
+/* deep link from the service pages and the style quiz (24 Nov): ?room=kitchen|bedroom|wardrobe|mediawall [&look=0-4] [&photo=1] */
+let DEEP = null;
+(function deep() {
+  try {
+    if (fromLink) return; const q = new URLSearchParams(location.search);
+    const r = { kitchen: 'k', kitchens: 'k', k: 'k', bedroom: 'b', bedrooms: 'b', b: 'b', wardrobe: 'w', wardrobes: 'w', w: 'w', mediawall: 'm', 'media-wall': 'm', mediawalls: 'm', media: 'm', m: 'm' }[(q.get('room') || '').toLowerCase()];
+    if (!r) return; S.t = r; DEEP = { t: r, photo: q.get('photo') === '1' };
+    const lk = q.get('look'); if (lk != null && /^\d$/.test(lk) && PRESETS[r][+lk]) { const p = PRESETS[r][+lk]; Object.assign(S[r], copy(p[2])); Object.assign(S.room, p[3]); DEEP.look = p[0]; }
+  } catch (e) {}
+})();
 function clean(src) {
   const out = {}; if (!src || typeof src !== 'object') return out;
   for (const t of ['k', 'w', 'm', 'b', 'room']) {
@@ -1333,6 +1343,11 @@ if (/d3debug/.test(location.search)) window.__d3 = { R, scene, cam, S: () => S, 
 load.style.display = 'none';
 UI.all();
 if (fromLink) setTimeout(() => UI.toast('You are looking at a shared design. Change anything you like.'), 600);
+else if (DEEP) {
+  ev('deep_' + DEEP.t + (DEEP.look ? '_look' : '') + (DEEP.photo ? '_photo' : ''));
+  if (DEEP.look) setTimeout(() => UI.toast('Starting from the ' + DEEP.look + ' look. Change anything you like.'), 600);
+  if (DEEP.photo) { const pb = $('d3-photo-btn'); if (pb) { pb.classList.add('d3-glow'); setTimeout(() => pb.classList.remove('d3-glow'), 7000); if (innerWidth < 900) setTimeout(() => pb.scrollIntoView({ block: 'center', behavior: 'smooth' }), 700); } }
+}
 
 /* ================================================================== UI */
 function setupUI() {
