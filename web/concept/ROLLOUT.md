@@ -1567,3 +1567,25 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   405351603); designer block swapped in the same save on 405333603 (DEV) / 405423903 (live, designer3d.live.html @c55ac8f).
   Backups '*-before-footfit-20261124' / '*-before-footfit-d3fit-20261124'. Checked: 10/10 carry FOOTFIT once, live design page
   footer 491px like the homepage's 557px layout, 0 DEV links on live.
+
+## 24 Nov 2026 17:45-18:20 - Style quiz, service chooser, "Design it in 3D" sections, designer reel (Ish: "build the lot and test"), DEV only
+- tools/abjtools.js (loaded from jsDelivr, pinned): "Find your style" quiz (full-screen modal; room -> 4 photo pairs of REAL jobs from
+  the gallery, no renders -> 8 styles x calm/cosy; result = 3 matching photos, "Design it in 3D in this style" (designer look),
+  Book (sessionStorage abj_design -> ABJ DESIGNFILL notes), WhatsApp), opened by [data-abj-quiz] or #style-quiz; "Which service do
+  I need?" chooser on #abj-ch (room x problem -> 1-3 page cards; timing picks Book vs 3D/Budget planner first; 12 Dec note until
+  12 Dec); on DEV pages maps /design-your-room, /bookingform, /budget-planner, /gallery to DEV copies (query kept). GA events
+  style_quiz, service_chooser. tools/blocks.py builds tools/out/d3cta-*.html + chooser.html.
+- Designer: ?room=kitchen|bedroom|wardrobe|mediawall&look=N&photo=1 deep links (look toast; photo button glows); debug hook can set
+  the camera. DEV designer 405333603 on designer3d.js @d1e42b7 (deep links). LIVE /design-your-room still @56b11b9 (no deep links):
+  must be updated at go-live BEFORE the live CTA sections, or their links open the default kitchen.
+- ABJ D3CTA (before <section class="proc">), DEV: Kitchens 352648603, Kitchen design 381329803, Shaker 381697803, Handleless
+  381698003, Wardrobes 352674603, Sliding 377441303, Walk-in 377441403, Bedrooms 352674703, Media walls 352685103. Images
+  tools/img/d3-*.webp rendered from the designer (look per page). ABJ CHOOSER on Home DEV 350369803 (before <section class="rooms">).
+  Final pins: blocks @c7006e6, abjtools @bebe3f5. Backups abj_svc_bak '*-before-d3cta*/chooser*-20261124'.
+- Tested: local Playwright desktop 1440 + iPhone 13 (0 errors); real DEV pages: chooser 3 steps (titles needed explicit colour:
+  site CSS makes <strong> dark), CTA links -> DEV designer with room/look, quiz real photos, booking notes filled (nothing sent),
+  deep link opens Media wall / Marble & white, photo glow; desktop 1536x639 window: chooser 541px, CTA 540px; phone 390: sections
+  ~630px, no sideways scroll; fixed result photo grid overflow on phones.
+- Reel: 27.5 s 1080x1920 screen recording of the designer (7 scenes + captions + end card, original music -14 LUFS), sent to Ish,
+  NOT scheduled. Drafts: records/2026-11_designer_launch_posts.md (GBP post + reel caption), NOT published.
+- Go-live order: live designer first (designer3d.live.html rebuilt), then D3CTA on the 9 live pages, chooser on the live homepage.
