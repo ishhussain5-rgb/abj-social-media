@@ -1547,3 +1547,11 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   NOT testable here: needs a real iPhone and Android phone test.
 - Fixed during testing: instructions now sit below the photo (they covered the top dots on phones); dot class renamed (clashed
   with the heading's .d3-hd and broke the phone layout).
+
+## 24 Nov 2026 07:30 - Your photo + AR LIVE (Ish: "make live")
+- Live /design-your-room 405423903 rec 6052446503: ABJ DESIGNER3D block -> designer3d.live.html @c120dc0 (script @56b11b9,
+  Book -> /bookingform, no DEV links). Backup abj_svc_bak 'live-405423903-6052446503-before-designer3d-photoar-live-20261124'.
+- Checked live (page405423903.html): 3D loads, both new buttons present, 1 H1, title unchanged; photo test on a drawn 3.6 m wall:
+  measured 3.60 m, corner error 0.1 px, Fit to my wall -> 360 cm. Test browser settings reset (Start again).
+- AR still untested on real phones (iPhone Quick Look + Android WebXR): Ish to try and report.
+- Plaky: the three 3D designer DEV items set to Done.
