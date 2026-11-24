@@ -95,7 +95,7 @@
   var LOOK = { k: { LSP: 4, LSW: 0, LCP: 3, LCW: 3, DSP: 2, DSW: 2, DCP: 1, DCW: 1 }, b: { LSP: 3, LSW: 3, LCP: 1, LCW: 0, DSP: 2, DSW: 2, DCP: 2, DCW: 2 }, m: { LSP: 1, LSW: 3, LCP: 3, LCW: 3, DSP: 0, DSW: 0, DCP: 2, DCW: 0 } };
 
   var CSS = '#abj-qz{position:fixed;inset:0;z-index:2147482000;background:#0E1B1A;color:#F3EEE6;font:400 16px/1.6 "DM Sans",system-ui,sans-serif;display:flex;flex-direction:column;opacity:0;transition:opacity .25s;-webkit-font-smoothing:antialiased}' +
-    '#abj-qz.on{opacity:1}#abj-qz *{box-sizing:border-box;margin:0;padding:0}' +
+    '#abj-qz.on{opacity:1}#abj-qz *{box-sizing:border-box;margin:0;padding:0}#abj-qz b,#abj-qz strong,#abj-qz em{color:inherit}' +
     '#abj-qz .qh{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px clamp(16px,3vw,40px);flex:none}' +
     '#abj-qz .qk{font:500 11px/1.4 "DM Sans",sans-serif;letter-spacing:.3em;text-transform:uppercase;color:#C9A96E}' +
     '#abj-qz .qd{display:flex;gap:6px}#abj-qz .qd i{width:26px;height:3px;background:rgba(243,238,230,.2);border-radius:2px}#abj-qz .qd i.on{background:#C9A96E}' +
@@ -185,8 +185,9 @@
     var r = st.room, k = key(), s = STY[k], room = ROOMS[r], used = {};
     Q[r].forEach(function (q) { used[q[2][0]] = used[q[3][0]] = 1; });
     var want = [st.a.tone, st.a.line, st.a.mat, st.a.mood];
-    var pics = Object.keys(P).filter(function (id) { return P[id][1] === r && !used[id]; }).map(function (id) {
-      var p = P[id], sc = (p[2] === want[0] ? 3 : 0) + (p[3] === want[1] ? 2 : 0) + (p[4] === want[2] ? 2 : 0) + (p[5] === want[3] ? 1 : 0); return [sc, id];
+    /* best matches first; photos already shown in the questions only come back when they fit clearly better */
+    var pics = Object.keys(P).filter(function (id) { return P[id][1] === r; }).map(function (id) {
+      var p = P[id], sc = (p[2] === want[0] ? 3 : 0) + (p[3] === want[1] ? 3 : 0) + (p[4] === want[2] ? 2 : 0) + (p[5] === want[3] ? 1 : 0) - (used[id] ? 1.5 : 0); return [sc, id];
     }).sort(function (a, b) { return b[0] - a[0]; }).slice(0, 3).map(function (x) { return x[1]; });
     var words = [WORD[st.a.tone], typeof WORD[st.a.line] === 'object' ? WORD[st.a.line][r] : WORD[st.a.line], WORD[st.a.mat], st.a.mood === 'C' ? 'cosy' : 'calm'];
     var title = room.charAt(0).toUpperCase() + room.slice(1);

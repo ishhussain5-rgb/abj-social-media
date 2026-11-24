@@ -1346,7 +1346,7 @@ if (fromLink) setTimeout(() => UI.toast('You are looking at a shared design. Cha
 else if (DEEP) {
   ev('deep_' + DEEP.t + (DEEP.look ? '_look' : '') + (DEEP.photo ? '_photo' : ''));
   if (DEEP.look) setTimeout(() => UI.toast('Starting from the ' + DEEP.look + ' look. Change anything you like.'), 600);
-  if (DEEP.photo) { const pb = $('d3-photo-btn'); if (pb) { pb.classList.add('d3-glow'); setTimeout(() => pb.classList.remove('d3-glow'), 7000); if (innerWidth < 900) setTimeout(() => pb.scrollIntoView({ block: 'center', behavior: 'smooth' }), 700); } }
+  if (DEEP.photo) { const pb = $('d3-photo-btn'); if (pb) { pb.classList.add('d3-glow'); setTimeout(() => pb.classList.remove('d3-glow'), 9000); if (innerWidth < 900) setTimeout(() => pb.scrollIntoView({ block: 'center', behavior: 'smooth' }), 700); } }
 }
 
 /* ================================================================== UI */

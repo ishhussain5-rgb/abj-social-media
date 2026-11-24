@@ -10,8 +10,8 @@ I3D = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="
 ICAM = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>'
 
 CTA_CSS = """<style>
-#kc .d3c{background:var(--lin2);padding:clamp(56px,6vw,104px) 0}
-#kc .d3c-g{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:center}
+#kc .d3c{background:var(--lin2);padding:clamp(48px,5vw,84px) 0}
+#kc .d3c-g{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,5vw,96px);align-items:center}
 #kc .d3c-im{position:relative;display:block;border-radius:4px;overflow:hidden;background:#E9E3D8;box-shadow:0 34px 60px -34px rgba(14,27,26,.45)}
 #kc .d3c-im img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;transition:transform .9s cubic-bezier(.2,.7,.2,1)}
 #kc .d3c-im:hover img,#kc .d3c-im:focus-visible img{transform:scale(1.03)}
@@ -43,6 +43,7 @@ CTA_CSS = """<style>
 #kc .d3c .dk{display:none}#kc .d3c .mb{display:inline}
 #kc .d3c-q{margin-top:16px;font-size:14px}
 }
+@media(min-width:761px) and (max-height:820px){#kc .d3c{padding:44px 0}#kc .d3c-im img{aspect-ratio:16/11}#kc .d3c h2{font-size:clamp(34px,3.4vw,52px)}#kc .d3c-f{margin:14px 0 20px}#kc .d3c-q{margin-top:16px}}
 @media(prefers-reduced-motion:reduce){#kc .d3c-im img{transition:none}}
 </style>"""
 
@@ -100,7 +101,7 @@ def cta(key):
 <!-- /ABJ D3CTA -->"""
 
 CH_CSS = """<style>
-#kc .chs{background:var(--g);color:var(--lin);padding:clamp(56px,6vw,100px) 0}
+#kc .chs{background:var(--g);color:var(--lin);padding:clamp(48px,5vw,84px) 0}
 #kc .chs-g{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:clamp(32px,5vw,96px);align-items:start}
 #kc .chs .kick{color:var(--go)}
 #kc .chs h2{margin:14px 0 18px}#kc .chs h2 em{font-style:italic;color:#9FD3AE}
@@ -122,7 +123,7 @@ CH_CSS = """<style>
 #kc .ch-r{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px}
 #kc .ch-card{position:relative;display:block;padding:18px 44px 18px 18px;border:1px solid rgba(243,238,230,.18);border-radius:4px;background:rgba(243,238,230,.04);transition:border-color .2s,background .2s}
 #kc .ch-card:hover,#kc .ch-card:focus-visible{border-color:var(--go);background:rgba(201,169,110,.08)}
-#kc .ch-card strong{display:block;font:400 23px/1.12 var(--serif);margin-bottom:6px}
+#kc .ch-card strong{display:block;font:400 23px/1.12 var(--serif);margin-bottom:6px;color:var(--lin)}
 #kc .ch-card span{display:block;font-size:13.5px;line-height:1.5;color:rgba(243,238,230,.72)}
 #kc .ch-card em{position:absolute;right:16px;top:18px;font-style:normal;color:var(--go);font-size:18px;transition:transform .25s}
 #kc .ch-card:hover em{transform:translateX(4px)}
