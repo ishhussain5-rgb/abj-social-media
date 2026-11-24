@@ -90,6 +90,9 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:calc(86px + clamp(14px,1.6vw,28px
 #kc .d3 .d3-row button{flex:1 1 0;min-height:44px;border:1px solid rgba(201,169,110,.65);border-radius:3px;color:var(--lin);font:500 11px/1.2 var(--sans);letter-spacing:.14em;text-transform:uppercase;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:0 10px}
 #kc .d3 .d3-row button:hover{background:rgba(201,169,110,.12)}
 #kc .d3 .d3-row svg{width:18px;height:18px;flex:none;color:var(--go)}
+#kc .d3 .d3-row button.d3-glow{animation:d3glow 1.4s ease-in-out 5;background:rgba(201,169,110,.18)}
+@keyframes d3glow{0%,100%{box-shadow:0 0 0 0 rgba(201,169,110,0)}50%{box-shadow:0 0 0 6px rgba(201,169,110,.35)}}
+@media (prefers-reduced-motion:reduce){#kc .d3 .d3-row button.d3-glow{animation:none}}
 #kc .d3 .d3-phm{background:#0E1B1A}
 #kc .d3 .d3-phm .d3-bar,#kc .d3 .d3-phm .d3-hint{display:none}
 #kc .d3 .d3-photo{position:absolute;pointer-events:none;user-select:none;object-fit:fill}
@@ -196,6 +199,6 @@ html:not(#dz-a):not(#dz-b) #kc .d3{padding-top:80px!important}
  </div>
 </div></div>
 <div class="d3-xr" id="d3-xr" hidden><p id="d3-xr-t"></p><div><button type="button" data-xr="l" aria-label="Turn left">&#x27F2;</button><button type="button" data-xr="r" aria-label="Turn right">&#x27F3;</button><button type="button" data-xr="end">Close</button></div></div>
-<script type="module" src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@56b11b9/web/concept/designer3d/designer3d.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/gh/ishhussain5-rgb/abj-social-media@d1e42b7/web/concept/designer3d/designer3d.js"></script>
 </section>
 <!-- /ABJ DESIGNER3D -->
