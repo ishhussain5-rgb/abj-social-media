@@ -24,3 +24,16 @@ Pick your kitchen, bedroom, wardrobes or media wall, tap to change the doors, co
 📍 3 Brassey Close, Peterborough, PE1 2AZ
 
 #KitchenDesign #InteriorDesign #Peterborough
+
+## POSTED 24 Nov 2026 (Ish: "make live")
+- Google Business Profile (ABJ Kitchens and Bedrooms, location 8613107789025384218): Update with the 3D kitchen render, button
+  Learn more -> /design-your-room. No phone/email/links in the text (GBP rule). Edited at 18:57 to add the ideas-only note
+  (Ish: "do mention that the final design won't look like this and that a designer will do the proper design").
+- Reel (abj_3d_designer_reel_final.mp4): music changed twice at Ish's request -> original smooth-jazz track (tools/music_jazz.py
+  seed 3, 88 bpm: FM electric piano, smooth bass, brushes + swung ride, vibes); every caption card carries "3D for ideas only.
+  Your ABJ designer creates your real design." and the end card explains it in full.
+- Facebook + Instagram: one crossposted reel via Meta Business Suite (AB Joinery LTD portfolio, page 916281651907936), 18:56.
+- TikTok (ABJ Kitchens and Bedrooms, TikTok Studio web upload, free): posted ~19:00; private while TikTok's content review runs,
+  set to Everyone.
+- Caption used everywhere (TikTok/FB/IG) = the draft above plus: "Please note: the 3D designer is for ideas only, so your finished
+  room won't look exactly like this. After your free design visit, one of our designers creates your proper, made-to-measure design."
