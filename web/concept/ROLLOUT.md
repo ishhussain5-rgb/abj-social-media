@@ -1555,3 +1555,15 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   measured 3.60 m, corner error 0.1 px, Fit to my wall -> 360 cm. Test browser settings reset (Start again).
 - AR still untested on real phones (iPhone Quick Look + Android WebXR): Ish to try and report.
 - Plaky: the three 3D designer DEV items set to Done.
+
+## 24 Nov 2026 08:00 - Design your room desktop fit + footer on the 20 Nov pages (Ish: buttons on the first screen; "the footer is
+   horrible, make it the same as the homepage across the board")
+- Desktop (900px+): options column = 3D view + button row height, options scroll inside, Book / WhatsApp / Start again pinned at the
+  bottom; lead hidden on screens under 820px tall. Local check 1920x913, 1536x730, 1440x800, 1366x657, 1280x720, 1024x700: all
+  buttons on the first screen. Live 1375x983: Book 875, Start again 927.
+- Footer: all 70 published pages fetched; 65 already had ABJ FOOTFIT v3 (homepage look), the 5 pages added 20 Nov did not
+  (/design-your-room, /3d-designs, /pl, /lt, /ru - copied from the Budget planner DEV page before FOOTFIT reached it).
+  foot_fit_v2.html @c55ac8f appended to those 5 live pages + their DEV copies (405333603, 405342203, 405351103, 405351303,
+  405351603); designer block swapped in the same save on 405333603 (DEV) / 405423903 (live, designer3d.live.html @c55ac8f).
+  Backups '*-before-footfit-20261124' / '*-before-footfit-d3fit-20261124'. Checked: 10/10 carry FOOTFIT once, live design page
+  footer 491px like the homepage's 557px layout, 0 DEV links on live.
