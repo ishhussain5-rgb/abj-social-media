@@ -1339,7 +1339,7 @@ UI.onReset = () => rebuild(true);
 UI.onTab = (prev) => { if (S.t === 'w' && (prev === 4 || S.tab === 4)) setDoors(S.tab === 4); };
 UI.link = link;
 rebuild(true); resize();
-if (/d3debug/.test(location.search)) window.__d3 = { R, scene, cam, S: () => S, info: () => info, PH, makeUsdz, setPts: p => { PH.pts = p; drawQuad(); applyCam(); req(); } };
+if (/d3debug/.test(location.search)) window.__d3 = { R, scene, cam, S: () => S, info: () => info, PH, makeUsdz, setPts: p => { PH.pts = p; drawQuad(); applyCam(); req(); }, C, view: o => { Object.assign(C, o); applyCam(); req(); } };
 load.style.display = 'none';
 UI.all();
 if (fromLink) setTimeout(() => UI.toast('You are looking at a shared design. Change anything you like.'), 600);
