@@ -1589,3 +1589,15 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Reel: 27.5 s 1080x1920 screen recording of the designer (7 scenes + captions + end card, original music -14 LUFS), sent to Ish,
   NOT scheduled. Drafts: records/2026-11_designer_launch_posts.md (GBP post + reel caption), NOT published.
 - Go-live order: live designer first (designer3d.live.html rebuilt), then D3CTA on the 9 live pages, chooser on the live homepage.
+
+## 24 Nov 2026 18:35 - Quiz, chooser, "Design it in 3D" sections LIVE (Ish: "lets go live and give it a few weeks to see the numbers")
+- Order: live designer first: /design-your-room 405423903 rec 6052446503 -> designer3d.live.html @9c0ba04 (script @bebe3f5, deep
+  links). Then ABJ D3CTA (blocks @c7006e6, abjtools @bebe3f5) before <section class="proc"> on live Kitchens 73297273, Kitchen design
+  381512303, Shaker 381737303, Handleless 381737403, Wardrobes 73280437, Sliding 377674503, Walk-in 377674603, Bedrooms 73297487,
+  Media walls 73279037; ABJ CHOOSER on the live homepage 30601906 before <section class="rooms">. Backups abj_svc_bak
+  'live-*-before-d3cta-live-20261124', 'live-30601906-*-before-chooser-live-20261124',
+  'live-405423903-*-before-designer3d-deeplink-live-20261124'.
+- Checked live (cache-busted page<id>.html): 1 section per page, before .proc, 0 DEV links, 1 H1, indexable, FOOTFIT intact; deep link
+  ?room=mediawall&look=0 opens Media wall; homepage chooser links go to live pages; GA events service_chooser + style_quiz fire
+  (a handful of test events on 24 Nov 18:35-18:40 are mine); media walls CTA 540px tall at 1536x639, image loads.
+- Review scheduled: 15 Dec 2026 10:30 (GA4 events per tool, bookings, keep/tweak/remove). Reel + GBP post still NOT posted.
