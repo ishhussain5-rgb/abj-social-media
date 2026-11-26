@@ -1622,3 +1622,4 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   meta "Free design visit, 10-year guarantee"). Live site checked 10:25: 0 x "10-year" guarantee on all 77 sitemap/feed
   addresses + /about-us, /faq-abj, 404 page, llms files. Perplexity (live crawl) already correct.
 - Next: Bing Webmaster Tools URL Submission for /about-abj, /faq-abj and the town pages (Ish's Bing account); re-test after.
+- 26 Nov 10:35 Plaky (ABJ Kitchens & Bedrooms board, Website group, Done, Nov 26, Ish): logged the AI search re-test.
