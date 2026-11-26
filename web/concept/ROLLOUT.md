@@ -1601,3 +1601,24 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   ?room=mediawall&look=0 opens Media wall; homepage chooser links go to live pages; GA events service_chooser + style_quiz fire
   (a handful of test events on 24 Nov 18:35-18:40 are mine); media walls CTA 540px tall at 1536x639, image loads.
 - Review scheduled: 15 Dec 2026 10:30 (GA4 events per tool, bookings, keep/tweak/remove). Reel + GBP post still NOT posted.
+
+## AI search re-test (26 Nov 2026, 10:05-10:30, scheduled)
+- Same prompts as 12 Nov (the 11 in that results table). ChatGPT: temporary chat, Unpersonalized. Perplexity: Ish's Chrome is
+  now signed in to Perplexity (free plan), so I used its Incognito mode instead of signed out (switched back off afterwards;
+  the first kitchen-makers search ran before Incognito was on and sits in his history). Perplexity hit its free search limit
+  after 9 prompts, so Huntingdon and "Is ABJ any good?" weren't run there.
+- ChatGPT (12 Nov -> 26 Nov): best kitchen makers 4/5 -> 1st ("best overall"); media walls 1st -> 1st; wardrobes 1st -> 1st;
+  sloping wardrobes 1st -> 1st; cost quotes 3/4 -> 1st of 4 (budget still national £15-30k, not our guide); showroom 3/8 ->
+  2nd (after Love Kitchens in the independents list); finance 4/4 -> 5th of 6 (Wren, Magnet, Wickes, B&Q ahead on term);
+  Stamford missing -> missing (Fitted Furniture Co, Stamford Kitchen Co); Huntingdon missing -> missing (Martin Thompson,
+  Anglia Interiors, W Helme, J & D Ward, SMA); "any good" yes -> yes (4.9/103, 2017).
+- Perplexity: best kitchen makers missing -> 1st; media walls 1st; wardrobes 1st ("best all-round", quotes 12-month guarantee);
+  sloping 1st; cost 1st + uses our £2,500 / £7,000-9,500 guide; showroom (blocked 12 Nov) -> 1st; finance 1st; Stamford
+  missing -> missing (Lewis & Hill, QKS); guarantee: correct (minimum 12 months, maker warranties separate), "20+ years
+  joinery experience", notes Ltd company number.
+- 10-year guarantee: STILL in ChatGPT (best kitchen makers, media walls, cost, sloping, "any good", guarantee prompts:
+  "10-year furniture guarantee"; guarantee answer calls the site conflicting). Source is Bing's stale copies of /about-abj
+  ("10-year furniture guarantee"), /faq-abj ("What is the ABJ 10-Year Guarantee?") and town pages (Market Deeping, Wisbech
+  meta "Free design visit, 10-year guarantee"). Live site checked 10:25: 0 x "10-year" guarantee on all 77 sitemap/feed
+  addresses + /about-us, /faq-abj, 404 page, llms files. Perplexity (live crawl) already correct.
+- Next: Bing Webmaster Tools URL Submission for /about-abj, /faq-abj and the town pages (Ish's Bing account); re-test after.
