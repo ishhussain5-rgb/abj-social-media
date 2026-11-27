@@ -1691,3 +1691,18 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   - 27 Nov 17:55 (Ish: "please unpublish that page"): page 418622603 "EMAIL SIGNATURE IMAGES - DO NOT PUBLISH OR DELETE"
     unpublished via Tilda's unpublish dialog (not deleted). /page418622603.html now 404, gone from sitemap.xml (70 URLs).
     All 12 signature images on the Tilda CDN still load.
+
+## Independent site scan review (27 Nov 2026, 20:30)
+- Ish ran a separate site scan (70 sitemap pages, Lighthouse mobile, 390px). Checked its main claims live:
+  - CONFIRMED: two consent banners. #kc-ck is in every redesigned page block (build.py CK/CKK, shows after 2.5 s unless
+    localStorage abj_cookie_consent is set); #abj-ck comes from the site HEAD (document.cookie + same storage key). Neither
+    listens to the other, and #kc-ck "Accept" never calls the Consent Mode update (no abjGrantConsent call), so that page view
+    stays unconsented. Not visible in Ish's Chrome because his stored choice syncs to localStorage.
+  - CONFIRMED: head-moved.js is a blocking script (no defer/async); two Google Fonts css requests on the homepage.
+  - PROBLEM (caused by today's "Publish all"): /free-door-samples (399455003) is live again, indexable and in sitemap.xml,
+    and its DEV copy /free-door-samples-dev-s6d1 (399385903) is live (noindex). Both were unpublished on 18 Nov at Ish's
+    request. Re-unpublish attempt blocked pending Ish's OK. Also re-published: /edgebanding-abj-dev-e5c9 (373659303,
+    noindex, JS-redirects to Cut & Edge like the live one).
+  - Not a problem: /near-me-peterborough is deliberately the site's 404 page (noindex, not in sitemap).
+  - Lab speed differs from our PageSpeed Insights runs today (/ and /media-walls 93, LCP 2.2 s) vs the scan's local
+    Lighthouse (home 63 / 4.9 s); the blocking-script and video fixes are still worth doing.
