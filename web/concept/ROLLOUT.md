@@ -1667,3 +1667,18 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - Google review link: https://g.page/r/CZaflx5XL0dSEBM/review
 - Waiting on Ish: review text customer list, job details (wardrobes/storage, Stamford, Huntingdon), directory sign-ins,
   Trustpilot/Bark/Nextdoor accounts, Apple, Alex on Checkatrade. Still to do: blog Article schema + expand 2 short posts.
+- 27 Nov 17:35-18:15 (Ish: "please action" the banner + blog items):
+  - Site HEAD (project settings, 37,662 -> 39,191 chars; old head in IndexedDB abj_home_bak/b
+    'sitehead-before-ckphone-postimg-20261127'): (1) "ABJ cookie banner, phones" <style> @media (max-width:640px):
+    #abj-ck p 13px/1.45, strong display:block, tighter padding/buttons -> banner 234px -> 174px tall, its text block
+    ~35k px2 (was 50.9k) so the hero H1 (~37-39k) is the LCP element, not the banner. Desktop unchanged.
+    (2) "ABJ guide schema" script on /tpost/ pages: after load +1.5s adds image (og:image) + dateModified to the
+    guides' BlogPosting and appends a BreadcrumbList (Home > Guides > title). Checked live: BlogPosting+img, BreadcrumbList.
+  - Published: 53 DEV pages one by one first (media walls DEV PageSpeed: LCP element now the H1, 2.3-4.3 s lab;
+    fonts already display:swap), then Tilda "Publish all pages" (148 pages).
+  - Guides expanded in Tilda Feeds (posts_Edit 'text' rewritten in flight; old block JSON in feeds.tilda.cc IndexedDB
+    abj_feed_bak/b '<postuid>-text-before-expand-20261127'):
+    sliding-vs-hinged (9kgxdrbtk1) 495 -> 938 words: + What goes behind the doors, Living with them day to day,
+    What about cost?, Questions we hear at survey (3 Q&As). media-wall-ideas (cgv84t3451) 554 -> 935 words: + Getting the
+    TV size and height right, Choosing an electric fire, Lighting and finishes, How long it takes and what it costs
+    (links /media-wall-cost-peterborough). Checked live at 390px: no sideways scroll, headings 28px.
