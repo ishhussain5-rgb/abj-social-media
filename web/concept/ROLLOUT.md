@@ -1638,3 +1638,32 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
 - AI 27 Nov: Gemini (temp chat) kitchens 4th (Houzz-rated joiners ahead), media walls 1st, wardrobes 1st, guarantee correct
   (flags ThreeBestRated "10-year warranty"); Perplexity Huntingdon now 3rd; ChatGPT guarantee still "10-year" (stale Bing).
 - Semrush: no API units left. Perplexity 26 Nov searches DID save to Ish's history despite Incognito.
+
+## Audit action plan (27 Nov 2026, 17:10-17:45; Ish: "please action all items in the report")
+- Bing Webmaster URL Submission: /about-abj, /faq-abj, 12 town pages, /terms-and-conditions (stale "10-year" copies);
+  later /, /bespoke-kitchens, /media-walls, /pl, /lt, /ru (changed today). Bing AI Performance: 8 Copilot citations / 3 mo.
+- Titles (Page settings meta_title via iframe settings form, DEV first then live, single-page publish; old values in
+  IndexedDB abj_svc_bak 'settings-<id>-before-20261127'):
+  home 30601906 "Fitted Kitchens Peterborough | Design & Installation | ABJ" -> "ABJ Kitchens & Bedrooms Peterborough |
+  Wardrobes & Media Walls"; kitchens 73297273 "Bespoke Kitchens Peterborough | Handleless, Shaker & Islands" -> "Fitted &
+  Bespoke Kitchens Peterborough | Made Locally | ABJ". DEV 350369803 / 352648603 same. GSC indexing requested for both.
+- Kitchens finance FAQ (visible rec + page HEAD FAQ schema, DEV 352648603 then live 73297273): "Finance options may be
+  available..." -> "Yes. 0% finance is available on kitchens over £6,000 with a 50% deposit, subject to status, through
+  Ideal4Finance. Longer finance terms are also available. ..." Backups '*-before-finfaq-20261127', 'head-<id>-before-
+  finfaq-20261127'. Live JSON-LD 5/5 valid. NOTE: Kitchens DEV still says "start from £5,000" in its cost FAQ (live is fine).
+- Language pages: page HEAD first line "<!-- ABJ LANG --><script>document.documentElement.lang='pl|lt|ru'</script>" on
+  DEV 405351103/405351303/405351603 then live 405424103/405424203/405424303. Rendered lang checked pl/lt/ru; hreflang 5 kept.
+- Media walls hero (DEV 352685103 rec5644238303, then live 73279037 rec5657536503): video A "autoplay preload=auto" ->
+  data-abjdefer, preload none, <source data-abjsrc>; "ABJ HERO DEFER v2" script adds sources + plays 700 ms after load.
+  Checked desktop and 390px (A-v.mp4 portrait plays, rotation to B continues, no sideways scroll). Backups
+  '*-before-herodefer-20261127'. Lab LCP still 2.2-5.4 s: on phones the cookie banner <p> (shown at DOMContentLoaded) is
+  sometimes the LCP element - site-wide banner tweak proposed, not done.
+- No change needed: /kitchen-showroom-peterborough already live (audit wrong); blog posts have ~100 links rendered (audit's
+  4-7 was raw HTML); Park Road "missing alt" = empty lightbox placeholder; Google Ads linked to GA4 since 21 Nov, auto-tagging
+  on; Consent Mode v2 default denied in place; GBP services: no refacing / unconfirmed prices left, TV media wall listed.
+- Gmail drafts (ishhussain5@gmail.com): ThreeBestRated correction (support@threebestrated.co.uk: 10-year warranty,
+  Since 2015, Bathroom Design, email), local press pitch, supplier stockist request (recipients blank).
+- Scheduled task "ABJ Kitchens monthly SEO and AI search check" (27th of each month 10:53, first 27 Dec, needs Ish's computer).
+- Google review link: https://g.page/r/CZaflx5XL0dSEBM/review
+- Waiting on Ish: review text customer list, job details (wardrobes/storage, Stamford, Huntingdon), directory sign-ins,
+  Trustpilot/Bark/Nextdoor accounts, Apple, Alex on Checkatrade. Still to do: blog Article schema + expand 2 short posts.
