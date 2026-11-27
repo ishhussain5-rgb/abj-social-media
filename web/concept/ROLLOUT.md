@@ -1688,3 +1688,6 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     (/page418622603.html, now in sitemap.xml, indexable). Unpublish (not delete) blocked pending Ish's OK; asked him 18:15.
     Lesson: never use Tilda "Publish all pages" on this project; publish page ids one by one, skipping pages marked
     "DO NOT PUBLISH".
+  - 27 Nov 17:55 (Ish: "please unpublish that page"): page 418622603 "EMAIL SIGNATURE IMAGES - DO NOT PUBLISH OR DELETE"
+    unpublished via Tilda's unpublish dialog (not deleted). /page418622603.html now 404, gone from sitemap.xml (70 URLs).
+    All 12 signature images on the Tilda CDN still load.
