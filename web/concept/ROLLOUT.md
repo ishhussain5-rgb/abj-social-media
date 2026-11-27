@@ -1623,3 +1623,18 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   addresses + /about-us, /faq-abj, 404 page, llms files. Perplexity (live crawl) already correct.
 - Next: Bing Webmaster Tools URL Submission for /about-abj, /faq-abj and the town pages (Ish's Bing account); re-test after.
 - 26 Nov 10:35 Plaky (ABJ Kitchens & Bedrooms board, Website group, Done, Nov 26, Ish): logged the AI search re-test.
+
+## Full SEO + AI search audit (27 Nov 2026, Ish asked) - Claude Doc "ABJ Kitchens & Bedrooms SEO & AI Search Audit (Nov 2026)"
+- GSC 3 mo: 741 clicks, 73.3K impr, CTR 1.0%, pos 20.4; Oct 2025 112 -> Oct 2026 242 clicks. Brand 190c/1.4K i, non-brand
+  154c/54.9K i. Homepage (title "Fitted Kitchens Peterborough") outranks /bespoke-kitchens (9 clicks, pos 23) = cannibalisation.
+  GSC AI features report: 5.67K impr (media walls 2,474). Links: 28 domains, 98% own sites. CWV: no field data.
+- GA4 90d: 1,370 sessions / 880 users; organic 734, direct 409, social 114, AI 34 (ChatGPT 36 src, 11.8% key event rate),
+  paid 9 (check Ads link + auto-tagging); generate_lead 30 users, WhatsApp 30, phone 19, email 9. Cookie accept 331/880.
+- Crawl 77 URLs: all 200, 1 H1, unique titles/descs, schema everywhere. Issues: /pl /lt /ru html lang="en"; blog posts no
+  Article schema + 4-7 internal links; img sizes missing on /3d-designs, /design-your-room, language pages; 1 alt on Park Road.
+- PageSpeed mobile: home 91 (LCP 2.2s), kitchens 92, media walls 77 (LCP 5.5s); desktop home 98.
+- SERPs (Ish's Chrome): map pack 1st "kitchens peterborough", top 3 fitted kitchens / kitchen fitters / fitted wardrobes;
+  media walls map = Sixty7, Dot Green, Bespoke Media Walls (ABJ 1st organic).
+- AI 27 Nov: Gemini (temp chat) kitchens 4th (Houzz-rated joiners ahead), media walls 1st, wardrobes 1st, guarantee correct
+  (flags ThreeBestRated "10-year warranty"); Perplexity Huntingdon now 3rd; ChatGPT guarantee still "10-year" (stale Bing).
+- Semrush: no API units left. Perplexity 26 Nov searches DID save to Ish's history despite Incognito.
