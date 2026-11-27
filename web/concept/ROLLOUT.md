@@ -1706,3 +1706,36 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
   - Not a problem: /near-me-peterborough is deliberately the site's 404 page (noindex, not in sitemap).
   - Lab speed differs from our PageSpeed Insights runs today (/ and /media-walls 93, LCP 2.2 s) vs the scan's local
     Lighthouse (home 63 / 4.9 s); the blocking-script and video fixes are still worth doing.
+
+## Scan fixes (27 Nov 2026, 20:30-22:00; Ish: "action the scan fixes")
+- /free-door-samples (399455003) + DEV copy (399385903) unpublished again (Tilda unpublish dialog, not deleted):
+  /free-door-samples 404, gone from sitemap.xml (69 URLs).
+- Site HEAD (backup IndexedDB abj_home_bak/b 'sitehead-before-scanfix-20261127'; 39,191 -> 40,121 chars):
+  - head-moved.js now loads with `defer` from @63877f8 (file runs b..e itself after parse, each once; old pinned
+    @8ab7654 untouched). Inline `html.abjm` phone-class line added before it so phone CSS applies at first paint;
+    preconnect to cdn.jsdelivr.net. A/B (same HTML, old vs new tag, srcdoc iframes) identical element sets and page
+    heights on /bespoke-kitchens, a /tpost/ guide (abjm-header 64px), /privacypolicy, /gallery at 390 and 1280.
+  - One consent banner: `#kc-ck{display:none!important}`; capture-phase click on a[href="#cookie-settings"] opens
+    #abj-ck via abjOpenCookieSettings(). #abj-ck buttons already call Consent Mode update + write the localStorage key
+    the page blocks read, so page-block events (phone_call etc.) still fire after accepting.
+  - Contrast: `#kc .mcount{opacity:1;color:#5d6663}` (phone carousel "Swipe" / "1 / 8" was ink at .6 = #717470, 4.1:1).
+- Page blocks (abjRec, backups abj_svc_bak '<live|dev>-<pid>-<rec>-before-scanfix-20261127'):
+  - Hero video on 13 service pages (kitchens, bedrooms, decors, hallways, office, storage, wardrobes, sloping ceilings,
+    HMO, worktops, upholstery, walk-in, bathroom): same as /media-walls - data-abjdefer, preload none, sources in
+    data-abjsrc, "ABJ HERO DEFER v2" adds them 700 ms after load. DEV first (13 DEV pages).
+  - Heavy menu thumbnails (263-298 kB) on /pl /lt /ru /design-your-room /3d-designs -> the light /media/l/ copies (93 kB)
+    the other 64 pages already use. Cambridge hero phone fallback 309 kB original -> existing 1090px copy (98 kB).
+  - Related-link rows (div.rel, add-only): 25 links on 14 pages to the 9 thinly linked pages (sliding / walk-in
+    wardrobes, shaker / handleless / supply-only kitchens, cabinet makers, office fit-out, media wall cost,
+    bespoke vs off-the-shelf). On phones the row is one swipe line, so no extra height. DEV test: kitchens + bedrooms DEV.
+- Tested DEV: kitchens DEV PageSpeed mobile 93 (LCP 2.1 s, CLS 0) vs live 91 (2.3 s) before; hero poster then plays;
+  #kc-ck hidden; 390px no sideways scroll.
+- Not changed: Google Fonts (one request is the redesign's own fonts in each page block, one from the HEAD kit;
+  merging means rewriting ~130 blocks for a small gain), homepage kitchen links (already 6 to /bespoke-kitchens).
+- Live run 21:00-21:40: 27 pages changed + saved + published, 43 republished for the HEAD (70 incl. the 404 page),
+  0 errors. Publish-all NOT used (pages one by one).
+- Live check (cache-busted, 69 sitemap pages + 404 page): all 200, all load head-moved @63877f8 with defer, all carry
+  the #kc-ck hide, no heavy thumbnails left, no eager hero video (14 deferred incl. /media-walls), JSON-LD valid,
+  no DEV links. Related-row links to the 9 pages now 3-5 each. "Cookie settings" link opens #abj-ck; hero plays;
+  /tpost/ phone header present; no sideways scroll at 390. Mobile PageSpeed: / 94 (LCP 2.0 s, CLS 0, accessibility
+  100), /bespoke-kitchens 93 (LCP 2.2 s, was 91 / 2.3 s).
