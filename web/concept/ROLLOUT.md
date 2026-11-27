@@ -1682,3 +1682,9 @@ Backups: IndexedDB '<page>-before-links2-20261112'. Homepage test page first.
     What about cost?, Questions we hear at survey (3 Q&As). media-wall-ideas (cgv84t3451) 554 -> 935 words: + Getting the
     TV size and height right, Choosing an electric fire, Lighting and finishes, How long it takes and what it costs
     (links /media-wall-cost-peterborough). Checked live at 390px: no sideways scroll, headings 28px.
+  - Live check after publish-all: 71 sitemap pages all 200, all carry both HEAD additions, JSON-LD valid, no DEV links.
+    Mobile PageSpeed: /media-walls 93 (LCP 2.2 s), / 93 (LCP 2.2 s; one run 77 from TBT noise).
+  - PROBLEM: "Publish all pages" also published page 418622603 "EMAIL SIGNATURE IMAGES - DO NOT PUBLISH OR DELETE"
+    (/page418622603.html, now in sitemap.xml, indexable). Unpublish (not delete) blocked pending Ish's OK; asked him 18:15.
+    Lesson: never use Tilda "Publish all pages" on this project; publish page ids one by one, skipping pages marked
+    "DO NOT PUBLISH".
